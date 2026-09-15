@@ -510,7 +510,7 @@ function render(){
     ["crux", "Real-user speed (CrUX)", "CRUX_API_KEY", r => { const o = r.origin || {}; if (o.no_data) return "No real-user data for this site yet";
       const f = (m, u, d) => o[m]?.p75 != null ? `${m.split("_").map(w => w[0].toUpperCase()).join("")} ${(o[m].p75 / d).toFixed(u)}${d > 1 ? "s" : ""} (${o[m].rating})` : "";
       return [f("largest_contentful_paint", 1, 1000), f("interaction_to_next_paint", 0, 1), f("cumulative_layout_shift", 2, 1)].filter(Boolean).join(" · "); }],
-    ["gsc", "Search Console", "export CSV or set GSC_SERVICE_ACCOUNT_B64", r => r.totals ? `${r.source === "export" ? "CSV export " + r.exported + " · " : ""}${r.totals.impressions} impressions · ${r.totals.clicks} clicks` : "Connected"],
+    ["gsc", "Search Console", "import a Performance export (soe_gsc_import.py) or set GSC_SERVICE_ACCOUNT_B64", r => r.totals ? `${r.source === "export" ? "CSV export " + r.exported + " · " : ""}${r.totals.impressions} impressions · ${r.totals.clicks} clicks` : "Connected"],
     ["dataforseo", "Rankings & AI Overviews", "DATAFORSEO_LOGIN", r => r.keywords ? `${r.keywords.length} keywords tracked` : "Connected"],
     ["gbp", "Business Profile", "GBP_REFRESH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
   ];
