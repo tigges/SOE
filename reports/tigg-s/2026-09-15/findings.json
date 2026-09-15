@@ -1,0 +1,105 @@
+{
+  "site": "https://www.TIGG\u00a3S.com",
+  "run": "2026-09-15 23:37",
+  "project": {
+    "name": "TIGG3S.com",
+    "slug": "tigg-s",
+    "type": "local_business",
+    "platform": "wordpress",
+    "module": "Local business"
+  },
+  "score": 0,
+  "layers": {
+    "Technical": 0,
+    "On-page": 0,
+    "Structured data": 0,
+    "Entity / NAP": 0,
+    "AI search readiness": 0,
+    "Performance": null
+  },
+  "meta": {
+    "sitemap_urls": 0,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": false,
+    "lighthouse_error": "Command '['npx', '-y', 'lighthouse@12', 'https://www.TIGG\u00a3S.com/', '--quiet', '--output=json', '--output-path=/tmp/tmp1t90nznz/lh.json', '--only-categories=performance,seo,accessibility,best-practices"
+  },
+  "findings": [
+    {
+      "layer": "T",
+      "severity": "critical",
+      "check": "homepage",
+      "detail": "status None",
+      "fix": "Fix homepage availability",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "critical",
+      "check": "unreachable",
+      "detail": "no HTML pages could be fetched (site down, blocked or wrong URL)",
+      "fix": "Check the URL, and that the server/CDN doesn't block normal crawlers",
+      "url": "https://www.TIGG\u00a3S.com",
+      "how": null
+    },
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
+      "url": "https://www.TIGG\u00a3S.com",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "sitemap",
+      "detail": "no URLs found in /sitemap.xml",
+      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+      "url": null,
+      "how": "Yoast \u2192 Settings \u2192 Site features \u2192 XML sitemaps on. Submit /sitemap_index.xml in Search Console and Bing."
+    },
+    {
+      "layer": "T",
+      "severity": "medium",
+      "check": "robots.txt",
+      "detail": "missing",
+      "fix": "Publish robots.txt with Sitemap: line",
+      "url": null,
+      "how": "Yoast \u2192 Tools \u2192 File editor, or upload robots.txt to the web root."
+    },
+    {
+      "layer": "E",
+      "severity": "medium",
+      "check": "brand-name",
+      "detail": "canonical name 'TIGG3S.com' not used consistently (title: '')",
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "url": null,
+      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name."
+    },
+    {
+      "layer": "A",
+      "severity": "medium",
+      "check": "answer-content",
+      "detail": "no question-style content found",
+      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
+      "url": null,
+      "how": "Add an FAQ section (Elementor Accordion). It's visible text for AI answers; FAQ rich results no longer show."
+    },
+    {
+      "layer": "A",
+      "severity": "low",
+      "check": "llms.txt",
+      "detail": "missing",
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "url": null,
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details)."
+    }
+  ],
+  "pages": []
+}

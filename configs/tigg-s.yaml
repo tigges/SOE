@@ -1,0 +1,46 @@
+# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
+site:
+  name: TIGG3S.com
+  slug: tigg-s
+  url: https://www.TIGG£S.com
+  type: local_business                   # local_business | saas | ecommerce | publisher | personal_brand | generic
+  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | other
+  market: en-GB
+  description: ""
+  location: ""   # for rank tracking, e.g. London,England,United Kingdom
+  gsc_property: "sc-domain:tigg\u00a3s.com"
+
+business:
+  name: TIGG3S.com
+  phone: ""
+  email: ""
+  address: ""
+  postcode: ""
+  profiles:
+    google_business: ""
+    instagram: ""
+    facebook: ""
+    booking: ""
+
+keywords:
+  primary: []
+  secondary: []
+  questions: []                          # real customer questions -> FAQ / answer content
+
+competitors: []                          # {name, url} — audited with --competitors
+legacy_sites: []                         # old/parked sites to take offline or redirect
+name_clashes: []                         # other businesses with a similar name
+benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)
+citations: []                            # off-site listings checked by soe_citations.py
+
+ai:
+  allow_training: true
+  llms_should_mention: []
+  prompts: []                            # monthly tests in ChatGPT / Perplexity / Gemini / Google AI Mode
+  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
+  brand_terms: []
+
+audit:
+  max_pages: 50
+  min_words: 300
+  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}
