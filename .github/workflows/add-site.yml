@@ -1,0 +1,103 @@
+name: Add site
+# From the Control Room "Add site" button, or GitHub → Actions → Add site → Run workflow.
+# Writes configs/<slug>.yaml, runs the first audit for that site, and republishes the dashboard.
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Site or brand name"
+        required: true
+        type: string
+      url:
+        description: "Canonical origin, e.g. https://www.example.com"
+        required: true
+        type: string
+      type:
+        description: "Site type"
+        type: choice
+        options: [local_business, saas, ecommerce, publisher, personal_brand, generic]
+        default: local_business
+      platform:
+        description: "CMS / platform (drives the fix playbook)"
+        type: choice
+        options: [wix, wordpress, webflow, shopify, nextjs, other]
+        default: wordpress
+      slug:
+        description: "Settings-file name (blank = first label of the host)"
+        required: false
+        type: string
+      description:
+        description: "One factual sentence: what, where, for whom"
+        required: false
+        type: string
+      keywords:
+        description: "Comma-separated primary keywords"
+        required: false
+        type: string
+      lighthouse:
+        description: "Speed test on the first run (adds ~3 min)"
+        default: true
+        type: boolean
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env:
+      PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+      CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
+      GSC_SERVICE_ACCOUNT_JSON: ${{ github.workspace }}/.secrets/gsc.json
+      DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+      DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+      GBP_CLIENT_ID: ${{ secrets.GBP_CLIENT_ID }}
+      GBP_CLIENT_SECRET: ${{ secrets.GBP_CLIENT_SECRET }}
+      GBP_REFRESH_TOKEN: ${{ secrets.GBP_REFRESH_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SITE_NAME: ${{ inputs.name }}
+      SITE_URL: ${{ inputs.url }}
+      SITE_TYPE: ${{ inputs.type }}
+      SITE_PLATFORM: ${{ inputs.platform }}
+      SITE_SLUG: ${{ inputs.slug }}
+      SITE_DESC: ${{ inputs.description }}
+      SITE_KEYWORDS: ${{ inputs.keywords }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: pip install requests beautifulsoup4 lxml pyyaml google-auth
+      - name: Write Search Console key (if set)
+        run: |
+          mkdir -p .secrets
+          if [ -n "${{ secrets.GSC_SERVICE_ACCOUNT_B64 }}" ]; then echo "${{ secrets.GSC_SERVICE_ACCOUNT_B64 }}" | base64 -d > .secrets/gsc.json; else echo "GSC_SERVICE_ACCOUNT_JSON=" >> "$GITHUB_ENV"; fi
+      - name: Create the settings file
+        run: |
+          EXTRA=()
+          [ -n "$SITE_SLUG" ] && EXTRA+=(--slug "$SITE_SLUG")
+          [ -n "$SITE_DESC" ] && EXTRA+=(--description "$SITE_DESC")
+          [ -n "$SITE_KEYWORDS" ] && EXTRA+=(--keywords "$SITE_KEYWORDS")
+          python soe_add_site.py --name "$SITE_NAME" --url "$SITE_URL" --type "$SITE_TYPE" --platform "$SITE_PLATFORM" "${EXTRA[@]}"
+      - name: First SOE run for the new site
+        run: |
+          D=$(date +%F)
+          c="configs/${SLUG}.yaml"
+          out="reports/${SLUG}/$D"
+          FLAGS="--integrations"
+          [ "${{ inputs.lighthouse }}" = "true" ] && FLAGS="$FLAGS --lighthouse"
+          echo "::group::$SLUG"
+          python soe_audit.py "$c" --out "$out" $FLAGS || true
+          python soe_citations.py "$c" --out "$out" || true
+          python soe_ai_log.py init "$c"; python soe_ai_log.py run "$c" || true
+          python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
+          python soe_fixes.py "$c" "$out" $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
+          echo "::endgroup::"
+          python soe_dashboard.py
+          python soe_dashboard.py --standalone --out index.html
+      - name: Commit the new site and dashboard
+        run: |
+          git config user.name "soe-bot"; git config user.email "soe-bot@users.noreply.github.com"
+          git add "configs/${SLUG}.yaml" "projects/${SLUG}" "data/${SLUG}" reports data dashboard/dist index.html
+          git commit -m "Add site ${SLUG} and first SOE run" || echo "no changes"
+          git push
