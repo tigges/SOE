@@ -4,11 +4,11 @@ A repeatable search optimisation kit for any website. It covers classic search (
 
 ## The loop in one go
 
-The easiest way to run it is to ask Claude: **`/soe https://example.com`**. To do it by hand:
+The easiest way to run it is to ask Claude: **`/soe https://example.com`**. To add a site from the Control Room, use **Add site**. To do it by hand:
 
 ```bash
 pip install requests beautifulsoup4 lxml pyyaml          # + google-auth for Search Console / Business Profile
-cp configs/_template.yaml configs/<slug>.yaml            # fill in the settings file
+python soe_add_site.py --name "Example Co" --url https://www.example.com --type local_business --platform wix
 D=reports/<slug>/$(date +%F)
 python soe_audit.py configs/<slug>.yaml --out $D --lighthouse --competitors --integrations
 python soe_citations.py configs/<slug>.yaml --out $D     # off-site listings
@@ -29,6 +29,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | Path | What it does |
 |---|---|
 | `PLAYBOOK.md` | The method: six layers, phases, automation tiers, manual checklist |
+| `soe_add_site.py` | Adds a site: writes `configs/<slug>.yaml` from a name, URL, type and platform. The Control Room **Add site** button drafts the same file; the "Add site" GitHub Action writes it and runs the first audit |
 | `soe_audit.py` | Crawls the site and scores technical, on-page, structured data, name/address/phone, AI readiness and speed. Speed uses the median of 3 Lighthouse runs. Optional flags: `--competitors` (same audit on rival sites), `--integrations` (runs the API modules) |
 | `soe_fixes.py` | Fix pack: JSON-LD built from the settings, per-page title/description/H1, platform steps, llms.txt summary, questions to answer |
 | `soe_benchmark.py` | Audits the leaders listed under `benchmarks:`. Builds a "virtual 100" from the best leader in each layer, inventories about 40 features on every page, and lists what leaders do that this site doesn't. Features the audit doesn't score yet are flagged as new ideas. `--discover <type> URL…` scores candidate leaders |
@@ -42,6 +43,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `configs/` · `projects/<slug>/` · `data/<slug>/` | Settings, action plan and approved copy, and the AI log for each site |
 | `reports/<slug>/<date>/` | `report.md`, `findings.json`, `competitors.json`, `citations.*`, `ai_visibility.json`, `fixes.*`, `integrations.json` |
 | `.github/workflows/soe-run.yml` | **SOE run**: started by hand from GitHub (Actions → SOE run → Run workflow, also in the GitHub mobile app). Choose one site or all, and switch the speed test, competitors and benchmark on or off. It commits the reports and rebuilds the Pages dashboard |
+| `.github/workflows/add-site.yml` | **Add site**: started from the Control Room button or Actions → Add site. Writes the settings file, runs the first audit, and republishes the dashboard |
 
 ## Keys (all optional; each piece skips cleanly without its key)
 

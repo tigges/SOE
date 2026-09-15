@@ -6,7 +6,7 @@ Usage:
     python soe_dashboard.py [--out dashboard/dist/soe-control-room.html]
     python soe_dashboard.py --standalone --out index.html     # GitHub Pages (https://tigges.github.io/SOE/)
 
-Reads configs/*.yaml, reports/<slug>/<date>/*.json and data/<slug>/ai_log.csv, embeds them
+Reads configs/*.yaml (including sites that have not been audited yet), reports/<slug>/<date>/*.json and data/<slug>/ai_log.csv, embeds them
 as JSON into dashboard/template.html, and writes one self-contained page (no <html>/<head>,
 ready for the Artifact publisher; use --standalone for a full HTML document).
 """
@@ -27,6 +27,17 @@ def jload(path):
 def project(cfg_path):
     cfg = yaml.safe_load(open(cfg_path))
     slug = cfg["site"].get("slug")
+    b = cfg.get("business") or {}
+    base = dict(
+        slug=slug, name=cfg["site"].get("name"), pinned=bool(cfg["site"].get("pinned")),
+        url=cfg["site"]["url"], type=cfg["site"].get("type"), platform=cfg["site"].get("platform"),
+        module=None, keywords=cfg.get("keywords") or {},
+        prompts=(cfg.get("ai") or {}).get("prompts") or [],
+        engines=(cfg.get("ai") or {}).get("engines") or [],
+        business=dict(name=b.get("name"), phone=b.get("phone"), postcode=b.get("postcode")),
+        runs=[], latest=None, audit=None, competitors=None, citations=None, fixes=None,
+        integrations={"results": {}}, benchmark=None, ai_summary=None, ai_rows=[], pending=True,
+    )
     run_dirs = sorted(d for d in glob.glob(os.path.join(HERE, "reports", slug, "*")) if os.path.isdir(d))
     runs = []
     for d in run_dirs:
@@ -35,7 +46,7 @@ def project(cfg_path):
             runs.append(dict(date=os.path.basename(d), score=f["score"], layers=f["layers"],
                              findings=len(f["findings"])))
     if not runs:
-        return None
+        return base
     latest = run_dirs[-1]
     f = jload(os.path.join(latest, "findings.json"))
     for p in f["pages"]:
@@ -52,20 +63,17 @@ def project(cfg_path):
     ap = os.path.join(HERE, "data", slug, "ai_log.csv")
     if os.path.exists(ap):
         ai_rows = list(csv.DictReader(open(ap, newline="")))
-    b = cfg.get("business") or {}
-    return dict(
-        slug=slug, name=cfg["site"].get("name"), pinned=bool(cfg["site"].get("pinned")), url=cfg["site"]["url"], type=cfg["site"].get("type"),
-        platform=cfg["site"].get("platform"), module=(f.get("project") or {}).get("module"),
-        keywords=cfg.get("keywords") or {}, prompts=(cfg.get("ai") or {}).get("prompts") or [],
-        engines=(cfg.get("ai") or {}).get("engines") or [], business=dict(name=b.get("name"), phone=b.get("phone"),
-        postcode=b.get("postcode")), runs=runs, latest=os.path.basename(latest), audit=f,
+    base.update(dict(
+        pending=False, module=(f.get("project") or {}).get("module"),
+        runs=runs, latest=os.path.basename(latest), audit=f,
         competitors=jload(os.path.join(latest, "competitors.json")),
         citations=jload(os.path.join(latest, "citations.json")),
         fixes=jload(os.path.join(latest, "fixes.json")),
         integrations=integ,
         benchmark=(lambda b: b and {k: v for k, v in b.items() if k != "inventory"})(jload(os.path.join(latest, "benchmark.json"))),
         ai_summary=jload(os.path.join(latest, "ai_visibility.json")), ai_rows=ai_rows,
-    )
+    ))
+    return base
 
 
 def main():
@@ -80,7 +88,9 @@ def main():
     packs = {os.path.basename(m)[:-5]: len((yaml.safe_load(open(m)) or {}).get("fixes", {}))
              for m in sorted(glob.glob(os.path.join(HERE, "fixpacks", "*.yaml")))}
     projects.sort(key=lambda p: (not p.get("pinned"), p["name"].lower()))
-    data = dict(projects=projects, modules=modules, fixpacks=packs)
+    repo = os.environ.get("GITHUB_REPOSITORY") or "tigges/SOE"
+    data = dict(projects=projects, modules=modules, fixpacks=packs, repo=repo,
+                platforms=["wix", "wordpress", "webflow", "shopify", "nextjs", "other"])
     tpl = open(os.path.join(HERE, "dashboard", "template.html")).read()
     html = tpl.replace("__DATA__", json.dumps(data, default=str).replace("</", "<\\/"))
     if a.standalone:
