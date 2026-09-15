@@ -41,6 +41,13 @@ def project(cfg_path):
     for p in f["pages"]:
         for k in ("raw_html", "text"):
             p.pop(k, None)
+    integ = jload(os.path.join(latest, "integrations.json")) or {"results": {}}
+    res = integ.setdefault("results", {})
+    if not res.get("gsc"):
+        # a Search Console export stays valid across later runs: use the newest gsc.json for this site
+        exports = sorted(glob.glob(os.path.join(HERE, "reports", slug, "*", "gsc.json")))
+        if exports:
+            res["gsc"] = jload(exports[-1])
     ai_rows = []
     ap = os.path.join(HERE, "data", slug, "ai_log.csv")
     if os.path.exists(ap):
@@ -55,7 +62,7 @@ def project(cfg_path):
         competitors=jload(os.path.join(latest, "competitors.json")),
         citations=jload(os.path.join(latest, "citations.json")),
         fixes=jload(os.path.join(latest, "fixes.json")),
-        integrations=jload(os.path.join(latest, "integrations.json")),
+        integrations=integ,
         benchmark=(lambda b: b and {k: v for k, v in b.items() if k != "inventory"})(jload(os.path.join(latest, "benchmark.json"))),
         ai_summary=jload(os.path.join(latest, "ai_visibility.json")), ai_rows=ai_rows,
     )

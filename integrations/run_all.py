@@ -6,6 +6,7 @@ Writes <outdir>/<module>.json per integration and <outdir>/integrations.json wit
 """
 import datetime as dt
 import json
+import os
 import sys
 import traceback
 
@@ -23,6 +24,11 @@ def run(cfg: dict, outdir: str) -> dict:
         except Exception as e:  # one broken integration must not stop the rest
             traceback.print_exc()
             merged["results"][name] = {"error": f"{type(e).__name__}: {e}"}
+    # keep a manual Search Console export if the API isn't configured
+    exp = os.path.join(outdir, "gsc.json")
+    if merged["results"].get("gsc") is None and os.path.exists(exp):
+        with open(exp, encoding="utf-8") as f:
+            merged["results"]["gsc"] = json.load(f)
     write_json(outdir, "integrations", merged)
     return merged
 
