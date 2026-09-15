@@ -235,7 +235,7 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
     </div>
 
     <div class="stack">
-      <div class="row" style="justify-content:space-between"><h2>Connected data</h2><span class="count">activate by adding keys · see README</span></div>
+      <div class="row" style="justify-content:space-between"><h2>Connected data</h2><span class="count">setup steps: CONNECT.md in the repo</span></div>
       <div class="intg" id="intg"></div>
     </div>
 
@@ -476,9 +476,9 @@ function render(){
     ["crux", "Real-user speed (CrUX)", "CRUX_API_KEY", r => { const o = r.origin || {}; if (o.no_data) return "No real-user data for this site yet";
       const f = (m, u, d) => o[m]?.p75 != null ? `${m.split("_").map(w => w[0].toUpperCase()).join("")} ${(o[m].p75 / d).toFixed(u)}${d > 1 ? "s" : ""} (${o[m].rating})` : "";
       return [f("largest_contentful_paint", 1, 1000), f("interaction_to_next_paint", 0, 1), f("cumulative_layout_shift", 2, 1)].filter(Boolean).join(" · "); }],
-    ["gsc", "Search Console", "GSC_SERVICE_ACCOUNT_JSON", r => r.totals ? `${r.totals.clicks} clicks · ${r.totals.impressions} impressions` : "Connected"],
+    ["gsc", "Search Console", "GSC_SERVICE_ACCOUNT_B64", r => r.totals ? `${r.totals.clicks} clicks · ${r.totals.impressions} impressions` : "Connected"],
     ["dataforseo", "Rankings & AI Overviews", "DATAFORSEO_LOGIN", r => r.keywords ? `${r.keywords.length} keywords tracked` : "Connected"],
-    ["gbp", "Business Profile", "GBP_OAUTH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
+    ["gbp", "Business Profile", "GBP_REFRESH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
   ];
   $("#intg").innerHTML = INT.map(([k, label, env, fmt]) => {
     const r = I[k];
@@ -701,7 +701,7 @@ const RM = [
   {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},
   {s:"key", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others (not possible on Wix).", e:"INDEXNOW_KEY"},
   {s:"key", t:"Rank tracking, maps rank, AI Overview citations, volumes", w:"DataForSEO, capped at 20 keywords per run.", e:"DATAFORSEO_LOGIN (~£5–20/mo)"},
-  {s:"key", t:"Business Profile reviews and actions", w:"Needs Google API access approval, then an OAuth token.", e:"GBP_OAUTH_TOKEN"},
+  {s:"key", t:"Business Profile reviews and actions", w:"Needs Google API access approval, then a refresh token.", e:"GBP_REFRESH_TOKEN"},
   {s:"key", t:"Automatic copy drafting outside Claude", w:"Lets the GitHub Action draft copy with Claude.", e:"ANTHROPIC_API_KEY"},
 ];
 let fp = "all";

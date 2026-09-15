@@ -1,0 +1,98 @@
+# Connecting the data sources
+
+Keys never go into files or chat. They live in **GitHub → tigges/SOE → Settings → Secrets and variables → Actions → New repository secret**. The monthly Action reads them from there. After adding keys, start a run by hand: **Actions → SOE monthly run → Run workflow**. That run commits new reports and rebuilds https://tigges.github.io/SOE/.
+
+Do the steps in this order: the first two are free and take about 20 minutes together.
+
+| # | Card on the dashboard | Cost | Time | Secrets |
+|---|---|---|---|---|
+| 1 | Real-user speed (CrUX) | free | 5 min | `CRUX_API_KEY`, `PSI_API_KEY` |
+| 2 | Search Console | free | 15 min | `GSC_SERVICE_ACCOUNT_B64` |
+| 3 | Rankings & AI Overviews | pay as you go | 10 min | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
+| 4 | Business Profile | free | Google approval (days–weeks), then 20 min | `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET`, `GBP_REFRESH_TOKEN` |
+
+---
+
+## 0. One Google Cloud project (used by 1, 2 and 4)
+
+1. Go to https://console.cloud.google.com and sign in with charles@tigges.co.uk.
+2. In the project picker, choose **New project** and name it `SOE`.
+
+## 1. Real-user speed (CrUX): free
+
+1. In the SOE project, go to **APIs & Services → Library**. Enable **Chrome UX Report API** and **PageSpeed Insights API**.
+2. Go to **APIs & Services → Credentials → Create credentials → API key**.
+3. Edit the key: under **API restrictions**, choose *Restrict key* and tick the two APIs above. Save.
+4. In GitHub, add the same key twice, as secrets `CRUX_API_KEY` and `PSI_API_KEY`.
+
+Note: small sites often have no real-user data yet. If so, the card shows "No real-user data for this site yet", which is a valid result, not an error.
+
+## 2. Search Console: free
+
+1. In the SOE project, enable the **Google Search Console API** in the Library.
+2. Go to **IAM & Admin → Service accounts → Create service account**. Name it `soe-reader`; it needs no roles, so click Done.
+3. Open the account, then **Keys → Add key → Create new key → JSON**. A `.json` file downloads.
+4. Copy the service account's email address (`soe-reader@….iam.gserviceaccount.com`).
+5. In https://search.google.com/search-console, for each site:
+   - **djurbant.com:** add a **Domain** property `djurbant.com` if it isn't there yet. Verify it with the DNS TXT record at GoDaddy.
+   - **yuzuhairandbeauty.london:** the salon's Google account must own the property. Wix can verify it under Marketing & SEO → Get found on Google. Ask the owner to add you as a user, or verify it yourself if you manage the Wix site.
+   - Then open **Settings → Users and permissions → Add user**, paste the service-account email, and choose **Restricted** permission.
+   - The settings files expect `sc-domain:<domain>`. If you used a URL-prefix property instead, set `site.gsc_property` to e.g. `https://www.yuzuhairandbeauty.london/`.
+6. Turn the key file into one line of text and put it on the clipboard (PowerShell; change the file name to match yours):
+   ```powershell
+   [Convert]::ToBase64String([IO.File]::ReadAllBytes("$HOME\Downloads\soe-xxxx.json")) | Set-Clipboard
+   ```
+7. In GitHub, add the secret `GSC_SERVICE_ACCOUNT_B64` and paste. Then delete the downloaded `.json` file.
+
+The first data appears 2–3 days after a property is verified.
+
+## 3. Rankings & AI Overviews (DataForSEO): pay as you go
+
+1. Sign up at https://app.dataforseo.com and add funds. The minimum deposit is $50, and it lasts a long time at this volume.
+2. Open **API Access**. It shows an **API login** and an **API password**; the password is different from your account password.
+3. In GitHub, add the secrets `DATAFORSEO_LOGIN` and `DATAFORSEO_PASSWORD`.
+4. Each run checks up to 20 keywords per site: Google rank, Maps rank, whether an AI Overview appears and cites the site, and search volume. With today's two sites that's a few cents per run.
+
+Location defaults to London (`site.location` in each settings file).
+
+## 4. Business Profile: needs Google's approval first
+
+You must be an **owner or manager** of the profile. For Yuzu, the salon owner can add you in Business Profile → ⋮ → Business Profile settings → Managers.
+
+1. **Request API access:** https://developers.google.com/my-business/content/prereqs. Use the SOE project number (shown on the project dashboard). Wait for the approval email.
+2. **After approval**, enable these APIs in the Library:
+   - My Business Account Management API
+   - My Business Business Information API
+   - Business Profile Performance API
+   - Google My Business API
+3. **OAuth consent screen** (APIs & Services → OAuth consent screen):
+   - Choose External, app name `SOE`, your email.
+   - Add yourself as a test user.
+   - Then click **Publish app → In production**. While the app is in *Testing*, refresh tokens expire after 7 days. An unverified app is fine for your own use; you'll see a warning screen once.
+4. **Credentials → Create credentials → OAuth client ID → Web application.**
+   - Add the authorised redirect URI `https://developers.google.com/oauthplayground`.
+   - Copy the **Client ID** and **Client secret**.
+5. **Get a refresh token**:
+   - Open https://developers.google.com/oauthplayground.
+   - Click ⚙ and tick *Use your own OAuth credentials*. Paste the client ID and secret.
+   - In Step 1, enter the scope `https://www.googleapis.com/auth/business.manage`, then click **Authorize APIs**. Sign in and allow.
+   - In Step 2, click **Exchange authorization code for tokens** and copy the **Refresh token**.
+6. **Find the profile IDs**, still in the Playground (Step 3, method GET):
+   - `https://mybusinessaccountmanagement.googleapis.com/v1/accounts` gives `accounts/<id>`.
+   - `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/<id>/locations?readMask=name,title` gives `locations/<id>`.
+   - Put both in `configs/yuzu.yaml` as `business.gbp_account` and `business.gbp_location`. These IDs aren't secret.
+7. In GitHub, add the secrets `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET` and `GBP_REFRESH_TOKEN`.
+
+## Checking it worked
+
+- After **Run workflow** finishes (about 10 minutes), the Connected data cards on https://tigges.github.io/SOE/ turn green or show an error message.
+- Each run also writes `reports/<site>/<date>/integrations.json` with what each source returned.
+- Ask Claude to "check the SOE run" and it will read the latest reports from the repo.
+
+To test on your own computer, set the same names as environment variables (`$env:CRUX_API_KEY="…"`). Then run:
+
+```powershell
+python -m integrations.run_all configs/yuzu.yaml reports/test
+```
+
+For Search Console locally, use `GSC_SERVICE_ACCOUNT_JSON` with the path to the key file instead of the one-line text version.
