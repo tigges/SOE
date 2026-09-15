@@ -338,7 +338,7 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
   <!-- TEMPLATE -->
   <section id="template" class="stack" hidden style="gap:18px">
     <div class="panel stack">
-      <span class="eyebrow">The loop · repeats monthly</span>
+      <span class="eyebrow">The loop · run whenever you need it</span>
       <div class="loop"><span>Configure</span><em>→</em><span>Audit</span><em>→</em><span>Prioritise</span><em>→</em><span>Fix</span><em>→</em><span>Publish &amp; notify</span><em>→</em><span>Measure</span><em>↺</em></div>
       <p class="muted">Run it with one request: <span class="mono">/soe https://example.com</span></p>
     </div>
@@ -686,7 +686,7 @@ $("#phases").innerHTML = [
   ["Phase 1<br><span class='muted' style='font-weight:400'>weeks 1–2</span>", ["Work the fix checklist: critical and high first","Paste the JSON-LD and page copy"]],
   ["Phase 2<br><span class='muted' style='font-weight:400'>weeks 2–6</span>", ["One page per money keyword","Visible Q&amp;A answering real questions","Prices and specs as HTML, not PDF","Fix mismatched listings"]],
   ["Phase 3<br><span class='muted' style='font-weight:400'>ongoing</span>", ["Reviews + replies","Fill directory gaps and win mentions","Fresh posts, photos, video","IndexNow on publish"]],
-  ["Phase 4<br><span class='muted' style='font-weight:400'>monthly</span>", ["GitHub Action re-runs everything","Dashboard republishes with the trend","Fill the AI log"]],
+  ["Phase 4<br><span class='muted' style='font-weight:400'>each re-run</span>", ["Run it from GitHub (Actions → SOE run)","Dashboard republishes with the trend","Fill the AI log"]],
 ].map(([h, l]) => `<div class="phase"><h3>${h}</h3><ul>${l.map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("");
 $("#mods").innerHTML = Object.entries(DATA.modules).map(([k, v]) => `<div class="tier"><b style="font-size:12px">${esc(k)}</b><span>${esc(v)}</span><span class="mono muted" style="font-size:12px">modules/${esc(k)}.yaml</span></div>`).join("");
 $("#packs").innerHTML = Object.entries(DATA.fixpacks).map(([k, n]) => `<div class="tier"><b style="font-size:12px">${esc(k)}</b><span>${n} issue types with steps</span><span class="mono muted" style="font-size:12px">fixpacks/${esc(k)}.yaml</span></div>`).join("");
@@ -705,7 +705,7 @@ $("#kit").innerHTML = [
 ].map(([a, b]) => `<tr><td class="mono">${a}</td><td>${b}</td></tr>`).join("");
 
 const RM = [
-  {s:"built", t:"Audit, playbook, settings, schema, monthly Action", w:"v1 kit.", e:"soe_audit.py"},
+  {s:"built", t:"Audit, playbook, settings, schema, on-demand GitHub run", w:"v1 kit. Run it from GitHub: Actions → SOE run.", e:"soe_audit.py"},
   {s:"built", t:"Self-updating dashboard", w:"Rebuilt from every report, with a project switcher and score trend.", e:"soe_dashboard.py"},
   {s:"built", t:"/soe skill", w:"One request runs the whole loop for any URL: settings, audit, fixes, dashboard.", e:"skill"},
   {s:"built", t:"Fix generator", w:"JSON-LD from settings, Claude-written page copy, platform steps, llms.txt summary.", e:"soe_fixes.py"},

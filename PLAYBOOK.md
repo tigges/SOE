@@ -84,7 +84,7 @@ Work through `report.md` from most to least severe:
 
 | Tier | What | Cost |
 |---|---|---|
-| 0 | The whole loop (`/soe`, or the monthly GitHub Action): audit, competitors, listings, AI log, fix pack, dashboard | free |
+| 0 | The whole loop (`/soe`, or the "SOE run" GitHub Action, started by hand): audit, competitors, listings, AI log, fix pack, dashboard | free |
 | 1 | Add the PSI/CrUX API key and the Search Console API (service account) → keyword and Core Web Vitals trend | free |
 | 2 | IndexNow ping on deploy; Bing Webmaster API | free |
 | 3 | DataForSEO for rankings and local grids (about $0.60 per 1,000 standard-queue results) | ~£5–20/mo per site |
@@ -116,7 +116,7 @@ Local competitors show where you stand. **Leaders** show what "great" looks like
 | AI answers | `soe_ai_log.py init / run / summary` |
 | Fix | `soe_fixes.py --copy projects/<slug>/copy.yaml` + `fixpacks/<platform>.yaml` |
 | Notify | `integrations/indexnow.py` |
-| Measure | `soe_dashboard.py` → SOE Control Room; monthly GitHub Action |
+| Measure | `soe_dashboard.py` → SOE Control Room; "SOE run" Action on demand |
 
 ## 4. Manual checklist (layers the script can't see)
 

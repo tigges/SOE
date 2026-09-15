@@ -1,7 +1,25 @@
-name: SOE monthly run
+name: SOE run
+# Manual only: GitHub → Actions → SOE run → Run workflow (also works from the GitHub mobile app).
+# To schedule it again later, add:  schedule: [{ cron: "0 6 1 * *" }]
 on:
-  schedule: [{ cron: "0 6 1 * *" }]   # 06:00 UTC on the 1st of each month
   workflow_dispatch:
+    inputs:
+      site:
+        description: "Which site? 'all' or a settings-file name, e.g. yuzu or djurbant"
+        default: all
+        type: string
+      lighthouse:
+        description: "Speed test (adds ~3 min per site)"
+        default: true
+        type: boolean
+      competitors:
+        description: "Audit competitors"
+        default: true
+        type: boolean
+      benchmark:
+        description: "Benchmark against leaders (adds ~3 min per site)"
+        default: true
+        type: boolean
 jobs:
   soe:
     runs-on: ubuntu-latest
@@ -32,22 +50,30 @@ jobs:
       - name: Run the SOE loop for every site
         run: |
           D=$(date +%F)
+          SITE="${{ inputs.site }}"
+          FLAGS="--integrations"
+          [ "${{ inputs.lighthouse }}" = "true" ] && FLAGS="$FLAGS --lighthouse"
+          [ "${{ inputs.competitors }}" = "true" ] && FLAGS="$FLAGS --competitors"
           for c in configs/*.yaml; do
-            [ "$(basename $c)" = "_template.yaml" ] && continue
-            slug=$(basename "$c" .yaml); out="reports/$slug/$D"
-            python soe_audit.py "$c" --out "$out" --lighthouse --competitors --integrations || continue
+            slug=$(basename "$c" .yaml)
+            [ "$slug" = "_template" ] && continue
+            [ -n "$SITE" ] && [ "$SITE" != "all" ] && [ "$SITE" != "$slug" ] && continue
+            out="reports/$slug/$D"
+            echo "::group::$slug"
+            python soe_audit.py "$c" --out "$out" $FLAGS || { echo "::endgroup::"; continue; }
             python soe_citations.py "$c" --out "$out" || true
             python soe_ai_log.py init "$c"; python soe_ai_log.py run "$c" || true
             python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
             copy="projects/$slug/copy.yaml"
-            python soe_benchmark.py "$c" --out "$out" || true
+            [ "${{ inputs.benchmark }}" = "true" ] && { python soe_benchmark.py "$c" --out "$out" || true; }
             python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
+            echo "::endgroup::"
           done
           python soe_dashboard.py
           python soe_dashboard.py --standalone --out index.html
       - name: Commit reports and dashboard
         run: |
           git config user.name "soe-bot"; git config user.email "soe-bot@users.noreply.github.com"
-          git add reports data dashboard/dist index.html && git commit -m "SOE run $(date +%F)" || echo "no changes"
+          git add reports data dashboard/dist index.html && git commit -m "SOE run $(date +%F) (${{ inputs.site }})" || echo "no changes"
           git push
-      # Publishing the dashboard to claude.ai happens from a Claude session (/soe) — the Action only rebuilds the file.
+      # GitHub Pages republishes index.html automatically. The Claude dashboard updates when /soe runs in a session.
