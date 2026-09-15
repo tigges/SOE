@@ -4,6 +4,7 @@ SOE dashboard generator — builds the SOE Control Room page from every report o
 
 Usage:
     python soe_dashboard.py [--out dashboard/dist/soe-control-room.html]
+    python soe_dashboard.py --standalone --out index.html     # GitHub Pages (https://tigges.github.io/SOE/)
 
 Reads configs/*.yaml, reports/<slug>/<date>/*.json and data/<slug>/ai_log.csv, embeds them
 as JSON into dashboard/template.html, and writes one self-contained page (no <html>/<head>,
@@ -75,9 +76,13 @@ def main():
     tpl = open(os.path.join(HERE, "dashboard", "template.html")).read()
     html = tpl.replace("__DATA__", json.dumps(data, default=str).replace("</", "<\\/"))
     if a.standalone:
-        html = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
-                '<meta name="viewport" content="width=device-width,initial-scale=1"></head><body>' + html + "</body></html>")
-    os.makedirs(os.path.dirname(a.out), exist_ok=True)
+        # full document for GitHub Pages: title, fonts and styles go in <head>; noindex keeps client data out of search
+        cut = html.index("</style>") + len("</style>")
+        html = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">\n'
+                '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+                '<meta name="robots" content="noindex,nofollow">\n' + html[:cut] + "\n</head><body>\n"
+                + html[cut:] + "\n</body></html>\n")
+    os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     open(a.out, "w").write(html)
     print(f"dashboard → {a.out} ({len(projects)} projects, {os.path.getsize(a.out)//1024} KB)")
 

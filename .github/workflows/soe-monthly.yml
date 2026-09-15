@@ -41,9 +41,10 @@ jobs:
             python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
           done
           python soe_dashboard.py
+          python soe_dashboard.py --standalone --out index.html
       - name: Commit reports and dashboard
         run: |
           git config user.name "soe-bot"; git config user.email "soe-bot@users.noreply.github.com"
-          git add reports data dashboard/dist && git commit -m "SOE run $(date +%F)" || echo "no changes"
+          git add reports data dashboard/dist index.html && git commit -m "SOE run $(date +%F)" || echo "no changes"
           git push
       # Publishing the dashboard to claude.ai happens from a Claude session (/soe) — the Action only rebuilds the file.
