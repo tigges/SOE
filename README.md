@@ -22,7 +22,7 @@ python soe_dashboard.py                                  # → dashboard/dist/so
 
 ## Dashboard
 
-The SOE Control Room is published with GitHub Pages at **https://tigges.github.io/SOE/**. It's the root `index.html`, rebuilt by `python soe_dashboard.py --standalone --out index.html` and by the monthly Action. `.nojekyll` makes Pages serve it as plain HTML. The page is marked `noindex`, but if the repo is public, anyone with the link can see it.
+The SOE Control Room is published with GitHub Pages at **https://tigges.github.io/SOE/**. It's the root `index.html`, rebuilt by `python soe_dashboard.py --standalone --out index.html` and by the "SOE run" Action. `.nojekyll` makes Pages serve it as plain HTML. The page is marked `noindex`, but if the repo is public, anyone with the link can see it.
 
 ## What's in the kit
 
@@ -40,7 +40,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `integrations/` | Key-gated add-ons: CrUX, Search Console, DataForSEO, Business Profile, IndexNow |
 | `configs/` · `projects/<slug>/` · `data/<slug>/` | Settings, action plan and approved copy, and the AI log for each site |
 | `reports/<slug>/<date>/` | `report.md`, `findings.json`, `competitors.json`, `citations.*`, `ai_visibility.json`, `fixes.*`, `integrations.json` |
-| `.github/workflows/soe-monthly.yml` | Runs the whole loop for every site on the 1st of each month and commits the reports and the dashboard |
+| `.github/workflows/soe-run.yml` | **SOE run**: started by hand from GitHub (Actions → SOE run → Run workflow, also in the GitHub mobile app). Choose one site or all, and switch the speed test, competitors and benchmark on or off. It commits the reports and rebuilds the Pages dashboard |
 
 ## Keys (all optional; each piece skips cleanly without its key)
 

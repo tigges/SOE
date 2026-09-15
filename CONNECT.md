@@ -1,6 +1,6 @@
 # Connecting the data sources
 
-Keys never go into files or chat. They live in **GitHub → tigges/SOE → Settings → Secrets and variables → Actions → New repository secret**. The monthly Action reads them from there. After adding keys, start a run by hand: **Actions → SOE monthly run → Run workflow**. That run commits new reports and rebuilds https://tigges.github.io/SOE/.
+Keys never go into files or chat. They live in **GitHub → tigges/SOE → Settings → Secrets and variables → Actions → New repository secret**. The "SOE run" Action reads them from there. After adding keys, start a run: **Actions → SOE run → Run workflow**. That run commits new reports and rebuilds https://tigges.github.io/SOE/.
 
 Do the steps in this order: the first two are free and take about 20 minutes together.
 
