@@ -27,7 +27,14 @@ Do the steps in this order: the first two are free and take about 20 minutes tog
 
 Note: small sites often have no real-user data yet. If so, the card shows "No real-user data for this site yet", which is a valid result, not an error.
 
-## 2. Search Console: free
+## 2a. Search Console without Google Cloud (recommended to start)
+
+1. In https://search.google.com/search-console, open the site, then **Performance → Search results**.
+2. Set the date range (e.g. *Last 3 months*), click **Export → Download CSV**. A `.zip` downloads.
+3. Import it: `python soe_gsc_import.py configs/<site>.yaml <the .zip>`, or send the zip to Claude.
+4. The dashboard's Search Console card and the "Google Search" panel then show impressions, clicks, positions, top searches, pages, countries and plain-English insights. Repeat monthly to build history.
+
+## 2. Search Console via the API (optional, automatic)
 
 1. In the SOE project, enable the **Google Search Console API** in the Library.
 2. Go to **IAM & Admin → Service accounts → Create service account**. Name it `soe-reader`; it needs no roles, so click Done.
