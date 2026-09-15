@@ -1,6 +1,6 @@
 {
   "site": "https://www.yuzuhairandbeauty.london",
-  "run": "2026-09-15 08:19",
+  "run": "2026-09-15 09:12",
   "project": {
     "name": "Yuzu Hair & Beauty",
     "slug": "yuzu",
@@ -8,14 +8,14 @@
     "platform": "wix",
     "module": "Local business"
   },
-  "score": 72,
+  "score": 65,
   "layers": {
     "Technical": 100,
     "On-page": 3,
-    "Structured data": 76,
+    "Structured data": 40,
     "Entity / NAP": 92,
     "AI search readiness": 96,
-    "Performance": 79
+    "Performance": 69
   },
   "meta": {
     "sitemap_urls": 7,
@@ -29,21 +29,21 @@
     },
     "llms_txt": true,
     "lighthouse_runs": [
-      75,
-      79,
-      80
+      65,
+      69,
+      77
     ],
     "lighthouse": {
       "scores": {
-        "performance": 79,
+        "performance": 69,
         "accessibility": 96,
         "best-practices": 79,
         "seo": 85
       },
       "lab": {
-        "largest-contentful-paint": 2470.7333,
+        "largest-contentful-paint": 3305.8443700000007,
         "cumulative-layout-shift": 0.010299901962280271,
-        "total-blocking-time": 692.9999999999993
+        "total-blocking-time": 956.4999999999964
       }
     }
   },
@@ -357,8 +357,17 @@
     {
       "layer": "P",
       "severity": "medium",
+      "check": "lcp",
+      "detail": "lab LCP 3.3s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
+    },
+    {
+      "layer": "P",
+      "severity": "medium",
       "check": "tbt-inp-proxy",
-      "detail": "TBT 693ms (INP risk)",
+      "detail": "TBT 956ms (INP risk)",
       "fix": "Remove unused apps/widgets and third-party scripts",
       "url": null,
       "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations)."

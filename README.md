@@ -16,6 +16,7 @@ python soe_ai_log.py init configs/<slug>.yaml            # this month's AI-answe
 python soe_ai_log.py run configs/<slug>.yaml             # auto-fill ChatGPT / Perplexity if keys are set
 python soe_ai_log.py summary configs/<slug>.yaml --out $D
 python soe_fixes.py configs/<slug>.yaml $D --copy projects/<slug>/copy.yaml   # fix pack
+python soe_benchmark.py configs/<slug>.yaml --out $D     # best-in-class leaders: virtual-100 target + feature gaps
 python soe_dashboard.py                                  # → dashboard/dist/soe-control-room.html
 ```
 
@@ -30,6 +31,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `PLAYBOOK.md` | The method: six layers, phases, automation tiers, manual checklist |
 | `soe_audit.py` | Crawls the site and scores technical, on-page, structured data, name/address/phone, AI readiness and speed. Speed uses the median of 3 Lighthouse runs. Optional flags: `--competitors` (same audit on rival sites), `--integrations` (runs the API modules) |
 | `soe_fixes.py` | Fix pack: JSON-LD built from the settings, per-page title/description/H1, platform steps, llms.txt summary, questions to answer |
+| `soe_benchmark.py` | Audits the leaders listed under `benchmarks:`. Builds a "virtual 100" from the best leader in each layer, inventories about 40 features on every page, and lists what leaders do that this site doesn't. Features the audit doesn't score yet are flagged as new ideas. `--discover <type> URL…` scores candidate leaders |
 | `soe_citations.py` | Fetches each listing and checks it shows the right name, phone and postcode, flags stale addresses, and lists directories where the site isn't listed yet |
 | `soe_ai_log.py` | AI-answer log in `data/<slug>/ai_log.csv`, with monthly rows, API auto-fill and a summary |
 | `soe_dashboard.py` + `dashboard/template.html` | Builds the SOE Control Room page from every report |

@@ -1,0 +1,656 @@
+{
+  "run": "2026-09-15T09:13",
+  "ours": {
+    "name": "DJ UrbanT",
+    "url": "https://djurbant.com",
+    "score": 64,
+    "layers": {
+      "Technical": 100,
+      "On-page": 0,
+      "Structured data": 40,
+      "Entity / NAP": 100,
+      "AI search readiness": 90,
+      "Performance": null
+    },
+    "pages": 12,
+    "schema": []
+  },
+  "leaders": [
+    {
+      "name": "Defected",
+      "url": "https://www.defected.com",
+      "score": 85,
+      "layers": {
+        "Technical": 74,
+        "On-page": 67,
+        "Structured data": 96,
+        "Entity / NAP": 100,
+        "AI search readiness": 98,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "BlogPosting",
+        "ImageObject",
+        "Organization"
+      ],
+      "why": "house-music label/brand; top score (87)"
+    },
+    {
+      "name": "Calvin Harris",
+      "url": "https://www.calvinharris.com",
+      "score": 84,
+      "layers": {
+        "Technical": 84,
+        "On-page": 52,
+        "Structured data": 96,
+        "Entity / NAP": 100,
+        "AI search readiness": 100,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "Brand",
+        "Offer",
+        "Organization",
+        "Product",
+        "ProductGroup"
+      ],
+      "why": "DJ/artist; 84, strong structured data"
+    },
+    {
+      "name": "David Guetta",
+      "url": "https://www.davidguetta.com",
+      "score": 79,
+      "layers": {
+        "Technical": 83,
+        "On-page": 38,
+        "Structured data": 96,
+        "Entity / NAP": 100,
+        "AI search readiness": 90,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "Article",
+        "BlogPosting",
+        "CollectionPage",
+        "ImageObject",
+        "MusicGroup",
+        "Organization",
+        "Person",
+        "SearchAction",
+        "WebPage",
+        "WebSite"
+      ],
+      "why": "DJ/artist; MusicGroup + Person markup, news hub"
+    }
+  ],
+  "virtual_best": {
+    "Technical": {
+      "score": 84,
+      "leader": "Calvin Harris",
+      "ours": 100
+    },
+    "On-page": {
+      "score": 67,
+      "leader": "Defected",
+      "ours": 0
+    },
+    "Structured data": {
+      "score": 96,
+      "leader": "Defected",
+      "ours": 40
+    },
+    "Entity / NAP": {
+      "score": 100,
+      "leader": "Defected",
+      "ours": 100
+    },
+    "AI search readiness": {
+      "score": 100,
+      "leader": "Calvin Harris",
+      "ours": 90
+    }
+  },
+  "gaps": [
+    {
+      "feature": "music_links",
+      "label": "Music platforms",
+      "idea": "Link Spotify/SoundCloud/Beatport etc. (and add to sameAs)",
+      "group": "Pages",
+      "ours": 0.33,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 1.0
+      },
+      "adoption": 3,
+      "gap": 0.67,
+      "new_check": true
+    },
+    {
+      "feature": "site:ai_policy",
+      "label": "Explicit AI-bot policy",
+      "idea": "Name AI bots (GPTBot, ClaudeBot, PerplexityBot\u2026) in robots.txt deliberately",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.0,
+        "David Guetta": 1.0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "meta_description",
+      "label": "Meta description",
+      "idea": "Unique meta description on every page",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.12
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "newsletter",
+      "label": "Newsletter sign-up",
+      "idea": "Email capture for repeat visits",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Organization",
+      "label": "Organization markup",
+      "idea": "Organization markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Defected": 0.16,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.4
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "twitter_card",
+      "label": "Twitter/X card",
+      "idea": "Add twitter:card + image for richer shares",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 1.0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "og_image",
+      "label": "Share image (og:image)",
+      "idea": "Share image on every page",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.44,
+        "Calvin Harris": 0.96,
+        "David Guetta": 0.16
+      },
+      "adoption": 2,
+      "gap": 0.96,
+      "new_check": false
+    },
+    {
+      "feature": "booking_cta",
+      "label": "Booking link",
+      "idea": "Book / buy call-to-action on every page",
+      "group": "Pages",
+      "ours": 0.08,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.0,
+        "David Guetta": 0.52
+      },
+      "adoption": 2,
+      "gap": 0.92,
+      "new_check": true
+    },
+    {
+      "feature": "social_video",
+      "label": "TikTok / YouTube links",
+      "idea": "Link TikTok/YouTube profiles (and add to sameAs)",
+      "group": "Pages",
+      "ours": 0.33,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 2,
+      "gap": 0.67,
+      "new_check": true
+    },
+    {
+      "feature": "canonical",
+      "label": "Canonical tag",
+      "idea": "Self-referencing canonical on every page",
+      "group": "Pages",
+      "ours": 0.58,
+      "leaders": {
+        "Defected": 0.2,
+        "Calvin Harris": 1.0,
+        "David Guetta": 1.0
+      },
+      "adoption": 2,
+      "gap": 0.42,
+      "new_check": false
+    },
+    {
+      "feature": "gift_cards",
+      "label": "Gift cards / shop",
+      "idea": "Gift cards or products \u2014 extra landing pages and Product markup",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "lazy_images",
+      "label": "Lazy-loaded images",
+      "idea": "loading=lazy below the fold",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.12
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "map_embed",
+      "label": "Map embed",
+      "idea": "Embed a map with the exact location on the contact page",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "aggregate_rating",
+      "label": "Rating markup",
+      "idea": "AggregateRating/Review markup on pages that show reviews",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "internal_links",
+      "label": "Rich internal linking",
+      "idea": "20+ internal links per page (menus, related content)",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.04,
+        "David Guetta": 0.08
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "long_content",
+      "label": "Substantial pages",
+      "idea": "300+ words of useful text per page",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 1.0,
+        "Calvin Harris": 0.24,
+        "David Guetta": 0.04
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "site:llms_full",
+      "label": "llms-full.txt",
+      "idea": "Publish /llms-full.txt with full key content",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "site:llms_txt",
+      "label": "llms.txt",
+      "idea": "Publish /llms.txt describing the business",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "schema:Offer",
+      "label": "Offer markup",
+      "idea": "Offer/price markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Defected": 0,
+        "Calvin Harris": 0.96,
+        "David Guetta": 0
+      },
+      "adoption": 1,
+      "gap": 0.96,
+      "new_check": true
+    },
+    {
+      "feature": "prices_html",
+      "label": "Prices in HTML",
+      "idea": "Show prices as page text (quotable by AI answers)",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 0.96,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 0.96,
+      "new_check": false
+    },
+    {
+      "feature": "schema:Product",
+      "label": "Product markup",
+      "idea": "Product markup (gift cards, retail products)",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Defected": 0,
+        "Calvin Harris": 0.96,
+        "David Guetta": 0
+      },
+      "adoption": 1,
+      "gap": 0.96,
+      "new_check": true
+    },
+    {
+      "feature": "deep_headings",
+      "label": "Structured headings",
+      "idea": "3+ H2 sections per page",
+      "group": "Pages",
+      "ours": 0.17,
+      "leaders": {
+        "Defected": 0.24,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 0.83,
+      "new_check": true
+    },
+    {
+      "feature": "schema:MusicGroup",
+      "label": "MusicGroup markup",
+      "idea": "MusicGroup markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Defected": 0,
+        "Calvin Harris": 0,
+        "David Guetta": 0.44
+      },
+      "adoption": 1,
+      "gap": 0.44,
+      "new_check": false
+    },
+    {
+      "feature": "schema:Person",
+      "label": "Person markup",
+      "idea": "Person markup for team/artist",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Defected": 0,
+        "Calvin Harris": 0,
+        "David Guetta": 0.4
+      },
+      "adoption": 1,
+      "gap": 0.4,
+      "new_check": false
+    }
+  ],
+  "inventory": {
+    "ours": {
+      "meta_description": 0.0,
+      "og_image": 0.0,
+      "twitter_card": 0.0,
+      "canonical": 0.58,
+      "hreflang": 0.0,
+      "max_image_preview": 1.0,
+      "breadcrumbs": 0.75,
+      "faq_block": 0.0,
+      "prices_html": 0.0,
+      "reviews_onsite": 0.0,
+      "aggregate_rating": 0.0,
+      "video": 0.0,
+      "map_embed": 0.0,
+      "booking_cta": 0.08,
+      "tel_link": 0.0,
+      "team_pages": 0.0,
+      "blog": 0.0,
+      "location_pages": 0.0,
+      "service_pages": 0.0,
+      "gift_cards": 0.0,
+      "newsletter": 0.0,
+      "modern_images": 0.0,
+      "lazy_images": 0.0,
+      "preload": 0.0,
+      "social_video": 0.33,
+      "music_links": 0.33,
+      "events": 0.75,
+      "press": 0.0,
+      "rss": 0.75,
+      "internal_links": 0.0,
+      "long_content": 0.0,
+      "deep_headings": 0.17,
+      "site:llms_txt": 0.0,
+      "site:llms_full": 0.0,
+      "site:ai_policy": 0.0,
+      "site:image_sitemap": 0.0,
+      "site:blog_sitemap": 1.0
+    },
+    "leaders": {
+      "Defected": {
+        "meta_description": 1.0,
+        "og_image": 0.44,
+        "twitter_card": 0.0,
+        "canonical": 0.2,
+        "hreflang": 0.0,
+        "max_image_preview": 0.0,
+        "breadcrumbs": 0.0,
+        "faq_block": 0.0,
+        "prices_html": 0.0,
+        "reviews_onsite": 0.04,
+        "aggregate_rating": 1.0,
+        "video": 0.04,
+        "map_embed": 1.0,
+        "booking_cta": 1.0,
+        "tel_link": 0.0,
+        "team_pages": 0.0,
+        "blog": 0.2,
+        "location_pages": 0.0,
+        "service_pages": 0.0,
+        "gift_cards": 1.0,
+        "newsletter": 1.0,
+        "modern_images": 0.0,
+        "lazy_images": 0.0,
+        "preload": 0.0,
+        "social_video": 1.0,
+        "music_links": 1.0,
+        "events": 0.04,
+        "press": 0.0,
+        "rss": 0.0,
+        "internal_links": 1.0,
+        "long_content": 1.0,
+        "deep_headings": 0.24,
+        "schema:BlogPosting": 0.16,
+        "schema:ImageObject": 0.16,
+        "schema:Organization": 0.16,
+        "site:llms_txt": 0.0,
+        "site:llms_full": 0.0,
+        "site:ai_policy": 1.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 0.0
+      },
+      "Calvin Harris": {
+        "meta_description": 1.0,
+        "og_image": 0.96,
+        "twitter_card": 1.0,
+        "canonical": 1.0,
+        "hreflang": 0.0,
+        "max_image_preview": 0.0,
+        "breadcrumbs": 0.0,
+        "faq_block": 0.0,
+        "prices_html": 0.96,
+        "reviews_onsite": 0.0,
+        "aggregate_rating": 0.0,
+        "video": 0.0,
+        "map_embed": 0.0,
+        "booking_cta": 0.0,
+        "tel_link": 0.0,
+        "team_pages": 0.0,
+        "blog": 0.0,
+        "location_pages": 0.0,
+        "service_pages": 0.0,
+        "gift_cards": 0.0,
+        "newsletter": 1.0,
+        "modern_images": 0.0,
+        "lazy_images": 1.0,
+        "preload": 0.0,
+        "social_video": 1.0,
+        "music_links": 1.0,
+        "events": 1.0,
+        "press": 0.0,
+        "rss": 0.0,
+        "internal_links": 0.04,
+        "long_content": 0.24,
+        "deep_headings": 1.0,
+        "schema:Organization": 1.0,
+        "schema:Brand": 0.96,
+        "schema:Offer": 0.96,
+        "schema:Product": 0.96,
+        "schema:ProductGroup": 0.24,
+        "site:llms_txt": 1.0,
+        "site:llms_full": 1.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
+      },
+      "David Guetta": {
+        "meta_description": 0.12,
+        "og_image": 0.16,
+        "twitter_card": 1.0,
+        "canonical": 1.0,
+        "hreflang": 0.0,
+        "max_image_preview": 0.96,
+        "breadcrumbs": 0.92,
+        "faq_block": 0.0,
+        "prices_html": 0.0,
+        "reviews_onsite": 0.0,
+        "aggregate_rating": 0.0,
+        "video": 0.24,
+        "map_embed": 0.0,
+        "booking_cta": 0.52,
+        "tel_link": 0.0,
+        "team_pages": 0.0,
+        "blog": 0.0,
+        "location_pages": 0.0,
+        "service_pages": 0.0,
+        "gift_cards": 0.0,
+        "newsletter": 0.0,
+        "modern_images": 0.0,
+        "lazy_images": 0.12,
+        "preload": 0.0,
+        "social_video": 0.0,
+        "music_links": 1.0,
+        "events": 0.6,
+        "press": 0.0,
+        "rss": 1.0,
+        "internal_links": 0.08,
+        "long_content": 0.04,
+        "deep_headings": 0.0,
+        "schema:Article": 0.24,
+        "schema:ImageObject": 0.4,
+        "schema:MusicGroup": 0.44,
+        "schema:Organization": 0.4,
+        "schema:Person": 0.4,
+        "schema:SearchAction": 0.04,
+        "schema:WebPage": 0.4,
+        "schema:WebSite": 0.44,
+        "schema:BlogPosting": 0.16,
+        "schema:CollectionPage": 0.04,
+        "site:llms_txt": 0.0,
+        "site:llms_full": 0.0,
+        "site:ai_policy": 1.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
+      }
+    }
+  }
+}

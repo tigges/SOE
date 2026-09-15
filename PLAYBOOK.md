@@ -95,12 +95,23 @@ Work through `report.md` from most to least severe:
 
 ---
 
+## 3a. Benchmark against best-in-class leaders
+
+Local competitors show where you stand. **Leaders** show what "great" looks like, and they are where new tactics come from.
+
+1. **Find leaders:** run `soe_benchmark.py --discover <type> URL…` on 10–15 well-known sites in the category and keep the top 2–3 under `benchmarks:`. Leaders don't need to be local.
+2. **Target:** the *virtual 100* is the best leader score in each layer. Real sites land at 80–90 on this audit, so the composite is the 100 to aim for.
+3. **Gaps:** features at least two leaders use that the site lacks come first. Rows marked **new idea** are tactics the audit doesn't score yet.
+4. **Learn:** when a new idea proves useful across several sites, promote it to a check in `soe_audit.py`. The template improves every time it's used.
+5. **Review:** refresh the leader list each quarter; leaders change.
+
 ## 3b. Which script covers which step
 
 | Step | Script / file |
 |---|---|
 | Configure | `configs/<slug>.yaml` (drafted by `/soe`) + `modules/<type>.yaml` |
 | Audit | `soe_audit.py --lighthouse --competitors --integrations` |
+| Benchmark | `soe_benchmark.py` (leaders, virtual 100, new ideas) |
 | Listings | `soe_citations.py` |
 | AI answers | `soe_ai_log.py init / run / summary` |
 | Fix | `soe_fixes.py --copy projects/<slug>/copy.yaml` + `fixpacks/<platform>.yaml` |

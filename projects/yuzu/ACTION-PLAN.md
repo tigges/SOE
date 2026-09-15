@@ -2,18 +2,28 @@
 
 **Site:** https://www.yuzuhairandbeauty.london
 **Current setup:** Wix site, Phorest booking. The WordPress rebuild is still planned.
-**Baseline SOE score:** 72/100 (v2 audit, 15 Sep 2026). Full audit: `reports/yuzu/2026-09-15/report.md`. Page copy: `projects/yuzu/copy.yaml`. Fix pack: `reports/yuzu/2026-09-15/fixes.md`.
+**Baseline SOE score:** 65/100 (v2 audit, stricter scoring, 15 Sep 2026). Full audit: `reports/yuzu/2026-09-15/report.md`. Page copy: `projects/yuzu/copy.yaml`. Fix pack: `reports/yuzu/2026-09-15/fixes.md`.
 
 | Layer | Score | Main issue |
 |---|---|---|
 | Technical | 100 | Fine: HTTPS, www/apex redirects, sitemap and robots.txt all work |
 | On-page | **3** | No meta descriptions anywhere; no H1 on the homepage; titles like "H O M E"; no Ealing keywords; **Wix placeholder text on the three job pages**; no services page |
-| Structured data | 76 | Only `WebSite` markup, no `HairSalon` / LocalBusiness |
+| Structured data | **40** (capped: no entity markup) | Only `WebSite` markup, no `HairSalon` / LocalBusiness |
 | Entity (name/address/phone) | 92 on-site | Brand name varies (Yuzu Hair / YUZU Hair & Beauty); email is on the .co.uk domain |
 | AI readiness | 96 | Bots allowed, llms.txt exists, **but its summary describes the T&Cs page** and never says "Ealing" |
-| Performance (mobile lab, median of 3) | 79 | LCP 2.5s (borderline), TBT 693ms (a risk for INP). Lighthouse SEO scored 85 |
+| Performance (mobile lab, median of 3) | 69 | LCP 3.3s, TBT 956ms (a risk for INP). Lighthouse SEO scored 85 |
 
-**Against competitors** (same audit, speed excluded): Yuzu 71 is last. Therapy@Visage 89, Blo Bar 85 (also in Dickens Yard), M&M 84, CMF 81, Bella & Bello 80. Most of the gap is on-page; Therapy@Visage and Blo Bar already have LocalBusiness markup.
+**Against competitors** (same audit, speed excluded): Yuzu 64 is last. Therapy@Visage 89, Blo Bar 85 (also in Dickens Yard), M&M 77, Bella & Bello 75, CMF 73. Most of the gap is on-page and structured data; Therapy@Visage and Blo Bar already have LocalBusiness markup.
+
+**Against best-in-class leaders** (`soe_benchmark.py`; speed excluded): Hershesons 87, Headmasters 83 and Ruffians 82, vs Yuzu 67. The biggest gaps are on-page (10 vs 88) and structured data (40 vs 96). All three leaders do these things that Yuzu doesn't:
+- meta descriptions on every page
+- 300+ words per page
+- a newsletter sign-up
+- rich internal linking
+- lazy-loaded images
+- separate content sitemaps
+
+Two of the three also use breadcrumb and Organization markup, link to TikTok/YouTube, publish `llms-full.txt`, and structure pages with H2 sections. Hershesons shows prices as page text and uses video on every page.
 
 **Off-site** (`soe_citations.py`):
 - Make It Ealing and beautynailhairsalons match.

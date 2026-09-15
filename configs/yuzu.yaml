@@ -62,6 +62,11 @@ citations:     # checked by soe_citations.py; status from last manual check (15 
   - {source: LinkedIn, url: "https://uk.linkedin.com/company/yuzu-hair-limited", directory: core, manual: true}
   - {source: Phorest booking, url: "https://phorest.com/book/salons/yuzuhairandbeauty", directory: vertical_salon, manual: true}
 
+benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026: 11 UK salon sites tested)
+  - {name: "Hershesons", url: https://www.hershesons.com, why: "London salon group; top score (87)"}
+  - {name: "Headmasters", url: https://www.headmasters.com, why: "UK salon chain; 84, strong content + Q&A"}
+  - {name: "Ruffians", url: https://www.ruffians.co.uk, why: "London barbers; per-location HairSalon markup"}
+
 ai:
   allow_training: true
   llms_should_mention: [salon, Ealing]

@@ -14,6 +14,11 @@ keywords:
   primary: [bass house DJ London, DJ UrbanT]
   secondary: [tech house DJ London, book a bass house DJ]
   questions: ["Who is DJ UrbanT?", "How do I book DJ UrbanT?"]
+benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026: 12 electronic-music sites tested)
+  - {name: "Defected", url: https://www.defected.com, why: "house-music label/brand; top score (87)"}
+  - {name: "Calvin Harris", url: https://www.calvinharris.com, why: "DJ/artist; 84, strong structured data"}
+  - {name: "David Guetta", url: https://www.davidguetta.com, why: "DJ/artist; MusicGroup + Person markup, news hub"}
+
 ai:
   allow_training: true
   engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
