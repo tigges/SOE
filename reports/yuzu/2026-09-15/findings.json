@@ -1,6 +1,6 @@
 {
   "site": "https://www.yuzuhairandbeauty.london",
-  "run": "2026-09-15 09:12",
+  "run": "2026-09-15 12:26",
   "project": {
     "name": "Yuzu Hair & Beauty",
     "slug": "yuzu",
@@ -15,7 +15,7 @@
     "Structured data": 40,
     "Entity / NAP": 92,
     "AI search readiness": 96,
-    "Performance": 69
+    "Performance": 71
   },
   "meta": {
     "sitemap_urls": 7,
@@ -29,21 +29,21 @@
     },
     "llms_txt": true,
     "lighthouse_runs": [
-      65,
-      69,
-      77
+      52,
+      71,
+      75
     ],
     "lighthouse": {
       "scores": {
-        "performance": 69,
+        "performance": 71,
         "accessibility": 96,
         "best-practices": 79,
         "seo": 85
       },
       "lab": {
-        "largest-contentful-paint": 3305.8443700000007,
-        "cumulative-layout-shift": 0.010299901962280271,
-        "total-blocking-time": 956.4999999999964
+        "largest-contentful-paint": 4746.370999999999,
+        "cumulative-layout-shift": 0.009656272888183593,
+        "total-blocking-time": 448
       }
     }
   },
@@ -144,7 +144,7 @@
       "check": "meta-description",
       "detail": "missing",
       "fix": "Write a 140\u2013160 char description with a call to action",
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
     },
     {
@@ -153,7 +153,7 @@
       "check": "h1",
       "detail": "no H1",
       "fix": "Add exactly one descriptive H1 containing the primary topic",
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
     },
     {
@@ -162,7 +162,7 @@
       "check": "meta-description",
       "detail": "missing",
       "fix": "Write a 140\u2013160 char description with a call to action",
-      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
     },
     {
@@ -171,7 +171,7 @@
       "check": "h1",
       "detail": "no H1",
       "fix": "Add exactly one descriptive H1 containing the primary topic",
-      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
     },
     {
@@ -182,6 +182,15 @@
       "fix": "Write a 140\u2013160 char description with a call to action",
       "url": "https://www.yuzuhairandbeauty.london/items",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 4.7s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
     },
     {
       "layer": "O",
@@ -357,17 +366,8 @@
     {
       "layer": "P",
       "severity": "medium",
-      "check": "lcp",
-      "detail": "lab LCP 3.3s (good \u22642.5s)",
-      "fix": "Compress/preload hero image, cut render-blocking JS",
-      "url": null,
-      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
-    },
-    {
-      "layer": "P",
-      "severity": "medium",
       "check": "tbt-inp-proxy",
-      "detail": "TBT 956ms (INP risk)",
+      "detail": "TBT 448ms (INP risk)",
       "fix": "Remove unused apps/widgets and third-party scripts",
       "url": null,
       "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations)."
@@ -396,7 +396,7 @@
       "check": "og-image",
       "detail": "no og:image",
       "fix": "Set a share image (1200\u00d7630)",
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
     },
     {
@@ -405,7 +405,7 @@
       "check": "og-image",
       "detail": "no og:image",
       "fix": "Set a share image (1200\u00d7630)",
-      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
     },
     {
@@ -440,7 +440,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/",
       "status": 200,
-      "bytes": 656981,
+      "bytes": 656777,
       "title": "H O M E | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -465,7 +465,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
       "status": 200,
-      "bytes": 556565,
+      "bytes": 559742,
       "title": "Senior Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -490,7 +490,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/stylists",
       "status": 200,
-      "bytes": 559223,
+      "bytes": 559689,
       "title": "Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -515,7 +515,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/models",
       "status": 200,
-      "bytes": 556658,
+      "bytes": 559806,
       "title": "Models | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -538,30 +538,9 @@
       ]
     },
     {
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "status": 200,
-      "bytes": 567980,
-      "title": "OFFERS | Yuzu Hair",
-      "description": "",
-      "robots": "",
-      "og_image": "",
-      "og_description": "",
-      "h1": [],
-      "h2_count": 2,
-      "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "lang": "en",
-      "words": 438,
-      "img_total": 11,
-      "img_no_alt": 0,
-      "ld_types": [],
-      "pdf_links": [
-        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
-      ]
-    },
-    {
       "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "status": 200,
-      "bytes": 550634,
+      "bytes": 550809,
       "title": "TERMS AND CONDITIONS | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -580,9 +559,30 @@
       ]
     },
     {
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "status": 200,
+      "bytes": 571295,
+      "title": "OFFERS | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 2,
+      "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "lang": "en",
+      "words": 438,
+      "img_total": 11,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
       "url": "https://www.yuzuhairandbeauty.london/items",
       "status": 200,
-      "bytes": 566916,
+      "bytes": 566656,
       "title": "Items (List) | Yuzu Hair",
       "description": "",
       "robots": "",

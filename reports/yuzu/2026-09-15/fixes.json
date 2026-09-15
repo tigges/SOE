@@ -87,6 +87,14 @@
       "source": "Claude draft"
     },
     {
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "current_title": "TERMS AND CONDITIONS | Yuzu Hair",
+      "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair",
+      "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.",
+      "h1": "Terms, patch tests and cancellations",
+      "source": "Claude draft"
+    },
+    {
       "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "current_title": "OFFERS | Yuzu Hair",
       "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu",
@@ -94,14 +102,6 @@
       "h1": "Salon offers at Yuzu, Ealing",
       "source": "Claude draft",
       "new_url": "/offers"
-    },
-    {
-      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
-      "current_title": "TERMS AND CONDITIONS | Yuzu Hair",
-      "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair",
-      "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.",
-      "h1": "Terms, patch tests and cancellations",
-      "source": "Claude draft"
     },
     {
       "url": "https://www.yuzuhairandbeauty.london/items",
@@ -142,6 +142,12 @@
       "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
       "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too.",
       "count": 3,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold.",
+      "count": 1,
       "severity": "high"
     },
     "title-length": {
@@ -198,12 +204,6 @@
       "count": 1,
       "severity": "medium"
     },
-    "lcp": {
-      "fix": "Compress/preload hero image, cut render-blocking JS",
-      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold.",
-      "count": 1,
-      "severity": "medium"
-    },
     "tbt-inp-proxy": {
       "fix": "Remove unused apps/widgets and third-party scripts",
       "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).",
@@ -237,12 +237,6 @@
     "legacy-site: https://yuzuhairandbeauty.ueniweb.com/": {
       "fix": "Take it offline (delete the site or the listing on that platform). old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
       "how": "ueni: log in at ueni.com \u2192 Settings \u2192 Delete website (or ask ueni support), then request removal in Google Search Console \u2192 Removals if it still shows.",
-      "count": 1,
-      "severity": "high"
-    },
-    "legacy-site: https://yuzuhairandbeauty.co.uk/": {
-      "fix": "301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page \u2014 301 it to the .london site",
-      "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
       "count": 1,
       "severity": "high"
     }

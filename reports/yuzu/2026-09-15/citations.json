@@ -1,9 +1,9 @@
 {
-  "run": "2026-09-15T10:28",
+  "run": "2026-09-15T12:28",
   "summary": {
-    "ok": 2,
+    "ok": 1,
     "mismatch": 0,
-    "unreachable": 0,
+    "unreachable": 1,
     "manual": 6
   },
   "listings": [
@@ -33,13 +33,8 @@
       "url": "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty",
       "directory": "uk_general",
       "note": "",
-      "status": "ok",
-      "detail": "name, phone and postcode match",
-      "checks": {
-        "name": true,
-        "phone": true,
-        "postcode": true
-      }
+      "status": "unreachable",
+      "detail": "HTTP 403"
     },
     {
       "source": "Facebook",
@@ -123,8 +118,8 @@
       "action": "redirect",
       "note": "email domain shows a One.com 'under construction' page \u2014 301 it to the .london site",
       "recommendation": "301-redirect the whole domain to the main site",
-      "status": "live",
-      "detail": "still live (HTTP 200): 'Hosted By One.com | Webhosting made simple'"
+      "status": "offline",
+      "detail": "not reachable (ConnectionError) \u2014 done"
     }
   ],
   "name_clashes": [

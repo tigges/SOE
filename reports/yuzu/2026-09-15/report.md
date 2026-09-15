@@ -1,6 +1,6 @@
 # SOE audit — Yuzu Hair & Beauty
 
-Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-15 09:12 · Pages crawled: 7 · Sitemap URLs: 7
+Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-15 12:26 · Pages crawled: 7 · Sitemap URLs: 7
 
 ## Score: 65/100
 
@@ -11,9 +11,9 @@ Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-15 09:12 · Pages cra
 | Structured data | 40 |
 | Entity / NAP | 92 |
 | AI search readiness | 96 |
-| Performance | 69 |
+| Performance | 71 |
 
-Lighthouse (mobile lab): performance 69, accessibility 96, best-practices 79, seo 85 · LCP 3.3s · TBT 956ms · CLS 0.01
+Lighthouse (mobile lab): performance 71, accessibility 96, best-practices 79, seo 85 · LCP 4.7s · TBT 448ms · CLS 0.01
 
 Schema types found: ImageObject, WebSite
 AI bots blocked: {'search': [], 'training': []} · llms.txt: True
@@ -32,11 +32,12 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | high | O | placeholder-text | template placeholder text on page: 'This is placeholder text' | Replace builder placeholder copy with real content (it looks unfinished to people and engines) | /items/stylists |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /items/models |
 | high | O | placeholder-text | template placeholder text on page: 'This is placeholder text' | Replace builder placeholder copy with real content (it looks unfinished to people and engines) | /items/models |
-| high | O | meta-description | missing | Write a 140–160 char description with a call to action | /o-f-f-e-r-s-1 |
-| high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /o-f-f-e-r-s-1 |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /terms-and-conditions |
 | high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /terms-and-conditions |
+| high | O | meta-description | missing | Write a 140–160 char description with a call to action | /o-f-f-e-r-s-1 |
+| high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /o-f-f-e-r-s-1 |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /items |
+| high | P | lcp | lab LCP 4.7s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | O | title-length | 19 chars: 'H O M E / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | / |
 | medium | O | thin-content | 255 words (<300) | Expand with useful, specific text (services, FAQs, proof) | / |
 | medium | O | thin-content | 248 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /items/senior-stylists |
@@ -56,12 +57,11 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | medium | S | schema-sameAs | 'sameAs' not present in any JSON-LD on the site | Include sameAs in the main entity markup | / |
 | medium | E | brand-name | canonical name 'Yuzu Hair & Beauty' not used consistently (title: 'H O M E / Yuzu Hair') | Use one exact business name everywhere (site, GBP, directories, schema) | / |
 | medium | A | llms.txt-summary | summary does not mention ['Ealing'] | Rewrite the llms.txt summary to describe the business, not a random page | / |
-| medium | P | lcp | lab LCP 3.3s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
-| medium | P | tbt-inp-proxy | TBT 956ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
+| medium | P | tbt-inp-proxy | TBT 448ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
 | low | O | alt-text | 2/11 images lack alt | Describe images; include service/location naturally | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
-| low | O | og-image | no og:image | Set a share image (1200×630) | /o-f-f-e-r-s-1 |
 | low | O | og-image | no og:image | Set a share image (1200×630) | /terms-and-conditions |
+| low | O | og-image | no og:image | Set a share image (1200×630) | /o-f-f-e-r-s-1 |
 | low | O | og-image | no og:image | Set a share image (1200×630) | /items |
 | low | E | email-domain | email info@yuzuhairandbeauty.co.uk is on a different domain from the site | Use an address on the site domain, or redirect the old domain to the site | / |
 | low | E | profile-link | tiktok profile not linked from site | Link profiles and add them to schema sameAs | / |
@@ -73,6 +73,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 - **meta-description** — Pages & Menu → page ⋯ → SEO basics → Meta description. The SEO Settings page-type pattern is the fallback.
 - **h1** — Select the main heading → Edit text → Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters.
 - **placeholder-text** — Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too.
+- **lcp** — Remove unused apps (Apps → Manage apps). Use a compressed hero image (Wix image settings → quality). Don't put video or slideshows above the fold.
 - **title-length** — Editor → Pages & Menu → page ⋯ → SEO basics → Title tag. For many pages at once: Dashboard → Marketing & SEO → SEO → SEO Settings → page type → edit the title pattern.
 - **thin-content** — Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards.
 - **content-in-pdf** — Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link.
@@ -82,7 +83,6 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 - **schema-sameAs** — Pages & Menu → page ⋯ → SEO → Advanced SEO → Structured data markup → Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.
 - **brand-name** — Settings → Business info → Business name. Then use the same name in titles, the footer and every profile.
 - **llms.txt-summary** — Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
-- **lcp** — Remove unused apps (Apps → Manage apps). Use a compressed hero image (Wix image settings → quality). Don't put video or slideshows above the fold.
 - **tbt-inp-proxy** — Remove unused apps and third-party embeds; limit animations (Editor → Animations).
 - **alt-text** — Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** — Pages & Menu → page ⋯ → Social share → upload a 1200×630 image. The site-wide default is in SEO Settings.
@@ -95,8 +95,8 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | /items/senior-stylists | Senior Stylists / Yuzu Hair | ✗ | 1 | 248 | ImageObject |
 | /items/stylists | Stylists / Yuzu Hair | ✗ | 1 | 254 | ImageObject |
 | /items/models | Models / Yuzu Hair | ✗ | 1 | 264 | ImageObject |
-| /o-f-f-e-r-s-1 | OFFERS / Yuzu Hair | ✗ | 0 | 438 |  |
 | /terms-and-conditions | TERMS AND CONDITIONS / Yuzu Hair | ✗ | 0 | 820 |  |
+| /o-f-f-e-r-s-1 | OFFERS / Yuzu Hair | ✗ | 0 | 438 |  |
 | /items | Items (List) / Yuzu Hair | ✗ | 1 | 156 |  |
 
 _Manual layers not covered by this script: Google Business Profile, reviews, citations, backlinks, rankings, AI-answer visibility — see PLAYBOOK.md §4._
