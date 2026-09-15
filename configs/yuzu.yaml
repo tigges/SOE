@@ -1,0 +1,77 @@
+site:
+  name: "Yuzu Hair & Beauty"
+  slug: yuzu
+  url: https://www.yuzuhairandbeauty.london
+  type: local_business
+  pinned: true             # shown first in the dashboard
+  platform: wix            # live site is Wix; WordPress/Elementor rebuild planned
+  location: "London,England,United Kingdom"   # DataForSEO location
+  gsc_property: "sc-domain:yuzuhairandbeauty.london"
+  market: en-GB
+  description: "Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry."
+
+business:
+  name: "Yuzu Hair & Beauty"
+  phone: "020 8840 2244"
+  email: info@yuzuhairandbeauty.co.uk
+  address: "5 Dickens Yard, Longfield Avenue, Ealing, London"
+  postcode: "W5 2TD"
+  profiles:
+    instagram: https://www.instagram.com/yuzuhairandbeauty/
+    facebook: https://www.facebook.com/YUZUHairandBeauty/
+    booking: https://phorest.com/book/salons/yuzuhairandbeauty
+    tiktok: https://www.tiktok.com/@yuzuhairandbeauty.est16
+  hours:
+    - {days: [Tuesday, Wednesday, Thursday, Friday], opens: "10:00", closes: "20:00"}
+    - {days: [Saturday], opens: "09:00", closes: "18:00"}
+  geo: {lat: 51.5138, lng: -0.3068}   # postcode centroid (postcodes.io) — confirm entrance
+  price_range: "££"
+  gbp_account: ""          # accounts/<id> once GBP API access is approved
+  gbp_location: ""         # locations/<id>
+
+keywords:
+  primary:
+    - hair salon Ealing
+    - hairdresser Ealing Broadway
+    - Japanese hair salon London
+  secondary:
+    - balayage Ealing
+    - Brazilian blow dry Ealing
+    - hair colour Ealing
+    - Japanese head spa Ealing
+  questions:
+    - How much is a haircut at Yuzu in Ealing?
+    - Do I need a patch test before hair colour?
+    - Which hair salons in Ealing are near the station?
+
+competitors:   # own sites only; Bleach and Bobs has no site (Treatwell only)
+  - {name: "Bella & Bello Studio", url: https://www.bellabellostudio.co.uk}
+  - {name: "CMF Hairdressing", url: https://www.cmfhairdressing.com}
+  - {name: "Therapy@Visage", url: https://www.therapy-visage.co.uk}
+  - {name: "Blo Bar (Ealing is in Dickens Yard)", url: https://www.b1obar.com}
+  - {name: "M&M Hair Academy", url: https://mandmhairacademy.com}
+
+citations:     # checked by soe_citations.py; status from last manual check (15 Sep 2026)
+  - {source: Make It Ealing, url: "https://www.makeitealing.co.uk/business/yuzu-hair/", directory: local}
+  - {source: Wheree, url: "https://yuzu-hair.wheree.com/", directory: uk_general, manual: true, note: "blocks bots; showed correct NAP on 15 Sep, unclaimed"}
+  - {source: Old ueniweb site, url: "https://yuzuhairandbeauty.ueniweb.com/", directory: legacy, note: "shows 22 Mattock Lane W5 5BH / 07572 107373 — take down"}
+  - {source: beautynailhairsalons.com, url: "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty", directory: uk_general}
+  - {source: Facebook, url: "https://www.facebook.com/YUZUHairandBeauty/", directory: core, manual: true, note: "old posts say 26 High Street W5 5DB"}
+  - {source: Instagram, url: "https://www.instagram.com/yuzuhairandbeauty/", directory: core, manual: true}
+  - {source: TikTok, url: "https://www.tiktok.com/@yuzuhairandbeauty.est16", directory: core, manual: true}
+  - {source: LinkedIn, url: "https://uk.linkedin.com/company/yuzu-hair-limited", directory: core, manual: true}
+  - {source: Phorest booking, url: "https://phorest.com/book/salons/yuzuhairandbeauty", directory: vertical_salon, manual: true}
+
+ai:
+  allow_training: true
+  llms_should_mention: [salon, Ealing]
+  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
+  brand_terms: ["Yuzu Hair", "YUZU Hair", "yuzuhairandbeauty"]
+  prompts:
+    - best hair salon in Ealing Broadway
+    - Japanese-style hairdresser in west London
+    - where can I get a Brazilian blow dry in Ealing
+
+audit:
+  max_pages: 30
+  min_words: 300

@@ -1,0 +1,9 @@
+label: Generic
+required_schema:
+  - [Organization, LocalBusiness, Person, WebSite]
+schema_props: [name, sameAs]
+expected_pages:
+  about: ["about"]
+  contact: ["contact"]
+directories:
+  core: [Google Business Profile, LinkedIn, Wikidata]

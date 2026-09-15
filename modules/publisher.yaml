@@ -1,0 +1,13 @@
+label: Publisher / content site
+required_schema:
+  - [Organization, NewsMediaOrganization, Person]
+  - [Article, NewsArticle, BlogPosting, WebPage]
+schema_props: [author, datePublished, dateModified, publisher]
+expected_pages:
+  about: ["about"]
+  authors: ["author", "team", "contributors"]
+  topics/hubs: ["topic", "category", "tag", "guide"]
+  editorial policy: ["editorial", "policy", "corrections"]
+directories:
+  core: [Google News Publisher Center, Bing PubHub, Wikidata, Wikipedia]
+  social: [X, LinkedIn, YouTube, Reddit]

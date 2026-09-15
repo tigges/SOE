@@ -1,0 +1,12 @@
+label: Personal / artist brand (DJ, musician, creator)
+required_schema:
+  - [Person, MusicGroup, Organization]
+schema_props: [sameAs, name, image]
+expected_pages:
+  about/bio: ["about", "bio"]
+  music/work: ["music", "mixes", "releases", "work", "portfolio", "sets"]
+  events: ["event", "gig", "tour", "dates"]
+  contact/booking: ["contact", "booking", "press"]
+directories:
+  music: [Spotify, Apple Music, SoundCloud, Mixcloud, Beatport, Bandcamp, Resident Advisor, Discogs, MusicBrainz, 1001Tracklists]
+  identity: [Wikidata, Instagram, TikTok, YouTube]

@@ -1,0 +1,53 @@
+# SOE project config — copy to configs/<slug>.yaml and fill in.
+site:
+  name: "Example Co"
+  slug: example
+  url: https://www.example.com          # canonical origin, no trailing slash
+  type: local_business                   # local_business | saas | ecommerce | publisher | personal_brand | generic
+  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | ... (drives the fix playbook)
+  market: en-GB
+  description: ""                       # one factual sentence: what, where, for whom (used in schema + llms.txt)
+  location: "London,England,United Kingdom"   # for rank tracking (DataForSEO)
+  gsc_property: ""                       # e.g. sc-domain:example.com (default derived from url)
+
+business:                                # omit for non-entity sites
+  name: "Example Co"                     # ONE canonical name, used everywhere
+  phone: "020 0000 0000"
+  email: hello@example.com
+  address: "1 High Street, London"
+  postcode: "W1 1AA"
+  profiles:                              # also feed schema sameAs
+    google_business: ""
+    instagram: ""
+    facebook: ""
+    booking: ""
+  hours:                                 # used for generated JSON-LD
+    - {days: [Monday, Tuesday, Wednesday, Thursday, Friday], opens: "09:00", closes: "17:00"}
+  geo: {lat: null, lng: null}
+  price_range: "££"
+  gbp_account: ""                        # accounts/<id> (after GBP API approval)
+  gbp_location: ""                       # locations/<id>
+
+keywords:
+  primary: []                            # 3–5 money terms, each mapped to ONE page
+  secondary: []
+  questions: []                          # real customer questions -> FAQ / answer content
+
+competitors:                             # own sites; run with --competitors
+  - {name: "Competitor A", url: https://competitor-a.example}
+
+citations:                               # off-site listings checked by soe_citations.py
+  - {source: Yell, url: "https://www.yell.com/biz/...", directory: uk_general}
+  - {source: Facebook, url: "https://facebook.com/...", directory: core, manual: true}   # manual = blocks bots
+
+ai:
+  allow_training: true                   # false = add Disallow for GPTBot, ClaudeBot, Google-Extended...
+  llms_should_mention: []                # words the llms.txt summary must contain
+  prompts: []                            # prompts to test monthly in ChatGPT / Perplexity / Gemini / Google AI Mode
+  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
+  brand_terms: []                        # extra names that count as a mention (default: business name + domain)
+
+audit:
+  max_pages: 50
+  min_words: 300
+  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}

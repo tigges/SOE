@@ -1,0 +1,28 @@
+site:
+  name: "DJ UrbanT"
+  slug: djurbant
+  url: https://djurbant.com
+  type: personal_brand
+  platform: wordpress
+  market: en-GB
+  description: "DJ UrbanT is a London bass house and tech house DJ; djurbant.com is the brand and booking hub."
+business:
+  name: "DJ UrbanT"
+  profiles:
+    instagram: https://www.instagram.com/_urbant_/
+keywords:
+  primary: [bass house DJ London, DJ UrbanT]
+  secondary: [tech house DJ London, book a bass house DJ]
+  questions: ["Who is DJ UrbanT?", "How do I book DJ UrbanT?"]
+ai:
+  allow_training: true
+  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
+  brand_terms: [UrbanT, "@_urbant_"]
+  llms_should_mention: [DJ, bass house]
+  prompts:
+    - bass house DJs in London to book
+    - who is DJ UrbanT
+audit:
+  max_pages: 30
+  min_words: 250
+  lighthouse_runs: 1

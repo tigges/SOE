@@ -1,0 +1,668 @@
+<title>SOE Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#EEF2F1; --surface:#FFFFFF; --sunk:#E3E9E7; --line:#CBD5D2;
+  --ink:#12211F; --ink-2:#44524F; --ink-3:#6B7976;
+  --accent:#0E6B64; --accent-soft:#D5EBE8;
+  --good:#2F7D4F; --good-bg:#DDEFE3; --warn:#9A6400; --warn-bg:#F7E8C8;
+  --bad:#B63A26; --bad-bg:#F6DCD6; --low:#5A6B8C; --low-bg:#E1E6F0;
+  --serp-link:#1A0DAB; --serp-url:#1F6B35;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#0E1615; --surface:#15201F; --sunk:#1B2927; --line:#2C3C3A;
+  --ink:#E4ECEA; --ink-2:#AAB8B5; --ink-3:#7F8E8B;
+  --accent:#4FC1B5; --accent-soft:#16332F;
+  --good:#6CC08B; --good-bg:#15301F; --warn:#E3B04F; --warn-bg:#342914; --bad:#F08A76; --bad-bg:#3A1C17; --low:#9EB0D6; --low-bg:#1E2638;
+  --serp-link:#99B7FF; --serp-url:#7BC98E;
+}}
+:root[data-theme="dark"]{
+  --ground:#0E1615; --surface:#15201F; --sunk:#1B2927; --line:#2C3C3A;
+  --ink:#E4ECEA; --ink-2:#AAB8B5; --ink-3:#7F8E8B;
+  --accent:#4FC1B5; --accent-soft:#16332F;
+  --good:#6CC08B; --good-bg:#15301F; --warn:#E3B04F; --warn-bg:#342914; --bad:#F08A76; --bad-bg:#3A1C17; --low:#9EB0D6; --low-bg:#1E2638;
+  --serp-link:#99B7FF; --serp-url:#7BC98E;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--body);margin:0;padding-inline:clamp(16px,3vw,40px);padding-block:28px 60px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.05}
+h2{font-size:22px;font-weight:700}
+h3{font-size:16px;font-weight:600;font-family:var(--body)}
+p{margin:0}
+.eyebrow{font:500 11.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+a{color:var(--accent)}
+header.top{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between}
+header.top .lede{max-width:62ch;color:var(--ink-2);margin-top:8px}
+.site-pill{display:inline-flex;gap:8px;align-items:center;font:500 13px var(--mono);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+nav.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav.tabs button{font:600 14px var(--body);color:var(--ink-2);background:none;border:0;padding:10px 14px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.grid{display:grid;gap:18px}
+.g-hero{grid-template-columns:minmax(220px,300px) 1fr}
+.g-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.g-hero,.g-2,.g-3{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+/* score */
+.score{display:flex;flex-direction:column;gap:14px}
+.score .big{font:700 84px/0.9 var(--display);letter-spacing:-.03em}
+.score .big small{font-size:24px;color:var(--ink-3);font-weight:500}
+.meter{height:10px;background:var(--sunk);border-radius:5px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--warn);border-radius:0 5px 5px 0}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px}
+.kv dt{color:var(--ink-3)} .kv dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* layer bars */
+.layers{display:flex;flex-direction:column;gap:12px}
+.layer{display:grid;grid-template-columns:34px minmax(110px,170px) 1fr 44px 86px;gap:12px;align-items:center;padding:4px 0;cursor:default}
+.layer .code{font:700 18px var(--display);width:34px;height:34px;border-radius:6px;display:grid;place-items:center;background:var(--sunk);color:var(--ink)}
+.layer .track{position:relative;height:14px;background:var(--sunk);border-radius:3px}
+.layer .track i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0}
+.layer .track .tick{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--line)}
+.layer .val{font:500 15px var(--mono);text-align:right}
+@media (max-width:560px){.layer{grid-template-columns:30px 1fr 40px}.layer .track,.layer .chip{grid-column:2 / -1}}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 11.5px/1 var(--body);padding:5px 8px;border-radius:999px;white-space:nowrap;justify-self:start}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-good{color:var(--good);background:var(--good-bg)} .s-warn{color:var(--warn);background:var(--warn-bg)}
+.s-bad{color:var(--bad);background:var(--bad-bg)} .s-low{color:var(--low);background:var(--low-bg)}
+.s-na{color:var(--ink-3);background:var(--sunk)}
+.axis{display:grid;grid-template-columns:34px minmax(110px,170px) 1fr 44px 86px;gap:12px;font:11px var(--mono);color:var(--ink-3)}
+.axis div{position:relative;height:12px}
+.axis span{position:absolute;transform:translateX(-50%)}
+.axis span:first-child{transform:none}.axis span:last-child{transform:translateX(-100%)}
+@media (max-width:560px){.axis{display:none}}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--ground);font-size:12.5px;padding:8px 10px;border-radius:6px;max-width:260px;z-index:10;box-shadow:0 4px 14px rgb(0 0 0 / .2)}
+
+/* lighthouse */
+.lh{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.lh div{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.lh b{font:600 26px var(--mono);font-variant-numeric:tabular-nums}
+.lh small{font-size:12px;color:var(--ink-3)}
+
+/* SERP preview */
+.serp{font-family:Arial,Helvetica,sans-serif;display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-radius:8px;background:var(--sunk)}
+.serp .u{font-size:12.5px;color:var(--serp-url)}
+.serp .t{font-size:19px;color:var(--serp-link);line-height:1.3}
+.serp .d{font-size:13.5px;color:var(--ink-2)}
+.serp .d.empty{font-style:italic;color:var(--ink-3)}
+.tag{font:600 10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em}
+
+/* findings */
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:500 12.5px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink-2);padding:5px 10px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--sunk);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.sev{border-left:3px solid transparent}
+tr[data-sev="critical"] td.sev{border-left-color:var(--bad)} tr[data-sev="high"] td.sev{border-left-color:var(--bad)}
+tr[data-sev="medium"] td.sev{border-left-color:var(--warn)} tr[data-sev="low"] td.sev{border-left-color:var(--low)}
+td .path{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);word-break:break-all}
+.count{font:500 12px var(--mono);color:var(--ink-3)}
+
+/* plan timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.timeline{grid-template-columns:1fr}}
+.when{display:flex;flex-direction:column;gap:10px;padding-top:12px;border-top:3px solid var(--accent)}
+.when ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+
+/* template */
+.loop{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:500 13px var(--mono)}
+.loop span{padding:6px 10px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
+.loop em{font-style:normal;color:var(--ink-3)}
+.lcard{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.lcard .code{font:700 30px/1 var(--display);color:var(--accent)}
+.lcard .how{font:500 12px var(--mono);color:var(--ink-3)}
+.phase{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.phase:first-child{border-top:0}
+@media (max-width:560px){.phase{grid-template-columns:1fr;gap:4px}}
+.phase ul{margin:0;padding-left:18px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--sunk);font-size:14px}
+.check:first-child{border-top:0}
+.check input{margin-top:3px;accent-color:var(--accent);width:16px;height:16px}
+.check input:checked + label{color:var(--ink-3);text-decoration:line-through}
+.tier{display:grid;grid-template-columns:40px 1fr auto;gap:12px;padding:10px 0;border-top:1px solid var(--sunk);align-items:baseline}
+.tier:first-child{border-top:0}
+.tier b{font:600 14px var(--mono);color:var(--accent)}
+
+/* roadmap */
+.rm{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.ritem{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.ritem.done{background:var(--sunk);border-style:dashed}
+.ritem .row{justify-content:space-between}
+.prio{font:600 11.5px var(--mono);padding:3px 7px;border-radius:4px;border:1px solid currentColor}
+.p1{color:var(--accent)} .p2{color:var(--ink-2)} .p3{color:var(--ink-3)}
+.ritem .why{font-size:13.5px;color:var(--ink-2)}
+.ritem .fx{font:500 12px var(--mono);color:var(--ink-3)}
+footer{font-size:12.5px;color:var(--ink-3)}
+@media (prefers-reduced-motion:no-preference){.layer .track i,.meter i{transition:width .6s ease}}
+
+[hidden]{display:none!important}
+.switch{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.switch select{font:500 13px var(--mono);background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:7px 10px;border-radius:6px}
+.trend{width:100%;height:64px;display:block}
+.trend text{font:10.5px var(--mono);fill:var(--ink-3)}
+.intg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.intg div{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.intg code{font:12px var(--mono);color:var(--ink-3)}
+details.how summary{cursor:pointer;color:var(--accent);font-size:12.5px;margin-top:4px}
+details.how p{font-size:13px;color:var(--ink-2);margin-top:4px;max-width:60ch}
+.pages-serp{display:flex;flex-direction:column;gap:14px}
+.serp-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.serp-pair:first-child{border-top:0;padding-top:0}
+@media (max-width:860px){.serp-pair{grid-template-columns:1fr}}
+.serp .h{font:500 12px var(--mono);color:var(--ink-3)}
+pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow-x:auto;font:12.5px/1.5 var(--mono);color:var(--ink);max-height:340px}
+.btn{font:600 13px var(--body);background:var(--accent);color:var(--surface);border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
+.btn.ghost{background:none;color:var(--accent);border:1px solid var(--accent)}
+.matrix td.cell{text-align:center}
+.mk{display:inline-block;min-width:74px;font:600 11.5px var(--body);padding:4px 6px;border-radius:4px}
+.cmp{display:flex;flex-direction:column;gap:10px}
+.cmp .r{display:grid;grid-template-columns:minmax(120px,220px) 1fr 40px;gap:12px;align-items:center}
+.cmp .bar{height:16px;background:var(--sunk);border-radius:3px;position:relative}
+.cmp .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;background:var(--ink-3)}
+.cmp .r.us .bar i{background:var(--accent)}
+.cmp .r.us span:first-child{font-weight:600}
+.heat{font:500 12.5px var(--mono);text-align:center;border-radius:4px;padding:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:12.5px;padding:4px 9px;border-radius:999px;border:1px dashed var(--line);color:var(--ink-2)}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--ground);padding:8px 14px;border-radius:6px;font-size:13px}
+</style>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow" id="eyebrow">SOE template</div>
+      <h1>SOE Control Room</h1>
+      <p class="lede">One method for classic search and AI answer engines. Every number here comes from the audit scripts; re-running them republishes this page.</p>
+    </div>
+    <div class="stack" style="gap:6px;align-items:flex-end">
+      <label class="eyebrow" for="proj">Project</label>
+      <div class="switch"><span class="dot"></span><select id="proj"></select></div>
+      <span class="count" id="projmeta"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-overview" aria-selected="true" data-tab="overview">Audit</button>
+    <button role="tab" id="tab-fixes" aria-selected="false" data-tab="fixes">Fixes</button>
+    <button role="tab" id="tab-offsite" aria-selected="false" data-tab="offsite">Listings &amp; AI answers</button>
+    <button role="tab" id="tab-competitors" aria-selected="false" data-tab="competitors">Competitors</button>
+    <button role="tab" id="tab-template" aria-selected="false" data-tab="template">The template</button>
+    <button role="tab" id="tab-roadmap" aria-selected="false" data-tab="roadmap">Status</button>
+  </nav>
+
+  <!-- AUDIT -->
+  <section id="overview" class="stack" style="gap:18px">
+    <div class="grid g-hero">
+      <div class="panel score">
+        <span class="eyebrow" id="scoreDate">SOE score</span>
+        <div class="big num" id="score"></div>
+        <div class="meter"><i id="scoreBar"></i></div>
+        <div><span class="eyebrow">Score per run</span><svg class="trend" id="trend" viewBox="0 0 260 64" preserveAspectRatio="none" role="img" aria-label="Score per audit run"></svg></div>
+        <dl class="kv" id="kv"></dl>
+      </div>
+      <div class="panel stack" style="gap:16px">
+        <div class="row" style="justify-content:space-between"><h2>Score by layer</h2><span class="count">0–100 · weighted into the total</span></div>
+        <div class="layers" id="layers"></div>
+        <div class="axis"><span></span><span></span><div><span style="left:0">0</span><span style="left:50%">50</span><span style="left:90%">90</span><span style="left:100%">100</span></div><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="stack" id="lhWrap">
+      <div class="row" style="justify-content:space-between"><h2>Lighthouse · mobile lab</h2><span class="count" id="lhRuns"></span></div>
+      <div class="lh" id="lh"></div>
+    </div>
+
+    <div class="stack">
+      <div class="row" style="justify-content:space-between"><h2>Connected data</h2><span class="count">activate by adding keys · see README</span></div>
+      <div class="intg" id="intg"></div>
+    </div>
+
+    <div class="stack">
+      <div class="row" style="justify-content:space-between;gap:12px"><h2>Findings</h2><span class="count" id="fcount"></span></div>
+      <div class="row" style="justify-content:space-between;gap:10px"><div class="filters" id="fSev"></div><div class="filters" id="fLayer"></div></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Severity</th><th>Layer</th><th>Issue</th><th>Fix</th><th>Page</th></tr></thead>
+        <tbody id="ftbody"></tbody>
+      </table></div>
+    </div>
+
+    <div class="stack">
+      <h2>Pages</h2>
+      <div class="tbl"><table>
+        <thead><tr><th>Page</th><th>Title</th><th>Description</th><th>H1</th><th style="text-align:right">Words</th><th>Schema</th></tr></thead>
+        <tbody id="ptbody"></tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- FIXES -->
+  <section id="fixes" class="stack" hidden style="gap:18px">
+    <div class="panel stack">
+      <div class="row" style="justify-content:space-between"><h2>Fix checklist</h2><span class="count" id="ckcount"></span></div>
+      <p class="muted" style="max-width:72ch">Generated from this run's findings, most severe first, with the steps for this site's platform. Ticks are saved in this browser.</p>
+      <div id="checklist"></div>
+    </div>
+    <div class="panel stack">
+      <div class="row" style="justify-content:space-between"><h2>How Google would show each page</h2><span class="count" id="copysrc"></span></div>
+      <div class="pages-serp" id="serps"></div>
+    </div>
+    <div class="grid g-2">
+      <div class="panel stack">
+        <div class="row" style="justify-content:space-between"><h2>Structured data</h2><button class="btn" id="copySchema">Copy JSON-LD</button></div>
+        <p class="muted">Built from the project settings. Paste it into the page's structured-data field, then check it in Google's Rich Results Test.</p>
+        <pre class="code" id="schema"></pre>
+      </div>
+      <div class="panel stack">
+        <div class="row" style="justify-content:space-between"><h2>llms.txt summary</h2><button class="btn ghost" id="copyLlms">Copy</button></div>
+        <p id="llms" style="max-width:60ch"></p>
+        <h3 style="margin-top:10px">Questions to answer on the site</h3>
+        <ul id="qs" style="margin:0;padding-left:18px"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFSITE -->
+  <section id="offsite" class="stack" hidden style="gap:18px">
+    <div class="stack">
+      <div class="row" style="justify-content:space-between"><h2>Listings</h2><span class="count" id="citsum"></span></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Status</th><th>Where</th><th>What we found</th><th>Note</th></tr></thead>
+        <tbody id="cittbody"></tbody>
+      </table></div>
+    </div>
+    <div class="panel stack">
+      <h2>Directories with no known listing</h2>
+      <p class="muted">Either not listed yet, or listed but not in the settings file. Add URLs under <span class="mono">citations:</span> to check them.</p>
+      <div id="gaps" class="stack"></div>
+    </div>
+    <div class="stack">
+      <div class="row" style="justify-content:space-between"><h2>Do AI answers mention the brand?</h2><span class="count" id="aisum"></span></div>
+      <div class="tbl"><table class="matrix"><thead id="aihead"></thead><tbody id="aibody"></tbody></table></div>
+      <p class="muted" id="ainote" style="max-width:72ch"></p>
+    </div>
+  </section>
+
+  <!-- COMPETITORS -->
+  <section id="competitors" class="stack" hidden style="gap:18px">
+    <div class="panel stack">
+      <div class="row" style="justify-content:space-between"><h2>SOE score vs competitors</h2><span class="count">same audit, 10 pages each, no speed test</span></div>
+      <div class="cmp" id="cmp"></div>
+    </div>
+    <div class="stack">
+      <h2 id="cmpByLayer">By layer</h2>
+      <div class="tbl"><table><thead id="cmphead"></thead><tbody id="cmpbody"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- TEMPLATE -->
+  <section id="template" class="stack" hidden style="gap:18px">
+    <div class="panel stack">
+      <span class="eyebrow">The loop · repeats monthly</span>
+      <div class="loop"><span>Configure</span><em>→</em><span>Audit</span><em>→</em><span>Prioritise</span><em>→</em><span>Fix</span><em>→</em><span>Publish &amp; notify</span><em>→</em><span>Measure</span><em>↺</em></div>
+      <p class="muted">Run it with one request: <span class="mono">/soe https://example.com</span></p>
+    </div>
+    <div class="stack"><h2>Six layers</h2><div class="grid g-3" id="lcards"></div></div>
+    <div class="grid g-2">
+      <div class="panel"><h2 style="margin-bottom:6px">Phases</h2><div id="phases"></div></div>
+      <div class="stack" style="gap:18px">
+        <div class="panel"><h2 style="margin-bottom:6px">Site types</h2><div id="mods"></div></div>
+        <div class="panel"><h2 style="margin-bottom:6px">Platform fix packs</h2><div id="packs"></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2 style="margin-bottom:6px">Kit contents</h2>
+      <div class="tbl" style="border:0"><table><tbody id="kit"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <div class="row" style="justify-content:space-between"><h2>Manual checklist</h2><span class="count">what the scripts can't see · ticks saved per project</span></div>
+      <div id="manual" style="margin-top:8px"></div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <section id="roadmap" class="stack" hidden style="gap:18px">
+    <div class="panel stack">
+      <h2>Template status</h2>
+      <p class="muted" style="max-width:72ch">Everything on the roadmap is built. Items marked "needs a key" run as soon as their credentials are set; until then they skip without errors.</p>
+      <div class="filters" id="fPrio"></div>
+    </div>
+    <div class="rm" id="rm"></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" hidden></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DATA = {"projects": [{"slug": "yuzu", "name": "Yuzu Hair & Beauty", "pinned": true, "url": "https://www.yuzuhairandbeauty.london", "type": "local_business", "platform": "wix", "module": "Local business", "keywords": {"primary": ["hair salon Ealing", "hairdresser Ealing Broadway", "Japanese hair salon London"], "secondary": ["balayage Ealing", "Brazilian blow dry Ealing", "hair colour Ealing", "Japanese head spa Ealing"], "questions": ["How much is a haircut at Yuzu in Ealing?", "Do I need a patch test before hair colour?", "Which hair salons in Ealing are near the station?"]}, "prompts": ["best hair salon in Ealing Broadway", "Japanese-style hairdresser in west London", "where can I get a Brazilian blow dry in Ealing"], "engines": ["ChatGPT", "Perplexity", "Gemini", "Google AI Mode"], "business": {"name": "Yuzu Hair & Beauty", "phone": "020 8840 2244", "postcode": "W5 2TD"}, "runs": [{"date": "2026-09-15", "score": 72, "layers": {"Technical": 100, "On-page": 3, "Structured data": 76, "Entity / NAP": 92, "AI search readiness": 96, "Performance": 79}, "findings": 42}], "latest": "2026-09-15", "audit": {"site": "https://www.yuzuhairandbeauty.london", "run": "2026-09-15 08:19", "project": {"name": "Yuzu Hair & Beauty", "slug": "yuzu", "type": "local_business", "platform": "wix", "module": "Local business"}, "score": 72, "layers": {"Technical": 100, "On-page": 3, "Structured data": 76, "Entity / NAP": 92, "AI search readiness": 96, "Performance": 79}, "meta": {"sitemap_urls": 7, "schema_types": ["ImageObject", "WebSite"], "ai_bots_blocked": {"search": [], "training": []}, "llms_txt": true, "lighthouse_runs": [75, 79, 80], "lighthouse": {"scores": {"performance": 79, "accessibility": 96, "best-practices": 79, "seo": 85}, "lab": {"largest-contentful-paint": 2470.7333, "cumulative-layout-shift": 0.010299901962280271, "total-blocking-time": 692.9999999999993}}}, "findings": [{"layer": "S", "severity": "critical", "check": "schema-missing", "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: ['ImageObject', 'WebSite'])", "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)", "url": "https://www.yuzuhairandbeauty.london", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."}, {"layer": "O", "severity": "high", "check": "title-quality", "detail": "spaced/all-caps title 'H O M E | Yuzu Hair'", "fix": "Use a readable keyword title, not a design label", "url": "https://www.yuzuhairandbeauty.london/", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "h1", "detail": "no H1", "fix": "Add exactly one descriptive H1 containing the primary topic", "url": "https://www.yuzuhairandbeauty.london/", "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'This is placeholder text'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/items/stylists", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'This is placeholder text'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://www.yuzuhairandbeauty.london/items/stylists", "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/items/models", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'This is placeholder text'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://www.yuzuhairandbeauty.london/items/models", "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "h1", "detail": "no H1", "fix": "Add exactly one descriptive H1 containing the primary topic", "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "high", "check": "h1", "detail": "no H1", "fix": "Add exactly one descriptive H1 containing the primary topic", "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://www.yuzuhairandbeauty.london/items", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "19 chars: 'H O M E | Yuzu Hair'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://www.yuzuhairandbeauty.london/", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "255 words (<300)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://www.yuzuhairandbeauty.london/", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "248 words (<300)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "20 chars: 'Stylists | Yuzu Hair'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://www.yuzuhairandbeauty.london/items/stylists", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "254 words (<300)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://www.yuzuhairandbeauty.london/items/stylists", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "18 chars: 'Models | Yuzu Hair'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://www.yuzuhairandbeauty.london/items/models", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "264 words (<300)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://www.yuzuhairandbeauty.london/items/models", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "18 chars: 'OFFERS | Yuzu Hair'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "24 chars: 'Items (List) | Yuzu Hair'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://www.yuzuhairandbeauty.london/items", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "156 words (<300)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://www.yuzuhairandbeauty.london/items", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."}, {"layer": "O", "severity": "medium", "check": "content-in-pdf", "detail": "2 PDF(s) linked site-wide \u2014 key info (e.g. prices) may be locked in PDF", "fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download", "url": "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_5ad90785107649c5a308c57cf4f4e75f.pdf", "how": "Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link."}, {"layer": "O", "severity": "medium", "check": "expected-page", "detail": "no 'services' page found (looked for: service, treatment, balayage, colour)", "fix": "Add a dedicated services page and link it from the navigation", "url": "https://www.yuzuhairandbeauty.london", "how": "Pages & Menu \u2192 + Add page. Also add it to the menu so it's linked."}, {"layer": "O", "severity": "medium", "check": "keyword-targeting", "detail": "primary keyword 'hair salon Ealing' not in homepage title/H1", "fix": "Map each primary keyword to one page and use it in title + H1", "url": "https://www.yuzuhairandbeauty.london", "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."}, {"layer": "O", "severity": "medium", "check": "keyword-targeting", "detail": "primary keyword 'hairdresser Ealing Broadway' not in homepage title/H1", "fix": "Map each primary keyword to one page and use it in title + H1", "url": "https://www.yuzuhairandbeauty.london", "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."}, {"layer": "O", "severity": "medium", "check": "keyword-targeting", "detail": "primary keyword 'Japanese hair salon London' not in homepage title/H1", "fix": "Map each primary keyword to one page and use it in title + H1", "url": "https://www.yuzuhairandbeauty.london", "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."}, {"layer": "S", "severity": "medium", "check": "schema-openingHoursSpecification", "detail": "'openingHoursSpecification' not present in any JSON-LD on the site", "fix": "Include openingHoursSpecification in the main entity markup", "url": "https://www.yuzuhairandbeauty.london", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."}, {"layer": "S", "severity": "medium", "check": "schema-sameAs", "detail": "'sameAs' not present in any JSON-LD on the site", "fix": "Include sameAs in the main entity markup", "url": "https://www.yuzuhairandbeauty.london", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."}, {"layer": "E", "severity": "medium", "check": "brand-name", "detail": "canonical name 'Yuzu Hair & Beauty' not used consistently (title: 'H O M E | Yuzu Hair')", "fix": "Use one exact business name everywhere (site, GBP, directories, schema)", "url": null, "how": "Settings \u2192 Business info \u2192 Business name. Then use the same name in titles, the footer and every profile."}, {"layer": "A", "severity": "medium", "check": "llms.txt-summary", "detail": "summary does not mention ['Ealing']", "fix": "Rewrite the llms.txt summary to describe the business, not a random page", "url": null, "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates."}, {"layer": "P", "severity": "medium", "check": "tbt-inp-proxy", "detail": "TBT 693ms (INP risk)", "fix": "Remove unused apps/widgets and third-party scripts", "url": null, "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations)."}, {"layer": "O", "severity": "low", "check": "alt-text", "detail": "2/11 images lack alt", "fix": "Describe images; include service/location naturally", "url": "https://www.yuzuhairandbeauty.london/", "how": "Click the image \u2192 Settings \u2192 'What's in the image? Tell Google' (the alt text)."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://www.yuzuhairandbeauty.london/", "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://www.yuzuhairandbeauty.london/items", "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."}, {"layer": "E", "severity": "low", "check": "email-domain", "detail": "email info@yuzuhairandbeauty.co.uk is on a different domain from the site", "fix": "Use an address on the site domain, or redirect the old domain to the site", "url": null, "how": null}, {"layer": "E", "severity": "low", "check": "profile-link", "detail": "tiktok profile not linked from site", "fix": "Link profiles and add them to schema sameAs", "url": null, "how": null}], "pages": [{"url": "https://www.yuzuhairandbeauty.london/", "status": 200, "bytes": 656981, "title": "H O M E | Yuzu Hair", "description": "", "robots": "", "og_image": "", "og_description": "", "h1": [], "h2_count": 7, "canonical": "https://www.yuzuhairandbeauty.london", "lang": "en", "words": 255, "img_total": 11, "img_no_alt": 2, "ld_types": ["WebSite"], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf", "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_5ad90785107649c5a308c57cf4f4e75f.pdf", "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "status": 200, "bytes": 556565, "title": "Senior Stylists | Yuzu Hair", "description": "", "robots": "", "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png", "og_description": "", "h1": ["Senior Stylists"], "h2_count": 1, "canonical": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "lang": "en", "words": 248, "img_total": 7, "img_no_alt": 0, "ld_types": ["ImageObject"], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/items/stylists", "status": 200, "bytes": 559223, "title": "Stylists | Yuzu Hair", "description": "", "robots": "", "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png", "og_description": "", "h1": ["Stylists"], "h2_count": 1, "canonical": "https://www.yuzuhairandbeauty.london/items/stylists", "lang": "en", "words": 254, "img_total": 7, "img_no_alt": 0, "ld_types": ["ImageObject"], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/items/models", "status": 200, "bytes": 556658, "title": "Models | Yuzu Hair", "description": "", "robots": "", "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png", "og_description": "", "h1": ["Models"], "h2_count": 1, "canonical": "https://www.yuzuhairandbeauty.london/items/models", "lang": "en", "words": 264, "img_total": 7, "img_no_alt": 0, "ld_types": ["ImageObject"], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "status": 200, "bytes": 567980, "title": "OFFERS | Yuzu Hair", "description": "", "robots": "", "og_image": "", "og_description": "", "h1": [], "h2_count": 2, "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "lang": "en", "words": 438, "img_total": 11, "img_no_alt": 0, "ld_types": [], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "status": 200, "bytes": 550634, "title": "TERMS AND CONDITIONS | Yuzu Hair", "description": "", "robots": "", "og_image": "", "og_description": "", "h1": [], "h2_count": 3, "canonical": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "lang": "en", "words": 820, "img_total": 6, "img_no_alt": 0, "ld_types": [], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}, {"url": "https://www.yuzuhairandbeauty.london/items", "status": 200, "bytes": 566916, "title": "Items (List) | Yuzu Hair", "description": "", "robots": "", "og_image": "", "og_description": "", "h1": ["JOIN THE TEAM"], "h2_count": 4, "canonical": "https://www.yuzuhairandbeauty.london/items", "lang": "en", "words": 156, "img_total": 9, "img_no_alt": 0, "ld_types": [], "pdf_links": ["https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"]}]}, "competitors": [{"name": "Bella & Bello Studio", "url": "https://www.bellabellostudio.co.uk", "score": 80, "layers": {"Technical": 100, "On-page": 45, "Structured data": 67, "Entity / NAP": 100, "AI search readiness": 94, "Performance": null}, "pages": 10, "findings": 52, "schema": ["BreadcrumbList", "EntryPoint", "ImageObject", "ListItem", "Organization", "PropertyValueSpecification", "ReadAction", "SearchAction", "WebPage", "WebSite"], "home_title": "Bella & Bello Studio", "home_words": 244}, {"name": "CMF Hairdressing", "url": "https://www.cmfhairdressing.com", "score": 81, "layers": {"Technical": 86, "On-page": 50, "Structured data": 85, "Entity / NAP": 100, "AI search readiness": 94, "Performance": null}, "pages": 2, "findings": 20, "schema": [], "home_title": "CMF HAIRDRESSING", "home_words": 862}, {"name": "Therapy@Visage", "url": "https://www.therapy-visage.co.uk", "score": 89, "layers": {"Technical": 100, "On-page": 60, "Structured data": 91, "Entity / NAP": 100, "AI search readiness": 100, "Performance": null}, "pages": 10, "findings": 17, "schema": ["ImageObject", "LocalBusiness", "PostalAddress", "WebSite"], "home_title": "Hair & Beauty Salon | Ealing | Therapy@Visage", "home_words": 628}, {"name": "Blo Bar (Ealing is in Dickens Yard)", "url": "https://www.b1obar.com", "score": 85, "layers": {"Technical": 100, "On-page": 55, "Structured data": 86, "Entity / NAP": 100, "AI search readiness": 90, "Performance": null}, "pages": 10, "findings": 35, "schema": ["LocalBusiness", "WebSite"], "home_title": "Blo Bar", "home_words": 134}, {"name": "M&M Hair Academy", "url": "https://mandmhairacademy.com", "score": 84, "layers": {"Technical": 100, "On-page": 54, "Structured data": 72, "Entity / NAP": 100, "AI search readiness": 100, "Performance": null}, "pages": 10, "findings": 20, "schema": ["BreadcrumbList", "EntryPoint", "ImageObject", "ListItem", "Organization", "PropertyValueSpecification", "ReadAction", "SearchAction", "WebPage", "WebSite"], "home_title": "M&M Hair Academy | Top-Rated Ealing Hairdressers Near You", "home_words": 956}], "citations": {"run": "2026-09-15T08:20", "summary": {"ok": 2, "mismatch": 1, "unreachable": 0, "manual": 6}, "listings": [{"source": "Make It Ealing", "url": "https://www.makeitealing.co.uk/business/yuzu-hair/", "directory": "local", "note": "", "status": "ok", "detail": "name, phone and postcode match", "checks": {"name": true, "phone": true, "postcode": true}}, {"source": "Wheree", "url": "https://yuzu-hair.wheree.com/", "directory": "uk_general", "note": "blocks bots; showed correct NAP on 15 Sep, unclaimed", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}, {"source": "Old ueniweb site", "url": "https://yuzuhairandbeauty.ueniweb.com/", "directory": "legacy", "note": "shows 22 Mattock Lane W5 5BH / 07572 107373 \u2014 take down", "status": "mismatch", "detail": "not found: phone, postcode \u00b7 other postcode(s) on page: W5 5BH", "checks": {"name": true, "phone": false, "postcode": false}}, {"source": "beautynailhairsalons.com", "url": "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty", "directory": "uk_general", "note": "", "status": "ok", "detail": "name, phone and postcode match", "checks": {"name": true, "phone": true, "postcode": true}}, {"source": "Facebook", "url": "https://www.facebook.com/YUZUHairandBeauty/", "directory": "core", "note": "old posts say 26 High Street W5 5DB", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}, {"source": "Instagram", "url": "https://www.instagram.com/yuzuhairandbeauty/", "directory": "core", "note": "", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}, {"source": "TikTok", "url": "https://www.tiktok.com/@yuzuhairandbeauty.est16", "directory": "core", "note": "", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}, {"source": "LinkedIn", "url": "https://uk.linkedin.com/company/yuzu-hair-limited", "directory": "core", "note": "", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}, {"source": "Phorest booking", "url": "https://phorest.com/book/salons/yuzuhairandbeauty", "directory": "vertical_salon", "note": "", "status": "manual", "detail": "Blocks automated reading \u2014 check by hand"}], "gaps": {"core": ["Google Business Profile", "Bing Places", "Apple Business Connect"], "uk_general": ["Yell", "Thomson Local", "Scoot", "Cylex", "FreeIndex", "Hotfrog", "Yelp UK", "Nextdoor", "Foursquare"], "vertical_salon": ["Treatwell", "Fresha", "Booksy", "hairdressr"], "local": ["local council directory"]}}, "fixes": {"schema": {"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.yuzuhairandbeauty.london/#entity", "name": "Yuzu Hair & Beauty", "url": "https://www.yuzuhairandbeauty.london/", "description": "Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry.", "telephone": "+442088402244", "email": "info@yuzuhairandbeauty.co.uk", "priceRange": "\u00a3\u00a3", "address": {"@type": "PostalAddress", "streetAddress": "5 Dickens Yard, Longfield Avenue", "addressLocality": "Ealing", "addressRegion": "London", "postalCode": "W5 2TD", "addressCountry": "GB"}, "geo": {"@type": "GeoCoordinates", "latitude": 51.5138, "longitude": -0.3068}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "20:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "09:00", "closes": "18:00"}], "sameAs": ["https://www.instagram.com/yuzuhairandbeauty/", "https://www.facebook.com/YUZUHairandBeauty/", "https://www.tiktok.com/@yuzuhairandbeauty.est16"], "potentialAction": {"@type": "ReserveAction", "target": "https://phorest.com/book/salons/yuzuhairandbeauty"}}, "pages": [{"url": "https://www.yuzuhairandbeauty.london/", "current_title": "H O M E | Yuzu Hair", "title": "Japanese Hair Salon in Ealing Broadway | Yuzu Hair & Beauty", "description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.", "h1": "Japanese-inspired hair salon in Ealing Broadway", "source": "Claude draft"}, {"url": "https://www.yuzuhairandbeauty.london/items/senior-stylists", "current_title": "Senior Stylists | Yuzu Hair", "title": "Senior Stylist Job in Ealing Broadway | Yuzu Hair & Beauty", "description": "Yuzu Hair & Beauty is hiring a senior stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.", "h1": "Senior stylist vacancy", "source": "Claude draft"}, {"url": "https://www.yuzuhairandbeauty.london/items/stylists", "current_title": "Stylists | Yuzu Hair", "title": "Hair Stylist Job in Ealing Broadway | Yuzu Hair & Beauty", "description": "Yuzu Hair & Beauty is hiring a hair stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.", "h1": "Stylist vacancy", "source": "Claude draft"}, {"url": "https://www.yuzuhairandbeauty.london/items/models", "current_title": "Models | Yuzu Hair", "title": "Hair Models Wanted in Ealing | Yuzu Hair & Beauty", "description": "Yuzu Hair & Beauty in Ealing Broadway is looking for hair models. Read what's involved and how to apply to be a model at our salon.", "h1": "Hair models wanted", "source": "Claude draft"}, {"url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1", "current_title": "OFFERS | Yuzu Hair", "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu", "description": "Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers.", "h1": "Salon offers at Yuzu, Ealing", "source": "Claude draft", "new_url": "/offers"}, {"url": "https://www.yuzuhairandbeauty.london/terms-and-conditions", "current_title": "TERMS AND CONDITIONS | Yuzu Hair", "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair", "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.", "h1": "Terms, patch tests and cancellations", "source": "Claude draft"}, {"url": "https://www.yuzuhairandbeauty.london/items", "current_title": "Items (List) | Yuzu Hair", "title": "Hairdresser Jobs in Ealing: Join Yuzu Hair & Beauty", "description": "Senior stylist, stylist and model vacancies at a Japanese-inspired salon in Dickens Yard, Ealing Broadway. See the roles and apply today.", "h1": "Join the Yuzu team", "source": "Claude draft", "new_url": "/careers"}], "steps": {"schema-missing": {"fix": "Add JSON-LD for LocalBusiness (see schema/ templates)", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.", "count": 1, "severity": "critical"}, "title-quality": {"fix": "Use a readable keyword title, not a design label", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern.", "count": 1, "severity": "high"}, "meta-description": {"fix": "Write a 140\u2013160 char description with a call to action", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback.", "count": 7, "severity": "high"}, "h1": {"fix": "Add exactly one descriptive H1 containing the primary topic", "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters.", "count": 3, "severity": "high"}, "placeholder-text": {"fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too.", "count": 3, "severity": "high"}, "title-length": {"fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern.", "count": 5, "severity": "medium"}, "thin-content": {"fix": "Expand with useful, specific text (services, FAQs, proof)", "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards.", "count": 5, "severity": "medium"}, "content-in-pdf": {"fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download", "how": "Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link.", "count": 1, "severity": "medium"}, "expected-page": {"fix": "Add a dedicated services page and link it from the navigation", "how": "Pages & Menu \u2192 + Add page. Also add it to the menu so it's linked.", "count": 1, "severity": "medium"}, "keyword-targeting": {"fix": "Map each primary keyword to one page and use it in title + H1", "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1.", "count": 3, "severity": "medium"}, "schema-openingHoursSpecification": {"fix": "Include openingHoursSpecification in the main entity markup", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.", "count": 1, "severity": "medium"}, "schema-sameAs": {"fix": "Include sameAs in the main entity markup", "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.", "count": 1, "severity": "medium"}, "brand-name": {"fix": "Use one exact business name everywhere (site, GBP, directories, schema)", "how": "Settings \u2192 Business info \u2192 Business name. Then use the same name in titles, the footer and every profile.", "count": 1, "severity": "medium"}, "llms.txt-summary": {"fix": "Rewrite the llms.txt summary to describe the business, not a random page", "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates.", "count": 1, "severity": "medium"}, "tbt-inp-proxy": {"fix": "Remove unused apps/widgets and third-party scripts", "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).", "count": 1, "severity": "medium"}, "alt-text": {"fix": "Describe images; include service/location naturally", "how": "Click the image \u2192 Settings \u2192 'What's in the image? Tell Google' (the alt text).", "count": 1, "severity": "low"}, "og-image": {"fix": "Set a share image (1200\u00d7630)", "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings.", "count": 4, "severity": "low"}, "email-domain": {"fix": "Use an address on the site domain, or redirect the old domain to the site", "how": null, "count": 1, "severity": "low"}, "profile-link": {"fix": "Link profiles and add them to schema sameAs", "how": null, "count": 1, "severity": "low"}}, "llms_summary": "Yuzu Hair & Beauty Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry. Address: 5 Dickens Yard, Longfield Avenue, Ealing, London W5 2TD. Hours: Tue, Wed, Thu, Fri 10:00\u201320:00; Sat 09:00\u201318:00. Phone 020 8840 2244. Book online: https://phorest.com/book/salons/yuzuhairandbeauty", "questions": ["How much is a haircut at Yuzu in Ealing?", "Do I need a patch test before hair colour?", "Which hair salons in Ealing are near the station?"]}, "integrations": {"run_at": "2026-09-15T08:20:09", "site": "https://www.yuzuhairandbeauty.london", "results": {"crux": null, "gsc": null, "dataforseo": null, "gbp": null}}, "ai_summary": {"months": [], "top_other_sources": [], "pending_checks": 12, "prompts": ["best hair salon in Ealing Broadway", "Japanese-style hairdresser in west London", "where can I get a Brazilian blow dry in Ealing"], "engines": ["ChatGPT", "Perplexity", "Gemini", "Google AI Mode"]}, "ai_rows": [{"date": "2026-09-15", "engine": "ChatGPT", "prompt": "best hair salon in Ealing Broadway", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Perplexity", "prompt": "best hair salon in Ealing Broadway", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Gemini", "prompt": "best hair salon in Ealing Broadway", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Google AI Mode", "prompt": "best hair salon in Ealing Broadway", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "ChatGPT", "prompt": "Japanese-style hairdresser in west London", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Perplexity", "prompt": "Japanese-style hairdresser in west London", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Gemini", "prompt": "Japanese-style hairdresser in west London", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Google AI Mode", "prompt": "Japanese-style hairdresser in west London", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "ChatGPT", "prompt": "where can I get a Brazilian blow dry in Ealing", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Perplexity", "prompt": "where can I get a Brazilian blow dry in Ealing", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Gemini", "prompt": "where can I get a Brazilian blow dry in Ealing", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Google AI Mode", "prompt": "where can I get a Brazilian blow dry in Ealing", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}]}, {"slug": "djurbant", "name": "DJ UrbanT", "pinned": false, "url": "https://djurbant.com", "type": "personal_brand", "platform": "wordpress", "module": "Personal / artist brand (DJ, musician, creator)", "keywords": {"primary": ["bass house DJ London", "DJ UrbanT"], "secondary": ["tech house DJ London", "book a bass house DJ"], "questions": ["Who is DJ UrbanT?", "How do I book DJ UrbanT?"]}, "prompts": ["bass house DJs in London to book", "who is DJ UrbanT"], "engines": ["ChatGPT", "Perplexity", "Gemini", "Google AI Mode"], "business": {"name": "DJ UrbanT", "phone": null, "postcode": null}, "runs": [{"date": "2026-09-15", "score": 69, "layers": {"Technical": 100, "On-page": 0, "Structured data": 85, "Entity / NAP": 100, "AI search readiness": 90, "Performance": 49}, "findings": 65}], "latest": "2026-09-15", "audit": {"site": "https://djurbant.com", "run": "2026-09-15 08:27", "project": {"name": "DJ UrbanT", "slug": "djurbant", "type": "personal_brand", "platform": "wordpress", "module": "Personal / artist brand (DJ, musician, creator)"}, "score": 69, "layers": {"Technical": 100, "On-page": 0, "Structured data": 85, "Entity / NAP": 100, "AI search readiness": 90, "Performance": 49}, "meta": {"sitemap_urls": 10, "schema_types": [], "ai_bots_blocked": {"search": [], "training": []}, "llms_txt": false, "lighthouse_runs": [49], "lighthouse": {"scores": {"performance": 49, "accessibility": 100, "best-practices": 100, "seo": 92}, "lab": {"largest-contentful-paint": 6804.1155, "cumulative-layout-shift": 0.0972591830337588, "total-blocking-time": 1007.5}}}, "findings": [{"layer": "S", "severity": "critical", "check": "schema-missing", "detail": "none of ['Person', 'MusicGroup', 'Organization']\u2026 found (found: none)", "fix": "Add JSON-LD for Person (see schema/ templates)", "url": "https://djurbant.com", "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "h1", "detail": "no H1", "fix": "Add exactly one descriptive H1 containing the primary topic", "url": "https://djurbant.com/", "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/hello-world/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'Hello world!'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://djurbant.com/hello-world/", "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/sample-page/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'Sample Page'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://djurbant.com/sample-page/", "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/video/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/audio/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/contact/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/map/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/admin/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "noindex", "detail": "page is noindex but linked/in sitemap", "fix": "Remove noindex or drop from sitemap", "url": "https://djurbant.com/admin/", "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/category/uncategorized/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'Hello world!'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://djurbant.com/category/uncategorized/", "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/author/charles/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "placeholder-text", "detail": "template placeholder text on page: 'Hello world!'", "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "url": "https://djurbant.com/author/charles/", "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/wp-admin/", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "noindex", "detail": "page is noindex but linked/in sitemap", "fix": "Remove noindex or drop from sitemap", "url": "https://djurbant.com/wp-admin/", "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."}, {"layer": "O", "severity": "high", "check": "meta-description", "detail": "missing", "fix": "Write a 140\u2013160 char description with a call to action", "url": "https://djurbant.com/wp-login.php", "how": "Yoast/Rank Math panel \u2192 Meta description."}, {"layer": "O", "severity": "high", "check": "noindex", "detail": "page is noindex but linked/in sitemap", "fix": "Remove noindex or drop from sitemap", "url": "https://djurbant.com/wp-login.php", "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."}, {"layer": "A", "severity": "high", "check": "extractable-text", "detail": "homepage has 55 words of text", "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)", "url": null, "how": null}, {"layer": "P", "severity": "high", "check": "lcp", "detail": "lab LCP 6.8s (good \u22642.5s)", "fix": "Compress/preload hero image, cut render-blocking JS", "url": null, "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "55 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "24 chars: 'Hello world! \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/hello-world/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "134 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/hello-world/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "23 chars: 'Sample Page \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/sample-page/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "188 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/sample-page/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "17 chars: 'Video \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/video/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "14 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/video/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "17 chars: 'Audio \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/audio/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "14 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/audio/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "19 chars: 'Contact \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/contact/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "51 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/contact/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "15 chars: 'Map \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/map/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "72 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/map/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "51 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/admin/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "60 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/category/uncategorized/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "title-length", "detail": "19 chars: 'Charles \u2013 DJ UrbanT'", "fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "url": "https://djurbant.com/author/charles/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "61 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/author/charles/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "51 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/wp-admin/", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "thin-content", "detail": "51 words (<250)", "fix": "Expand with useful, specific text (services, FAQs, proof)", "url": "https://djurbant.com/wp-login.php", "how": "Add sections in Elementor; Yoast readability/word count helps."}, {"layer": "O", "severity": "medium", "check": "duplicate-title", "detail": "'Log In \u2039 DJ UrbanT \u2014 WordPress' on 3 pages", "fix": "Make titles unique", "url": "https://djurbant.com/admin/", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."}, {"layer": "O", "severity": "medium", "check": "expected-page", "detail": "no 'about/bio' page found (looked for: about, bio)", "fix": "Add a dedicated about/bio page and link it from the navigation", "url": "https://djurbant.com", "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."}, {"layer": "O", "severity": "medium", "check": "expected-page", "detail": "no 'events' page found (looked for: event, gig, tour, dates)", "fix": "Add a dedicated events page and link it from the navigation", "url": "https://djurbant.com", "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."}, {"layer": "O", "severity": "medium", "check": "keyword-targeting", "detail": "primary keyword 'bass house DJ London' not in homepage title/H1", "fix": "Map each primary keyword to one page and use it in title + H1", "url": "https://djurbant.com", "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1)."}, {"layer": "P", "severity": "medium", "check": "tbt-inp-proxy", "detail": "TBT 1008ms (INP risk)", "fix": "Remove unused apps/widgets and third-party scripts", "url": null, "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."}, {"layer": "O", "severity": "low", "check": "alt-text", "detail": "1/3 images lack alt", "fix": "Describe images; include service/location naturally", "url": "https://djurbant.com/", "how": "Media Library \u2192 image \u2192 Alternative Text."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "alt-text", "detail": "1/3 images lack alt", "fix": "Describe images; include service/location naturally", "url": "https://djurbant.com/hello-world/", "how": "Media Library \u2192 image \u2192 Alternative Text."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/hello-world/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/sample-page/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/video/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/audio/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/contact/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/map/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "h1", "detail": "2 H1s", "fix": "Use one H1 per page", "url": "https://djurbant.com/admin/", "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/admin/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/category/uncategorized/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/author/charles/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "h1", "detail": "2 H1s", "fix": "Use one H1 per page", "url": "https://djurbant.com/wp-admin/", "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/wp-admin/", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "O", "severity": "low", "check": "h1", "detail": "2 H1s", "fix": "Use one H1 per page", "url": "https://djurbant.com/wp-login.php", "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."}, {"layer": "O", "severity": "low", "check": "og-image", "detail": "no og:image", "fix": "Set a share image (1200\u00d7630)", "url": "https://djurbant.com/wp-login.php", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."}, {"layer": "A", "severity": "low", "check": "llms.txt", "detail": "missing", "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)", "url": null, "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details)."}], "pages": [{"url": "https://djurbant.com/", "status": 200, "bytes": 63556, "title": "DJ UrbanT \u2013 Bass House. Tech House. Live Sets.", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": [], "h2_count": 4, "canonical": "https://djurbant.com/", "lang": "en-US", "words": 55, "img_total": 3, "img_no_alt": 1, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/hello-world/", "status": 200, "bytes": 61411, "title": "Hello world! \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Hello world!"], "h2_count": 1, "canonical": "https://djurbant.com/hello-world/", "lang": "en-US", "words": 134, "img_total": 3, "img_no_alt": 1, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/sample-page/", "status": 200, "bytes": 58276, "title": "Sample Page \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Sample Page"], "h2_count": 0, "canonical": "https://djurbant.com/sample-page/", "lang": "en-US", "words": 188, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/video/", "status": 200, "bytes": 54053, "title": "Video \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Video"], "h2_count": 0, "canonical": "https://djurbant.com/video/", "lang": "en-US", "words": 14, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/audio/", "status": 200, "bytes": 53737, "title": "Audio \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Audio"], "h2_count": 0, "canonical": "https://djurbant.com/audio/", "lang": "en-US", "words": 14, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/contact/", "status": 200, "bytes": 64113, "title": "Contact \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Contact DJ UrbanT"], "h2_count": 0, "canonical": "https://djurbant.com/contact/", "lang": "en-US", "words": 51, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/map/", "status": 200, "bytes": 51067, "title": "Map \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["DJ UrbanT \u2014 Map"], "h2_count": 3, "canonical": "https://djurbant.com/map/", "lang": "en-US", "words": 72, "img_total": 6, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/admin/", "status": 200, "bytes": 7970, "title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "description": "", "robots": "max-image-preview:large, noindex, noarchive", "og_image": "", "og_description": "", "h1": ["Log In", "Powered by WordPress"], "h2_count": 0, "canonical": "", "lang": "en-US", "words": 51, "img_total": 0, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/category/uncategorized/", "status": 200, "bytes": 56909, "title": "Uncategorized \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Uncategorized"], "h2_count": 1, "canonical": "", "lang": "en-US", "words": 60, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/author/charles/", "status": 200, "bytes": 57221, "title": "Charles \u2013 DJ UrbanT", "description": "", "robots": "max-image-preview:large", "og_image": "", "og_description": "", "h1": ["Author: Charles"], "h2_count": 1, "canonical": "", "lang": "en-US", "words": 61, "img_total": 2, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/wp-admin/", "status": 200, "bytes": 7601, "title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "description": "", "robots": "max-image-preview:large, noindex, noarchive", "og_image": "", "og_description": "", "h1": ["Log In", "Powered by WordPress"], "h2_count": 0, "canonical": "", "lang": "en-US", "words": 51, "img_total": 0, "img_no_alt": 0, "ld_types": [], "pdf_links": []}, {"url": "https://djurbant.com/wp-login.php", "status": 200, "bytes": 7602, "title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "description": "", "robots": "max-image-preview:large, noindex, noarchive", "og_image": "", "og_description": "", "h1": ["Log In", "Powered by WordPress"], "h2_count": 0, "canonical": "", "lang": "en-US", "words": 51, "img_total": 0, "img_no_alt": 0, "ld_types": [], "pdf_links": []}]}, "competitors": null, "citations": {"run": "2026-09-15T08:27", "summary": {"ok": 0, "mismatch": 0, "unreachable": 0, "manual": 0}, "listings": [], "gaps": {"music": ["Spotify", "Apple Music", "SoundCloud", "Mixcloud", "Beatport", "Bandcamp", "Resident Advisor", "Discogs", "MusicBrainz", "1001Tracklists"], "identity": ["Wikidata", "Instagram", "TikTok", "YouTube"]}}, "fixes": {"schema": {"@context": "https://schema.org", "@type": "Person", "@id": "https://djurbant.com/#entity", "name": "DJ UrbanT", "url": "https://djurbant.com/", "description": "DJ UrbanT is a London bass house and tech house DJ; djurbant.com is the brand and booking hub.", "sameAs": ["https://www.instagram.com/_urbant_/"]}, "pages": [{"url": "https://djurbant.com/", "current_title": "DJ UrbanT \u2013 Bass House. Tech House. Live Sets.", "title": "Bass house DJ London | DJ UrbanT", "description": "Bass house DJ London at DJ UrbanT. Listen, see upcoming dates and get in touch for bookings.", "h1": "Bass house DJ London", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/hello-world/", "current_title": "Hello world! \u2013 DJ UrbanT", "title": "Hello World! | DJ UrbanT", "description": "Hello World! at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Hello World!", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/sample-page/", "current_title": "Sample Page \u2013 DJ UrbanT", "title": "Sample Page | DJ UrbanT", "description": "Sample Page at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Sample Page", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/video/", "current_title": "Video \u2013 DJ UrbanT", "title": "Video | DJ UrbanT", "description": "Video at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Video", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/audio/", "current_title": "Audio \u2013 DJ UrbanT", "title": "Audio | DJ UrbanT", "description": "Audio at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Audio", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/contact/", "current_title": "Contact \u2013 DJ UrbanT", "title": "Contact Dj Urbant | DJ UrbanT", "description": "Contact Dj Urbant at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Contact Dj Urbant", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/map/", "current_title": "Map \u2013 DJ UrbanT", "title": "Dj Urbant \u2014 Map | DJ UrbanT", "description": "Dj Urbant \u2014 Map at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Dj Urbant \u2014 Map", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/admin/", "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "title": "Log In | DJ UrbanT", "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Log In", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/category/uncategorized/", "current_title": "Uncategorized \u2013 DJ UrbanT", "title": "Uncategorized | DJ UrbanT", "description": "Uncategorized at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Uncategorized", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/author/charles/", "current_title": "Charles \u2013 DJ UrbanT", "title": "Author: Charles | DJ UrbanT", "description": "Author: Charles at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Author: Charles", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/wp-admin/", "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "title": "Log In | DJ UrbanT", "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Log In", "source": "DRAFT (rule-based)"}, {"url": "https://djurbant.com/wp-login.php", "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress", "title": "Log In | DJ UrbanT", "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.", "h1": "Log In", "source": "DRAFT (rule-based)"}], "steps": {"schema-missing": {"fix": "Add JSON-LD for Person (see schema/ templates)", "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode).", "count": 1, "severity": "critical"}, "meta-description": {"fix": "Write a 140\u2013160 char description with a call to action", "how": "Yoast/Rank Math panel \u2192 Meta description.", "count": 12, "severity": "high"}, "h1": {"fix": "Add exactly one descriptive H1 containing the primary topic", "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title).", "count": 4, "severity": "high"}, "placeholder-text": {"fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)", "how": "Search the Elementor templates and pages for the demo text and replace it with real copy.", "count": 4, "severity": "high"}, "noindex": {"fix": "Remove noindex or drop from sitemap", "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off.", "count": 3, "severity": "high"}, "extractable-text": {"fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)", "how": null, "count": 1, "severity": "high"}, "lcp": {"fix": "Compress/preload hero image, cut render-blocking JS", "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading).", "count": 1, "severity": "high"}, "thin-content": {"fix": "Expand with useful, specific text (services, FAQs, proof)", "how": "Add sections in Elementor; Yoast readability/word count helps.", "count": 12, "severity": "medium"}, "title-length": {"fix": "Aim for 30\u201360 chars: primary keyword + location/brand", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.", "count": 7, "severity": "medium"}, "duplicate-title": {"fix": "Make titles unique", "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.", "count": 1, "severity": "medium"}, "expected-page": {"fix": "Add a dedicated about/bio page and link it from the navigation", "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus.", "count": 2, "severity": "medium"}, "keyword-targeting": {"fix": "Map each primary keyword to one page and use it in title + H1", "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).", "count": 1, "severity": "medium"}, "tbt-inp-proxy": {"fix": "Remove unused apps/widgets and third-party scripts", "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets.", "count": 1, "severity": "medium"}, "alt-text": {"fix": "Describe images; include service/location naturally", "how": "Media Library \u2192 image \u2192 Alternative Text.", "count": 2, "severity": "low"}, "og-image": {"fix": "Set a share image (1200\u00d7630)", "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics.", "count": 12, "severity": "low"}, "llms.txt": {"fix": "Optional: publish /llms.txt (cheap, low evidence of impact)", "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details).", "count": 1, "severity": "low"}}, "llms_summary": "DJ UrbanT DJ UrbanT is a London bass house and tech house DJ; djurbant.com is the brand and booking hub.", "questions": ["Who is DJ UrbanT?", "How do I book DJ UrbanT?"]}, "integrations": null, "ai_summary": {"months": [], "top_other_sources": [], "pending_checks": 8, "prompts": ["bass house DJs in London to book", "who is DJ UrbanT"], "engines": ["ChatGPT", "Perplexity", "Gemini", "Google AI Mode"]}, "ai_rows": [{"date": "2026-09-15", "engine": "ChatGPT", "prompt": "bass house DJs in London to book", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Perplexity", "prompt": "bass house DJs in London to book", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Gemini", "prompt": "bass house DJs in London to book", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Google AI Mode", "prompt": "bass house DJs in London to book", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "ChatGPT", "prompt": "who is DJ UrbanT", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Perplexity", "prompt": "who is DJ UrbanT", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Gemini", "prompt": "who is DJ UrbanT", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}, {"date": "2026-09-15", "engine": "Google AI Mode", "prompt": "who is DJ UrbanT", "mentioned": "", "cited": "", "position": "", "cited_sources": "", "notes": "", "method": "manual"}]}], "modules": {"ecommerce": "Ecommerce", "generic": "Generic", "local_business": "Local business", "personal_brand": "Personal / artist brand (DJ, musician, creator)", "publisher": "Publisher / content site", "saas": "SaaS / software"}, "fixpacks": {"nextjs": 29, "wix": 33, "wordpress": 36}};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+};
+const band = v => v == null ? ["s-na","Not measured","var(--ink-3)"] : v >= 90 ? ["s-good","Good","var(--good)"] : v >= 50 ? ["s-warn","Needs work","var(--warn)"] : ["s-bad","Poor","var(--bad)"];
+const LCODE = {"Technical":"T","On-page":"O","Structured data":"S","Entity / NAP":"E","AI search readiness":"A","Performance":"P"};
+const LFULL = {T:"Technical",O:"On-page",S:"Structured data",E:"Entity / NAP",A:"AI search",P:"Performance"};
+const SEVS = ["critical","high","medium","low"], SEVCLS = {critical:"s-bad",high:"s-bad",medium:"s-warn",low:"s-low"};
+const tip = $("#tip");
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 1800); }
+function copy(text, msg){ (navigator.clipboard?.writeText(text) || Promise.reject()).then(() => toast(msg), () => toast("Select the text and copy it manually")); }
+function bindTips(root){
+  root.querySelectorAll("[data-tip]").forEach(el => {
+    el.addEventListener("mousemove", e => { tip.hidden = false; tip.textContent = el.dataset.tip;
+      tip.style.left = Math.min(e.clientX + 14, innerWidth - 270) + "px"; tip.style.top = (e.clientY + 14) + "px"; });
+    el.addEventListener("mouseleave", () => tip.hidden = true);
+  });
+}
+const rel = (url, base) => { const p = (url || "").replace(base, "") || "/"; return p.length > 44 ? p.slice(0, 42) + "…" : p; };
+
+/* tabs */
+const TABS = ["overview","fixes","offsite","competitors","template","roadmap"];
+function showTab(id){
+  document.querySelectorAll("nav.tabs button").forEach(x => x.setAttribute("aria-selected", x.dataset.tab === id));
+  TABS.forEach(t => $("#" + t).hidden = t !== id);
+  store.set("soe-tab", id);
+}
+document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+
+/* project switcher */
+const projects = DATA.projects;
+$("#proj").innerHTML = projects.map(p => `<option value="${esc(p.slug)}">${esc(p.name)} · ${esc(p.url.replace(/^https?:\/\/(www\.)?/, ""))}</option>`).join("");
+let P = projects.find(p => p.slug === store.get("soe-proj")) || projects[0];
+$("#proj").value = P.slug;
+$("#proj").addEventListener("change", e => { P = projects.find(p => p.slug === e.target.value); store.set("soe-proj", P.slug); render(); });
+
+let fs = "all", fl = "all";
+
+function render(){
+  const A = P.audit, base = A.site;
+  $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length > 1 ? "s" : ""} · latest run ${P.latest}`;
+  $("#projmeta").textContent = `${P.module || P.type} · ${P.platform}`;
+
+  /* score + trend */
+  $("#scoreDate").textContent = `SOE score · ${P.latest}`;
+  $("#score").innerHTML = `${A.score}<small>/100</small>`;
+  $("#scoreBar").style.width = A.score + "%";
+  $("#scoreBar").style.background = band(A.score)[2];
+  const runs = P.runs, W = 260, H = 64, pad = 8;
+  const x = i => runs.length === 1 ? W / 2 : pad + i * (W - 2 * pad) / (runs.length - 1);
+  const y = v => H - 14 - (v / 100) * (H - 24);
+  const pts = runs.map((r, i) => `${x(i)},${y(r.score)}`).join(" ");
+  $("#trend").innerHTML = `
+    <line x1="0" x2="${W}" y1="${y(50)}" y2="${y(50)}" stroke="var(--line)" stroke-dasharray="2 3"/>
+    <line x1="0" x2="${W}" y1="${y(90)}" y2="${y(90)}" stroke="var(--line)" stroke-dasharray="2 3"/>
+    ${runs.length > 1 ? `<polygon points="${x(0)},${H-14} ${pts} ${x(runs.length-1)},${H-14}" fill="var(--accent-soft)"/><polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2"/>` : ""}
+    ${runs.map((r, i) => `<circle cx="${x(i)}" cy="${y(r.score)}" r="${i === runs.length - 1 ? 4 : 2.5}" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"><title>${r.date}: ${r.score}</title></circle>`).join("")}
+    <text x="0" y="${H-2}">${runs[0].date}</text>
+    <text x="${W}" y="${H-2}" text-anchor="end">${runs.length > 1 ? runs[runs.length-1].date : "1 run so far"}</text>`;
+
+  const m = A.meta || {}, ai = m.ai_bots_blocked || {};
+  const blocked = [...(ai.search || [])];
+  $("#kv").innerHTML = [
+    ["Pages crawled", A.pages.length], ["Findings", A.findings.length],
+    ["Schema found", (m.schema_types || []).join(", ") || "none"],
+    ["AI search bots blocked", blocked.length ? blocked.join(", ") : "none"],
+    ["llms.txt", m.llms_txt ? "present" : "missing"],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+
+  /* layers */
+  $("#layers").innerHTML = Object.entries(A.layers).map(([k, v]) => {
+    const [cls, lbl, col] = band(v);
+    const n = A.findings.filter(f => f.layer === LCODE[k]).length;
+    return `<div class="layer" data-tip="${esc(k)}: ${v ?? "n/a"}/100 · ${n} finding${n === 1 ? "" : "s"}">
+      <span class="code">${LCODE[k]}</span><span>${esc(k)}</span>
+      <span class="track"><span class="tick" style="left:50%"></span><span class="tick" style="left:90%"></span><i style="width:${v ?? 0}%;background:${col}"></i></span>
+      <span class="val">${v ?? "—"}</span><span class="chip ${cls}">${lbl}</span></div>`;
+  }).join("");
+  bindTips($("#layers"));
+
+  /* lighthouse */
+  const lh = m.lighthouse;
+  $("#lhWrap").hidden = !lh;
+  if (lh) {
+    const lab = lh.lab;
+    $("#lhRuns").textContent = (m.lighthouse_runs?.length > 1 ? `median of ${m.lighthouse_runs.length} runs (performance ${m.lighthouse_runs.join(" / ")}) · ` : "") + "targets: LCP ≤ 2.5 s · INP ≤ 200 ms · CLS ≤ 0.1";
+    const t3 = (v, a, b) => v <= a ? ["s-good","Good"] : v <= b ? ["s-warn","Needs work"] : ["s-bad","Poor"];
+    const cells = [
+      ["Performance", lh.scores.performance, "", band(lh.scores.performance)],
+      ["Accessibility", lh.scores.accessibility, "", band(lh.scores.accessibility)],
+      ["Best practices", lh.scores["best-practices"], "", band(lh.scores["best-practices"])],
+      ["SEO", lh.scores.seo, "", band(lh.scores.seo)],
+      ["LCP", (lab["largest-contentful-paint"] / 1000).toFixed(1), " s", t3(lab["largest-contentful-paint"], 2500, 4000)],
+      ["TBT (INP proxy)", Math.round(lab["total-blocking-time"]), " ms", t3(lab["total-blocking-time"], 200, 600)],
+      ["CLS", lab["cumulative-layout-shift"].toFixed(2), "", t3(lab["cumulative-layout-shift"], 0.1, 0.25)],
+    ];
+    $("#lh").innerHTML = cells.map(([l, v, u, [c, t]]) => `<div><small>${l}</small><b>${v}<span style="font-size:14px;color:var(--ink-3)">${u}</span></b><span class="chip ${c}">${t}</span></div>`).join("");
+  }
+
+  /* integrations */
+  const I = (P.integrations || {}).results || {};
+  const INT = [
+    ["crux", "Real-user speed (CrUX)", "CRUX_API_KEY", r => { const o = r.origin || {}; if (o.no_data) return "No real-user data for this site yet";
+      const f = (m, u, d) => o[m]?.p75 != null ? `${m.split("_").map(w => w[0].toUpperCase()).join("")} ${(o[m].p75 / d).toFixed(u)}${d > 1 ? "s" : ""} (${o[m].rating})` : "";
+      return [f("largest_contentful_paint", 1, 1000), f("interaction_to_next_paint", 0, 1), f("cumulative_layout_shift", 2, 1)].filter(Boolean).join(" · "); }],
+    ["gsc", "Search Console", "GSC_SERVICE_ACCOUNT_JSON", r => r.totals ? `${r.totals.clicks} clicks · ${r.totals.impressions} impressions` : "Connected"],
+    ["dataforseo", "Rankings & AI Overviews", "DATAFORSEO_LOGIN", r => r.keywords ? `${r.keywords.length} keywords tracked` : "Connected"],
+    ["gbp", "Business Profile", "GBP_OAUTH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
+  ];
+  $("#intg").innerHTML = INT.map(([k, label, env, fmt]) => {
+    const r = I[k];
+    const [cls, txt, sub] = r == null ? ["s-na", "Not connected", `set ${env}`] : r.error ? ["s-bad", "Error", String(r.error).slice(0, 80)] : ["s-good", "Connected", fmt(r)];
+    return `<div><strong>${label}</strong><span class="chip ${cls}">${txt}</span><code>${esc(sub)}</code></div>`;
+  }).join("");
+
+  /* findings */
+  renderFindings();
+
+  /* pages */
+  $("#ptbody").innerHTML = A.pages.map(p => `<tr>
+    <td><span class="path">${esc(rel(p.url, base))}</span></td>
+    <td>${esc(p.title)}</td>
+    <td>${p.description ? '<span class="chip s-good">Set</span>' : '<span class="chip s-bad">Missing</span>'}</td>
+    <td>${p.h1.length ? '<span class="chip s-good">' + p.h1.length + '</span>' : '<span class="chip s-bad">None</span>'}</td>
+    <td class="num" style="text-align:right">${p.words}</td>
+    <td class="mono" style="font-size:12px">${esc((p.ld_types || []).join(", "))}</td></tr>`).join("");
+
+  renderFixes(base);
+  renderOffsite();
+  renderCompetitors();
+  checklist($("#manual"), `soe-manual-${P.slug}`, [
+    "Business Profile: primary category, all services, hours incl. holidays, 10+ recent photos, a post in the last 14 days, booking link",
+    "Business name, address and phone identical on the site, Business Profile, Bing, Apple, social, booking platform and directories",
+    "Old or duplicate listings and old domains found and fixed or redirected",
+    "Reviews: count, rating, last 30 days, reply rate",
+    "Competitors: review count and rating, categories, what they rank for",
+    "AI answers: fill in this month's rows in the AI log",
+    "Backlinks and mentions: local press, business-improvement district, suppliers, partners",
+  ]);
+  $("#foot").textContent = `Data: soe_audit.py run ${A.run} against ${base} · ${A.pages.length} pages. Generated by soe_dashboard.py.`;
+}
+
+function renderFindings(){
+  const A = P.audit, F = A.findings;
+  const sc = s => F.filter(f => s === "all" || f.severity === s).length;
+  if (fs !== "all" && !sc(fs)) fs = "all";
+  if (fl !== "all" && !F.some(f => f.layer === fl)) fl = "all";
+  $("#fSev").innerHTML = ["all", ...SEVS].filter(s => sc(s)).map(s =>
+    `<button aria-pressed="${fs === s}" data-s="${s}">${s === "all" ? "All severities" : s[0].toUpperCase() + s.slice(1)} · ${sc(s)}</button>`).join("");
+  $("#fLayer").innerHTML = ["all", "T", "O", "S", "E", "A", "P"].filter(l => l === "all" || F.some(f => f.layer === l)).map(l =>
+    `<button aria-pressed="${fl === l}" data-l="${l}">${l === "all" ? "All layers" : LFULL[l]}</button>`).join("");
+  $("#fSev").querySelectorAll("button").forEach(b => b.onclick = () => { fs = b.dataset.s; renderFindings(); });
+  $("#fLayer").querySelectorAll("button").forEach(b => b.onclick = () => { fl = b.dataset.l; renderFindings(); });
+  const rows = F.filter(f => (fs === "all" || f.severity === fs) && (fl === "all" || f.layer === fl));
+  $("#fcount").textContent = `${rows.length} of ${F.length} shown`;
+  $("#ftbody").innerHTML = rows.map(f => `<tr data-sev="${f.severity}">
+    <td class="sev"><span class="chip ${SEVCLS[f.severity]}">${f.severity}</span></td>
+    <td class="mono">${LFULL[f.layer]}</td>
+    <td><strong>${esc(f.check)}</strong><br><span class="muted">${esc(f.detail)}</span></td>
+    <td>${esc(f.fix)}${f.how ? `<details class="how"><summary>How on ${esc(P.platform)}</summary><p>${esc(f.how)}</p></details>` : ""}</td>
+    <td><span class="path">${esc(rel(f.url, A.site))}</span></td></tr>`).join("");
+}
+
+function checklist(el, key, items, countEl){
+  const done = store.get(key, {});
+  const upd = () => { if (countEl) countEl.textContent = `${items.filter((_, i) => done[i]).length} of ${items.length} done`; };
+  el.innerHTML = items.map((t, i) => `<div class="check"><input type="checkbox" id="${key}-${i}" ${done[i] ? "checked" : ""}><label for="${key}-${i}">${t}</label></div>`).join("");
+  el.querySelectorAll("input").forEach((c, i) => c.onchange = () => { done[i] = c.checked; store.set(key, done); upd(); });
+  upd();
+}
+
+function renderFixes(base){
+  const X = P.fixes;
+  if (!X) { $("#checklist").innerHTML = '<p class="muted">Run soe_fixes.py to generate the fix pack.</p>'; return; }
+  const order = {critical: 0, high: 1, medium: 2, low: 3};
+  const steps = Object.entries(X.steps).sort((a, b) => order[a[1].severity] - order[b[1].severity]);
+  const items = [
+    ...X.pages.filter(p => p.source !== "DRAFT (rule-based)").map(p => `<span class="chip s-low">copy</span> Update <span class="mono">${esc(rel(p.url, base))}</span>: title, description and H1 below${p.new_url ? ` · rename to <span class="mono">${esc(p.new_url)}</span> with a 301` : ""}`),
+    ...steps.map(([k, v]) => `<span class="chip ${SEVCLS[v.severity]}">${v.severity}</span> <strong>${esc(k)}</strong>${v.count > 1 ? ` ×${v.count}` : ""} — ${esc(v.fix)}${v.how ? `<details class="how"><summary>How on ${esc(P.platform)}</summary><p>${esc(v.how)}</p></details>` : ""}`),
+  ];
+  checklist($("#checklist"), `soe-fix-${P.slug}-${P.latest}`, items, $("#ckcount"));
+  const pageBy = Object.fromEntries(P.audit.pages.map(p => [p.url.replace(/\/$/, ""), p]));
+  const drafted = X.pages.some(p => p.source === "DRAFT (rule-based)");
+  $("#copysrc").textContent = drafted ? "some copy is a rule-based draft — ask Claude to rewrite it" : "copy written by Claude · review before publishing";
+  $("#serps").innerHTML = X.pages.map(p => {
+    const cur = pageBy[p.url.replace(/\/$/, "")] || {};
+    const u = p.url.replace(/^https?:\/\//, "");
+    return `<div class="serp-pair">
+      <div class="stack" style="gap:6px"><span class="tag" style="color:var(--bad)">Now</span>
+        <div class="serp"><span class="u">${esc(u)}</span><span class="t">${esc(cur.title || p.current_title)}</span>
+        ${cur.description ? `<span class="d">${esc(cur.description)}</span>` : '<span class="d empty">No meta description — Google picks text from the page</span>'}
+        <span class="h">H1: ${esc((cur.h1 || []).join(" / ") || "none")}</span></div></div>
+      <div class="stack" style="gap:6px"><span class="tag" style="color:var(--good)">Proposed${p.source === "DRAFT (rule-based)" ? " · draft" : ""}</span>
+        <div class="serp"><span class="u">${esc(p.new_url ? base.replace(/^https?:\/\//, "") + p.new_url : u)}</span><span class="t">${esc(p.title)}</span>
+        <span class="d">${esc(p.description)}</span><span class="h">H1: ${esc(p.h1)} · ${p.title.length} / ${p.description.length} chars</span></div></div></div>`;
+  }).join("");
+  const js = JSON.stringify(X.schema, null, 2);
+  $("#schema").textContent = js;
+  $("#copySchema").onclick = () => copy(`<script type="application/ld+json">\n${js}\n<\/script>`, "JSON-LD copied");
+  $("#llms").textContent = X.llms_summary;
+  $("#copyLlms").onclick = () => copy(X.llms_summary, "Summary copied");
+  $("#qs").innerHTML = (X.questions || []).map(q => `<li>${esc(q)}</li>`).join("") || "<li class='muted'>Add keywords.questions to the settings file</li>";
+}
+
+function renderOffsite(){
+  const C = P.citations;
+  const SC = {ok: ["s-good", "Matches"], mismatch: ["s-bad", "Mismatch"], unreachable: ["s-warn", "Unreachable"], manual: ["s-na", "Check by hand"]};
+  if (C) {
+    $("#citsum").textContent = Object.entries(C.summary).filter(([, v]) => v).map(([k, v]) => `${SC[k][1].toLowerCase()} ${v}`).join(" · ") || "no listings in the settings file";
+    $("#cittbody").innerHTML = C.listings.map(r => `<tr><td><span class="chip ${SC[r.status][0]}">${SC[r.status][1]}</span></td>
+      <td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a></td><td>${esc(r.detail)}</td><td class="muted">${esc(r.note)}</td></tr>`).join("")
+      || `<tr><td colspan="4" class="muted">No listings yet — add them under citations: in the settings file.</td></tr>`;
+    $("#gaps").innerHTML = Object.entries(C.gaps).map(([g, l]) => `<div class="row" style="align-items:baseline;gap:12px"><span class="eyebrow" style="min-width:110px">${esc(g.replace(/_/g, " "))}</span><div class="chips">${l.map(d => `<span>${esc(d)}</span>`).join("")}</div></div>`).join("");
+  }
+  const rows = P.ai_rows || [], engines = P.engines.length ? P.engines : [...new Set(rows.map(r => r.engine))];
+  const latest = {};
+  rows.forEach(r => { const k = r.prompt + "|" + r.engine; if (!latest[k] || r.date >= latest[k].date) latest[k] = r; });
+  $("#aihead").innerHTML = `<tr><th>Prompt</th>${engines.map(e => `<th style="text-align:center">${esc(e)}</th>`).join("")}</tr>`;
+  $("#aibody").innerHTML = P.prompts.map(p => `<tr><td>${esc(p)}</td>${engines.map(e => {
+    const r = latest[p + "|" + e];
+    if (!r || !r.mentioned) return `<td class="cell"><span class="mk s-na">To check</span></td>`;
+    const [c, t] = r.cited === "y" ? ["s-good", "Cited"] : r.mentioned === "y" ? ["s-warn", "Mentioned"] : ["s-bad", "Absent"];
+    return `<td class="cell"><span class="mk ${c}" title="${esc(r.date)} · ${esc(r.cited_sources)}">${t}</span></td>`;
+  }).join("")}</tr>`).join("");
+  const S = P.ai_summary || {}, last = (S.months || []).slice(-1)[0];
+  $("#aisum").textContent = last ? `${last.month}: mentioned in ${Math.round(last.mention_rate * 100)}% · cited in ${Math.round(last.citation_rate * 100)}%` : `${S.pending_checks ?? 0} checks waiting`;
+  const others = (S.top_other_sources || []).slice(0, 6).map(([d, n]) => `${d} (${n})`).join(", ");
+  $("#ainote").textContent = (others ? `Sources cited instead of us: ${others}. These are the listings and sites to get onto. ` : "") +
+    "Fill the log in data/" + P.slug + "/ai_log.csv (soe_ai_log.py init adds this month's rows); ChatGPT and Perplexity fill in automatically once their API keys are set.";
+}
+
+function renderCompetitors(){
+  const C = (P.competitors || []).filter(c => c.score != null);
+  const A = P.audit;
+  $("#cmpByLayer").parentElement.hidden = !C.length;
+  if (!C.length) { $("#cmp").innerHTML = '<p class="muted">Add competitors with URLs to the settings file and run the audit with --competitors.</p>'; $("#cmphead").innerHTML = ""; $("#cmpbody").innerHTML = ""; return; }
+  // our score without performance, so the comparison is like for like
+  const noP = l => { const w = {Technical: 20, "On-page": 20, "Structured data": 15, "Entity / NAP": 15, "AI search readiness": 15};
+    let s = 0, t = 0; for (const k in w) if (l[k] != null) { s += l[k] * w[k]; t += w[k]; } return Math.round(s / t); };
+  const list = [{name: `${P.name} (this site)`, score: noP(A.layers), layers: A.layers, us: true}, ...C.map(c => ({...c, score: noP(c.layers)}))].sort((a, b) => b.score - a.score);
+  $("#cmp").innerHTML = list.map(r => `<div class="r ${r.us ? "us" : ""}" data-tip="${esc(r.name)}: ${r.score}/100 (excl. speed)${r.home_title ? " · home title: " + esc(r.home_title) : ""}">
+    <span>${esc(r.name)}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
+  bindTips($("#cmp"));
+  const L = ["Technical", "On-page", "Structured data", "Entity / NAP", "AI search readiness"];
+  const heat = v => { const [c] = band(v); return `<div class="heat ${c}">${v ?? "—"}</div>`; };
+  $("#cmphead").innerHTML = `<tr><th>Site</th>${L.map(l => `<th style="text-align:center">${LCODE[l]} · ${l.split(" ")[0]}</th>`).join("")}<th>Schema types</th></tr>`;
+  $("#cmpbody").innerHTML = list.map(r => `<tr><td>${r.us ? "<strong>" : ""}${esc(r.name)}${r.us ? "</strong>" : ""}${r.url ? `<br><span class="path">${esc(r.url.replace(/^https?:\/\//, ""))}</span>` : ""}</td>
+    ${L.map(l => `<td>${heat(r.layers[l])}</td>`).join("")}<td class="mono" style="font-size:12px">${esc(((r.us ? A.meta.schema_types : r.schema) || []).filter(t => /Business|Salon|Organization|Person|Product|Software/.test(t)).join(", ") || "—")}</td></tr>`).join("");
+}
+
+/* static template content */
+$("#lcards").innerHTML = [
+  ["T","Technical","Can engines crawl and index every important URL?","audit script"],
+  ["O","On-page","Does each page clearly target one search intent?","audit script"],
+  ["S","Structured data","Do machines know what the business or product is?","audit script + fix pack"],
+  ["E","Entity / NAP","Are name, address and phone identical everywhere?","audit + listings checker"],
+  ["A","AI search readiness","Can answer engines fetch, understand and quote us?","audit + AI log"],
+  ["P","Performance","Do Core Web Vitals pass?","Lighthouse ×3 + CrUX"],
+].map(([c,n,q,h]) => `<div class="lcard"><div class="row" style="gap:12px"><span class="code">${c}</span><h3>${n}</h3></div><p>${q}</p><span class="how">measured by: ${h}</span></div>`).join("");
+$("#phases").innerHTML = [
+  ["Phase 0<br><span class='muted' style='font-weight:400'>once · ~1 h</span>", ["Fill in the settings file (or let /soe draft it)","Verify Search Console + Bing Webmaster","Claim Business Profile, Bing Places, Apple (local)","Baseline: audit, competitors, listings, AI log"]],
+  ["Phase 1<br><span class='muted' style='font-weight:400'>weeks 1–2</span>", ["Work the fix checklist: critical and high first","Paste the JSON-LD and page copy"]],
+  ["Phase 2<br><span class='muted' style='font-weight:400'>weeks 2–6</span>", ["One page per money keyword","Visible Q&amp;A answering real questions","Prices and specs as HTML, not PDF","Fix mismatched listings"]],
+  ["Phase 3<br><span class='muted' style='font-weight:400'>ongoing</span>", ["Reviews + replies","Fill directory gaps and win mentions","Fresh posts, photos, video","IndexNow on publish"]],
+  ["Phase 4<br><span class='muted' style='font-weight:400'>monthly</span>", ["GitHub Action re-runs everything","Dashboard republishes with the trend","Fill the AI log"]],
+].map(([h, l]) => `<div class="phase"><h3>${h}</h3><ul>${l.map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("");
+$("#mods").innerHTML = Object.entries(DATA.modules).map(([k, v]) => `<div class="tier"><b style="font-size:12px">${esc(k)}</b><span>${esc(v)}</span><span class="mono muted" style="font-size:12px">modules/${esc(k)}.yaml</span></div>`).join("");
+$("#packs").innerHTML = Object.entries(DATA.fixpacks).map(([k, n]) => `<div class="tier"><b style="font-size:12px">${esc(k)}</b><span>${n} issue types with steps</span><span class="mono muted" style="font-size:12px">fixpacks/${esc(k)}.yaml</span></div>`).join("");
+$("#kit").innerHTML = [
+  ["PLAYBOOK.md","The method: layers, phases, automation tiers, manual checklist"],
+  ["soe_audit.py","Crawl + scoring → report.md, findings.json (--lighthouse --competitors --integrations)"],
+  ["soe_fixes.py","Fix pack: JSON-LD, page copy, platform steps, llms.txt summary"],
+  ["soe_citations.py","Checks off-site listings for name/address/phone; lists directory gaps"],
+  ["soe_ai_log.py","AI-answer log: monthly rows, API auto-fill, summary"],
+  ["soe_dashboard.py","Builds this page from every report"],
+  ["integrations/","CrUX, Search Console, DataForSEO, Business Profile, IndexNow (key-gated)"],
+  ["modules/ · fixpacks/","Site-type rules and platform steps"],
+  ["configs/ · projects/ · data/","One settings file, action plan, copy and AI log per site"],
+  [".github/workflows/","Monthly run of everything + dashboard rebuild"],
+].map(([a, b]) => `<tr><td class="mono">${a}</td><td>${b}</td></tr>`).join("");
+
+const RM = [
+  {s:"built", t:"Audit, playbook, settings, schema, monthly Action", w:"v1 kit.", e:"soe_audit.py"},
+  {s:"built", t:"Self-updating dashboard", w:"Rebuilt from every report, with a project switcher and score trend.", e:"soe_dashboard.py"},
+  {s:"built", t:"/soe skill", w:"One request runs the whole loop for any URL: settings, audit, fixes, dashboard.", e:"skill"},
+  {s:"built", t:"Fix generator", w:"JSON-LD from settings, Claude-written page copy, platform steps, llms.txt summary.", e:"soe_fixes.py"},
+  {s:"built", t:"AI visibility log", w:"Prompt × engine matrix; manual rows plus API auto-fill.", e:"soe_ai_log.py"},
+  {s:"key", t:"ChatGPT + Perplexity auto-checks", w:"Fills the AI log automatically.", e:"OPENAI_API_KEY · PERPLEXITY_API_KEY"},
+  {s:"key", t:"Search Console", w:"Clicks, impressions and positions per keyword.", e:"GSC_SERVICE_ACCOUNT_JSON"},
+  {s:"key", t:"Real-user speed (CrUX)", w:"Core Web Vitals from real visitors.", e:"CRUX_API_KEY (free)"},
+  {s:"built", t:"Competitor benchmark", w:"Same audit on each competitor; gap per layer.", e:"--competitors"},
+  {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; directory gaps per site type.", e:"soe_citations.py"},
+  {s:"built", t:"Site-type modules", w:"Local business, SaaS, ecommerce, publisher, personal/artist brand.", e:"modules/"},
+  {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},
+  {s:"key", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others (not possible on Wix).", e:"INDEXNOW_KEY"},
+  {s:"key", t:"Rank tracking, maps rank, AI Overview citations, volumes", w:"DataForSEO, capped at 20 keywords per run.", e:"DATAFORSEO_LOGIN (~£5–20/mo)"},
+  {s:"key", t:"Business Profile reviews and actions", w:"Needs Google API access approval, then an OAuth token.", e:"GBP_OAUTH_TOKEN"},
+  {s:"key", t:"Automatic copy drafting outside Claude", w:"Lets the GitHub Action draft copy with Claude.", e:"ANTHROPIC_API_KEY"},
+];
+let fp = "all";
+function renderRM(){
+  const lbl = {all: "All", built: "Built", key: "Needs a key"};
+  $("#fPrio").innerHTML = ["all","built","key"].map(p => `<button aria-pressed="${fp === p}" data-p="${p}">${lbl[p]} · ${RM.filter(r => p === "all" || r.s === p).length}</button>`).join("");
+  $("#fPrio").querySelectorAll("button").forEach(b => b.onclick = () => { fp = b.dataset.p; renderRM(); });
+  $("#rm").innerHTML = RM.filter(r => fp === "all" || r.s === fp).map(r => `<div class="ritem">
+    <div class="row"><h3>${r.t}</h3>${r.s === "built" ? '<span class="chip s-good">Built</span>' : '<span class="chip s-warn">Needs a key</span>'}</div>
+    <p class="why">${r.w}</p><span class="fx">${esc(r.e)}</span></div>`).join("");
+}
+renderRM();
+render();
+showTab(TABS.includes(store.get("soe-tab")) ? store.get("soe-tab") : "overview");
+</script>
