@@ -174,6 +174,19 @@ details.how p{font-size:13px;color:var(--ink-2);margin-top:4px;max-width:60ch}
 pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow-x:auto;font:12.5px/1.5 var(--mono);color:var(--ink);max-height:340px}
 .btn{font:600 13px var(--body);background:var(--accent);color:var(--surface);border:0;border-radius:6px;padding:7px 12px;cursor:pointer}
 .btn.ghost{background:none;color:var(--accent);border:1px solid var(--accent)}
+a.btn{text-decoration:none;display:inline-flex;align-items:center}
+dialog.add-site{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:0;width:min(580px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;box-shadow:0 18px 50px rgb(0 0 0 / .28)}
+dialog.add-site::backdrop{background:rgb(18 33 31 / .5)}
+.add-site .dlg-h{padding:20px 20px 0;display:flex;flex-direction:column;gap:6px}
+.add-site form{display:flex;flex-direction:column;gap:14px;padding:16px 20px 20px}
+.add-site label{display:flex;flex-direction:column;gap:5px;font:500 13.5px var(--body)}
+.add-site label .lbl{color:var(--ink-3);font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.add-site input,.add-site select,.add-site textarea{font:15px var(--body);background:var(--sunk);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%}
+.add-site textarea{min-height:64px;resize:vertical}
+.add-site .hint{font-size:12.5px;color:var(--ink-3)}
+.add-site .err{color:var(--bad);font-size:13px;min-height:1.2em}
+.add-site .actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.add-site pre.code{max-height:180px}
 .matrix td.cell{text-align:center}
 .mk{display:inline-block;min-width:74px;font:600 11.5px var(--body);padding:4px 6px;border-radius:4px}
 .cmp{display:flex;flex-direction:column;gap:10px}
@@ -201,10 +214,21 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
     </div>
     <div class="stack" style="gap:6px;align-items:flex-end">
       <label class="eyebrow" for="proj">Project</label>
-      <div class="switch"><span class="dot"></span><select id="proj"></select></div>
+      <div class="switch"><span class="dot"></span><select id="proj"></select>
+        <button type="button" class="btn" id="addSiteBtn">Add site</button></div>
       <span class="count" id="projmeta"></span>
     </div>
   </header>
+
+  <section id="pending" class="panel stack" hidden>
+    <span class="eyebrow">Waiting on the first audit</span>
+    <h2 id="pendingTitle">This site is in the kit, but has no report yet</h2>
+    <p class="muted" id="pendingBody" style="max-width:72ch"></p>
+    <div class="row">
+      <a class="btn" id="pendingRun" href="#" target="_blank" rel="noopener noreferrer">Run the first audit on GitHub</a>
+      <button type="button" class="btn ghost" id="pendingAdd">Add another site</button>
+    </div>
+  </section>
 
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-overview" aria-selected="true" data-tab="overview">Audit</button>
@@ -399,6 +423,48 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
 </div>
 <div id="tip" hidden></div>
 <div class="toast" id="toast" hidden></div>
+<dialog class="add-site" id="addSiteDlg" aria-labelledby="addSiteTitle">
+  <div class="dlg-h">
+    <span class="eyebrow">New project</span>
+    <h2 id="addSiteTitle">Add a site</h2>
+    <p class="muted">Creates the settings file for a new site. Download it, or send the same fields to the Add site GitHub Action, which writes the file and runs the first audit.</p>
+  </div>
+  <form id="addSiteForm" novalidate>
+    <label><span class="lbl">Site or brand name</span>
+      <input id="as-name" name="name" required autocomplete="organization" placeholder="Example Co"></label>
+    <label><span class="lbl">Site URL</span>
+      <input id="as-url" name="url" required inputmode="url" placeholder="https://www.example.com"></label>
+    <div class="grid g-2">
+      <label><span class="lbl">Type</span>
+        <select id="as-type" name="type"></select></label>
+      <label><span class="lbl">Platform</span>
+        <select id="as-platform" name="platform"></select></label>
+    </div>
+    <label><span class="lbl">Slug</span>
+      <input id="as-slug" name="slug" pattern="[a-z][a-z0-9-]{0,47}" placeholder="example" autocomplete="off">
+      <span class="hint">Folder and settings-file name. Filled from the URL; edit if you want a shorter one.</span></label>
+    <label><span class="lbl">One-line description</span>
+      <textarea id="as-desc" name="description" placeholder="What it is, where, for whom."></textarea></label>
+    <label><span class="lbl">Primary keywords</span>
+      <input id="as-kw" name="keywords" placeholder="hair salon Ealing, hairdresser Ealing Broadway">
+      <span class="hint">Comma-separated. Each one should map to a page.</span></label>
+    <div class="grid g-2" id="asBiz">
+      <label><span class="lbl">Phone</span>
+        <input id="as-phone" name="phone" placeholder="020 0000 0000" autocomplete="tel"></label>
+      <label><span class="lbl">Postcode</span>
+        <input id="as-postcode" name="postcode" placeholder="W5 2TD"></label>
+    </div>
+    <p class="err" id="as-err" role="alert"></p>
+    <span class="eyebrow">Settings file preview</span>
+    <pre class="code" id="as-preview"></pre>
+    <div class="actions">
+      <button type="button" class="btn ghost" id="as-cancel" value="cancel">Cancel</button>
+      <button type="button" class="btn ghost" id="as-copy">Copy YAML</button>
+      <button type="button" class="btn ghost" id="as-download">Download YAML</button>
+      <button type="submit" class="btn" id="as-github">Add on GitHub</button>
+    </div>
+  </form>
+</dialog>
 
 <script>
 const DATA = __DATA__;
@@ -427,23 +493,49 @@ const rel = (url, base) => { const p = (url || "").replace(base, "") || "/"; ret
 
 /* tabs */
 const TABS = ["overview","fixes","offsite","competitors","template","roadmap"];
+const AUDIT_TABS = ["overview","fixes","offsite","competitors"];
 function showTab(id){
   document.querySelectorAll("nav.tabs button").forEach(x => x.setAttribute("aria-selected", x.dataset.tab === id));
-  TABS.forEach(t => $("#" + t).hidden = t !== id);
+  const ready = !!(P && P.audit);
+  TABS.forEach(t => $("#" + t).hidden = t !== id || (!ready && AUDIT_TABS.includes(t)));
+  $("#pending").hidden = ready || !AUDIT_TABS.includes(id);
   store.set("soe-tab", id);
 }
 document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
 
 /* project switcher */
 const projects = DATA.projects;
-$("#proj").innerHTML = projects.map(p => `<option value="${esc(p.slug)}">${esc(p.name)} · ${esc(p.url.replace(/^https?:\/\/(www\.)?/, ""))}</option>`).join("");
-let P = projects.find(p => p.slug === store.get("soe-proj")) || projects[0];
-$("#proj").value = P.slug;
-$("#proj").addEventListener("change", e => { P = projects.find(p => p.slug === e.target.value); store.set("soe-proj", P.slug); render(); });
+const REPO = DATA.repo || "tigges/SOE";
+const runUrl = `https://github.com/${REPO}/actions/workflows/soe-run.yml`;
+const addUrl = `https://github.com/${REPO}/actions/workflows/add-site.yml`;
+$("#proj").innerHTML = projects.length
+  ? projects.map(p => `<option value="${esc(p.slug)}">${esc(p.name)} · ${esc(p.url.replace(/^https?:\/\/(www\.)?/, ""))}${p.audit ? "" : " (no audit yet)"}</option>`).join("")
+  : `<option value="">No sites yet</option>`;
+$("#proj").disabled = !projects.length;
+let P = projects.find(p => p.slug === store.get("soe-proj")) || projects[0] || null;
+if (P) $("#proj").value = P.slug;
+$("#proj").addEventListener("change", e => { P = projects.find(p => p.slug === e.target.value) || null; if (P) store.set("soe-proj", P.slug); render(); showTab(store.get("soe-tab") || "overview"); });
 
 let fs = "all", fl = "all";
 
 function render(){
+  if (!P || !P.audit) {
+    $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length === 1 ? "" : "s"}`;
+    $("#projmeta").innerHTML = P ? `${link(P.url, P.url.replace(/^https?:\/\//, ""))} · ${esc(P.module || P.type || "")} · ${esc(P.platform || "")}` : "Add a site to start";
+    $("#pendingTitle").textContent = P
+      ? `${P.name} is in the kit, but has no report yet`
+      : "No sites in this kit yet";
+    $("#pendingBody").textContent = P
+      ? `A settings file exists at configs/${P.slug}.yaml. Start the SOE run Action and set site to ${P.slug}. The dashboard republishes when that run finishes.`
+      : "Use Add site to draft a settings file, then run the Add site GitHub Action so the first audit lands on this page.";
+    const run = $("#pendingRun");
+    run.href = P ? runUrl : addUrl;
+    run.textContent = P ? "Run the first audit on GitHub" : "Open Add site on GitHub";
+    const tab = store.get("soe-tab") || "overview";
+    showTab(TABS.includes(tab) ? tab : "overview");
+    $("#foot").textContent = "Generated by soe_dashboard.py.";
+    return;
+  }
   const A = P.audit, base = A.site;
   $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length > 1 ? "s" : ""} · latest run ${P.latest}`;
   $("#projmeta").innerHTML = `${link(P.url, P.url.replace(/^https?:\/\//, ""))} · ${esc(P.module || P.type)} · ${esc(P.platform)}`;
@@ -547,6 +639,7 @@ function render(){
     "Backlinks and mentions: local press, business-improvement district, suppliers, partners",
   ]);
   $("#foot").textContent = `Data: soe_audit.py run ${A.run} against ${base} · ${A.pages.length} pages. Generated by soe_dashboard.py.`;
+  showTab(TABS.includes(store.get("soe-tab")) ? store.get("soe-tab") : "overview");
 }
 
 function renderGsc(G){
@@ -742,7 +835,7 @@ $("#lcards").innerHTML = [
   ["P","Performance","Do Core Web Vitals pass?","Lighthouse ×3 + CrUX"],
 ].map(([c,n,q,h]) => `<div class="lcard"><div class="row" style="gap:12px"><span class="code">${c}</span><h3>${n}</h3></div><p>${q}</p><span class="how">measured by: ${h}</span></div>`).join("");
 $("#phases").innerHTML = [
-  ["Phase 0<br><span class='muted' style='font-weight:400'>once · ~1 h</span>", ["Fill in the settings file (or let /soe draft it)","Verify Search Console + Bing Webmaster","Claim Business Profile, Bing Places, Apple (local)","Baseline: audit, competitors, listings, AI log"]],
+  ["Phase 0<br><span class='muted' style='font-weight:400'>once · ~1 h</span>", ["Add the site (Control Room → Add site, or soe_add_site.py)","Verify Search Console + Bing Webmaster","Claim Business Profile, Bing Places, Apple (local)","Baseline: audit, competitors, listings, AI log"]],
   ["Phase 1<br><span class='muted' style='font-weight:400'>weeks 1–2</span>", ["Work the fix checklist: critical and high first","Paste the JSON-LD and page copy"]],
   ["Phase 2<br><span class='muted' style='font-weight:400'>weeks 2–6</span>", ["One page per money keyword","Visible Q&amp;A answering real questions","Prices and specs as HTML, not PDF","Fix mismatched listings"]],
   ["Phase 3<br><span class='muted' style='font-weight:400'>ongoing</span>", ["Reviews + replies","Fill directory gaps and win mentions","Fresh posts, photos, video","IndexNow on publish"]],
@@ -752,6 +845,7 @@ $("#mods").innerHTML = Object.entries(DATA.modules).map(([k, v]) => `<div class=
 $("#packs").innerHTML = Object.entries(DATA.fixpacks).map(([k, n]) => `<div class="tier"><b style="font-size:12px">${esc(k)}</b><span>${n} issue types with steps</span><span class="mono muted" style="font-size:12px">fixpacks/${esc(k)}.yaml</span></div>`).join("");
 $("#kit").innerHTML = [
   ["PLAYBOOK.md","The method: layers, phases, automation tiers, manual checklist"],
+  ["soe_add_site.py","Add a site: writes configs/<slug>.yaml from a name, URL, type and platform"],
   ["soe_audit.py","Crawl + scoring → report.md, findings.json (--lighthouse --competitors --integrations)"],
   ["soe_fixes.py","Fix pack: JSON-LD, page copy, platform steps, llms.txt summary"],
   ["soe_benchmark.py","Leaders per site type: virtual-100 target and feature gaps (--discover finds leaders)"],
@@ -762,11 +856,214 @@ $("#kit").innerHTML = [
   ["integrations/","CrUX, Search Console, DataForSEO, Business Profile, IndexNow (key-gated)"],
   ["modules/ · fixpacks/","Site-type rules and platform steps"],
   ["configs/ · projects/ · data/","One settings file, action plan, copy and AI log per site"],
-  [".github/workflows/","Monthly run of everything + dashboard rebuild"],
+  [".github/workflows/","On-demand SOE run, plus Add site (writes the settings file and first audit)"],
 ].map(([a, b]) => `<tr><td class="mono">${a}</td><td>${b}</td></tr>`).join("");
+
+/* add site */
+const dlg = $("#addSiteDlg");
+const slugRe = /^[a-z][a-z0-9-]{0,47}$/;
+let slugTouched = false;
+$("#as-type").innerHTML = Object.entries(DATA.modules || {}).map(([k, v]) =>
+  `<option value="${esc(k)}">${esc(v)} (${esc(k)})</option>`).join("") || `<option value="generic">generic</option>`;
+$("#as-platform").innerHTML = (DATA.platforms || ["wix","wordpress","webflow","shopify","nextjs","other"])
+  .map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+$("#as-type").value = DATA.modules?.local_business ? "local_business" : $("#as-type").options[0]?.value;
+$("#as-platform").value = "wordpress";
+
+function yamlQuote(value){
+  const s = String(value ?? "");
+  if (s === "" || /[:#{}[\],&*?|!<>=%@`'"\\]|^\s|\s$|^[-?~]/.test(s) || /^(true|false|null|yes|no|on|off)$/i.test(s))
+    return JSON.stringify(s);
+  return s;
+}
+function addSlugify(name, url, explicit){
+  let s = (explicit || "").trim().toLowerCase();
+  if (!s) {
+    let host = "";
+    try { host = new URL(url.includes("://") ? url : "https://" + url).hostname.toLowerCase(); } catch {}
+    if (host.startsWith("www.")) host = host.slice(4);
+    s = (host.split(".")[0] || name || "").toLowerCase();
+    s = s.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  s = s.replace(/[^a-z0-9-]/g, "").replace(/^-+|-+$/g, "");
+  return s;
+}
+function addNormaliseUrl(url){
+  let u = (url || "").trim();
+  if (!u) throw new Error("URL is required");
+  if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+  let p;
+  try { p = new URL(u); } catch { throw new Error("not a valid http(s) URL"); }
+  if (!/^https?:$/.test(p.protocol) || !p.hostname || !p.hostname.includes(".")) throw new Error("not a valid http(s) URL");
+  return u.replace(/\/$/, "");
+}
+function collectSite(){
+  const name = $("#as-name").value.trim();
+  if (!name) throw new Error("Name is required");
+  const url = addNormaliseUrl($("#as-url").value);
+  const type = $("#as-type").value;
+  const platform = $("#as-platform").value;
+  const slug = addSlugify(name, url, $("#as-slug").value);
+  if (!slugRe.test(slug)) throw new Error("Slug must start with a letter and be lowercase letters, digits or hyphens");
+  if (projects.some(p => p.slug === slug)) throw new Error(`configs/${slug}.yaml already exists — pick another slug`);
+  const kw = $("#as-kw").value.split(/[,;]/).map(s => s.trim()).filter(Boolean);
+  return {
+    name, url, type, platform, slug,
+    description: $("#as-desc").value.trim(),
+    keywords: kw,
+    phone: $("#as-phone").value.trim(),
+    postcode: $("#as-postcode").value.trim(),
+  };
+}
+function renderAddYaml(s){
+  const kw = s.keywords.length ? s.keywords.map(t => `    - ${yamlQuote(t)}`).join("\n") : null;
+  const host = (() => { try { return new URL(s.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+  return [
+    "# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.",
+    "site:",
+    `  name: ${yamlQuote(s.name)}`,
+    `  slug: ${s.slug}`,
+    `  url: ${s.url}`,
+    `  type: ${s.type}                   # local_business | saas | ecommerce | publisher | personal_brand | generic`,
+    `  platform: ${s.platform}                    # wix | wordpress | webflow | shopify | nextjs | other`,
+    "  market: en-GB",
+    `  description: ${yamlQuote(s.description)}`,
+    `  location: ""   # for rank tracking, e.g. London,England,United Kingdom`,
+    `  gsc_property: ${yamlQuote(host ? "sc-domain:" + host : "")}`,
+    "",
+    "business:",
+    `  name: ${yamlQuote(s.name)}`,
+    `  phone: ${yamlQuote(s.phone)}`,
+    `  email: ""`,
+    `  address: ""`,
+    `  postcode: ${yamlQuote(s.postcode)}`,
+    "  profiles:",
+    "    google_business: \"\"",
+    "    instagram: \"\"",
+    "    facebook: \"\"",
+    "    booking: \"\"",
+    "",
+    "keywords:",
+    kw ? "  primary:\n" + kw : "  primary: []",
+    "  secondary: []",
+    "  questions: []                          # real customer questions -> FAQ / answer content",
+    "",
+    "competitors: []                          # {name, url} — audited with --competitors",
+    "legacy_sites: []                         # old/parked sites to take offline or redirect",
+    "name_clashes: []                         # other businesses with a similar name",
+    "benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)",
+    "citations: []                            # off-site listings checked by soe_citations.py",
+    "",
+    "ai:",
+    "  allow_training: true",
+    "  llms_should_mention: []",
+    "  prompts: []                            # monthly tests in ChatGPT / Perplexity / Gemini / Google AI Mode",
+    "  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]",
+    "  brand_terms: []",
+    "",
+    "audit:",
+    "  max_pages: 50",
+    "  min_words: 300",
+    "  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}",
+    "",
+  ].join("\n");
+}
+function refreshAddPreview(){
+  const err = $("#as-err");
+  try {
+    if (!$("#as-name").value.trim() && !$("#as-url").value.trim()) {
+      err.textContent = ""; $("#as-preview").textContent = "Fill in the name and URL to preview configs/<slug>.yaml";
+      return null;
+    }
+    const s = collectSite();
+    err.textContent = "";
+    $("#as-preview").textContent = renderAddYaml(s);
+    if (!slugTouched) $("#as-slug").value = s.slug;
+    $("#asBiz").hidden = s.type !== "local_business";
+    return s;
+  } catch (e) {
+    err.textContent = e.message;
+    $("#as-preview").textContent = "";
+    return null;
+  }
+}
+function openAddSite(){
+  slugTouched = false;
+  $("#addSiteForm").reset();
+  $("#as-type").value = DATA.modules?.local_business ? "local_business" : $("#as-type").options[0]?.value;
+  $("#as-platform").value = "wordpress";
+  $("#as-err").textContent = "";
+  $("#asBiz").hidden = $("#as-type").value !== "local_business";
+  refreshAddPreview();
+  dlg.showModal();
+  $("#as-name").focus();
+}
+function downloadYaml(s){
+  const blob = new Blob([renderAddYaml(s)], {type: "text/yaml"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = s.slug + ".yaml";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+function cliFor(s){
+  const q = v => `'${String(v).replace(/'/g, `'\\''`)}'`;
+  const parts = ["python soe_add_site.py", `--name ${q(s.name)}`, `--url ${q(s.url)}`, `--type ${s.type}`, `--platform ${s.platform}`];
+  if (s.slug) parts.push(`--slug ${s.slug}`);
+  if (s.description) parts.push(`--description ${q(s.description)}`);
+  if (s.keywords.length) parts.push(`--keywords ${q(s.keywords.join(", "))}`);
+  if (s.phone) parts.push(`--phone ${q(s.phone)}`);
+  if (s.postcode) parts.push(`--postcode ${q(s.postcode)}`);
+  return parts.join(" \\\n  ");
+}
+function summaryFor(s){
+  return [
+    "Add site — paste these into GitHub → Actions → Add site → Run workflow:",
+    `  name: ${s.name}`,
+    `  url: ${s.url}`,
+    `  type: ${s.type}`,
+    `  platform: ${s.platform}`,
+    `  slug: ${s.slug}`,
+    s.description ? `  description: ${s.description}` : null,
+    s.keywords.length ? `  keywords: ${s.keywords.join(", ")}` : null,
+    "",
+    "Or run locally:",
+    cliFor(s),
+    "",
+    renderAddYaml(s),
+  ].filter(x => x !== null).join("\n");
+}
+$("#addSiteBtn").addEventListener("click", openAddSite);
+$("#pendingAdd").addEventListener("click", openAddSite);
+$("#as-cancel").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("#as-slug").addEventListener("input", () => { slugTouched = true; refreshAddPreview(); });
+["as-name","as-url","as-type","as-platform","as-desc","as-kw","as-phone","as-postcode"].forEach(id => {
+  $("#" + id).addEventListener("input", refreshAddPreview);
+  $("#" + id).addEventListener("change", refreshAddPreview);
+});
+$("#as-copy").addEventListener("click", () => {
+  const s = refreshAddPreview();
+  if (!s) { toast($("#as-err").textContent || "Fill in the required fields"); return; }
+  copy(renderAddYaml(s), `Copied configs/${s.slug}.yaml`);
+});
+$("#as-download").addEventListener("click", () => {
+  const s = refreshAddPreview();
+  if (!s) { toast($("#as-err").textContent || "Fill in the required fields"); return; }
+  downloadYaml(s);
+  toast(`Downloaded ${s.slug}.yaml`);
+});
+$("#addSiteForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const s = refreshAddPreview();
+  if (!s) { toast($("#as-err").textContent || "Fill in the required fields"); return; }
+  copy(summaryFor(s), "Values copied — paste them into Run workflow");
+  window.open(addUrl, "_blank", "noopener,noreferrer");
+});
 
 const RM = [
   {s:"built", t:"Audit, playbook, settings, schema, on-demand GitHub run", w:"v1 kit. Run it from GitHub: Actions → SOE run.", e:"soe_audit.py"},
+  {s:"built", t:"Add a site from the Control Room", w:"Add site button drafts the settings file; the Add site GitHub Action writes it and runs the first audit.", e:"soe_add_site.py"},
   {s:"built", t:"Self-updating dashboard", w:"Rebuilt from every report, with a project switcher and score trend.", e:"soe_dashboard.py"},
   {s:"built", t:"/soe skill", w:"One request runs the whole loop for any URL: settings, audit, fixes, dashboard.", e:"skill"},
   {s:"built", t:"Fix generator", w:"JSON-LD from settings, Claude-written page copy, platform steps, llms.txt summary.", e:"soe_fixes.py"},

@@ -35,8 +35,8 @@ CONFIGURE → AUDIT → PRIORITISE → FIX → PUBLISH/NOTIFY → MEASURE → (m
 
 ### Phase 0: Set up (once per project, about 1 hour)
 
-1. Copy `configs/_template.yaml` to `configs/<slug>.yaml`.
-2. Fill in the site details, business name/address/phone, 3–5 primary keywords, customer questions, competitors and AI test prompts.
+1. Add the site: Control Room → **Add site**, or `python soe_add_site.py --name "…" --url https://… --type local_business --platform wix`, or copy `configs/_template.yaml` to `configs/<slug>.yaml`.
+2. Fill in any remaining details (keywords, questions, competitors, listings).
 3. Verify the site in **Google Search Console** and **Bing Webmaster Tools**. You can import the Bing site from Search Console.
 4. Local businesses only: claim or verify **Google Business Profile**, **Bing Places** and **Apple Business Connect**.
 5. Record a baseline:
@@ -109,7 +109,7 @@ Local competitors show where you stand. **Leaders** show what "great" looks like
 
 | Step | Script / file |
 |---|---|
-| Configure | `configs/<slug>.yaml` (drafted by `/soe`) + `modules/<type>.yaml` |
+| Configure | `configs/<slug>.yaml` (Add site button, `soe_add_site.py`, or `/soe`) + `modules/<type>.yaml` |
 | Audit | `soe_audit.py --lighthouse --competitors --integrations` |
 | Benchmark | `soe_benchmark.py` (leaders, virtual 100, new ideas) |
 | Listings | `soe_citations.py` |
