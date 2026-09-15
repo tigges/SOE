@@ -6,6 +6,9 @@ calls return 403 / quota 0. Enable "My Business Account Management", "My Busines
 "Business Profile Performance" and the (v4) "Google My Business API" in that project.
 
 Env (one of):
+  GBP_CLIENT_ID + GBP_CLIENT_SECRET + GBP_REFRESH_TOKEN
+                            recommended for scheduled runs: a long-lived OAuth refresh token (see CONNECT.md);
+                            a fresh access token is minted on every run
   GBP_SERVICE_ACCOUNT_JSON  path to a service-account key file (needs google-auth; the service account
                             must itself have access to the profile, which GBP rarely allows — OAuth is usual)
   GBP_OAUTH_TOKEN           an OAuth 2.0 access token with scope https://www.googleapis.com/auth/business.manage
@@ -71,15 +74,32 @@ def performance(s, location):
     return {"start": start.isoformat(), "end": end.isoformat(), "totals": totals}, raw
 
 
+def refreshed_token():
+    """Exchange GBP_REFRESH_TOKEN for a short-lived access token (None if not configured)."""
+    cid, secret, refresh = env("GBP_CLIENT_ID"), env("GBP_CLIENT_SECRET"), env("GBP_REFRESH_TOKEN")
+    if not (cid and secret and refresh):
+        return None
+    r = requests.post("https://oauth2.googleapis.com/token", timeout=30,
+                      data={"client_id": cid, "client_secret": secret, "refresh_token": refresh,
+                            "grant_type": "refresh_token"})
+    if not r.ok:
+        raise RuntimeError(f"refresh token exchange failed: HTTP {r.status_code} {r.text[:200]}")
+    return r.json()["access_token"]
+
+
 def run(cfg: dict, outdir: str) -> dict | None:
-    cred = env("GBP_SERVICE_ACCOUNT_JSON", "GBP_OAUTH_TOKEN")
+    try:
+        token = refreshed_token()
+    except Exception as e:
+        return {"error": str(e)}
+    cred = token or env("GBP_SERVICE_ACCOUNT_JSON", "GBP_OAUTH_TOKEN")
     if not cred:
-        return skip(NAME, "GBP_SERVICE_ACCOUNT_JSON / GBP_OAUTH_TOKEN not set")
+        return skip(NAME, "GBP_REFRESH_TOKEN (+ client id/secret) / GBP_OAUTH_TOKEN / GBP_SERVICE_ACCOUNT_JSON not set")
     biz = cfg.get("business") or {}
     account, location = biz.get("gbp_account"), biz.get("gbp_location")
     if not (account and location):
         return skip(NAME, "business.gbp_account / business.gbp_location not in config")
-    sa = env("GBP_SERVICE_ACCOUNT_JSON")
+    sa = None if token else env("GBP_SERVICE_ACCOUNT_JSON")
     if sa and not os.path.isfile(sa):
         return {"error": f"GBP_SERVICE_ACCOUNT_JSON file not found: {sa}"}
     try:

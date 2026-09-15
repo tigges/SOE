@@ -44,6 +44,8 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 
 ## Keys (all optional; each piece skips cleanly without its key)
 
+**Step-by-step setup: [CONNECT.md](CONNECT.md).** In GitHub Actions, keys are repository secrets. The Search Console key goes in as `GSC_SERVICE_ACCOUNT_B64`, and Business Profile uses `GBP_CLIENT_ID` / `GBP_CLIENT_SECRET` / `GBP_REFRESH_TOKEN`.
+
 | Env var | Unlocks |
 |---|---|
 | `CRUX_API_KEY` or `PSI_API_KEY` | Real-user Core Web Vitals (free) |
