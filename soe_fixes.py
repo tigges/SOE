@@ -159,6 +159,17 @@ def main():
     for f in findings:
         steps.setdefault(f["check"], dict(fix=f["fix"], how=f.get("how"), count=0, severity=f["severity"]))
         steps[f["check"]]["count"] += 1
+    cit = os.path.join(a.report_dir, "citations.json")
+    if os.path.exists(cit):
+        for r in (json.load(open(cit)).get("legacy") or []):
+            if r["status"] == "live":
+                k = f"legacy-site: {r['url']}"
+                steps[k] = dict(fix=f"{r['recommendation']}. {r['note']}".strip(), how=(
+                    "ueni: log in at ueni.com → Settings → Delete website (or ask ueni support), then request removal in "
+                    "Google Search Console → Removals if it still shows." if "ueniweb" in r["url"] else
+                    "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site."
+                    if r["action"] == "redirect" else "Delete the site at its host, then request removal in Search Console → Removals."),
+                    count=1, severity="high")
     qs = (cfg.get("keywords") or {}).get("questions") or []
     pack = dict(schema=schema, pages=drafts, steps=steps, llms_summary=llms_summary(cfg), questions=qs)
     json.dump(pack, open(os.path.join(a.report_dir, "fixes.json"), "w"), indent=2)

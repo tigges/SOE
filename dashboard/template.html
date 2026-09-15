@@ -1,4 +1,5 @@
 <title>SOE Control Room</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E6B64%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20letter-spacing%3D%22-1%22%20fill%3D%22%23FFFFFF%22%3ESO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -38,7 +39,10 @@ p{margin:0}
 .eyebrow{font:500 11.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
 .mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .muted{color:var(--ink-2)}
-a{color:var(--accent)}
+a{color:var(--accent);text-underline-offset:2px}
+a.path{color:var(--ink-2)}
+a.path:hover,a.quiet:hover{color:var(--accent)}
+a.quiet{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
 header.top{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between}
 header.top .lede{max-width:62ch;color:var(--ink-2);margin-top:8px}
 .site-pill{display:inline-flex;gap:8px;align-items:center;font:500 13px var(--mono);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:6px}
@@ -279,6 +283,11 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
 
   <!-- OFFSITE -->
   <section id="offsite" class="stack" hidden style="gap:18px">
+    <div class="stack" id="legacyWrap">
+      <div class="row" style="justify-content:space-between"><h2>Old sites to retire</h2><span class="count" id="legacySum"></span></div>
+      <p class="muted" style="max-width:72ch">Old or parked sites under the business name. They show outdated details and split the brand in search and AI answers.</p>
+      <div class="tbl"><table><thead><tr><th>Status</th><th>Site</th><th>What we found</th><th>Do this</th></tr></thead><tbody id="legacyBody"></tbody></table></div>
+    </div>
     <div class="stack">
       <div class="row" style="justify-content:space-between"><h2>Listings</h2><span class="count" id="citsum"></span></div>
       <div class="tbl"><table>
@@ -300,6 +309,11 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
 
   <!-- COMPETITORS -->
   <section id="competitors" class="stack" hidden style="gap:18px">
+    <div class="panel stack" id="clashWrap">
+      <div class="row" style="justify-content:space-between"><h2>Same-name businesses</h2><span class="count">not competitors, but they compete for brand searches</span></div>
+      <div id="clashes" class="stack"></div>
+      <p class="muted" style="max-width:72ch">Use the full name plus location everywhere (site title, Business Profile, schema, directories). Check the AI log's brand prompt: are answers mixing the two up?</p>
+    </div>
     <div class="panel stack" id="bmWrap">
       <div class="row" style="justify-content:space-between"><h2>Best-in-class leaders</h2><span class="count" id="bmNote"></span></div>
       <p class="muted" style="max-width:72ch">Leading sites in the same category, not necessarily local rivals. The "virtual 100" takes the best leader in each layer as the target.</p>
@@ -383,6 +397,7 @@ function bindTips(root){
     el.addEventListener("mouseleave", () => tip.hidden = true);
   });
 }
+const link = (url, label, cls = "") => url ? `<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label ?? url)}</a>` : esc(label ?? "");
 const rel = (url, base) => { const p = (url || "").replace(base, "") || "/"; return p.length > 44 ? p.slice(0, 42) + "…" : p; };
 
 /* tabs */
@@ -406,7 +421,7 @@ let fs = "all", fl = "all";
 function render(){
   const A = P.audit, base = A.site;
   $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length > 1 ? "s" : ""} · latest run ${P.latest}`;
-  $("#projmeta").textContent = `${P.module || P.type} · ${P.platform}`;
+  $("#projmeta").innerHTML = `${link(P.url, P.url.replace(/^https?:\/\//, ""))} · ${esc(P.module || P.type)} · ${esc(P.platform)}`;
 
   /* score + trend */
   $("#scoreDate").textContent = `SOE score · ${P.latest}`;
@@ -485,7 +500,7 @@ function render(){
 
   /* pages */
   $("#ptbody").innerHTML = A.pages.map(p => `<tr>
-    <td><span class="path">${esc(rel(p.url, base))}</span></td>
+    <td>${link(p.url, rel(p.url, base), "path")}</td>
     <td>${esc(p.title)}</td>
     <td>${p.description ? '<span class="chip s-good">Set</span>' : '<span class="chip s-bad">Missing</span>'}</td>
     <td>${p.h1.length ? '<span class="chip s-good">' + p.h1.length + '</span>' : '<span class="chip s-bad">None</span>'}</td>
@@ -525,7 +540,7 @@ function renderFindings(){
     <td class="mono">${LFULL[f.layer]}</td>
     <td><strong>${esc(f.check)}</strong><br><span class="muted">${esc(f.detail)}</span></td>
     <td>${esc(f.fix)}${f.how ? `<details class="how"><summary>How on ${esc(P.platform)}</summary><p>${esc(f.how)}</p></details>` : ""}</td>
-    <td><span class="path">${esc(rel(f.url, A.site))}</span></td></tr>`).join("");
+    <td>${f.url ? link(f.url, rel(f.url, A.site), "path") : '<span class="path">/</span>'}</td></tr>`).join("");
 }
 
 function checklist(el, key, items, countEl){
@@ -554,7 +569,7 @@ function renderFixes(base){
     const u = p.url.replace(/^https?:\/\//, "");
     return `<div class="serp-pair">
       <div class="stack" style="gap:6px"><span class="tag" style="color:var(--bad)">Now</span>
-        <div class="serp"><span class="u">${esc(u)}</span><span class="t">${esc(cur.title || p.current_title)}</span>
+        <div class="serp"><span class="u">${link(p.url, u, "quiet")}</span><span class="t">${esc(cur.title || p.current_title)}</span>
         ${cur.description ? `<span class="d">${esc(cur.description)}</span>` : '<span class="d empty">No meta description — Google picks text from the page</span>'}
         <span class="h">H1: ${esc((cur.h1 || []).join(" / ") || "none")}</span></div></div>
       <div class="stack" style="gap:6px"><span class="tag" style="color:var(--good)">Proposed${p.source === "DRAFT (rule-based)" ? " · draft" : ""}</span>
@@ -579,6 +594,13 @@ function renderOffsite(){
       || `<tr><td colspan="4" class="muted">No listings yet — add them under citations: in the settings file.</td></tr>`;
     $("#gaps").innerHTML = Object.entries(C.gaps).map(([g, l]) => `<div class="row" style="align-items:baseline;gap:12px"><span class="eyebrow" style="min-width:110px">${esc(g.replace(/_/g, " "))}</span><div class="chips">${l.map(d => `<span>${esc(d)}</span>`).join("")}</div></div>`).join("");
   }
+  const LG = (C && C.legacy) || [];
+  $("#legacyWrap").hidden = !LG.length;
+  const LS = {live: ["s-bad", "Still live"], redirected: ["s-good", "Redirected"], offline: ["s-good", "Offline"]};
+  $("#legacySum").textContent = `${LG.filter(r => r.status === "live").length} of ${LG.length} still live`;
+  $("#legacyBody").innerHTML = LG.map(r => `<tr data-sev="${r.status === "live" ? "high" : "low"}"><td class="sev"><span class="chip ${LS[r.status][0]}">${LS[r.status][1]}</span></td>
+    <td>${link(r.url, r.url.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</td><td>${esc(r.detail)}<br><span class="muted">${esc(r.note)}</span></td>
+    <td>${r.status === "live" ? esc(r.recommendation) : "—"}</td></tr>`).join("");
   const rows = P.ai_rows || [], engines = P.engines.length ? P.engines : [...new Set(rows.map(r => r.engine))];
   const latest = {};
   rows.forEach(r => { const k = r.prompt + "|" + r.engine; if (!latest[k] || r.date >= latest[k].date) latest[k] = r; });
@@ -604,13 +626,13 @@ function renderBenchmark(){
   const rows = [{...B.ours, name: `${P.name} (this site)`, us: true}, ...B.leaders].sort((a, b) => b.score - a.score);
   $("#bmNote").textContent = `score excl. speed · ${B.run.slice(0, 10)}`;
   $("#bmBars").innerHTML = rows.map(r => `<div class="r ${r.us ? "us" : ""}" data-tip="${esc(r.name)}: ${r.score}/100${r.why ? " · " + esc(r.why) : ""}">
-    <span>${esc(r.name)}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
+    <span>${r.us ? esc(r.name) : link(r.url, r.name, "quiet")}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
   bindTips($("#bmBars"));
   $("#bmVirtual").innerHTML = Object.entries(B.virtual_best).map(([k, v]) => {
     const gap = (v.score ?? 0) - (v.ours ?? 0);
     return `<tr><td><span class="code" style="display:inline-grid;width:24px;height:24px;font-size:13px;margin-right:8px">${LCODE[k]}</span>${esc(k)}</td>
       <td><div class="heat ${band(v.ours)[0]}">${v.ours ?? "—"}</div></td><td><div class="heat ${band(v.score)[0]}">${v.score ?? "—"}</div></td>
-      <td>${esc(v.leader)}</td><td class="num" style="text-align:right">${gap > 0 ? "−" + gap : "✓"}</td></tr>`;
+      <td>${link((B.leaders.find(l => l.name === v.leader) || {}).url, v.leader, "quiet")}</td><td class="num" style="text-align:right">${gap > 0 ? "−" + gap : "✓"}</td></tr>`;
   }).join("");
   const names = B.leaders.map(l => l.name);
   const G = B.gaps.filter(g => bmf === "all" || (bmf === "new" ? g.new_check : g.group === bmf));
@@ -620,7 +642,7 @@ function renderBenchmark(){
   $("#bmGapNote").textContent = `${B.gaps.length} gaps · ${B.gaps.filter(g => g.new_check).length} are new ideas the audit doesn't score yet`;
   const pc = v => Math.round(v * 100) + "%";
   const cellc = v => v >= 0.7 ? "s-good" : v >= 0.3 ? "s-warn" : "s-na";
-  $("#bmGapHead").innerHTML = `<tr><th>Idea</th><th style="text-align:center">This site</th>${names.map(n => `<th style="text-align:center">${esc(n)}</th>`).join("")}<th>Leaders using it</th></tr>`;
+  $("#bmGapHead").innerHTML = `<tr><th>Idea</th><th style="text-align:center">This site</th>${B.leaders.map(l => `<th style="text-align:center">${link(l.url, l.name, "quiet")}</th>`).join("")}<th>Leaders using it</th></tr>`;
   $("#bmGaps").innerHTML = G.map(g => `<tr><td><strong>${esc(g.label)}</strong>${g.new_check ? ' <span class="chip s-low">new idea</span>' : ""}<br><span class="muted">${esc(g.idea)}</span></td>
     <td><div class="heat ${cellc(g.ours)}">${pc(g.ours)}</div></td>
     ${names.map(n => `<td><div class="heat ${cellc(g.leaders[n] ?? 0)}">${pc(g.leaders[n] ?? 0)}</div></td>`).join("")}
@@ -629,6 +651,9 @@ function renderBenchmark(){
 
 function renderCompetitors(){
   renderBenchmark();
+  const NC = (P.citations && P.citations.name_clashes) || [];
+  $("#clashWrap").hidden = !NC.length;
+  $("#clashes").innerHTML = NC.map(c => `<div class="row" style="gap:10px;align-items:baseline"><span class="chip s-warn">Name clash</span>${link(c.url, c.name)}<span class="muted">${esc(c.note)}</span></div>`).join("");
   const C = (P.competitors || []).filter(c => c.score != null);
   const A = P.audit;
   $("#cmpByLayer").parentElement.hidden = !C.length;
@@ -638,12 +663,12 @@ function renderCompetitors(){
     let s = 0, t = 0; for (const k in w) if (l[k] != null) { s += l[k] * w[k]; t += w[k]; } return Math.round(s / t); };
   const list = [{name: `${P.name} (this site)`, score: noP(A.layers), layers: A.layers, us: true}, ...C.map(c => ({...c, score: noP(c.layers)}))].sort((a, b) => b.score - a.score);
   $("#cmp").innerHTML = list.map(r => `<div class="r ${r.us ? "us" : ""}" data-tip="${esc(r.name)}: ${r.score}/100 (excl. speed)${r.home_title ? " · home title: " + esc(r.home_title) : ""}">
-    <span>${esc(r.name)}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
+    <span>${r.us ? link(P.url, r.name, "quiet") : link(r.url, r.name, "quiet")}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
   bindTips($("#cmp"));
   const L = ["Technical", "On-page", "Structured data", "Entity / NAP", "AI search readiness"];
   const heat = v => { const [c] = band(v); return `<div class="heat ${c}">${v ?? "—"}</div>`; };
   $("#cmphead").innerHTML = `<tr><th>Site</th>${L.map(l => `<th style="text-align:center">${LCODE[l]} · ${l.split(" ")[0]}</th>`).join("")}<th>Schema types</th></tr>`;
-  $("#cmpbody").innerHTML = list.map(r => `<tr><td>${r.us ? "<strong>" : ""}${esc(r.name)}${r.us ? "</strong>" : ""}${r.url ? `<br><span class="path">${esc(r.url.replace(/^https?:\/\//, ""))}</span>` : ""}</td>
+  $("#cmpbody").innerHTML = list.map(r => `<tr><td>${r.us ? "<strong>" : ""}${esc(r.name)}${r.us ? "</strong>" : ""}${r.url ? `<br>${link(r.url, r.url.replace(/^https?:\/\//, ""), "path")}` : ""}</td>
     ${L.map(l => `<td>${heat(r.layers[l])}</td>`).join("")}<td class="mono" style="font-size:12px">${esc(((r.us ? A.meta.schema_types : r.schema) || []).filter(t => /Business|Salon|Organization|Person|Product|Software/.test(t)).join(", ") || "—")}</td></tr>`).join("");
 }
 
