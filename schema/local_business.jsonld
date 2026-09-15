@@ -1,0 +1,30 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "@id": "https://www.example.com/#business",
+  "name": "{{business.name}}",
+  "url": "{{site.url}}/",
+  "logo": "{{site.url}}/logo.png",
+  "image": ["{{site.url}}/hero.jpg"],
+  "description": "{{one factual sentence: what, where, for whom}}",
+  "telephone": "{{business.phone_e164}}",
+  "email": "{{business.email}}",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{street}}",
+    "addressLocality": "{{town}}",
+    "addressRegion": "{{region}}",
+    "postalCode": "{{business.postcode}}",
+    "addressCountry": "GB"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 0.0, "longitude": 0.0 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "09:00", "closes": "17:00" }
+  ],
+  "sameAs": ["{{business.profiles.*}}"],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": "{{business.profiles.booking}}"
+  }
+}

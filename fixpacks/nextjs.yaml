@@ -1,0 +1,31 @@
+platform: Next.js (App Router, Vercel)
+fixes:
+  title: &meta "Export `metadata` / `generateMetadata()` from page.tsx with `title`. Set `title.template` in the root layout."
+  title-length: *meta
+  title-quality: *meta
+  duplicate-title: *meta
+  meta-description: "Add `description` to `metadata` / `generateMetadata()`."
+  keyword-targeting: "Use the keyword in the metadata title and in the page's single <h1>."
+  h1: "Render exactly one <h1> per route, from a server component."
+  canonical: "Set `alternates: { canonical: '/path' }` in metadata, with `metadataBase` in the root layout."
+  noindex: "Remove `robots: { index: false }` from the metadata."
+  og-image: "Add app/opengraph-image.tsx (ImageResponse) or `openGraph.images` in metadata."
+  alt-text: "Always pass `alt` to next/image."
+  lang: "Set <html lang=\"en-GB\"> in app/layout.tsx."
+  schema-missing: "Render <script type=\"application/ld+json\" dangerouslySetInnerHTML={{__html: JSON.stringify(schema)}} /> in the layout or page."
+  sitemap: "Add app/sitemap.ts that returns every public route."
+  robots.txt: "Add app/robots.ts with the rules and the sitemap URL."
+  robots-sitemap: "Return `sitemap` from app/robots.ts."
+  ai-search-bots-blocked: "Update app/robots.ts, and check the Vercel Firewall → Bot protection / AI bot rules."
+  llms.txt: "Add public/llms.txt, or a route handler at app/llms.txt/route.ts."
+  llms.txt-summary: "Edit the summary in the llms.txt source."
+  broken-page: "Add `redirects()` in next.config.js (permanent: true)."
+  host-canonicalisation: "Vercel → Project → Domains: redirect the apex to www (or the reverse) with a 308."
+  thin-content: "Server-render the key copy. Text loaded only on the client may not be indexed or quoted."
+  extractable-text: "Move key copy into server components or static generation; avoid client-only rendering for primary content."
+  lcp: "Use next/image with `priority` on the hero, next/font, and trim client JS (fewer 'use client' components)."
+  tbt-inp-proxy: "Split heavy client components with dynamic(), and load third-party scripts with next/script strategy=\"lazyOnload\"."
+  cls: "Give images width and height (next/image does this); use next/font to avoid font swap shifts."
+  expected-page: "Add the route under app/ and link it from the nav."
+  indexnow: "Call integrations/indexnow.py from a Vercel deploy hook or GitHub Action. Serve the key file from public/<key>.txt."
+  placeholder-text: "grep the repo for lorem/placeholder strings and replace them before deploy."

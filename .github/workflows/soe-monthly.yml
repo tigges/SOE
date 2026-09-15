@@ -1,0 +1,49 @@
+name: SOE monthly run
+on:
+  schedule: [{ cron: "0 6 1 * *" }]   # 06:00 UTC on the 1st of each month
+  workflow_dispatch:
+jobs:
+  soe:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env:
+      PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+      CRUX_API_KEY: ${{ secrets.CRUX_API_KEY }}
+      GSC_SERVICE_ACCOUNT_JSON: ${{ github.workspace }}/.secrets/gsc.json
+      DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+      DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+      GBP_OAUTH_TOKEN: ${{ secrets.GBP_OAUTH_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: pip install requests beautifulsoup4 lxml pyyaml google-auth
+      - name: Write Search Console key (if set)
+        run: |
+          mkdir -p .secrets
+          if [ -n "${{ secrets.GSC_SERVICE_ACCOUNT_B64 }}" ]; then echo "${{ secrets.GSC_SERVICE_ACCOUNT_B64 }}" | base64 -d > .secrets/gsc.json; else echo "GSC_SERVICE_ACCOUNT_JSON=" >> "$GITHUB_ENV"; fi
+      - name: Run the SOE loop for every site
+        run: |
+          D=$(date +%F)
+          for c in configs/*.yaml; do
+            [ "$(basename $c)" = "_template.yaml" ] && continue
+            slug=$(basename "$c" .yaml); out="reports/$slug/$D"
+            python soe_audit.py "$c" --out "$out" --lighthouse --competitors --integrations || continue
+            python soe_citations.py "$c" --out "$out" || true
+            python soe_ai_log.py init "$c"; python soe_ai_log.py run "$c" || true
+            python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
+            copy="projects/$slug/copy.yaml"
+            python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
+          done
+          python soe_dashboard.py
+      - name: Commit reports and dashboard
+        run: |
+          git config user.name "soe-bot"; git config user.email "soe-bot@users.noreply.github.com"
+          git add reports data dashboard/dist && git commit -m "SOE run $(date +%F)" || echo "no changes"
+          git push
+      # Publishing the dashboard to claude.ai happens from a Claude session (/soe) — the Action only rebuilds the file.

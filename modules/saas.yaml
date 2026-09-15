@@ -1,0 +1,16 @@
+label: SaaS / software
+required_schema:
+  - [Organization, Corporation]
+  - [SoftwareApplication, WebApplication, Product]
+schema_props: [name, sameAs, logo]
+expected_pages:
+  pricing: ["pricing", "plans"]
+  docs: ["docs", "documentation", "developers", "help"]
+  integrations: ["integration", "apps", "marketplace"]
+  comparison: ["vs", "alternative", "compare"]
+  security/trust: ["security", "trust", "privacy"]
+  changelog: ["changelog", "release", "whats-new"]
+directories:
+  reviews: [G2, Capterra, TrustRadius, Product Hunt, GetApp]
+  community: [GitHub, Reddit, Hacker News, Stack Overflow, LinkedIn]
+  ai_agents: [MCP registries, OpenAI GPT store, Anthropic directory]

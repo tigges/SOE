@@ -1,0 +1,13 @@
+label: Ecommerce
+required_schema:
+  - [Organization, OnlineStore, Store]
+  - [Product, ProductGroup]
+schema_props: [offers, price, availability, aggregateRating]
+expected_pages:
+  shipping: ["shipping", "delivery"]
+  returns: ["return", "refund"]
+  category: ["collection", "category", "shop"]
+  about: ["about"]
+directories:
+  core: [Google Merchant Center, Bing Merchant Center, Trustpilot, Facebook Shop, Instagram Shopping]
+  marketplaces: [Amazon, eBay, Etsy]

@@ -1,0 +1,35 @@
+platform: Wix
+fixes:
+  title: &seo_basics "Editor → Pages & Menu → page ⋯ → SEO basics → Title tag. For many pages at once: Dashboard → Marketing & SEO → SEO → SEO Settings → page type → edit the title pattern."
+  title-length: *seo_basics
+  title-quality: *seo_basics
+  duplicate-title: *seo_basics
+  keyword-targeting: "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text → Text settings → Semantic tag = H1."
+  meta-description: "Pages & Menu → page ⋯ → SEO basics → Meta description. The SEO Settings page-type pattern is the fallback."
+  h1: "Select the main heading → Edit text → Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
+  canonical: "Pages & Menu → page ⋯ → SEO → Advanced SEO → Canonical URL."
+  noindex: "Pages & Menu → page ⋯ → SEO basics → switch on 'Let search engines index this page'."
+  thin-content: "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+  alt-text: "Click the image → Settings → 'What's in the image? Tell Google' (the alt text)."
+  og-image: "Pages & Menu → page ⋯ → Social share → upload a 1200×630 image. The site-wide default is in SEO Settings."
+  content-in-pdf: "Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link."
+  schema-missing: &wix_schema "Pages & Menu → page ⋯ → SEO → Advanced SEO → Structured data markup → Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."
+  schema-openingHoursSpecification: *wix_schema
+  schema-geo: *wix_schema
+  schema-sameAs: *wix_schema
+  schema-address: *wix_schema
+  schema-telephone: *wix_schema
+  llms.txt: "Dashboard → Marketing & SEO → SEO → llms.txt (paid plan + custom domain). Editing it stops auto-updates."
+  llms.txt-summary: "Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates."
+  robots.txt: "Dashboard → SEO → SEO Settings → Robots.txt Editor."
+  ai-search-bots-blocked: "SEO → Robots.txt Editor: remove Disallow rules for OAI-SearchBot, Claude-SearchBot, PerplexityBot and similar."
+  broken-page: "Dashboard → SEO → URL Redirect Manager → add a 301 from the old URL."
+  host-canonicalisation: "Settings → Domains: set the primary domain. Wix redirects the other hosts automatically."
+  expected-page: "Pages & Menu → + Add page. Also add it to the menu so it's linked."
+  lcp: "Remove unused apps (Apps → Manage apps). Use a compressed hero image (Wix image settings → quality). Don't put video or slideshows above the fold."
+  tbt-inp-proxy: "Remove unused apps and third-party embeds; limit animations (Editor → Animations)."
+  brand-name: "Settings → Business info → Business name. Then use the same name in titles, the footer and every profile."
+  nap-phone: "Add the phone to the footer (it shows on every page) and to Settings → Business info."
+  nap-postcode: "Add the full address to the footer and to Settings → Business info."
+  answer-content: "Add a Wix FAQ app section, or text headed with questions, to the relevant pages."
+  placeholder-text: "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."

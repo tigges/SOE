@@ -1,0 +1,125 @@
+{
+  "run": "2026-09-15T08:20",
+  "summary": {
+    "ok": 2,
+    "mismatch": 1,
+    "unreachable": 0,
+    "manual": 6
+  },
+  "listings": [
+    {
+      "source": "Make It Ealing",
+      "url": "https://www.makeitealing.co.uk/business/yuzu-hair/",
+      "directory": "local",
+      "note": "",
+      "status": "ok",
+      "detail": "name, phone and postcode match",
+      "checks": {
+        "name": true,
+        "phone": true,
+        "postcode": true
+      }
+    },
+    {
+      "source": "Wheree",
+      "url": "https://yuzu-hair.wheree.com/",
+      "directory": "uk_general",
+      "note": "blocks bots; showed correct NAP on 15 Sep, unclaimed",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Old ueniweb site",
+      "url": "https://yuzuhairandbeauty.ueniweb.com/",
+      "directory": "legacy",
+      "note": "shows 22 Mattock Lane W5 5BH / 07572 107373 \u2014 take down",
+      "status": "mismatch",
+      "detail": "not found: phone, postcode \u00b7 other postcode(s) on page: W5 5BH",
+      "checks": {
+        "name": true,
+        "phone": false,
+        "postcode": false
+      }
+    },
+    {
+      "source": "beautynailhairsalons.com",
+      "url": "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty",
+      "directory": "uk_general",
+      "note": "",
+      "status": "ok",
+      "detail": "name, phone and postcode match",
+      "checks": {
+        "name": true,
+        "phone": true,
+        "postcode": true
+      }
+    },
+    {
+      "source": "Facebook",
+      "url": "https://www.facebook.com/YUZUHairandBeauty/",
+      "directory": "core",
+      "note": "old posts say 26 High Street W5 5DB",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Instagram",
+      "url": "https://www.instagram.com/yuzuhairandbeauty/",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "TikTok",
+      "url": "https://www.tiktok.com/@yuzuhairandbeauty.est16",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/yuzu-hair-limited",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Phorest booking",
+      "url": "https://phorest.com/book/salons/yuzuhairandbeauty",
+      "directory": "vertical_salon",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    }
+  ],
+  "gaps": {
+    "core": [
+      "Google Business Profile",
+      "Bing Places",
+      "Apple Business Connect"
+    ],
+    "uk_general": [
+      "Yell",
+      "Thomson Local",
+      "Scoot",
+      "Cylex",
+      "FreeIndex",
+      "Hotfrog",
+      "Yelp UK",
+      "Nextdoor",
+      "Foursquare"
+    ],
+    "vertical_salon": [
+      "Treatwell",
+      "Fresha",
+      "Booksy",
+      "hairdressr"
+    ],
+    "local": [
+      "local council directory"
+    ]
+  }
+}
