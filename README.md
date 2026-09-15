@@ -19,6 +19,10 @@ python soe_fixes.py configs/<slug>.yaml $D --copy projects/<slug>/copy.yaml   # 
 python soe_dashboard.py                                  # → dashboard/dist/soe-control-room.html
 ```
 
+## Dashboard
+
+The SOE Control Room is published with GitHub Pages at **https://tigges.github.io/SOE/**. It's the root `index.html`, rebuilt by `python soe_dashboard.py --standalone --out index.html` and by the monthly Action. `.nojekyll` makes Pages serve it as plain HTML. The page is marked `noindex`, but if the repo is public, anyone with the link can see it.
+
 ## What's in the kit
 
 | Path | What it does |
