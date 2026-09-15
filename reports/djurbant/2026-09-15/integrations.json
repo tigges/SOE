@@ -3,7 +3,823 @@
   "site": "https://djurbant.com",
   "results": {
     "crux": null,
-    "gsc": null,
+    "gsc": {
+      "source": "export",
+      "exported": "2026-09-15",
+      "period": "Last 3 months",
+      "search_type": "Web",
+      "start": "2026-06-13",
+      "end": "2026-09-12",
+      "totals": {
+        "clicks": 1,
+        "impressions": 139,
+        "ctr": 0.0072,
+        "position": 11.2
+      },
+      "daily": [
+        {
+          "date": "2026-06-13",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-06-14",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 10.5
+        },
+        {
+          "date": "2026-06-15",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 8
+        },
+        {
+          "date": "2026-06-16",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 8.5
+        },
+        {
+          "date": "2026-06-17",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-06-18",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-06-19",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 8
+        },
+        {
+          "date": "2026-06-20",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 5
+        },
+        {
+          "date": "2026-06-21",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 8
+        },
+        {
+          "date": "2026-06-22",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-06-23",
+          "clicks": 1,
+          "impressions": 2,
+          "ctr": 0.5,
+          "position": 7
+        },
+        {
+          "date": "2026-06-24",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 8
+        },
+        {
+          "date": "2026-06-25",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 16
+        },
+        {
+          "date": "2026-06-26",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 10
+        },
+        {
+          "date": "2026-06-27",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 10.3
+        },
+        {
+          "date": "2026-06-28",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 9
+        },
+        {
+          "date": "2026-06-29",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 10
+        },
+        {
+          "date": "2026-06-30",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-01",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-02",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 12
+        },
+        {
+          "date": "2026-07-03",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-04",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 6
+        },
+        {
+          "date": "2026-07-05",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 12.7
+        },
+        {
+          "date": "2026-07-06",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 8.5
+        },
+        {
+          "date": "2026-07-07",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 5
+        },
+        {
+          "date": "2026-07-08",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 25
+        },
+        {
+          "date": "2026-07-09",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-10",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 9
+        },
+        {
+          "date": "2026-07-11",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-12",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-13",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-14",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-15",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-16",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-17",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 6.7
+        },
+        {
+          "date": "2026-07-18",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 26
+        },
+        {
+          "date": "2026-07-19",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-20",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 13.5
+        },
+        {
+          "date": "2026-07-21",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 10
+        },
+        {
+          "date": "2026-07-22",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 10
+        },
+        {
+          "date": "2026-07-23",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 3.5
+        },
+        {
+          "date": "2026-07-24",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 2.5
+        },
+        {
+          "date": "2026-07-25",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 6.5
+        },
+        {
+          "date": "2026-07-27",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 30
+        },
+        {
+          "date": "2026-07-28",
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0.0,
+          "position": 18.8
+        },
+        {
+          "date": "2026-07-29",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-07-30",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 31
+        },
+        {
+          "date": "2026-07-31",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 15
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 18
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 13.8
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 3
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 19
+        },
+        {
+          "date": "2026-08-05",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-06",
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0.0,
+          "position": 14.9
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 15.3
+        },
+        {
+          "date": "2026-08-08",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-09",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 6
+        },
+        {
+          "date": "2026-08-10",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 4
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-12",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 4
+        },
+        {
+          "date": "2026-08-13",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 13.5
+        },
+        {
+          "date": "2026-08-14",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 20
+        },
+        {
+          "date": "2026-08-15",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-16",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 2
+        },
+        {
+          "date": "2026-08-17",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 7
+        },
+        {
+          "date": "2026-08-18",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 8
+        },
+        {
+          "date": "2026-08-19",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 16
+        },
+        {
+          "date": "2026-08-20",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-21",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 12
+        },
+        {
+          "date": "2026-08-22",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 6
+        },
+        {
+          "date": "2026-08-23",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-24",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 7
+        },
+        {
+          "date": "2026-08-25",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 9
+        },
+        {
+          "date": "2026-08-26",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-27",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 8.5
+        },
+        {
+          "date": "2026-08-28",
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": null,
+          "position": null
+        },
+        {
+          "date": "2026-08-29",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 10
+        },
+        {
+          "date": "2026-08-30",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 9.3
+        },
+        {
+          "date": "2026-08-31",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 9.5
+        },
+        {
+          "date": "2026-09-01",
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0.0,
+          "position": 7
+        },
+        {
+          "date": "2026-09-02",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 6
+        },
+        {
+          "date": "2026-09-03",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 13
+        },
+        {
+          "date": "2026-09-04",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 6.7
+        },
+        {
+          "date": "2026-09-05",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 16
+        },
+        {
+          "date": "2026-09-06",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 22
+        },
+        {
+          "date": "2026-09-07",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 9.3
+        },
+        {
+          "date": "2026-09-08",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 8.8
+        },
+        {
+          "date": "2026-09-09",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 24
+        },
+        {
+          "date": "2026-09-10",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 6.5
+        },
+        {
+          "date": "2026-09-11",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0.0,
+          "position": 6.7
+        },
+        {
+          "date": "2026-09-12",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 11
+        }
+      ],
+      "top_queries": [
+        {
+          "query": "urbant",
+          "clicks": 0,
+          "impressions": 63,
+          "ctr": 0.0,
+          "position": 10.63
+        },
+        {
+          "query": "dj urban",
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0.0,
+          "position": 15.33
+        },
+        {
+          "query": "djurban",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 7
+        },
+        {
+          "query": "urban dj",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 26
+        }
+      ],
+      "pages": [
+        {
+          "page": "https://djurbant.com/",
+          "clicks": 1,
+          "impressions": 137,
+          "ctr": 0.0073,
+          "position": 11.33
+        },
+        {
+          "page": "https://djurbant.com/contact/",
+          "clicks": 0,
+          "impressions": 2,
+          "ctr": 0.0,
+          "position": 4
+        }
+      ],
+      "countries": [
+        {
+          "country": "United States",
+          "clicks": 0,
+          "impressions": 32,
+          "ctr": 0.0,
+          "position": 11.22
+        },
+        {
+          "country": "France",
+          "clicks": 0,
+          "impressions": 20,
+          "ctr": 0.0,
+          "position": 7.35
+        },
+        {
+          "country": "Germany",
+          "clicks": 0,
+          "impressions": 8,
+          "ctr": 0.0,
+          "position": 11.62
+        },
+        {
+          "country": "Poland",
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0.0,
+          "position": 10.29
+        },
+        {
+          "country": "Denmark",
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0.0,
+          "position": 17.29
+        },
+        {
+          "country": "India",
+          "clicks": 1,
+          "impressions": 6,
+          "ctr": 0.1667,
+          "position": 11.33
+        },
+        {
+          "country": "Belgium",
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0.0,
+          "position": 7.8
+        },
+        {
+          "country": "United Kingdom",
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0.0,
+          "position": 9.6
+        },
+        {
+          "country": "Canada",
+          "clicks": 0,
+          "impressions": 5,
+          "ctr": 0.0,
+          "position": 15.6
+        },
+        {
+          "country": "Japan",
+          "clicks": 0,
+          "impressions": 4,
+          "ctr": 0.0,
+          "position": 7.75
+        }
+      ],
+      "devices": [
+        {
+          "device": "Mobile",
+          "clicks": 1,
+          "impressions": 57,
+          "ctr": 0.0175,
+          "position": 7.3
+        },
+        {
+          "device": "Desktop",
+          "clicks": 0,
+          "impressions": 81,
+          "ctr": 0.0,
+          "position": 14.05
+        },
+        {
+          "device": "Tablet",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0.0,
+          "position": 6
+        }
+      ],
+      "keywords": {
+        "bass house DJ London": null,
+        "DJ UrbanT": null,
+        "tech house DJ London": null,
+        "book a bass house DJ": null
+      },
+      "note": "from a manual Search Console export; queries list is Google's top list, not every query",
+      "insights": [
+        "139 impressions and 1 click in 92 days (about 45 impressions a month).",
+        "Average position 11.2: the site mostly appears on page 2, where few people click. Moving onto page 1 is the main lever.",
+        "Searching the exact name \"urbant\" puts the site at position 10.63; a brand should rank #1. Clear name + entity markup (Person/MusicGroup, sameAs) fixes this.",
+        "Near-miss spellings also show the site: dj urban, djurban, urban dj. Mention the name clearly so Google connects them.",
+        "Almost all impressions land on the homepage; other pages are invisible in search.",
+        "Mobile ranks far better (position 7.3) than desktop (14.05).",
+        "Most impressions come from United States, France, Germany."
+      ]
+    },
     "dataforseo": null,
     "gbp": null
   }
