@@ -2,11 +2,11 @@
   {
     "name": "Bella & Bello Studio",
     "url": "https://www.bellabellostudio.co.uk",
-    "score": 80,
+    "score": 75,
     "layers": {
       "Technical": 100,
       "On-page": 45,
-      "Structured data": 67,
+      "Structured data": 40,
       "Entity / NAP": 100,
       "AI search readiness": 94,
       "Performance": null
@@ -31,11 +31,11 @@
   {
     "name": "CMF Hairdressing",
     "url": "https://www.cmfhairdressing.com",
-    "score": 81,
+    "score": 73,
     "layers": {
       "Technical": 86,
       "On-page": 50,
-      "Structured data": 85,
+      "Structured data": 40,
       "Entity / NAP": 100,
       "AI search readiness": 94,
       "Performance": null
@@ -93,23 +93,25 @@
   {
     "name": "M&M Hair Academy",
     "url": "https://mandmhairacademy.com",
-    "score": 84,
+    "score": 77,
     "layers": {
       "Technical": 100,
-      "On-page": 54,
-      "Structured data": 72,
+      "On-page": 47,
+      "Structured data": 40,
       "Entity / NAP": 100,
       "AI search readiness": 100,
       "Performance": null
     },
     "pages": 10,
-    "findings": 20,
+    "findings": 19,
     "schema": [
+      "Article",
       "BreadcrumbList",
       "EntryPoint",
       "ImageObject",
       "ListItem",
       "Organization",
+      "Person",
       "PropertyValueSpecification",
       "ReadAction",
       "SearchAction",

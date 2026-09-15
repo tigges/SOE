@@ -36,6 +36,9 @@ keywords:
 competitors:                             # own sites; run with --competitors
   - {name: "Competitor A", url: https://competitor-a.example}
 
+benchmarks:                              # best-in-class leaders to learn from (find them: soe_benchmark.py --discover <type> URL...)
+  - {name: "Leader A", url: https://leader-a.example, why: "top score in its category"}
+
 citations:                               # off-site listings checked by soe_citations.py
   - {source: Yell, url: "https://www.yell.com/biz/...", directory: uk_general}
   - {source: Facebook, url: "https://facebook.com/...", directory: core, manual: true}   # manual = blocks bots

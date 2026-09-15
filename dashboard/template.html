@@ -201,7 +201,7 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
     <button role="tab" id="tab-overview" aria-selected="true" data-tab="overview">Audit</button>
     <button role="tab" id="tab-fixes" aria-selected="false" data-tab="fixes">Fixes</button>
     <button role="tab" id="tab-offsite" aria-selected="false" data-tab="offsite">Listings &amp; AI answers</button>
-    <button role="tab" id="tab-competitors" aria-selected="false" data-tab="competitors">Competitors</button>
+    <button role="tab" id="tab-competitors" aria-selected="false" data-tab="competitors">Competitors &amp; leaders</button>
     <button role="tab" id="tab-template" aria-selected="false" data-tab="template">The template</button>
     <button role="tab" id="tab-roadmap" aria-selected="false" data-tab="roadmap">Status</button>
   </nav>
@@ -300,6 +300,17 @@ pre.code{margin:0;background:var(--sunk);border-radius:8px;padding:14px;overflow
 
   <!-- COMPETITORS -->
   <section id="competitors" class="stack" hidden style="gap:18px">
+    <div class="panel stack" id="bmWrap">
+      <div class="row" style="justify-content:space-between"><h2>Best-in-class leaders</h2><span class="count" id="bmNote"></span></div>
+      <p class="muted" style="max-width:72ch">Leading sites in the same category, not necessarily local rivals. The "virtual 100" takes the best leader in each layer as the target.</p>
+      <div class="cmp" id="bmBars"></div>
+      <div class="tbl"><table><thead><tr><th>Layer</th><th style="text-align:center">This site</th><th style="text-align:center">Best leader</th><th>Leader</th><th style="text-align:right">Gap</th></tr></thead><tbody id="bmVirtual"></tbody></table></div>
+    </div>
+    <div class="stack" id="bmGapWrap">
+      <div class="row" style="justify-content:space-between"><h2>What the leaders do that this site doesn't</h2><span class="count" id="bmGapNote"></span></div>
+      <div class="filters" id="bmFilter"></div>
+      <div class="tbl"><table><thead id="bmGapHead"></thead><tbody id="bmGaps"></tbody></table></div>
+    </div>
     <div class="panel stack">
       <div class="row" style="justify-content:space-between"><h2>SOE score vs competitors</h2><span class="count">same audit, 10 pages each, no speed test</span></div>
       <div class="cmp" id="cmp"></div>
@@ -585,7 +596,39 @@ function renderOffsite(){
     "Fill the log in data/" + P.slug + "/ai_log.csv (soe_ai_log.py init adds this month's rows); ChatGPT and Perplexity fill in automatically once their API keys are set.";
 }
 
+let bmf = "all";
+function renderBenchmark(){
+  const B = P.benchmark;
+  $("#bmWrap").hidden = $("#bmGapWrap").hidden = !B;
+  if (!B) return;
+  const rows = [{...B.ours, name: `${P.name} (this site)`, us: true}, ...B.leaders].sort((a, b) => b.score - a.score);
+  $("#bmNote").textContent = `score excl. speed · ${B.run.slice(0, 10)}`;
+  $("#bmBars").innerHTML = rows.map(r => `<div class="r ${r.us ? "us" : ""}" data-tip="${esc(r.name)}: ${r.score}/100${r.why ? " · " + esc(r.why) : ""}">
+    <span>${esc(r.name)}</span><span class="bar"><i style="width:${r.score}%"></i></span><span class="val num">${r.score}</span></div>`).join("");
+  bindTips($("#bmBars"));
+  $("#bmVirtual").innerHTML = Object.entries(B.virtual_best).map(([k, v]) => {
+    const gap = (v.score ?? 0) - (v.ours ?? 0);
+    return `<tr><td><span class="code" style="display:inline-grid;width:24px;height:24px;font-size:13px;margin-right:8px">${LCODE[k]}</span>${esc(k)}</td>
+      <td><div class="heat ${band(v.ours)[0]}">${v.ours ?? "—"}</div></td><td><div class="heat ${band(v.score)[0]}">${v.score ?? "—"}</div></td>
+      <td>${esc(v.leader)}</td><td class="num" style="text-align:right">${gap > 0 ? "−" + gap : "✓"}</td></tr>`;
+  }).join("");
+  const names = B.leaders.map(l => l.name);
+  const G = B.gaps.filter(g => bmf === "all" || (bmf === "new" ? g.new_check : g.group === bmf));
+  const groups = ["all", "Pages", "Structured data", "Site", "new"];
+  $("#bmFilter").innerHTML = groups.map(f => `<button aria-pressed="${bmf === f}" data-f="${f}">${f === "all" ? "All" : f === "new" ? "Not yet in the audit" : f} · ${B.gaps.filter(g => f === "all" || (f === "new" ? g.new_check : g.group === f)).length}</button>`).join("");
+  $("#bmFilter").querySelectorAll("button").forEach(b => b.onclick = () => { bmf = b.dataset.f; renderBenchmark(); });
+  $("#bmGapNote").textContent = `${B.gaps.length} gaps · ${B.gaps.filter(g => g.new_check).length} are new ideas the audit doesn't score yet`;
+  const pc = v => Math.round(v * 100) + "%";
+  const cellc = v => v >= 0.7 ? "s-good" : v >= 0.3 ? "s-warn" : "s-na";
+  $("#bmGapHead").innerHTML = `<tr><th>Idea</th><th style="text-align:center">This site</th>${names.map(n => `<th style="text-align:center">${esc(n)}</th>`).join("")}<th>Leaders using it</th></tr>`;
+  $("#bmGaps").innerHTML = G.map(g => `<tr><td><strong>${esc(g.label)}</strong>${g.new_check ? ' <span class="chip s-low">new idea</span>' : ""}<br><span class="muted">${esc(g.idea)}</span></td>
+    <td><div class="heat ${cellc(g.ours)}">${pc(g.ours)}</div></td>
+    ${names.map(n => `<td><div class="heat ${cellc(g.leaders[n] ?? 0)}">${pc(g.leaders[n] ?? 0)}</div></td>`).join("")}
+    <td class="num">${g.adoption} of ${names.length}</td></tr>`).join("");
+}
+
 function renderCompetitors(){
+  renderBenchmark();
   const C = (P.competitors || []).filter(c => c.score != null);
   const A = P.audit;
   $("#cmpByLayer").parentElement.hidden = !C.length;
@@ -626,6 +669,7 @@ $("#kit").innerHTML = [
   ["PLAYBOOK.md","The method: layers, phases, automation tiers, manual checklist"],
   ["soe_audit.py","Crawl + scoring → report.md, findings.json (--lighthouse --competitors --integrations)"],
   ["soe_fixes.py","Fix pack: JSON-LD, page copy, platform steps, llms.txt summary"],
+  ["soe_benchmark.py","Leaders per site type: virtual-100 target and feature gaps (--discover finds leaders)"],
   ["soe_citations.py","Checks off-site listings for name/address/phone; lists directory gaps"],
   ["soe_ai_log.py","AI-answer log: monthly rows, API auto-fill, summary"],
   ["soe_dashboard.py","Builds this page from every report"],
@@ -645,6 +689,7 @@ const RM = [
   {s:"key", t:"Search Console", w:"Clicks, impressions and positions per keyword.", e:"GSC_SERVICE_ACCOUNT_JSON"},
   {s:"key", t:"Real-user speed (CrUX)", w:"Core Web Vitals from real visitors.", e:"CRUX_API_KEY (free)"},
   {s:"built", t:"Competitor benchmark", w:"Same audit on each competitor; gap per layer.", e:"--competitors"},
+  {s:"built", t:"Best-in-class leaders", w:"Leading sites per category, a virtual-100 target per layer, and a feature gap list that surfaces new ideas for the audit.", e:"soe_benchmark.py"},
   {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; directory gaps per site type.", e:"soe_citations.py"},
   {s:"built", t:"Site-type modules", w:"Local business, SaaS, ecommerce, publisher, personal/artist brand.", e:"modules/"},
   {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},

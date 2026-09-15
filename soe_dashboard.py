@@ -56,6 +56,7 @@ def project(cfg_path):
         citations=jload(os.path.join(latest, "citations.json")),
         fixes=jload(os.path.join(latest, "fixes.json")),
         integrations=jload(os.path.join(latest, "integrations.json")),
+        benchmark=(lambda b: b and {k: v for k, v in b.items() if k != "inventory"})(jload(os.path.join(latest, "benchmark.json"))),
         ai_summary=jload(os.path.join(latest, "ai_visibility.json")), ai_rows=ai_rows,
     )
 

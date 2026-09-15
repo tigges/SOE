@@ -38,6 +38,7 @@ jobs:
             python soe_ai_log.py init "$c"; python soe_ai_log.py run "$c" || true
             python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
             copy="projects/$slug/copy.yaml"
+            python soe_benchmark.py "$c" --out "$out" || true
             python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
           done
           python soe_dashboard.py

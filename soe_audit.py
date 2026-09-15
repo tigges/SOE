@@ -54,6 +54,7 @@ class Audit:
         self.cfg = cfg
         self.base = cfg["site"]["url"].rstrip("/")
         self.host = urlparse(self.base).netloc
+        self.hosts = {self.host, self.host[4:] if self.host.startswith("www.") else "www." + self.host}
         self.s = requests.Session()
         self.s.headers["User-Agent"] = UA
         self.findings, self.pages, self.meta = [], {}, {}
@@ -121,7 +122,7 @@ class Audit:
         while queue and len(self.pages) < limit:
             u = queue.pop(0).split("#")[0].split("?")[0]   # ignore query-string variants (replytocom, utm...)
             key = u.rstrip("/")
-            if key in seen or urlparse(u).netloc != self.host:
+            if key in seen or urlparse(u).netloc not in self.hosts:
                 continue
             seen.add(key)
             r = self.get(u)
@@ -133,11 +134,15 @@ class Audit:
             if "text/html" not in r.headers.get("content-type", ""):
                 continue
             soup = BeautifulSoup(r.text, "lxml")
+            if not self.pages:
+                key = self.base          # first page is always the homepage, whatever host it resolved to
+            elif r.url.split("?")[0].rstrip("/") in (self.base, self.base.replace("://www.", "://")):
+                continue
             self.pages[key] = self.page_facts(u, r, soup)
             for a in soup.find_all("a", href=True):
                 h = urljoin(u, a["href"])
                 self.nav.append((h, a.get_text(" ", strip=True)))
-                if urlparse(h).netloc == self.host and not re.search(r"\.(pdf|jpg|png|zip)$|_files/", h):
+                if urlparse(h).netloc in self.hosts and not re.search(r"\.(pdf|jpg|png|zip)$|_files/", h):
                     queue.append(h)
 
     def page_facts(self, url, r, soup):
@@ -181,6 +186,10 @@ class Audit:
 
     # ---------- O: on-page ----------
     def onpage(self):
+        if not self.pages:
+            self.add("T", "critical", "unreachable", "no HTML pages could be fetched (site down, blocked or wrong URL)",
+                     "Check the URL, and that the server/CDN doesn't block normal crawlers", self.base)
+            return
         titles = {}
         min_words = self.cfg.get("audit", {}).get("min_words", 300)
         for k, p in self.pages.items():
@@ -220,6 +229,9 @@ class Audit:
                 self.add("O", "low", "og-image", "no og:image", "Set a share image (1200×630)", u)
             if not p["lang"]:
                 self.add("O", "low", "lang", "no <html lang>", "Set lang (e.g. en-GB)", u)
+        if len(self.pages) == 1 and len({u for u, _ in self.nav if urlparse(u).netloc in self.hosts}) <= 2:
+            self.add("A", "high", "js-only-links", "only the homepage could be crawled: internal links aren't in the HTML",
+                     "Render navigation and key content server-side so crawlers and AI bots can follow links", self.base)
         pdfs = sorted(set(urljoin(p["url"], h) for p in self.pages.values() for h in p["pdf_links"]))
         if pdfs:
             self.add("O", "medium", "content-in-pdf", f"{len(pdfs)} PDF(s) linked site-wide — key info (e.g. prices) may be locked in PDF",
@@ -367,6 +379,8 @@ class Audit:
 
     # ---------- scoring + report ----------
     def score(self):
+        if not self.pages:
+            return 0, {k: 0 for k in ("Technical", "On-page", "Structured data", "Entity / NAP", "AI search readiness")} | {"Performance": None}
         layers = {"T": "Technical", "O": "On-page", "S": "Structured data", "E": "Entity / NAP",
                   "A": "AI search readiness", "P": "Performance"}
         out = {}
@@ -379,6 +393,8 @@ class Audit:
             # a repeated issue costs more, but with diminishing returns (sqrt of occurrences, capped at 4)
             pen = sum(w * min(n, 4) ** 0.5 for w, n in by_check.values())
             out[name] = round(max(0, 100 - pen * 1.5))
+            if L == "S" and "schema-missing" in by_check:
+                out[name] = min(out[name], 40)   # no entity markup at all: cap the layer
         lh = self.meta.get("lighthouse", {}).get("scores", {})
         if lh.get("performance") is not None:
             out["Performance"] = min(out["Performance"], lh["performance"])

@@ -1,19 +1,19 @@
 # SOE audit — Yuzu Hair & Beauty
 
-Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-15 08:19 · Pages crawled: 7 · Sitemap URLs: 7
+Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-15 09:12 · Pages crawled: 7 · Sitemap URLs: 7
 
-## Score: 72/100
+## Score: 65/100
 
 | Layer | Score |
 |---|---|
 | Technical | 100 |
 | On-page | 3 |
-| Structured data | 76 |
+| Structured data | 40 |
 | Entity / NAP | 92 |
 | AI search readiness | 96 |
-| Performance | 79 |
+| Performance | 69 |
 
-Lighthouse (mobile lab): performance 79, accessibility 96, best-practices 79, seo 85 · LCP 2.5s · TBT 693ms · CLS 0.01
+Lighthouse (mobile lab): performance 69, accessibility 96, best-practices 79, seo 85 · LCP 3.3s · TBT 956ms · CLS 0.01
 
 Schema types found: ImageObject, WebSite
 AI bots blocked: {'search': [], 'training': []} · llms.txt: True
@@ -56,7 +56,8 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | medium | S | schema-sameAs | 'sameAs' not present in any JSON-LD on the site | Include sameAs in the main entity markup | / |
 | medium | E | brand-name | canonical name 'Yuzu Hair & Beauty' not used consistently (title: 'H O M E / Yuzu Hair') | Use one exact business name everywhere (site, GBP, directories, schema) | / |
 | medium | A | llms.txt-summary | summary does not mention ['Ealing'] | Rewrite the llms.txt summary to describe the business, not a random page | / |
-| medium | P | tbt-inp-proxy | TBT 693ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
+| medium | P | lcp | lab LCP 3.3s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| medium | P | tbt-inp-proxy | TBT 956ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
 | low | O | alt-text | 2/11 images lack alt | Describe images; include service/location naturally | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | /o-f-f-e-r-s-1 |
@@ -81,6 +82,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 - **schema-sameAs** — Pages & Menu → page ⋯ → SEO → Advanced SEO → Structured data markup → Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.
 - **brand-name** — Settings → Business info → Business name. Then use the same name in titles, the footer and every profile.
 - **llms.txt-summary** — Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
+- **lcp** — Remove unused apps (Apps → Manage apps). Use a compressed hero image (Wix image settings → quality). Don't put video or slideshows above the fold.
 - **tbt-inp-proxy** — Remove unused apps and third-party embeds; limit animations (Editor → Animations).
 - **alt-text** — Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** — Pages & Menu → page ⋯ → Social share → upload a 1200×630 image. The site-wide default is in SEO Settings.

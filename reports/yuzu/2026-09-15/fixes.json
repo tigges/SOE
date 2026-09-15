@@ -198,6 +198,12 @@
       "count": 1,
       "severity": "medium"
     },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold.",
+      "count": 1,
+      "severity": "medium"
+    },
     "tbt-inp-proxy": {
       "fix": "Remove unused apps/widgets and third-party scripts",
       "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).",
