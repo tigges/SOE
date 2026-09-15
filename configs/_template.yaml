@@ -36,6 +36,12 @@ keywords:
 competitors:                             # own sites; run with --competitors
   - {name: "Competitor A", url: https://competitor-a.example}
 
+legacy_sites:                            # old/parked sites to take offline or redirect (checked by soe_citations.py)
+  - {url: "https://old-site.example", action: take_offline, note: "old builder site with outdated address"}
+
+name_clashes:                            # other businesses with the same/similar name (brand-search competition)
+  - {name: "Same Name Ltd (other city)", url: https://same-name.example, note: ""}
+
 benchmarks:                              # best-in-class leaders to learn from (find them: soe_benchmark.py --discover <type> URL...)
   - {name: "Leader A", url: https://leader-a.example, why: "top score in its category"}
 

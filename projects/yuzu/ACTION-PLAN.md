@@ -27,12 +27,15 @@ Two of the three also use breadcrumb and Organization markup, link to TikTok/You
 
 **Off-site** (`soe_citations.py`):
 - Make It Ealing and beautynailhairsalons match.
-- The **old ueniweb site shows the wrong address and phone** (22 Mattock Lane, W5 5BH, 07572 107373). Take it down.
+- **Take the old ueni site offline:** yuzuhairandbeauty.ueniweb.com still shows "West Ealing", 22 Mattock Lane, W5 5BH and 07572 107373. Delete it in the ueni account (or ask ueni support), then request removal in Search Console → Removals.
+- **Redirect yuzuhairandbeauty.co.uk:** the email domain shows a One.com "under construction" page. Set a permanent (301) forward of the whole domain to www.yuzuhairandbeauty.london, keeping the email working.
 - Old Facebook posts show 26 High Street, W5 5DB.
 - Facebook, Instagram, TikTok, LinkedIn, Wheree and Phorest block automated reading, so they need checking by hand.
 - No known listing on 17 directories, including Google Business Profile (add its URL), Bing, Apple, Yell, Treatwell, Fresha and Booksy.
 
-**AI answers:** 12 checks (3 prompts × 4 engines) are waiting in `data/yuzu/ai_log.csv`.
+**Same-name business:** YUZUHAIR in Hucknall, Nottingham (yuzuhair.co.uk, listed on Yell as "Yuzu Hair") competes for "Yuzu Hair" searches. It isn't a local competitor. Use "Yuzu Hair & Beauty, Ealing" consistently, and watch the AI log's new brand prompt ("Yuzu Hair salon") for answers that mix the two up.
+
+**AI answers:** 16 checks (4 prompts × 4 engines) are waiting in `data/yuzu/ai_log.csv`.
 
 ---
 

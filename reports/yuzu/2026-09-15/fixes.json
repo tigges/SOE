@@ -233,6 +233,18 @@
       "how": null,
       "count": 1,
       "severity": "low"
+    },
+    "legacy-site: https://yuzuhairandbeauty.ueniweb.com/": {
+      "fix": "Take it offline (delete the site or the listing on that platform). old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
+      "how": "ueni: log in at ueni.com \u2192 Settings \u2192 Delete website (or ask ueni support), then request removal in Google Search Console \u2192 Removals if it still shows.",
+      "count": 1,
+      "severity": "high"
+    },
+    "legacy-site: https://yuzuhairandbeauty.co.uk/": {
+      "fix": "301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page \u2014 301 it to the .london site",
+      "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
+      "count": 1,
+      "severity": "high"
     }
   },
   "llms_summary": "Yuzu Hair & Beauty Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry. Address: 5 Dickens Yard, Longfield Avenue, Ealing, London W5 2TD. Hours: Tue, Wed, Thu, Fri 10:00\u201320:00; Sat 09:00\u201318:00. Phone 020 8840 2244. Book online: https://phorest.com/book/salons/yuzuhairandbeauty",

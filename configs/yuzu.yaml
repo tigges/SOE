@@ -54,13 +54,19 @@ competitors:   # own sites only; Bleach and Bobs has no site (Treatwell only)
 citations:     # checked by soe_citations.py; status from last manual check (15 Sep 2026)
   - {source: Make It Ealing, url: "https://www.makeitealing.co.uk/business/yuzu-hair/", directory: local}
   - {source: Wheree, url: "https://yuzu-hair.wheree.com/", directory: uk_general, manual: true, note: "blocks bots; showed correct NAP on 15 Sep, unclaimed"}
-  - {source: Old ueniweb site, url: "https://yuzuhairandbeauty.ueniweb.com/", directory: legacy, note: "shows 22 Mattock Lane W5 5BH / 07572 107373 — take down"}
   - {source: beautynailhairsalons.com, url: "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty", directory: uk_general}
   - {source: Facebook, url: "https://www.facebook.com/YUZUHairandBeauty/", directory: core, manual: true, note: "old posts say 26 High Street W5 5DB"}
   - {source: Instagram, url: "https://www.instagram.com/yuzuhairandbeauty/", directory: core, manual: true}
   - {source: TikTok, url: "https://www.tiktok.com/@yuzuhairandbeauty.est16", directory: core, manual: true}
   - {source: LinkedIn, url: "https://uk.linkedin.com/company/yuzu-hair-limited", directory: core, manual: true}
   - {source: Phorest booking, url: "https://phorest.com/book/salons/yuzuhairandbeauty", directory: vertical_salon, manual: true}
+
+legacy_sites:  # old or parked sites that confuse search engines and AI answers (checked by soe_citations.py)
+  - {url: "https://yuzuhairandbeauty.ueniweb.com/", action: take_offline, note: "old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373"}
+  - {url: "https://yuzuhairandbeauty.co.uk/", action: redirect, note: "email domain shows a One.com 'under construction' page — 301 it to the .london site"}
+
+name_clashes:  # other businesses with a similar name — not competitors, but they compete for brand searches
+  - {name: "YUZUHAIR (Hucknall, Nottingham)", url: https://www.yuzuhair.co.uk, note: "salon + Kérastase shop; owns yuzuhair.co.uk and a Yell listing as 'Yuzu Hair'"}
 
 benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026: 11 UK salon sites tested)
   - {name: "Hershesons", url: https://www.hershesons.com, why: "London salon group; top score (87)"}
@@ -73,6 +79,7 @@ ai:
   engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
   brand_terms: ["Yuzu Hair", "YUZU Hair", "yuzuhairandbeauty"]
   prompts:
+    - Yuzu Hair salon
     - best hair salon in Ealing Broadway
     - Japanese-style hairdresser in west London
     - where can I get a Brazilian blow dry in Ealing

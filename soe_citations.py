@@ -61,6 +61,31 @@ def check(entry, b, names):
     return row
 
 
+ACTIONS = {"take_offline": "Take it offline (delete the site or the listing on that platform)",
+           "redirect": "301-redirect the whole domain to the main site"}
+
+
+def check_legacy(entry, main_url):
+    """Is an old/parked site still live? Anything reachable that isn't a redirect to the main site is a problem."""
+    row = dict(url=entry["url"], action=entry.get("action", "take_offline"), note=entry.get("note", ""))
+    row["recommendation"] = ACTIONS.get(row["action"], row["action"])
+    try:
+        r = requests.get(entry["url"], headers={"User-Agent": UA}, timeout=25, allow_redirects=True)
+    except requests.RequestException as e:
+        row.update(status="offline", detail=f"not reachable ({type(e).__name__}) — done")
+        return row
+    main_host = main_url.split("//")[-1].split("/")[0].replace("www.", "")
+    final_host = r.url.split("//")[-1].split("/")[0].replace("www.", "")
+    if final_host == main_host:
+        row.update(status="redirected", detail=f"redirects to {r.url} — done")
+    elif r.status_code >= 400:
+        row.update(status="offline", detail=f"HTTP {r.status_code} — done")
+    else:
+        title = BeautifulSoup(r.text, "lxml").title
+        row.update(status="live", detail=f"still live (HTTP {r.status_code}): '{(title.string or '').strip()[:80] if title else ''}'")
+    return row
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("config")
@@ -72,6 +97,8 @@ def main():
     names = [b.get("name", "")] + (cfg.get("ai", {}).get("brand_terms") or []) + [domain]
     names = [n for n in names if n]
     rows = [check(e, b, names) for e in cfg.get("citations") or []]
+    legacy = [check_legacy(e, cfg["site"]["url"]) for e in cfg.get("legacy_sites") or [] if e.get("url")]
+    clashes = cfg.get("name_clashes") or []
 
     ptype = cfg["site"].get("type", "generic")
     mpath = os.path.join(HERE, "modules", f"{ptype}.yaml")
@@ -83,14 +110,20 @@ def main():
     out = a.out or os.path.join(HERE, "reports", cfg["site"].get("slug", "site"), dt.date.today().isoformat())
     os.makedirs(out, exist_ok=True)
     summary = {s: sum(r["status"] == s for r in rows) for s in ("ok", "mismatch", "unreachable", "manual")}
-    json.dump(dict(run=dt.datetime.now().isoformat(timespec="minutes"), summary=summary, listings=rows, gaps=gaps),
+    json.dump(dict(run=dt.datetime.now().isoformat(timespec="minutes"), summary=summary, listings=rows, gaps=gaps,
+                   legacy=legacy, name_clashes=clashes),
               open(os.path.join(out, "citations.json"), "w"), indent=2)
     L = [f"# Citations — {cfg['site'].get('name')}", "", " · ".join(f"{k}: {v}" for k, v in summary.items()), "",
          "| Status | Source | Detail | Note |", "|---|---|---|---|"]
     L += [f"| {r['status']} | [{r['source']}]({r['url']}) | {r.get('detail','')} | {r.get('note','')} |" for r in rows]
+    if legacy:
+        L += ["", "## Old sites to retire", "", "| Status | Site | What we found | Do this |", "|---|---|---|---|"]
+        L += [f"| {r['status']} | {r['url']} | {(r['detail'] + ' · ' + r['note']).replace('|', '/')} | {r['recommendation']} |" for r in legacy]
+    if clashes:
+        L += ["", "## Same-name businesses", ""] + [f"- [{c.get('name')}]({c.get('url')}) — {c.get('note', '')}" for c in clashes]
     L += ["", "## Directories with no known listing", ""] + [f"- **{g}:** {', '.join(v)}" for g, v in gaps.items()]
     open(os.path.join(out, "citations.md"), "w").write("\n".join(L) + "\n")
-    print(f"citations: {summary} · gaps: {sum(len(v) for v in gaps.values())} → {out}/citations.md")
+    print(f"citations: {summary} · legacy live: {sum(r['status'] == 'live' for r in legacy)} · gaps: {sum(len(v) for v in gaps.values())} → {out}/citations.md")
 
 
 if __name__ == "__main__":
