@@ -82,6 +82,29 @@ class IndexNow(unittest.TestCase):
         with mock.patch.dict(os.environ, {"INDEXNOW_KEY": "", "INDEXNOW_URL_TXT": loc}, clear=False):
             self.assertEqual(inn.resolve_key(), ("abcd1234efgh5678", loc))
 
+    def test_rewrite_www_to_apex(self):
+        self.assertEqual(
+            inn.rewrite_to_host("http://www.tigg3s.com/about", "tigg3s.com"),
+            "https://tigg3s.com/about",
+        )
+        self.assertIsNone(inn.rewrite_to_host("https://djurbant.com/", "tigg3s.com"))
+
+    def test_homepage_when_sitemap_empty(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            resp = mock.Mock(status_code=202, reason="Accepted", text="")
+            def fake_get(url, timeout=20):
+                r = mock.Mock()
+                r.ok, r.text = False, ""
+                return r
+            with mock.patch.dict(os.environ, {"INDEXNOW_KEY": "abcd1234efgh5678", "INDEXNOW_URL_TXT": ""}, clear=False):
+                with mock.patch.object(inn.requests.Session, "get", side_effect=fake_get), \
+                     mock.patch.object(inn.requests.Session, "post", return_value=resp) as post:
+                    out = inn.run({"site": {"url": "https://tigg3s.com", "platform": "other"}}, tmp)
+            self.assertEqual(out["status"], 202)
+            self.assertEqual(out["submitted"], 1)
+            body = post.call_args.kwargs.get("json") or post.call_args[1].get("json")
+            self.assertEqual(body["urlList"], ["https://tigg3s.com/"])
+
     def test_resolve_key_prefers_indexnow_key(self):
         with mock.patch.dict(os.environ, {"INDEXNOW_KEY": "primarykey12", "INDEXNOW_URL_TXT": "https://x.example/other.txt"}, clear=False):
             self.assertEqual(inn.resolve_key(), ("primarykey12", "https://x.example/other.txt"))
