@@ -1,0 +1,887 @@
+{
+  "site": "https://djurbant.com",
+  "run": "2026-09-16 00:41",
+  "project": {
+    "name": "DJ UrbanT",
+    "slug": "djurbant",
+    "type": "personal_brand",
+    "platform": "wordpress",
+    "module": "Personal / artist brand (DJ, musician, creator)"
+  },
+  "score": 63,
+  "layers": {
+    "Technical": 100,
+    "On-page": 0,
+    "Structured data": 40,
+    "Entity / NAP": 100,
+    "AI search readiness": 90,
+    "Performance": 57
+  },
+  "meta": {
+    "sitemap_urls": 10,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": false,
+    "lighthouse_runs": [
+      57
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 57,
+        "accessibility": 100,
+        "best-practices": 96,
+        "seo": 92
+      },
+      "lab": {
+        "largest-contentful-paint": 5850.95,
+        "cumulative-layout-shift": 0.096186537980417,
+        "total-blocking-time": 599.5
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['Person', 'MusicGroup', 'Organization']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for Person (see schema/ templates)",
+      "url": "https://djurbant.com",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://djurbant.com/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'Hello world!'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/sample-page/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'Sample Page'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://djurbant.com/sample-page/",
+      "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/video/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/audio/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/contact/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/map/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/admin/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "noindex",
+      "detail": "page is noindex but linked/in sitemap",
+      "fix": "Remove noindex or drop from sitemap",
+      "url": "https://djurbant.com/admin/",
+      "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/category/uncategorized/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'Hello world!'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://djurbant.com/category/uncategorized/",
+      "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/author/charles/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'Hello world!'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://djurbant.com/author/charles/",
+      "how": "Search the Elementor templates and pages for the demo text and replace it with real copy."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/wp-admin/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "noindex",
+      "detail": "page is noindex but linked/in sitemap",
+      "fix": "Remove noindex or drop from sitemap",
+      "url": "https://djurbant.com/wp-admin/",
+      "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://djurbant.com/wp-login.php",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "noindex",
+      "detail": "page is noindex but linked/in sitemap",
+      "fix": "Remove noindex or drop from sitemap",
+      "url": "https://djurbant.com/wp-login.php",
+      "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off."
+    },
+    {
+      "layer": "A",
+      "severity": "high",
+      "check": "extractable-text",
+      "detail": "homepage has 55 words of text",
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 5.9s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "55 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "24 chars: 'Hello world! \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "134 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "23 chars: 'Sample Page \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/sample-page/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "188 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/sample-page/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "17 chars: 'Video \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/video/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "14 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/video/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "17 chars: 'Audio \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/audio/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "14 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/audio/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'Contact \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/contact/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "51 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/contact/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "15 chars: 'Map \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/map/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "72 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/map/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "51 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/admin/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "60 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/category/uncategorized/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'Charles \u2013 DJ UrbanT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://djurbant.com/author/charles/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "61 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/author/charles/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "51 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/wp-admin/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "51 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://djurbant.com/wp-login.php",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "duplicate-title",
+      "detail": "'Log In \u2039 DJ UrbanT \u2014 WordPress' on 3 pages",
+      "fix": "Make titles unique",
+      "url": "https://djurbant.com/admin/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'about/bio' page found (looked for: about, bio)",
+      "fix": "Add a dedicated about/bio page and link it from the navigation",
+      "url": "https://djurbant.com",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'events' page found (looked for: event, gig, tour, dates)",
+      "fix": "Add a dedicated events page and link it from the navigation",
+      "url": "https://djurbant.com",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'bass house DJ London' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://djurbant.com",
+      "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1)."
+    },
+    {
+      "layer": "P",
+      "severity": "medium",
+      "check": "tbt-inp-proxy",
+      "detail": "TBT 600ms (INP risk)",
+      "fix": "Remove unused apps/widgets and third-party scripts",
+      "url": null,
+      "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "1/3 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://djurbant.com/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "1/3 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/hello-world/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/sample-page/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/video/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/audio/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/contact/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/map/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://djurbant.com/admin/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/admin/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/category/uncategorized/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/author/charles/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://djurbant.com/wp-admin/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/wp-admin/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://djurbant.com/wp-login.php",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://djurbant.com/wp-login.php",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "A",
+      "severity": "low",
+      "check": "llms.txt",
+      "detail": "missing",
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "url": null,
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details)."
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://djurbant.com/",
+      "status": 200,
+      "bytes": 63556,
+      "title": "DJ UrbanT \u2013 Bass House. Tech House. Live Sets.",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 4,
+      "canonical": "https://djurbant.com/",
+      "lang": "en-US",
+      "words": 55,
+      "img_total": 3,
+      "img_no_alt": 1,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/hello-world/",
+      "status": 200,
+      "bytes": 61766,
+      "title": "Hello world! \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Hello world!"
+      ],
+      "h2_count": 1,
+      "canonical": "https://djurbant.com/hello-world/",
+      "lang": "en-US",
+      "words": 134,
+      "img_total": 3,
+      "img_no_alt": 1,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/sample-page/",
+      "status": 200,
+      "bytes": 57900,
+      "title": "Sample Page \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Sample Page"
+      ],
+      "h2_count": 0,
+      "canonical": "https://djurbant.com/sample-page/",
+      "lang": "en-US",
+      "words": 188,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/video/",
+      "status": 200,
+      "bytes": 54427,
+      "title": "Video \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Video"
+      ],
+      "h2_count": 0,
+      "canonical": "https://djurbant.com/video/",
+      "lang": "en-US",
+      "words": 14,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/audio/",
+      "status": 200,
+      "bytes": 54090,
+      "title": "Audio \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Audio"
+      ],
+      "h2_count": 0,
+      "canonical": "https://djurbant.com/audio/",
+      "lang": "en-US",
+      "words": 14,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/contact/",
+      "status": 200,
+      "bytes": 63385,
+      "title": "Contact \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Contact DJ UrbanT"
+      ],
+      "h2_count": 0,
+      "canonical": "https://djurbant.com/contact/",
+      "lang": "en-US",
+      "words": 51,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/map/",
+      "status": 200,
+      "bytes": 51420,
+      "title": "Map \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "DJ UrbanT \u2014 Map"
+      ],
+      "h2_count": 3,
+      "canonical": "https://djurbant.com/map/",
+      "lang": "en-US",
+      "words": 72,
+      "img_total": 6,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/admin/",
+      "status": 200,
+      "bytes": 7971,
+      "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "description": "",
+      "robots": "max-image-preview:large, noindex, noarchive",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Log In",
+        "Powered by WordPress"
+      ],
+      "h2_count": 0,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 51,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/category/uncategorized/",
+      "status": 200,
+      "bytes": 57262,
+      "title": "Uncategorized \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Uncategorized"
+      ],
+      "h2_count": 1,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 60,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/author/charles/",
+      "status": 200,
+      "bytes": 57219,
+      "title": "Charles \u2013 DJ UrbanT",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Author: Charles"
+      ],
+      "h2_count": 1,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 61,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/wp-admin/",
+      "status": 200,
+      "bytes": 7974,
+      "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "description": "",
+      "robots": "max-image-preview:large, noindex, noarchive",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Log In",
+        "Powered by WordPress"
+      ],
+      "h2_count": 0,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 51,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://djurbant.com/wp-login.php",
+      "status": 200,
+      "bytes": 7600,
+      "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "description": "",
+      "robots": "max-image-preview:large, noindex, noarchive",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Log In",
+        "Powered by WordPress"
+      ],
+      "h2_count": 0,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 51,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}

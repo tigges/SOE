@@ -1,0 +1,214 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://djurbant.com/#entity",
+    "name": "DJ UrbanT",
+    "url": "https://djurbant.com/",
+    "description": "DJ UrbanT is a London bass house and tech house DJ; djurbant.com is the brand and booking hub.",
+    "sameAs": [
+      "https://www.instagram.com/_urbant_/"
+    ]
+  },
+  "pages": [
+    {
+      "url": "https://djurbant.com/",
+      "current_title": "DJ UrbanT \u2013 Bass House. Tech House. Live Sets.",
+      "title": "Bass house DJ London | DJ UrbanT",
+      "description": "Bass house DJ London at DJ UrbanT. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Bass house DJ London",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/hello-world/",
+      "current_title": "Hello world! \u2013 DJ UrbanT",
+      "title": "Hello World! | DJ UrbanT",
+      "description": "Hello World! at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Hello World!",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/sample-page/",
+      "current_title": "Sample Page \u2013 DJ UrbanT",
+      "title": "Sample Page | DJ UrbanT",
+      "description": "Sample Page at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Sample Page",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/video/",
+      "current_title": "Video \u2013 DJ UrbanT",
+      "title": "Video | DJ UrbanT",
+      "description": "Video at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Video",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/audio/",
+      "current_title": "Audio \u2013 DJ UrbanT",
+      "title": "Audio | DJ UrbanT",
+      "description": "Audio at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Audio",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/contact/",
+      "current_title": "Contact \u2013 DJ UrbanT",
+      "title": "Contact Dj Urbant | DJ UrbanT",
+      "description": "Contact Dj Urbant at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Contact Dj Urbant",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/map/",
+      "current_title": "Map \u2013 DJ UrbanT",
+      "title": "Dj Urbant \u2014 Map | DJ UrbanT",
+      "description": "Dj Urbant \u2014 Map at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Dj Urbant \u2014 Map",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/admin/",
+      "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "title": "Log In | DJ UrbanT",
+      "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Log In",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/category/uncategorized/",
+      "current_title": "Uncategorized \u2013 DJ UrbanT",
+      "title": "Uncategorized | DJ UrbanT",
+      "description": "Uncategorized at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Uncategorized",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/author/charles/",
+      "current_title": "Charles \u2013 DJ UrbanT",
+      "title": "Author: Charles | DJ UrbanT",
+      "description": "Author: Charles at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Author: Charles",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/wp-admin/",
+      "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "title": "Log In | DJ UrbanT",
+      "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Log In",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://djurbant.com/wp-login.php",
+      "current_title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
+      "title": "Log In | DJ UrbanT",
+      "description": "Log In at DJ UrbanT in London. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Log In",
+      "source": "DRAFT (rule-based)"
+    }
+  ],
+  "steps": {
+    "schema-missing": {
+      "fix": "Add JSON-LD for Person (see schema/ templates)",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode).",
+      "count": 1,
+      "severity": "critical"
+    },
+    "meta-description": {
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "how": "Yoast/Rank Math panel \u2192 Meta description.",
+      "count": 12,
+      "severity": "high"
+    },
+    "h1": {
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title).",
+      "count": 4,
+      "severity": "high"
+    },
+    "placeholder-text": {
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "how": "Search the Elementor templates and pages for the demo text and replace it with real copy.",
+      "count": 4,
+      "severity": "high"
+    },
+    "noindex": {
+      "fix": "Remove noindex or drop from sitemap",
+      "how": "Yoast \u2192 Advanced \u2192 Allow search engines to show this page = Yes. Also check Settings \u2192 Reading \u2192 'Discourage search engines' is off.",
+      "count": 3,
+      "severity": "high"
+    },
+    "extractable-text": {
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading).",
+      "count": 1,
+      "severity": "high"
+    },
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": "Add sections in Elementor; Yoast readability/word count helps.",
+      "count": 12,
+      "severity": "medium"
+    },
+    "title-length": {
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.",
+      "count": 7,
+      "severity": "medium"
+    },
+    "duplicate-title": {
+      "fix": "Make titles unique",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "expected-page": {
+      "fix": "Add a dedicated about/bio page and link it from the navigation",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus.",
+      "count": 2,
+      "severity": "medium"
+    },
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).",
+      "count": 1,
+      "severity": "medium"
+    },
+    "tbt-inp-proxy": {
+      "fix": "Remove unused apps/widgets and third-party scripts",
+      "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "alt-text": {
+      "fix": "Describe images; include service/location naturally",
+      "how": "Media Library \u2192 image \u2192 Alternative Text.",
+      "count": 2,
+      "severity": "low"
+    },
+    "og-image": {
+      "fix": "Set a share image (1200\u00d7630)",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics.",
+      "count": 12,
+      "severity": "low"
+    },
+    "llms.txt": {
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details).",
+      "count": 1,
+      "severity": "low"
+    }
+  },
+  "llms_summary": "DJ UrbanT DJ UrbanT is a London bass house and tech house DJ; djurbant.com is the brand and booking hub.",
+  "questions": [
+    "Who is DJ UrbanT?",
+    "How do I book DJ UrbanT?"
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "run": "2026-09-16T00:44",
+  "summary": {
+    "ok": 1,
+    "mismatch": 0,
+    "unreachable": 1,
+    "manual": 6
+  },
+  "listings": [
+    {
+      "source": "Make It Ealing",
+      "url": "https://www.makeitealing.co.uk/business/yuzu-hair/",
+      "directory": "local",
+      "note": "",
+      "status": "ok",
+      "detail": "name, phone and postcode match",
+      "checks": {
+        "name": true,
+        "phone": true,
+        "postcode": true
+      }
+    },
+    {
+      "source": "Wheree",
+      "url": "https://yuzu-hair.wheree.com/",
+      "directory": "uk_general",
+      "note": "blocks bots; showed correct NAP on 15 Sep, unclaimed",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "beautynailhairsalons.com",
+      "url": "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty",
+      "directory": "uk_general",
+      "note": "",
+      "status": "unreachable",
+      "detail": "HTTP 403"
+    },
+    {
+      "source": "Facebook",
+      "url": "https://www.facebook.com/YUZUHairandBeauty/",
+      "directory": "core",
+      "note": "old posts say 26 High Street W5 5DB",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Instagram",
+      "url": "https://www.instagram.com/yuzuhairandbeauty/",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "TikTok",
+      "url": "https://www.tiktok.com/@yuzuhairandbeauty.est16",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "LinkedIn",
+      "url": "https://uk.linkedin.com/company/yuzu-hair-limited",
+      "directory": "core",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Phorest booking",
+      "url": "https://phorest.com/book/salons/yuzuhairandbeauty",
+      "directory": "vertical_salon",
+      "note": "",
+      "status": "manual",
+      "detail": "Blocks automated reading \u2014 check by hand"
+    }
+  ],
+  "gaps": {
+    "core": [
+      "Google Business Profile",
+      "Bing Places",
+      "Apple Business Connect"
+    ],
+    "uk_general": [
+      "Yell",
+      "Thomson Local",
+      "Scoot",
+      "Cylex",
+      "FreeIndex",
+      "Hotfrog",
+      "Yelp UK",
+      "Nextdoor",
+      "Foursquare"
+    ],
+    "vertical_salon": [
+      "Treatwell",
+      "Fresha",
+      "Booksy",
+      "hairdressr"
+    ],
+    "local": [
+      "local council directory"
+    ]
+  },
+  "legacy": [
+    {
+      "url": "https://yuzuhairandbeauty.ueniweb.com/",
+      "action": "take_offline",
+      "note": "old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
+      "recommendation": "Take it offline (delete the site or the listing on that platform)",
+      "status": "live",
+      "detail": "still live (HTTP 200): 'Yuzu Hair And Beauty - Hair And Beauty Shop in West Ealing'"
+    },
+    {
+      "url": "https://yuzuhairandbeauty.co.uk/",
+      "action": "redirect",
+      "note": "email domain shows a One.com 'under construction' page \u2014 301 it to the .london site",
+      "recommendation": "301-redirect the whole domain to the main site",
+      "status": "live",
+      "detail": "still live (HTTP 200): 'Hosted By One.com | Webhosting made simple'"
+    }
+  ],
+  "name_clashes": [
+    {
+      "name": "YUZUHAIR (Hucknall, Nottingham)",
+      "url": "https://www.yuzuhair.co.uk",
+      "note": "salon + K\u00e9rastase shop; owns yuzuhair.co.uk and a Yell listing as 'Yuzu Hair'"
+    }
+  ]
+}

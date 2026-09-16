@@ -1,0 +1,713 @@
+{
+  "run": "2026-09-16T00:45",
+  "ours": {
+    "name": "Yuzu Hair & Beauty",
+    "url": "https://www.yuzuhairandbeauty.london",
+    "score": 67,
+    "layers": {
+      "Technical": 100,
+      "On-page": 10,
+      "Structured data": 40,
+      "Entity / NAP": 92,
+      "AI search readiness": 100,
+      "Performance": null
+    },
+    "pages": 7,
+    "schema": [
+      "ImageObject",
+      "WebSite"
+    ]
+  },
+  "leaders": [
+    {
+      "name": "Hershesons",
+      "url": "https://www.hershesons.com",
+      "score": 87,
+      "layers": {
+        "Technical": 100,
+        "On-page": 88,
+        "Structured data": 40,
+        "Entity / NAP": 100,
+        "AI search readiness": 100,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "AggregateRating",
+        "Brand",
+        "BreadcrumbList",
+        "ContactPoint",
+        "DefinedRegion",
+        "ListItem",
+        "MerchantReturnPolicy",
+        "MonetaryAmount",
+        "Offer",
+        "OfferShippingDetails",
+        "Organization",
+        "PostalAddress",
+        "Product",
+        "ProductGroup",
+        "QuantitativeValue",
+        "SearchAction",
+        "ShippingDeliveryTime",
+        "Thing",
+        "WebSite"
+      ],
+      "why": "London salon group; top score (87)"
+    },
+    {
+      "name": "Headmasters",
+      "url": "https://www.headmasters.com",
+      "score": 83,
+      "layers": {
+        "Technical": 100,
+        "On-page": 73,
+        "Structured data": 40,
+        "Entity / NAP": 100,
+        "AI search readiness": 100,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "Answer",
+        "Article",
+        "BlogPosting",
+        "BreadcrumbList",
+        "CollectionPage",
+        "EntryPoint",
+        "FAQPage",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Person",
+        "PropertyValueSpecification",
+        "Question",
+        "ReadAction",
+        "SearchAction",
+        "WebPage",
+        "WebSite"
+      ],
+      "why": "UK salon chain; 84, strong content + Q&A"
+    },
+    {
+      "name": "Ruffians",
+      "url": "https://www.ruffians.co.uk",
+      "score": 82,
+      "layers": {
+        "Technical": 84,
+        "On-page": 42,
+        "Structured data": 96,
+        "Entity / NAP": 100,
+        "AI search readiness": 100,
+        "Performance": null
+      },
+      "pages": 25,
+      "schema": [
+        "AdministrativeArea",
+        "Brand",
+        "GeoCoordinates",
+        "HairSalon",
+        "Offer",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "Product"
+      ],
+      "why": "London barbers; per-location HairSalon markup"
+    }
+  ],
+  "virtual_best": {
+    "Technical": {
+      "score": 100,
+      "leader": "Hershesons",
+      "ours": 100
+    },
+    "On-page": {
+      "score": 88,
+      "leader": "Hershesons",
+      "ours": 10
+    },
+    "Structured data": {
+      "score": 96,
+      "leader": "Ruffians",
+      "ours": 40
+    },
+    "Entity / NAP": {
+      "score": 100,
+      "leader": "Hershesons",
+      "ours": 92
+    },
+    "AI search readiness": {
+      "score": 100,
+      "leader": "Hershesons",
+      "ours": 100
+    }
+  },
+  "gaps": [
+    {
+      "feature": "site:blog_sitemap",
+      "label": "Content sitemaps",
+      "idea": "Separate sitemaps for posts/products/locations",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 1.0
+      },
+      "adoption": 3,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "meta_description",
+      "label": "Meta description",
+      "idea": "Unique meta description on every page",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.92,
+        "Ruffians": 0.92
+      },
+      "adoption": 3,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "newsletter",
+      "label": "Newsletter sign-up",
+      "idea": "Email capture for repeat visits",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 1.0
+      },
+      "adoption": 3,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "internal_links",
+      "label": "Rich internal linking",
+      "idea": "20+ internal links per page (menus, related content)",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.56
+      },
+      "adoption": 3,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "lazy_images",
+      "label": "Lazy-loaded images",
+      "idea": "loading=lazy below the fold",
+      "group": "Pages",
+      "ours": 0.29,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.64,
+        "Ruffians": 0.48
+      },
+      "adoption": 3,
+      "gap": 0.71,
+      "new_check": true
+    },
+    {
+      "feature": "long_content",
+      "label": "Substantial pages",
+      "idea": "300+ words of useful text per page",
+      "group": "Pages",
+      "ours": 0.29,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.92
+      },
+      "adoption": 3,
+      "gap": 0.71,
+      "new_check": false
+    },
+    {
+      "feature": "og_image",
+      "label": "Share image (og:image)",
+      "idea": "Share image on every page",
+      "group": "Pages",
+      "ours": 0.43,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.92,
+        "Ruffians": 1.0
+      },
+      "adoption": 3,
+      "gap": 0.57,
+      "new_check": false
+    },
+    {
+      "feature": "schema:BreadcrumbList",
+      "label": "BreadcrumbList markup",
+      "idea": "Breadcrumb markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0.96,
+        "Headmasters": 1.0,
+        "Ruffians": 0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Organization",
+      "label": "Organization markup",
+      "idea": "Organization markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "social_video",
+      "label": "TikTok / YouTube links",
+      "idea": "Link TikTok/YouTube profiles (and add to sameAs)",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "site:llms_full",
+      "label": "llms-full.txt",
+      "idea": "Publish /llms-full.txt with full key content",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.0,
+        "Ruffians": 1.0
+      },
+      "adoption": 2,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "deep_headings",
+      "label": "Structured headings",
+      "idea": "3+ H2 sections per page",
+      "group": "Pages",
+      "ours": 0.43,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.12,
+        "Ruffians": 0.84
+      },
+      "adoption": 2,
+      "gap": 0.57,
+      "new_check": true
+    },
+    {
+      "feature": "tel_link",
+      "label": "Click-to-call",
+      "idea": "tel: links for mobile visitors",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 0.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "site:ai_policy",
+      "label": "Explicit AI-bot policy",
+      "idea": "Name AI bots (GPTBot, ClaudeBot, PerplexityBot\u2026) in robots.txt deliberately",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 0.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "max_image_preview",
+      "label": "Large image previews",
+      "idea": "robots max-image-preview:large for big thumbnails in Discover/AI answers",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 0.0,
+        "Headmasters": 1.0,
+        "Ruffians": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "prices_html",
+      "label": "Prices in HTML",
+      "idea": "Show prices as page text (quotable by AI answers)",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.08,
+        "Ruffians": 0.08
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
+      "feature": "schema:SearchAction",
+      "label": "SearchAction markup",
+      "idea": "Sitelinks search box markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0.04,
+        "Headmasters": 1.0,
+        "Ruffians": 0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "video",
+      "label": "Video",
+      "idea": "Embed short videos (YouTube/Vimeo/native) \u2014 recent video is an AI-visibility signal",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 1.0,
+        "Headmasters": 0.08,
+        "Ruffians": 0.04
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Offer",
+      "label": "Offer markup",
+      "idea": "Offer/price markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0.96,
+        "Headmasters": 0,
+        "Ruffians": 0.08
+      },
+      "adoption": 1,
+      "gap": 0.96,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Product",
+      "label": "Product markup",
+      "idea": "Product markup (gift cards, retail products)",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0.96,
+        "Headmasters": 0,
+        "Ruffians": 0.08
+      },
+      "adoption": 1,
+      "gap": 0.96,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Article",
+      "label": "Article markup",
+      "idea": "Article markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0,
+        "Headmasters": 0.92,
+        "Ruffians": 0
+      },
+      "adoption": 1,
+      "gap": 0.92,
+      "new_check": true
+    },
+    {
+      "feature": "schema:BlogPosting",
+      "label": "BlogPosting markup",
+      "idea": "Blog post markup",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0,
+        "Headmasters": 0.92,
+        "Ruffians": 0
+      },
+      "adoption": 1,
+      "gap": 0.92,
+      "new_check": true
+    },
+    {
+      "feature": "schema:Person",
+      "label": "Person markup",
+      "idea": "Person markup for team/artist",
+      "group": "Structured data",
+      "ours": 0,
+      "leaders": {
+        "Hershesons": 0,
+        "Headmasters": 0.92,
+        "Ruffians": 0
+      },
+      "adoption": 1,
+      "gap": 0.92,
+      "new_check": false
+    },
+    {
+      "feature": "blog",
+      "label": "Articles / journal",
+      "idea": "Regular helpful articles answering customer questions",
+      "group": "Pages",
+      "ours": 0.0,
+      "leaders": {
+        "Hershesons": 0.0,
+        "Headmasters": 0.36,
+        "Ruffians": 0.0
+      },
+      "adoption": 1,
+      "gap": 0.36,
+      "new_check": true
+    }
+  ],
+  "inventory": {
+    "ours": {
+      "meta_description": 0.0,
+      "og_image": 0.43,
+      "twitter_card": 1.0,
+      "canonical": 1.0,
+      "hreflang": 0.0,
+      "max_image_preview": 0.0,
+      "breadcrumbs": 1.0,
+      "faq_block": 1.0,
+      "prices_html": 0.0,
+      "reviews_onsite": 0.0,
+      "aggregate_rating": 0.0,
+      "video": 0.0,
+      "map_embed": 0.0,
+      "booking_cta": 1.0,
+      "tel_link": 0.0,
+      "team_pages": 0.14,
+      "blog": 0.0,
+      "location_pages": 0.0,
+      "service_pages": 0.0,
+      "gift_cards": 1.0,
+      "newsletter": 0.0,
+      "modern_images": 1.0,
+      "lazy_images": 0.29,
+      "preload": 0.0,
+      "social_video": 0.0,
+      "music_links": 0.0,
+      "events": 1.0,
+      "press": 0.0,
+      "rss": 0.0,
+      "internal_links": 0.0,
+      "long_content": 0.29,
+      "deep_headings": 0.43,
+      "schema:WebSite": 0.14,
+      "schema:ImageObject": 0.43,
+      "site:llms_txt": 1.0,
+      "site:llms_full": 0.0,
+      "site:ai_policy": 0.0,
+      "site:image_sitemap": 0.0,
+      "site:blog_sitemap": 0.0
+    },
+    "leaders": {
+      "Hershesons": {
+        "meta_description": 1.0,
+        "og_image": 1.0,
+        "twitter_card": 1.0,
+        "canonical": 1.0,
+        "hreflang": 0.0,
+        "max_image_preview": 0.0,
+        "breadcrumbs": 0.96,
+        "faq_block": 0.0,
+        "prices_html": 1.0,
+        "reviews_onsite": 0.08,
+        "aggregate_rating": 0.04,
+        "video": 1.0,
+        "map_embed": 0.0,
+        "booking_cta": 1.0,
+        "tel_link": 0.0,
+        "team_pages": 0.0,
+        "blog": 0.0,
+        "location_pages": 0.0,
+        "service_pages": 0.0,
+        "gift_cards": 1.0,
+        "newsletter": 1.0,
+        "modern_images": 1.0,
+        "lazy_images": 1.0,
+        "preload": 0.0,
+        "social_video": 1.0,
+        "music_links": 0.0,
+        "events": 0.0,
+        "press": 0.0,
+        "rss": 0.0,
+        "internal_links": 1.0,
+        "long_content": 1.0,
+        "deep_headings": 1.0,
+        "schema:ContactPoint": 0.04,
+        "schema:MerchantReturnPolicy": 1.0,
+        "schema:Organization": 1.0,
+        "schema:PostalAddress": 0.04,
+        "schema:SearchAction": 0.04,
+        "schema:WebSite": 0.04,
+        "schema:AggregateRating": 0.04,
+        "schema:Brand": 0.96,
+        "schema:BreadcrumbList": 0.96,
+        "schema:DefinedRegion": 0.96,
+        "schema:ListItem": 0.96,
+        "schema:MonetaryAmount": 0.96,
+        "schema:Offer": 0.96,
+        "schema:OfferShippingDetails": 0.96,
+        "schema:Product": 0.96,
+        "schema:ProductGroup": 0.96,
+        "schema:QuantitativeValue": 0.96,
+        "schema:ShippingDeliveryTime": 0.96,
+        "schema:Thing": 0.96,
+        "site:llms_txt": 1.0,
+        "site:llms_full": 1.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
+      },
+      "Headmasters": {
+        "meta_description": 0.92,
+        "og_image": 0.92,
+        "twitter_card": 1.0,
+        "canonical": 1.0,
+        "hreflang": 0.0,
+        "max_image_preview": 1.0,
+        "breadcrumbs": 1.0,
+        "faq_block": 0.2,
+        "prices_html": 0.08,
+        "reviews_onsite": 0.0,
+        "aggregate_rating": 0.0,
+        "video": 0.08,
+        "map_embed": 0.0,
+        "booking_cta": 1.0,
+        "tel_link": 1.0,
+        "team_pages": 0.0,
+        "blog": 0.36,
+        "location_pages": 0.0,
+        "service_pages": 0.16,
+        "gift_cards": 1.0,
+        "newsletter": 1.0,
+        "modern_images": 0.12,
+        "lazy_images": 0.64,
+        "preload": 0.0,
+        "social_video": 1.0,
+        "music_links": 0.0,
+        "events": 0.0,
+        "press": 0.0,
+        "rss": 0.0,
+        "internal_links": 1.0,
+        "long_content": 1.0,
+        "deep_headings": 0.12,
+        "schema:BreadcrumbList": 1.0,
+        "schema:EntryPoint": 1.0,
+        "schema:ImageObject": 1.0,
+        "schema:ListItem": 1.0,
+        "schema:Organization": 1.0,
+        "schema:PropertyValueSpecification": 1.0,
+        "schema:ReadAction": 0.96,
+        "schema:SearchAction": 1.0,
+        "schema:WebPage": 1.0,
+        "schema:WebSite": 1.0,
+        "schema:CollectionPage": 0.04,
+        "schema:Article": 0.92,
+        "schema:BlogPosting": 0.92,
+        "schema:Person": 0.92,
+        "schema:Answer": 0.12,
+        "schema:FAQPage": 0.12,
+        "schema:Question": 0.12,
+        "site:llms_txt": 1.0,
+        "site:llms_full": 0.0,
+        "site:ai_policy": 1.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
+      },
+      "Ruffians": {
+        "meta_description": 0.92,
+        "og_image": 1.0,
+        "twitter_card": 1.0,
+        "canonical": 1.0,
+        "hreflang": 0.0,
+        "max_image_preview": 0.0,
+        "breadcrumbs": 0.0,
+        "faq_block": 0.0,
+        "prices_html": 0.08,
+        "reviews_onsite": 0.0,
+        "aggregate_rating": 0.0,
+        "video": 0.04,
+        "map_embed": 0.0,
+        "booking_cta": 1.0,
+        "tel_link": 0.0,
+        "team_pages": 0.0,
+        "blog": 0.0,
+        "location_pages": 0.04,
+        "service_pages": 0.0,
+        "gift_cards": 1.0,
+        "newsletter": 1.0,
+        "modern_images": 0.0,
+        "lazy_images": 0.48,
+        "preload": 0.0,
+        "social_video": 0.0,
+        "music_links": 0.0,
+        "events": 0.0,
+        "press": 0.0,
+        "rss": 0.0,
+        "internal_links": 0.56,
+        "long_content": 0.92,
+        "deep_headings": 0.84,
+        "schema:Brand": 0.08,
+        "schema:Offer": 0.08,
+        "schema:Product": 0.08,
+        "schema:AdministrativeArea": 0.16,
+        "schema:GeoCoordinates": 0.16,
+        "schema:HairSalon": 0.16,
+        "schema:OpeningHoursSpecification": 0.16,
+        "schema:PostalAddress": 0.16,
+        "site:llms_txt": 1.0,
+        "site:llms_full": 1.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
+      }
+    }
+  }
+}

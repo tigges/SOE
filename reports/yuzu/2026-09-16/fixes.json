@@ -1,0 +1,250 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.yuzuhairandbeauty.london/#entity",
+    "name": "Yuzu Hair & Beauty",
+    "url": "https://www.yuzuhairandbeauty.london/",
+    "description": "Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry.",
+    "telephone": "+442088402244",
+    "email": "info@yuzuhairandbeauty.co.uk",
+    "priceRange": "\u00a3\u00a3",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 Dickens Yard, Longfield Avenue",
+      "addressLocality": "Ealing",
+      "addressRegion": "London",
+      "postalCode": "W5 2TD",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.5138,
+      "longitude": -0.3068
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/yuzuhairandbeauty/",
+      "https://www.facebook.com/YUZUHairandBeauty/",
+      "https://www.tiktok.com/@yuzuhairandbeauty.est16"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": "https://phorest.com/book/salons/yuzuhairandbeauty"
+    }
+  },
+  "pages": [
+    {
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "current_title": "H O M E | Yuzu Hair",
+      "title": "Japanese Hair Salon in Ealing Broadway | Yuzu Hair & Beauty",
+      "description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.",
+      "h1": "Japanese-inspired hair salon in Ealing Broadway",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "current_title": "Senior Stylists | Yuzu Hair",
+      "title": "Senior Stylist Job in Ealing Broadway | Yuzu Hair & Beauty",
+      "description": "Yuzu Hair & Beauty is hiring a senior stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.",
+      "h1": "Senior stylist vacancy",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "current_title": "Stylists | Yuzu Hair",
+      "title": "Hair Stylist Job in Ealing Broadway | Yuzu Hair & Beauty",
+      "description": "Yuzu Hair & Beauty is hiring a hair stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.",
+      "h1": "Stylist vacancy",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "current_title": "Models | Yuzu Hair",
+      "title": "Hair Models Wanted in Ealing | Yuzu Hair & Beauty",
+      "description": "Yuzu Hair & Beauty in Ealing Broadway is looking for hair models. Read what's involved and how to apply to be a model at our salon.",
+      "h1": "Hair models wanted",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "current_title": "TERMS AND CONDITIONS | Yuzu Hair",
+      "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair",
+      "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.",
+      "h1": "Terms, patch tests and cancellations",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "current_title": "OFFERS | Yuzu Hair",
+      "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu",
+      "description": "Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers.",
+      "h1": "Salon offers at Yuzu, Ealing",
+      "source": "Claude draft",
+      "new_url": "/offers"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "current_title": "Items (List) | Yuzu Hair",
+      "title": "Hairdresser Jobs in Ealing: Join Yuzu Hair & Beauty",
+      "description": "Senior stylist, stylist and model vacancies at a Japanese-inspired salon in Dickens Yard, Ealing Broadway. See the roles and apply today.",
+      "h1": "Join the Yuzu team",
+      "source": "Claude draft",
+      "new_url": "/careers"
+    }
+  ],
+  "steps": {
+    "schema-missing": {
+      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.",
+      "count": 1,
+      "severity": "critical"
+    },
+    "title-quality": {
+      "fix": "Use a readable keyword title, not a design label",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern.",
+      "count": 1,
+      "severity": "high"
+    },
+    "meta-description": {
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback.",
+      "count": 7,
+      "severity": "high"
+    },
+    "h1": {
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters.",
+      "count": 3,
+      "severity": "high"
+    },
+    "placeholder-text": {
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too.",
+      "count": 3,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold.",
+      "count": 1,
+      "severity": "high"
+    },
+    "title-length": {
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern.",
+      "count": 5,
+      "severity": "medium"
+    },
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards.",
+      "count": 5,
+      "severity": "medium"
+    },
+    "content-in-pdf": {
+      "fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download",
+      "how": "Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "expected-page": {
+      "fix": "Add a dedicated services page and link it from the navigation",
+      "how": "Pages & Menu \u2192 + Add page. Also add it to the menu so it's linked.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1.",
+      "count": 3,
+      "severity": "medium"
+    },
+    "schema-openingHoursSpecification": {
+      "fix": "Include openingHoursSpecification in the main entity markup",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "schema-sameAs": {
+      "fix": "Include sameAs in the main entity markup",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "brand-name": {
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "how": "Settings \u2192 Business info \u2192 Business name. Then use the same name in titles, the footer and every profile.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "llms.txt-summary": {
+      "fix": "Rewrite the llms.txt summary to describe the business, not a random page",
+      "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "alt-text": {
+      "fix": "Describe images; include service/location naturally",
+      "how": "Click the image \u2192 Settings \u2192 'What's in the image? Tell Google' (the alt text).",
+      "count": 1,
+      "severity": "low"
+    },
+    "og-image": {
+      "fix": "Set a share image (1200\u00d7630)",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings.",
+      "count": 4,
+      "severity": "low"
+    },
+    "email-domain": {
+      "fix": "Use an address on the site domain, or redirect the old domain to the site",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "profile-link": {
+      "fix": "Link profiles and add them to schema sameAs",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "legacy-site: https://yuzuhairandbeauty.ueniweb.com/": {
+      "fix": "Take it offline (delete the site or the listing on that platform). old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
+      "how": "ueni: log in at ueni.com \u2192 Settings \u2192 Delete website (or ask ueni support), then request removal in Google Search Console \u2192 Removals if it still shows.",
+      "count": 1,
+      "severity": "high"
+    },
+    "legacy-site: https://yuzuhairandbeauty.co.uk/": {
+      "fix": "301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page \u2014 301 it to the .london site",
+      "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
+      "count": 1,
+      "severity": "high"
+    }
+  },
+  "llms_summary": "Yuzu Hair & Beauty Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry. Address: 5 Dickens Yard, Longfield Avenue, Ealing, London W5 2TD. Hours: Tue, Wed, Thu, Fri 10:00\u201320:00; Sat 09:00\u201318:00. Phone 020 8840 2244. Book online: https://phorest.com/book/salons/yuzuhairandbeauty",
+  "questions": [
+    "How much is a haircut at Yuzu in Ealing?",
+    "Do I need a patch test before hair colour?",
+    "Which hair salons in Ealing are near the station?"
+  ]
+}

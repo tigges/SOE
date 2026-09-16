@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Bella & Bello Studio",
+    "url": "https://www.bellabellostudio.co.uk",
+    "score": 75,
+    "layers": {
+      "Technical": 100,
+      "On-page": 45,
+      "Structured data": 40,
+      "Entity / NAP": 100,
+      "AI search readiness": 94,
+      "Performance": null
+    },
+    "pages": 10,
+    "findings": 52,
+    "schema": [
+      "BreadcrumbList",
+      "EntryPoint",
+      "ImageObject",
+      "ListItem",
+      "Organization",
+      "PropertyValueSpecification",
+      "ReadAction",
+      "SearchAction",
+      "WebPage",
+      "WebSite"
+    ],
+    "home_title": "Bella & Bello Studio",
+    "home_words": 244
+  },
+  {
+    "name": "CMF Hairdressing",
+    "url": "https://www.cmfhairdressing.com",
+    "score": 73,
+    "layers": {
+      "Technical": 86,
+      "On-page": 50,
+      "Structured data": 40,
+      "Entity / NAP": 100,
+      "AI search readiness": 94,
+      "Performance": null
+    },
+    "pages": 2,
+    "findings": 20,
+    "schema": [],
+    "home_title": "CMF HAIRDRESSING",
+    "home_words": 862
+  },
+  {
+    "name": "Therapy@Visage",
+    "url": "https://www.therapy-visage.co.uk",
+    "score": 87,
+    "layers": {
+      "Technical": 100,
+      "On-page": 52,
+      "Structured data": 91,
+      "Entity / NAP": 100,
+      "AI search readiness": 100,
+      "Performance": null
+    },
+    "pages": 10,
+    "findings": 19,
+    "schema": [
+      "ImageObject",
+      "LocalBusiness",
+      "PostalAddress",
+      "WebSite"
+    ],
+    "home_title": "Hair & Beauty Salon | Ealing | Therapy@Visage",
+    "home_words": 628
+  },
+  {
+    "name": "Blo Bar (Ealing is in Dickens Yard)",
+    "url": "https://www.b1obar.com",
+    "score": 85,
+    "layers": {
+      "Technical": 100,
+      "On-page": 55,
+      "Structured data": 86,
+      "Entity / NAP": 100,
+      "AI search readiness": 90,
+      "Performance": null
+    },
+    "pages": 10,
+    "findings": 35,
+    "schema": [
+      "LocalBusiness",
+      "WebSite"
+    ],
+    "home_title": "Blo Bar",
+    "home_words": 134
+  },
+  {
+    "name": "M&M Hair Academy",
+    "url": "https://mandmhairacademy.com",
+    "score": 77,
+    "layers": {
+      "Technical": 100,
+      "On-page": 47,
+      "Structured data": 40,
+      "Entity / NAP": 100,
+      "AI search readiness": 100,
+      "Performance": null
+    },
+    "pages": 10,
+    "findings": 19,
+    "schema": [
+      "Article",
+      "BreadcrumbList",
+      "EntryPoint",
+      "ImageObject",
+      "ListItem",
+      "Organization",
+      "Person",
+      "PropertyValueSpecification",
+      "ReadAction",
+      "SearchAction",
+      "WebPage",
+      "WebSite"
+    ],
+    "home_title": "M&M Hair Academy | Top-Rated Ealing Hairdressers Near You",
+    "home_words": 956
+  }
+]

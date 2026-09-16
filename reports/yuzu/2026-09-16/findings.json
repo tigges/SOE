@@ -1,0 +1,597 @@
+{
+  "site": "https://www.yuzuhairandbeauty.london",
+  "run": "2026-09-16 00:43",
+  "project": {
+    "name": "Yuzu Hair & Beauty",
+    "slug": "yuzu",
+    "type": "local_business",
+    "platform": "wix",
+    "module": "Local business"
+  },
+  "score": 66,
+  "layers": {
+    "Technical": 100,
+    "On-page": 3,
+    "Structured data": 40,
+    "Entity / NAP": 92,
+    "AI search readiness": 96,
+    "Performance": 75
+  },
+  "meta": {
+    "sitemap_urls": 7,
+    "schema_types": [
+      "ImageObject",
+      "WebSite"
+    ],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": true,
+    "lighthouse_runs": [
+      70,
+      75,
+      75
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 75,
+        "accessibility": 96,
+        "best-practices": 79,
+        "seo": 85
+      },
+      "lab": {
+        "largest-contentful-paint": 4747.06,
+        "cumulative-layout-shift": 0.01025844573974609,
+        "total-blocking-time": 206.5
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: ['ImageObject', 'WebSite'])",
+      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'H O M E | Yuzu Hair'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'This is placeholder text'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'This is placeholder text'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'This is placeholder text'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "how": "Open the page (or the CMS collection item in Content Manager) and replace the default Wix text. Check dynamic item pages too."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 4.7s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'H O M E | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "255 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "248 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Stylists | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "254 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "18 chars: 'Models | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "264 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "18 chars: 'OFFERS | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "24 chars: 'Items (List) | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "156 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "content-in-pdf",
+      "detail": "2 PDF(s) linked site-wide \u2014 key info (e.g. prices) may be locked in PDF",
+      "fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download",
+      "url": "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_5ad90785107649c5a308c57cf4f4e75f.pdf",
+      "how": "Rebuild the PDF content as a Wix page (or use Wix Bookings service/price lists). Keep the PDF as a download link."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'services' page found (looked for: service, treatment, balayage, colour)",
+      "fix": "Add a dedicated services page and link it from the navigation",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Pages & Menu \u2192 + Add page. Also add it to the menu so it's linked."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'hair salon Ealing' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'hairdresser Ealing Broadway' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'Japanese hair salon London' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Put the keyword in the title tag (SEO basics) and in the page's main heading. In the Editor, select the heading text \u2192 Text settings \u2192 Semantic tag = H1."
+    },
+    {
+      "layer": "S",
+      "severity": "medium",
+      "check": "schema-openingHoursSpecification",
+      "detail": "'openingHoursSpecification' not present in any JSON-LD on the site",
+      "fix": "Include openingHoursSpecification in the main entity markup",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."
+    },
+    {
+      "layer": "S",
+      "severity": "medium",
+      "check": "schema-sameAs",
+      "detail": "'sameAs' not present in any JSON-LD on the site",
+      "fix": "Include sameAs in the main entity markup",
+      "url": "https://www.yuzuhairandbeauty.london",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO \u2192 Advanced SEO \u2192 Structured data markup \u2192 Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test."
+    },
+    {
+      "layer": "E",
+      "severity": "medium",
+      "check": "brand-name",
+      "detail": "canonical name 'Yuzu Hair & Beauty' not used consistently (title: 'H O M E | Yuzu Hair')",
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "url": null,
+      "how": "Settings \u2192 Business info \u2192 Business name. Then use the same name in titles, the footer and every profile."
+    },
+    {
+      "layer": "A",
+      "severity": "medium",
+      "check": "llms.txt-summary",
+      "detail": "summary does not mention ['Ealing']",
+      "fix": "Rewrite the llms.txt summary to describe the business, not a random page",
+      "url": null,
+      "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Click the image \u2192 Settings \u2192 'What's in the image? Tell Google' (the alt text)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
+    },
+    {
+      "layer": "E",
+      "severity": "low",
+      "check": "email-domain",
+      "detail": "email info@yuzuhairandbeauty.co.uk is on a different domain from the site",
+      "fix": "Use an address on the site domain, or redirect the old domain to the site",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "E",
+      "severity": "low",
+      "check": "profile-link",
+      "detail": "tiktok profile not linked from site",
+      "fix": "Link profiles and add them to schema sameAs",
+      "url": null,
+      "how": null
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "status": 200,
+      "bytes": 656777,
+      "title": "H O M E | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 7,
+      "canonical": "https://www.yuzuhairandbeauty.london",
+      "lang": "en",
+      "words": 255,
+      "img_total": 11,
+      "img_no_alt": 2,
+      "ld_types": [
+        "WebSite"
+      ],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf",
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_5ad90785107649c5a308c57cf4f4e75f.pdf",
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "status": 200,
+      "bytes": 559742,
+      "title": "Senior Stylists | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png",
+      "og_description": "",
+      "h1": [
+        "Senior Stylists"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "lang": "en",
+      "words": 248,
+      "img_total": 7,
+      "img_no_alt": 0,
+      "ld_types": [
+        "ImageObject"
+      ],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "status": 200,
+      "bytes": 559689,
+      "title": "Stylists | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png",
+      "og_description": "",
+      "h1": [
+        "Stylists"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.yuzuhairandbeauty.london/items/stylists",
+      "lang": "en",
+      "words": 254,
+      "img_total": 7,
+      "img_no_alt": 0,
+      "ld_types": [
+        "ImageObject"
+      ],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items/models",
+      "status": 200,
+      "bytes": 559806,
+      "title": "Models | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "https://static.wixstatic.com/media/fc7570_ae9913d461894a7ebb7fc420d828ab83~mv2.png/v1/fill/w_1920,h_1080,al_c/Image-empty-state.png",
+      "og_description": "",
+      "h1": [
+        "Models"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.yuzuhairandbeauty.london/items/models",
+      "lang": "en",
+      "words": 264,
+      "img_total": 7,
+      "img_no_alt": 0,
+      "ld_types": [
+        "ImageObject"
+      ],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "status": 200,
+      "bytes": 550809,
+      "title": "TERMS AND CONDITIONS | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 3,
+      "canonical": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "lang": "en",
+      "words": 820,
+      "img_total": 6,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "status": 200,
+      "bytes": 571295,
+      "title": "OFFERS | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 2,
+      "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "lang": "en",
+      "words": 438,
+      "img_total": 11,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "status": 200,
+      "bytes": 566656,
+      "title": "Items (List) | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "JOIN THE TEAM"
+      ],
+      "h2_count": 4,
+      "canonical": "https://www.yuzuhairandbeauty.london/items",
+      "lang": "en",
+      "words": 156,
+      "img_total": 9,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    }
+  ]
+}
