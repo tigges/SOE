@@ -109,6 +109,8 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Settings → Business info → Business name. Then use the same name in titles, the footer and every profile.
 - **llms.txt-summary** (medium, ×1) — Rewrite the llms.txt summary to describe the business, not a random page  
   _How:_ Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
+- **tbt-inp-proxy** (medium, ×1) — Remove unused apps/widgets and third-party scripts  
+  _How:_ Remove unused apps and third-party embeds; limit animations (Editor → Animations).
 - **alt-text** (low, ×1) — Describe images; include service/location naturally  
   _How:_ Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** (low, ×4) — Set a share image (1200×630)  

@@ -22,11 +22,11 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://djurbant.com/ | DJ UrbanT – Bass House. Tech House. Live Sets. | Bass House DJ London \| DJ UrbanT Tech House Sets | DJ UrbanT is a London bass house and tech house DJ. Explore live sets, mixes, and book DJ UrbanT for your next event. Check availability now. | Bass House DJ London \| DJ UrbanT | Claude draft |
-| https://djurbant.com/video/ | Video – DJ UrbanT | DJ UrbanT Live Sets \| Bass House & Tech House Videos | Watch DJ UrbanT's bass house and tech house live sets. Experience high-energy DJ performances from London's rising talent. View all videos now. | DJ UrbanT Live Video Sets | Claude draft |
-| https://djurbant.com/audio/ | Audio – DJ UrbanT | DJ UrbanT Mixes \| Bass House & Tech House Audio Sets | Listen to DJ UrbanT's bass house and tech house mixes. Stream exclusive audio sets from this London DJ. Explore the full collection today. | DJ UrbanT Audio Mixes | Claude draft |
-| https://djurbant.com/contact/ | Contact – DJ UrbanT | Book DJ UrbanT \| London Bass House DJ Bookings | Book DJ UrbanT for your event. London-based bass house and tech house DJ available for clubs, festivals, and private events. Enquire now. | Book a Bass House DJ \| Contact DJ UrbanT | Claude draft |
-| https://djurbant.com/map/ | Map – DJ UrbanT | DJ UrbanT Locations \| Where to Find This London DJ | Find DJ UrbanT across London venues. View past and upcoming gig locations for this bass house and tech house DJ. See the map now. | DJ UrbanT Location Map | Claude draft |
+| https://djurbant.com/ | DJ UrbanT – Bass House. Tech House. Live Sets. | Bass House DJ London \| DJ UrbanT \| Tech House Sets | DJ UrbanT is a London bass house and tech house DJ. Explore live sets, videos, and audio mixes. Book DJ UrbanT for your event today. | Bass House DJ London \| DJ UrbanT | Claude draft |
+| https://djurbant.com/video/ | Video – DJ UrbanT | DJ UrbanT Video \| Live Bass House & Tech House Sets | Watch DJ UrbanT's live bass house and tech house DJ sets. Experience high-energy performances from London's DJ UrbanT. View videos now. | DJ UrbanT Live Video Sets | Claude draft |
+| https://djurbant.com/audio/ | Audio – DJ UrbanT | DJ UrbanT Audio \| Bass House & Tech House Mixes | Listen to DJ UrbanT's bass house and tech house audio mixes. Stream exclusive tracks from London DJ UrbanT. Play mixes now. | DJ UrbanT Audio Mixes | Claude draft |
+| https://djurbant.com/contact/ | Contact – DJ UrbanT | Book a Bass House DJ \| Contact DJ UrbanT London | Book DJ UrbanT for your event. London-based bass house and tech house DJ available for bookings. Contact DJ UrbanT today for availability. | Book DJ UrbanT | Claude draft |
+| https://djurbant.com/map/ | Map – DJ UrbanT | DJ UrbanT Location \| London Bass House DJ Map | Find DJ UrbanT's London location and event coverage areas. Bass house and tech house DJ serving London and surrounding areas. View map now. | DJ UrbanT Location Map | Claude draft |
 
 ## 3. Steps on wordpress
 
@@ -41,6 +41,8 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 - **noindex** (high, ×3) — Remove noindex or drop from sitemap  
   _How:_ Yoast → Advanced → Allow search engines to show this page = Yes. Also check Settings → Reading → 'Discourage search engines' is off.
 - **extractable-text** (high, ×1) — AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)
+- **lcp** (high, ×1) — Compress/preload hero image, cut render-blocking JS  
+  _How:_ Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor → Image → optimise). Remove unused Elementor widgets (Elementor → Features → Improved asset loading).
 - **thin-content** (medium, ×12) — Expand with useful, specific text (services, FAQs, proof)  
   _How:_ Add sections in Elementor; Yoast readability/word count helps.
 - **title-length** (medium, ×7) — Aim for 30–60 chars: primary keyword + location/brand  
@@ -51,8 +53,6 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Pages → Add New (Elementor), then add it to Appearance → Menus.
 - **keyword-targeting** (medium, ×1) — Map each primary keyword to one page and use it in title + H1  
   _How:_ Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).
-- **lcp** (medium, ×1) — Compress/preload hero image, cut render-blocking JS  
-  _How:_ Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor → Image → optimise). Remove unused Elementor widgets (Elementor → Features → Improved asset loading).
 - **tbt-inp-proxy** (medium, ×1) — Remove unused apps/widgets and third-party scripts  
   _How:_ Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets.
 - **alt-text** (low, ×2) — Describe images; include service/location naturally  

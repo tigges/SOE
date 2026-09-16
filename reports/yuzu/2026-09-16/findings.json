@@ -1,6 +1,6 @@
 {
   "site": "https://www.yuzuhairandbeauty.london",
-  "run": "2026-09-16 07:41",
+  "run": "2026-09-16 09:03",
   "project": {
     "name": "Yuzu Hair & Beauty",
     "slug": "yuzu",
@@ -8,14 +8,14 @@
     "platform": "wix",
     "module": "Local business"
   },
-  "score": 66,
+  "score": 65,
   "layers": {
     "Technical": 100,
     "On-page": 3,
     "Structured data": 40,
     "Entity / NAP": 92,
     "AI search readiness": 96,
-    "Performance": 77
+    "Performance": 67
   },
   "meta": {
     "sitemap_urls": 7,
@@ -29,21 +29,21 @@
     },
     "llms_txt": true,
     "lighthouse_runs": [
-      47,
-      77,
-      78
+      65,
+      67,
+      68
     ],
     "lighthouse": {
       "scores": {
-        "performance": 77,
+        "performance": 67,
         "accessibility": 96,
         "best-practices": 79,
         "seo": 85
       },
       "lab": {
-        "largest-contentful-paint": 4949.549,
-        "cumulative-layout-shift": 0.01029990196228027,
-        "total-blocking-time": 80.5
+        "largest-contentful-paint": 4844.414000000001,
+        "cumulative-layout-shift": 0.01025844573974609,
+        "total-blocking-time": 436
       }
     }
   },
@@ -187,7 +187,7 @@
       "layer": "P",
       "severity": "high",
       "check": "lcp",
-      "detail": "lab LCP 4.9s (good \u22642.5s)",
+      "detail": "lab LCP 4.8s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
@@ -364,6 +364,15 @@
       "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates."
     },
     {
+      "layer": "P",
+      "severity": "medium",
+      "check": "tbt-inp-proxy",
+      "detail": "TBT 436ms (INP risk)",
+      "fix": "Remove unused apps/widgets and third-party scripts",
+      "url": null,
+      "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations)."
+    },
+    {
       "layer": "O",
       "severity": "low",
       "check": "alt-text",
@@ -431,7 +440,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/",
       "status": 200,
-      "bytes": 656777,
+      "bytes": 656981,
       "title": "H O M E | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -456,7 +465,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
       "status": 200,
-      "bytes": 559742,
+      "bytes": 556565,
       "title": "Senior Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -481,7 +490,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/stylists",
       "status": 200,
-      "bytes": 559689,
+      "bytes": 559223,
       "title": "Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -506,7 +515,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/models",
       "status": 200,
-      "bytes": 559806,
+      "bytes": 556658,
       "title": "Models | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -531,7 +540,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "status": 200,
-      "bytes": 550809,
+      "bytes": 550634,
       "title": "TERMS AND CONDITIONS | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -552,7 +561,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "status": 200,
-      "bytes": 571295,
+      "bytes": 567980,
       "title": "OFFERS | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -573,7 +582,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items",
       "status": 200,
-      "bytes": 566656,
+      "bytes": 566916,
       "title": "Items (List) | Yuzu Hair",
       "description": "",
       "robots": "",

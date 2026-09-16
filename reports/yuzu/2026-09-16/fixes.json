@@ -204,6 +204,12 @@
       "count": 1,
       "severity": "medium"
     },
+    "tbt-inp-proxy": {
+      "fix": "Remove unused apps/widgets and third-party scripts",
+      "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).",
+      "count": 1,
+      "severity": "medium"
+    },
     "alt-text": {
       "fix": "Describe images; include service/location naturally",
       "how": "Click the image \u2192 Settings \u2192 'What's in the image? Tell Google' (the alt text).",

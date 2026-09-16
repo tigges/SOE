@@ -18,7 +18,7 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://www.tigg3s.com/ | Tigges | Tigges Family & Ventures \| Personal Brand Portfolio | Explore the Tigges family ventures and personal brand. Discover our work, projects, and expertise. Connect with us to learn more about our journey. | Tigges Family & Ventures | Claude draft |
+| https://www.tigg3s.com/ | Tigges | Tigges Family & Ventures \| Personal Brand Portfolio | Explore Tigges family ventures and professional activities. Discover projects, connections, and updates from the Tigges portfolio. Visit now. | Tigges Family & Ventures | Claude draft |
 
 ## 3. Steps on wordpress
 

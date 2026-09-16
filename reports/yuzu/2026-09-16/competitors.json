@@ -49,17 +49,17 @@
   {
     "name": "Therapy@Visage",
     "url": "https://www.therapy-visage.co.uk",
-    "score": 87,
+    "score": 89,
     "layers": {
       "Technical": 100,
-      "On-page": 52,
+      "On-page": 60,
       "Structured data": 91,
       "Entity / NAP": 100,
       "AI search readiness": 100,
       "Performance": null
     },
     "pages": 10,
-    "findings": 19,
+    "findings": 17,
     "schema": [
       "ImageObject",
       "LocalBusiness",
