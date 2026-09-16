@@ -1,10 +1,12 @@
 {
-  "run": "2026-09-16T09:04",
+  "run": "2026-09-16T11:22",
   "summary": {
     "ok": 1,
     "mismatch": 0,
-    "unreachable": 1,
-    "manual": 6
+    "unreachable": 0,
+    "manual": 6,
+    "todo": 6,
+    "ignore": 1
   },
   "listings": [
     {
@@ -12,6 +14,7 @@
       "url": "https://www.makeitealing.co.uk/business/yuzu-hair/",
       "directory": "local",
       "note": "",
+      "action": "",
       "status": "ok",
       "detail": "name, phone and postcode match",
       "checks": {
@@ -24,7 +27,8 @@
       "source": "Wheree",
       "url": "https://yuzu-hair.wheree.com/",
       "directory": "uk_general",
-      "note": "blocks bots; showed correct NAP on 15 Sep, unclaimed",
+      "note": "16 Sep 2026: NAP matches (5 Dickens Yard, Longfield Ave, W5 2TD, +44 208 840 2244). Unclaimed. Hours show 10:00\u201320:00 only, not Sat 09:00\u201318:00. Claim this listing.",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
     },
@@ -32,15 +36,17 @@
       "source": "beautynailhairsalons.com",
       "url": "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty",
       "directory": "uk_general",
-      "note": "",
-      "status": "unreachable",
-      "detail": "HTTP 403"
+      "note": "16 Sep 2026: Singapore-operated aggregator, disconnected from Yuzu Hair London \u2014 ignore, not a UK listing to maintain",
+      "action": "",
+      "status": "ignore",
+      "detail": "Not a listing for this business \u2014 skip"
     },
     {
       "source": "Facebook",
       "url": "https://www.facebook.com/YUZUHairandBeauty/",
       "directory": "core",
-      "note": "old posts say 26 High Street W5 5DB",
+      "note": "16 Sep 2026: logged-out view shows YUZU Hair & Beauty, Hair salon, 855 followers; address not visible. Older posts still say 26 High Street W5 5DB \u2014 update About/address and pin the Dickens Yard NAP",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
     },
@@ -48,7 +54,8 @@
       "source": "Instagram",
       "url": "https://www.instagram.com/yuzuhairandbeauty/",
       "directory": "core",
-      "note": "",
+      "note": "16 Sep 2026: bio NAP OK \u2014 Unit 5 Dickens Yard, Ealing W5 2TD; hours Tue\u2013Fri 10\u20138, Sat 9\u20136, Sun\u2013Mon closed; site www.yuzuhairandbeauty.london",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
     },
@@ -56,7 +63,8 @@
       "source": "TikTok",
       "url": "https://www.tiktok.com/@yuzuhairandbeauty.est16",
       "directory": "core",
-      "note": "",
+      "note": "16 Sep 2026: bio NAP OK \u2014 Unit 5, Dickens Yard, Ealing, W5 2TD. No website or phone in bio \u2014 add https://www.yuzuhairandbeauty.london",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
     },
@@ -64,7 +72,8 @@
       "source": "LinkedIn",
       "url": "https://uk.linkedin.com/company/yuzu-hair-limited",
       "directory": "core",
-      "note": "",
+      "note": "16 Sep 2026: company YUZU HAIR LIMITED; website https://www.yuzuhairandbeauty.london and phone 02088402244 match. No street address. Trading name on the site is Yuzu Hair & Beauty",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
     },
@@ -72,19 +81,68 @@
       "source": "Phorest booking",
       "url": "https://phorest.com/book/salons/yuzuhairandbeauty",
       "directory": "vertical_salon",
-      "note": "",
+      "note": "16 Sep 2026: public page phorest.com/salon/yuzuhairandbeauty NAP OK \u2014 Unit 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD, 020 8840 2244, info@yuzuhairandbeauty.co.uk",
+      "action": "",
       "status": "manual",
       "detail": "Blocks automated reading \u2014 check by hand"
+    },
+    {
+      "source": "Google Business Profile",
+      "url": "https://business.google.com/",
+      "directory": "core",
+      "note": "16 Sep 2026: no known listing. Create/claim GBP; set website to https://www.yuzuhairandbeauty.london; category Hair salon; hours and NAP as in this file",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
+    },
+    {
+      "source": "Bing Places",
+      "url": "https://www.bingplaces.com/",
+      "directory": "core",
+      "note": "16 Sep 2026: no known listing. Import from Google Business Profile once claimed; website https://www.yuzuhairandbeauty.london",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
+    },
+    {
+      "source": "Apple Business Connect",
+      "url": "https://businessconnect.apple.com/",
+      "directory": "core",
+      "note": "16 Sep 2026: no known listing. Create/claim; set website to https://www.yuzuhairandbeauty.london",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
+    },
+    {
+      "source": "Yell",
+      "url": "https://www.yell.com/",
+      "directory": "uk_general",
+      "note": "16 Sep 2026: no known Yuzu Hair London listing (Hucknall YUZUHAIR is a different business). Create a listing; website https://www.yuzuhairandbeauty.london",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
+    },
+    {
+      "source": "Treatwell",
+      "url": "https://www.treatwell.co.uk/",
+      "directory": "vertical_salon",
+      "note": "16 Sep 2026: no known listing. Add salon and set website/booking to https://www.yuzuhairandbeauty.london / Phorest",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
+    },
+    {
+      "source": "Fresha",
+      "url": "https://www.fresha.com/",
+      "directory": "vertical_salon",
+      "note": "16 Sep 2026: no known listing. Add salon; website https://www.yuzuhairandbeauty.london",
+      "action": "list",
+      "status": "todo",
+      "detail": "Not listed yet \u2014 add the canonical site URL"
     }
   ],
   "gaps": {
-    "core": [
-      "Google Business Profile",
-      "Bing Places",
-      "Apple Business Connect"
-    ],
     "uk_general": [
-      "Yell",
       "Thomson Local",
       "Scoot",
       "Cylex",
@@ -95,8 +153,6 @@
       "Foursquare"
     ],
     "vertical_salon": [
-      "Treatwell",
-      "Fresha",
       "Booksy",
       "hairdressr"
     ],

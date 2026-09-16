@@ -207,7 +207,9 @@ def main():
         steps[f["check"]]["count"] += 1
     cit = os.path.join(a.report_dir, "citations.json")
     if os.path.exists(cit):
-        for r in (json.load(open(cit)).get("legacy") or []):
+        cit_data = json.load(open(cit))
+        site_url = cfg["site"]["url"]
+        for r in cit_data.get("legacy") or []:
             if r["status"] == "live":
                 k = f"legacy-site: {r['url']}"
                 steps[k] = dict(fix=f"{r['recommendation']}. {r['note']}".strip(), how=(
@@ -216,6 +218,16 @@ def main():
                     "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site."
                     if r["action"] == "redirect" else "Delete the site at its host, then request removal in Search Console → Removals."),
                     count=1, severity="high")
+        for r in cit_data.get("listings") or []:
+            if r.get("status") != "todo":
+                continue
+            src = r.get("source") or "directory"
+            k = f"list-on: {src}"
+            steps[k] = dict(
+                fix=r.get("note") or f"Create or claim a {src} listing and set the website to {site_url}",
+                how=("Create or claim the listing, set the website to the canonical site URL, then replace "
+                     "this citations: row's URL with the live listing and drop action: list."),
+                count=1, severity="high" if r.get("directory") == "core" else "medium")
     qs = (cfg.get("keywords") or {}).get("questions") or []
     pack = dict(schema=schema, pages=drafts, steps=steps, llms_summary=llms_summary(cfg), questions=qs)
     json.dump(pack, open(os.path.join(a.report_dir, "fixes.json"), "w"), indent=2)

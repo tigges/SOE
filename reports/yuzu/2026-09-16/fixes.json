@@ -245,6 +245,42 @@
       "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
       "count": 1,
       "severity": "high"
+    },
+    "list-on: Google Business Profile": {
+      "fix": "16 Sep 2026: no known listing. Create/claim GBP; set website to https://www.yuzuhairandbeauty.london; category Hair salon; hours and NAP as in this file",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "high"
+    },
+    "list-on: Bing Places": {
+      "fix": "16 Sep 2026: no known listing. Import from Google Business Profile once claimed; website https://www.yuzuhairandbeauty.london",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "high"
+    },
+    "list-on: Apple Business Connect": {
+      "fix": "16 Sep 2026: no known listing. Create/claim; set website to https://www.yuzuhairandbeauty.london",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "high"
+    },
+    "list-on: Yell": {
+      "fix": "16 Sep 2026: no known Yuzu Hair London listing (Hucknall YUZUHAIR is a different business). Create a listing; website https://www.yuzuhairandbeauty.london",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "list-on: Treatwell": {
+      "fix": "16 Sep 2026: no known listing. Add salon and set website/booking to https://www.yuzuhairandbeauty.london / Phorest",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "list-on: Fresha": {
+      "fix": "16 Sep 2026: no known listing. Add salon; website https://www.yuzuhairandbeauty.london",
+      "how": "Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.",
+      "count": 1,
+      "severity": "medium"
     }
   },
   "llms_summary": "Yuzu Hair & Beauty Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry. Address: 5 Dickens Yard, Longfield Avenue, Ealing, London W5 2TD. Hours: Tue, Wed, Thu, Fri 10:00\u201320:00; Sat 09:00\u201318:00. Phone 020 8840 2244. Book online: https://phorest.com/book/salons/yuzuhairandbeauty",
