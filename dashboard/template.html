@@ -346,7 +346,7 @@ dialog.add-site::backdrop{background:rgb(18 33 31 / .5)}
     </div>
     <div class="panel stack">
       <h2>Directories with no known listing</h2>
-      <p class="muted">Either not listed yet, or listed but not in the settings file. Add URLs under <span class="mono">citations:</span> to check them.</p>
+      <p class="muted">Either not listed yet, or listed but not in the settings file. Tracked "To list" actions live in the table above. Add a live listing URL under <span class="mono">citations:</span> to check it.</p>
       <div id="gaps" class="stack"></div>
     </div>
     <div class="stack">
@@ -743,11 +743,16 @@ function renderFixes(base){
 
 function renderOffsite(){
   const C = P.citations;
-  const SC = {ok: ["s-good", "Matches"], mismatch: ["s-bad", "Mismatch"], unreachable: ["s-warn", "Unreachable"], manual: ["s-na", "Check by hand"]};
+  const SC = {ok: ["s-good", "Matches"], mismatch: ["s-bad", "Mismatch"], unreachable: ["s-warn", "Unreachable"],
+              manual: ["s-na", "Check by hand"], todo: ["s-warn", "To list"], ignore: ["s-na", "Ignore"]};
   if (C) {
-    $("#citsum").textContent = Object.entries(C.summary).filter(([, v]) => v).map(([k, v]) => `${SC[k][1].toLowerCase()} ${v}`).join(" · ") || "no listings in the settings file";
-    $("#cittbody").innerHTML = C.listings.map(r => `<tr><td><span class="chip ${SC[r.status][0]}">${SC[r.status][1]}</span></td>
-      <td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a></td><td>${esc(r.detail)}</td><td class="muted">${esc(r.note)}</td></tr>`).join("")
+    $("#citsum").textContent = Object.entries(C.summary).filter(([, v]) => v).map(([k, v]) => `${(SC[k] || ["", k])[1].toLowerCase()} ${v}`).join(" · ") || "no listings in the settings file";
+    $("#cittbody").innerHTML = C.listings.map(r => {
+      const st = SC[r.status] || ["s-na", r.status];
+      const where = r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.source)}</a>` : esc(r.source);
+      return `<tr><td><span class="chip ${st[0]}">${st[1]}</span></td>
+      <td>${where}</td><td>${esc(r.detail)}</td><td class="muted">${esc(r.note)}</td></tr>`;
+    }).join("")
       || `<tr><td colspan="4" class="muted">No listings yet — add them under citations: in the settings file.</td></tr>`;
     $("#gaps").innerHTML = Object.entries(C.gaps).map(([g, l]) => `<div class="row" style="align-items:baseline;gap:12px"><span class="eyebrow" style="min-width:110px">${esc(g.replace(/_/g, " "))}</span><div class="chips">${l.map(d => `<span>${esc(d)}</span>`).join("")}</div></div>`).join("");
   }
@@ -854,7 +859,7 @@ $("#kit").innerHTML = [
   ["soe_fixes.py","Fix pack: JSON-LD, page copy, platform steps, llms.txt summary"],
   ["soe_benchmark.py","Leaders per site type: virtual-100 target and feature gaps (--discover finds leaders)"],
   ["soe_gsc_import.py","Imports a Search Console Performance export (zip) — no Google Cloud needed"],
-  ["soe_citations.py","Checks off-site listings for name/address/phone; lists directory gaps"],
+  ["soe_citations.py","Checks off-site listings for name/address/phone; ignore unrelated sites; remember directories still to list"],
   ["soe_ai_log.py","AI-answer log: monthly rows, API auto-fill, summary"],
   ["soe_dashboard.py","Builds this page from every report"],
   ["integrations/","CrUX, Search Console, DataForSEO, Business Profile, IndexNow (key-gated)"],
@@ -1078,7 +1083,7 @@ const RM = [
   {s:"key", t:"Real-user speed (CrUX)", w:"Optional. Lab speed (Lighthouse) already runs. Real-user CrUX needs a Google API key, or check pagespeed.web.dev by hand.", e:"CRUX_API_KEY (free)"},
   {s:"built", t:"Competitor benchmark", w:"Same audit on each competitor; gap per layer.", e:"--competitors"},
   {s:"built", t:"Best-in-class leaders", w:"Leading sites per category, a virtual-100 target per layer, and a feature gap list that surfaces new ideas for the audit.", e:"soe_benchmark.py"},
-  {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; directory gaps per site type.", e:"soe_citations.py"},
+  {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; ignore unrelated sites; action: list remembers directories to create (canonical site URL); remaining directory gaps per site type.", e:"soe_citations.py"},
   {s:"built", t:"Site-type modules", w:"Local business, SaaS, ecommerce, publisher, personal/artist brand.", e:"modules/"},
   {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},
   {s:"built", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others. Host the key file at INDEXNOW_URL_TXT, /indexnow.txt, or <site>/<key>.txt. Runs on Wix when that file is reachable.", e:"INDEXNOW_KEY · INDEXNOW_URL_TXT"},

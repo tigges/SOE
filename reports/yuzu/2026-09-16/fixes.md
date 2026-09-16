@@ -91,6 +91,12 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ ueni: log in at ueni.com → Settings → Delete website (or ask ueni support), then request removal in Google Search Console → Removals if it still shows.
 - **legacy-site: https://yuzuhairandbeauty.co.uk/** (high, ×1) — 301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page — 301 it to the .london site  
   _How:_ At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.
+- **list-on: Google Business Profile** (high, ×1) — 16 Sep 2026: no known listing. Create/claim GBP; set website to https://www.yuzuhairandbeauty.london; category Hair salon; hours and NAP as in this file  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
+- **list-on: Bing Places** (high, ×1) — 16 Sep 2026: no known listing. Import from Google Business Profile once claimed; website https://www.yuzuhairandbeauty.london  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
+- **list-on: Apple Business Connect** (high, ×1) — 16 Sep 2026: no known listing. Create/claim; set website to https://www.yuzuhairandbeauty.london  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
 - **title-length** (medium, ×5) — Aim for 30–60 chars: primary keyword + location/brand  
   _How:_ Editor → Pages & Menu → page ⋯ → SEO basics → Title tag. For many pages at once: Dashboard → Marketing & SEO → SEO → SEO Settings → page type → edit the title pattern.
 - **thin-content** (medium, ×5) — Expand with useful, specific text (services, FAQs, proof)  
@@ -111,6 +117,12 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
 - **tbt-inp-proxy** (medium, ×1) — Remove unused apps/widgets and third-party scripts  
   _How:_ Remove unused apps and third-party embeds; limit animations (Editor → Animations).
+- **list-on: Yell** (medium, ×1) — 16 Sep 2026: no known Yuzu Hair London listing (Hucknall YUZUHAIR is a different business). Create a listing; website https://www.yuzuhairandbeauty.london  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
+- **list-on: Treatwell** (medium, ×1) — 16 Sep 2026: no known listing. Add salon and set website/booking to https://www.yuzuhairandbeauty.london / Phorest  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
+- **list-on: Fresha** (medium, ×1) — 16 Sep 2026: no known listing. Add salon; website https://www.yuzuhairandbeauty.london  
+  _How:_ Create or claim the listing, set the website to the canonical site URL, then replace this citations: row's URL with the live listing and drop action: list.
 - **alt-text** (low, ×1) — Describe images; include service/location naturally  
   _How:_ Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** (low, ×4) — Set a share image (1200×630)  

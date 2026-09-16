@@ -25,13 +25,18 @@
 
 Two of the three also use breadcrumb and Organization markup, link to TikTok/YouTube, publish `llms-full.txt`, and structure pages with H2 sections. Hershesons shows prices as page text and uses video on every page.
 
-**Off-site** (`soe_citations.py`):
-- Make It Ealing and beautynailhairsalons match.
+**Off-site** (`soe_citations.py`, last manual check **16 Sep 2026**):
+- Make It Ealing matches name, phone and postcode.
+- **beautynailhairsalons.com is ignored.** It is a Singapore-operated aggregator and is disconnected from Yuzu Hair London. Do not treat it as a UK listing to maintain.
+- **Wheree** (unclaimed): NAP matches 5 Dickens Yard, Longfield Ave, W5 2TD. Hours on the page only show 10:00–20:00 (not Saturday 09:00–18:00). Claim the listing.
+- **Instagram** and **TikTok** bios match Unit 5, Dickens Yard, Ealing, W5 2TD. Instagram already has www.yuzuhairandbeauty.london; add that URL to the TikTok bio. Instagram hours match (Tue–Fri 10–8, Sat 9–6, Sun–Mon closed).
+- **Phorest** public page (`phorest.com/salon/yuzuhairandbeauty`) matches NAP, phone and email.
+- **Facebook** (logged-out): page is YUZU Hair & Beauty, Hair salon. Address is not visible; older posts still say 26 High Street, W5 5DB — update About/address.
+- **LinkedIn:** company name is YUZU HAIR LIMITED; website and phone match; no street address.
 - **Take the old ueni site offline:** yuzuhairandbeauty.ueniweb.com still shows "West Ealing", 22 Mattock Lane, W5 5BH and 07572 107373. Delete it in the ueni account (or ask ueni support), then request removal in Search Console → Removals.
 - **Redirect yuzuhairandbeauty.co.uk:** the email domain shows a One.com "under construction" page. Set a permanent (301) forward of the whole domain to www.yuzuhairandbeauty.london, keeping the email working.
-- Old Facebook posts show 26 High Street, W5 5DB.
 - Facebook, Instagram, TikTok, LinkedIn, Wheree and Phorest block automated reading, so they need checking by hand.
-- No known listing on 17 directories, including Google Business Profile (add its URL), Bing, Apple, Yell, Treatwell, Fresha and Booksy.
+- **Remembered listing actions** (create/claim each one and set the website to https://www.yuzuhairandbeauty.london): Google Business Profile, Bing Places, Apple Business Connect, Yell, Treatwell, Fresha. These are `action: list` rows in `configs/yuzu.yaml` so they stay on the Control Room listings table until a live URL replaces them. Other directory gaps (Thomson Local, Scoot, Cylex, FreeIndex, Yelp UK, Nextdoor, Booksy, …) still show as “no known listing”.
 
 **Same-name business:** YUZUHAIR in Hucknall, Nottingham (yuzuhair.co.uk, listed on Yell as "Yuzu Hair") competes for "Yuzu Hair" searches. It isn't a local competitor. Use "Yuzu Hair & Beauty, Ealing" consistently, and watch the AI log's new brand prompt ("Yuzu Hair salon") for answers that mix the two up.
 
@@ -85,15 +90,17 @@ Replace the Wix placeholder text ("This is placeholder text…") on Senior Styli
 
 ## Months 2–3: authority and local
 
-11. **Google Business Profile.**
+11. **Google Business Profile** (remembered action — `citations:` row `action: list`).
+    - Create or claim the profile. Set the website to **https://www.yuzuhairandbeauty.london**.
     - Primary category: *Hair salon*. Add *Beauty salon* only if Yuzu offers those services.
     - Add every service with its price, weekly posts, 10+ new photos and a short video each month, and a Phorest booking link.
     - Reply to every review.
+    - Once live, put the Maps/GBP URL in `business.profiles.google_business` and replace the citations row URL (drop `action: list`).
 12. **Review engine.** After each visit, Phorest sends an automatic review request by SMS or email linking to Google. Aim for 15–25 new reviews a month.
-13. **Listings and mentions.**
+13. **Listings and mentions** (same remembered actions in `configs/yuzu.yaml`; website on every listing = https://www.yuzuhairandbeauty.london).
     - Bing Places (import from Google Business Profile) and Apple Business Connect.
-    - Yell, Thomson Local, Cylex, FreeIndex, Yelp UK, Nextdoor.
-    - Make It Ealing (claim or update the listing).
+    - Yell (the Hucknall “Yuzu Hair” Yell page is a different business). Thomson Local, Cylex, FreeIndex, Yelp UK, Nextdoor.
+    - Make It Ealing (already matches — claim or update if needed).
     - Treatwell and/or Fresha. These rank on page 1 for "hair salon Ealing" and are often cited by AI answers.
 14. **Local PR.** Pitch Ealing Times, Dickens Yard / St George, and "best Japanese head spa London" roundups.
 
