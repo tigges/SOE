@@ -605,10 +605,14 @@ function render(){
     ["gsc", "Search Console", "import a Performance export (soe_gsc_import.py) or set GSC_SERVICE_ACCOUNT_B64", r => r.totals ? `${r.source === "export" ? "CSV export " + r.exported + " · " : ""}${r.totals.impressions} impressions · ${r.totals.clicks} clicks` : "Connected"],
     ["dataforseo", "Rankings & AI Overviews", "DATAFORSEO_LOGIN", r => r.keywords ? `${r.keywords.length} keywords tracked` : "Connected"],
     ["gbp", "Business Profile", "GBP_REFRESH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
+    ["indexnow", "IndexNow (Bing)", "INDEXNOW_KEY + key file on the site", r => r.skipped ? r.skipped : r.submitted != null ? `${r.submitted} URLs · ${r.meaning || ""}` : "Connected"],
   ];
   $("#intg").innerHTML = INT.map(([k, label, env, fmt]) => {
     const r = I[k];
-    const [cls, txt, sub] = r == null ? ["s-na", "Not connected", `set ${env}`] : r.error ? ["s-bad", "Error", String(r.error).slice(0, 80)] : ["s-good", "Connected", fmt(r)];
+    const [cls, txt, sub] = r == null ? ["s-na", "Not connected", `set ${env}`]
+      : r.skipped ? ["s-na", "Skipped", r.skipped]
+      : r.error ? ["s-bad", "Error", String(r.error).slice(0, 80)]
+      : ["s-good", "Connected", fmt(r)];
     return `<div><strong>${label}</strong><span class="chip ${cls}">${txt}</span><code>${esc(sub)}</code></div>`;
   }).join("");
 
@@ -1077,10 +1081,10 @@ const RM = [
   {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; directory gaps per site type.", e:"soe_citations.py"},
   {s:"built", t:"Site-type modules", w:"Local business, SaaS, ecommerce, publisher, personal/artist brand.", e:"modules/"},
   {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},
-  {s:"key", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others (not possible on Wix).", e:"INDEXNOW_KEY"},
+  {s:"built", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others. Host the key file at INDEXNOW_URL_TXT (or <site>/<key>.txt). Skipped on Wix.", e:"INDEXNOW_KEY · INDEXNOW_URL_TXT"},
   {s:"key", t:"Rank tracking, maps rank, AI Overview citations, volumes", w:"DataForSEO, capped at 20 keywords per run.", e:"DATAFORSEO_LOGIN (~£5–20/mo)"},
   {s:"key", t:"Business Profile reviews and actions", w:"Needs Google API access approval, then a refresh token.", e:"GBP_REFRESH_TOKEN"},
-  {s:"key", t:"Automatic copy drafting outside Claude", w:"Lets the GitHub Action draft copy with Claude.", e:"ANTHROPIC_API_KEY"},
+  {s:"built", t:"Automatic copy drafting outside Claude", w:"Lets the GitHub Action draft copy with Claude. Re-run SOE run after adding the key.", e:"ANTHROPIC_API_KEY"},
 ];
 let fp = "all";
 function renderRM(){

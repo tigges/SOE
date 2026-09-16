@@ -59,6 +59,9 @@ def project(cfg_path):
         exports = sorted(glob.glob(os.path.join(HERE, "reports", slug, "*", "gsc.json")))
         if exports:
             res["gsc"] = jload(exports[-1])
+    idx = jload(os.path.join(latest, "indexnow.json"))
+    if idx and not res.get("indexnow"):
+        res["indexnow"] = idx.get("summary") or idx
     ai_rows = []
     ap = os.path.join(HERE, "data", slug, "ai_log.csv")
     if os.path.exists(ap):
