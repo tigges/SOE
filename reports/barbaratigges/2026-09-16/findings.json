@@ -1,0 +1,226 @@
+{
+  "site": "https://barbaratigges.com",
+  "run": "2026-09-16 15:44",
+  "project": {
+    "name": "Art Barbara",
+    "slug": "barbaratigges",
+    "type": "personal_brand",
+    "platform": "wordpress",
+    "module": "Personal / artist brand (DJ, musician, creator)"
+  },
+  "score": 77,
+  "layers": {
+    "Technical": 100,
+    "On-page": 71,
+    "Structured data": 40,
+    "Entity / NAP": 96,
+    "AI search readiness": 82,
+    "Performance": 70
+  },
+  "meta": {
+    "sitemap_urls": 6,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": true,
+    "lighthouse_runs": [
+      70
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 70,
+        "accessibility": 99,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lab": {
+        "largest-contentful-paint": 53129.55849999998,
+        "cumulative-layout-shift": 4.4e-05,
+        "total-blocking-time": 0
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['Person', 'MusicGroup', 'Organization']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for Person (see schema/ templates)",
+      "url": "https://barbaratigges.com",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://barbaratigges.com/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://barbaratigges.com/studio/",
+      "how": "Yoast/Rank Math panel \u2192 Meta description."
+    },
+    {
+      "layer": "A",
+      "severity": "high",
+      "check": "extractable-text",
+      "detail": "homepage has 142 words of text",
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 53.1s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "142 words (<200)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://barbaratigges.com/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "27 words (<200)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://barbaratigges.com/studio/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'events' page found (looked for: event, gig, tour, dates)",
+      "fix": "Add a dedicated events page and link it from the navigation",
+      "url": "https://barbaratigges.com",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'contact/booking' page found (looked for: contact, booking, press)",
+      "fix": "Add a dedicated contact/booking page and link it from the navigation",
+      "url": "https://barbaratigges.com",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "E",
+      "severity": "medium",
+      "check": "brand-name",
+      "detail": "canonical name 'Art Barbara' not used consistently (title: 'https://barbaratigges.com \u2013 Art aus Basel')",
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "url": null,
+      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name."
+    },
+    {
+      "layer": "A",
+      "severity": "medium",
+      "check": "llms.txt-summary",
+      "detail": "summary does not mention ['painting']",
+      "fix": "Rewrite the llms.txt summary to describe the business, not a random page",
+      "url": null,
+      "how": "Edit the llms.txt summary in the plugin or in the file."
+    },
+    {
+      "layer": "A",
+      "severity": "medium",
+      "check": "answer-content",
+      "detail": "no question-style content found",
+      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
+      "url": null,
+      "how": "Add an FAQ section (Elementor Accordion). It's visible text for AI answers; FAQ rich results no longer show."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "1/21 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://barbaratigges.com/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://barbaratigges.com/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://barbaratigges.com/studio/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://barbaratigges.com/",
+      "status": 200,
+      "bytes": 44727,
+      "title": "https://barbaratigges.com \u2013 Art aus Basel",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Barbara Tigges"
+      ],
+      "h2_count": 2,
+      "canonical": "",
+      "lang": "en-US",
+      "words": 142,
+      "img_total": 21,
+      "img_no_alt": 1,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://barbaratigges.com/studio/",
+      "status": 200,
+      "bytes": 25257,
+      "title": "Studio \u2013 https://barbaratigges.com",
+      "description": "",
+      "robots": "max-image-preview:large",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Studio"
+      ],
+      "h2_count": 0,
+      "canonical": "https://barbaratigges.com/studio/",
+      "lang": "en-US",
+      "words": 27,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}

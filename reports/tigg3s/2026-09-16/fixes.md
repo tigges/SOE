@@ -1,4 +1,4 @@
-# Fix pack — www.tigg3s.com
+# Fix pack — TIGGES
 
 Everything here is a proposal: review before publishing. Page copy marked DRAFT is rule-based — run with --llm (Gemini first, then Claude) or rewrite in a session.
 
@@ -8,9 +8,18 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://www.tigg3s.com/#entity",
-  "name": "www.tigg3s.com",
-  "url": "https://www.tigg3s.com/"
+  "@id": "https://tigg3s.com/#entity",
+  "name": "TIGGES",
+  "url": "https://tigg3s.com/",
+  "description": "TIGGES is the Tigges family and ventures hub: Art Leon, Art Barbara, architecture in Spain, DJ URBANT, Set Radar, and GTA VI.AI.",
+  "sameAs": [
+    "https://www.instagram.com/_urbant_/?hl=en",
+    "https://www.mixcloud.com/urbant/",
+    "https://www.youtube.com/@DJ_UrbanT",
+    "https://twitter.com/DJUrbanT",
+    "https://www.twitch.tv/djurbant",
+    "https://www.linkedin.com/in/tigges/"
+  ]
 }
 ```
 
@@ -18,24 +27,28 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://www.tigg3s.com/ | TIGGES — Family and ventures hub | TIGGES Family & Ventures \| Art, Music & Architecture | Explore TIGGES: family hub featuring art, architecture, DJ URBANT music, Set Radar, and GTA VI.AI ventures. Discover our creative projects today. | TIGGES Family and Ventures | Claude draft |
+| https://tigg3s.com/ | TIGGES — Family and ventures hub | TIGGES \| TIGGES | TIGGES at TIGGES. Listen, see upcoming dates and get in touch for bookings. | TIGGES | DRAFT (rule-based) |
+| https://tigg3s.com/about.html | About TIGGES — Family and ventures | About Tigges \| TIGGES | About Tigges at TIGGES. Listen, see upcoming dates and get in touch for bookings. | About Tigges | DRAFT (rule-based) |
 
-## 3. Steps on wordpress
+## 3. Steps on other
 
-- **host-canonicalisation** (high, ×3) — 301 all variants to https://www.tigg3s.com/  
-  _How:_ Settings → General (WordPress Address + Site Address), plus Cloudways → Domain Management → primary domain and force-HTTPS.
-- **lcp** (high, ×1) — Compress/preload hero image, cut render-blocking JS  
-  _How:_ Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor → Image → optimise). Remove unused Elementor widgets (Elementor → Features → Improved asset loading).
-- **canonical** (medium, ×1) — Self-reference unless intentional  
-  _How:_ Yoast → Advanced → Canonical URL.
-- **expected-page** (medium, ×1) — Add a dedicated contact/booking page and link it from the navigation  
-  _How:_ Pages → Add New (Elementor), then add it to Appearance → Menus.
-- **brand-name** (medium, ×1) — Use one exact business name everywhere (site, GBP, directories, schema)  
-  _How:_ Settings → General → Site Title, plus Yoast → Site representation → Organisation name.
-- **alt-text** (low, ×1) — Describe images; include service/location naturally  
-  _How:_ Media Library → image → Alternative Text.
+- **host-canonicalisation** (high, ×2) — 301 all variants to https://tigg3s.com/
+- **extractable-text** (high, ×1) — AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)
+- **thin-content** (medium, ×2) — Expand with useful, specific text (services, FAQs, proof)
+- **expected-page** (medium, ×1) — Add a dedicated contact/booking page and link it from the navigation
+- **keyword-targeting** (medium, ×2) — Map each primary keyword to one page and use it in title + H1
+- **lcp** (medium, ×1) — Compress/preload hero image, cut render-blocking JS
+- **alt-text** (low, ×1) — Describe images; include service/location naturally
 
 ## 4. llms.txt summary
 
-> www.tigg3s.com
+> TIGGES TIGGES is the Tigges family and ventures hub: Art Leon, Art Barbara, architecture in Spain, DJ URBANT, Set Radar, and GTA VI.AI.
 
+## 5. Q&A block (visible on the page; answers to be written from real facts)
+
+**What is TIGGES?**  
+_Answer: …_
+**Who is DJ URBANT?**  
+_Answer: …_
+**Where is the Tigges architecture studio?**  
+_Answer: …_

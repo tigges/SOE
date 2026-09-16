@@ -1,0 +1,53 @@
+# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
+site:
+  name: TIGGES ARCHITEKT
+  slug: tigges
+  url: https://tigges.es
+  type: local_business                   # local_business | saas | ecommerce | publisher | personal_brand | generic
+  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | other
+  market: en-GB
+  description: Architecture studio in Spain (Tigges family). tiggesarchitekt.ch redirects here.
+  location: Spain   # for rank tracking, e.g. London,England,United Kingdom
+  gsc_property: "sc-domain:tigges.es"
+
+business:
+  name: TIGGES ARCHITEKT
+  phone: ""
+  email: ""
+  address: ""
+  postcode: ""
+  profiles:
+    google_business: ""
+    instagram: ""
+    facebook: ""
+    booking: ""
+
+keywords:
+  primary:
+    - Tigges Architekt
+    - architecture studio Spain
+  secondary: []
+  questions: []                          # real customer questions -> FAQ / answer content
+
+competitors: []                          # {name, url} — audited with --competitors
+legacy_sites:                         # old/parked sites to take offline or redirect
+  - {url: "https://tiggesarchitekt.ch/", action: redirect, note: "hub card still uses this host; it already 301s to tigges.es"}
+name_clashes: []                         # other businesses with a similar name
+benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)
+citations: []                            # off-site listings checked by soe_citations.py
+
+ai:
+  allow_training: true
+  llms_should_mention: [architect, Spain]
+  prompts:
+    - TIGGES ARCHITEKT
+    - Tigges architecture studio Spain
+  engines: [Gemini, Claude, Google AI Mode]
+  brand_terms: [TIGGES ARCHITEKT, Tigges Architekt]
+
+audit:
+  max_pages: 20
+  min_words: 300
+  lighthouse_runs: 1
+  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}
+

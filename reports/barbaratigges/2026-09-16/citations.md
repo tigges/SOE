@@ -1,4 +1,4 @@
-# Citations — TIGGES
+# Citations — Art Barbara
 
 ok: 0 · mismatch: 0 · unreachable: 0 · manual: 0 · todo: 0 · ignore: 0
 

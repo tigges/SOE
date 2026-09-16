@@ -1,0 +1,866 @@
+{
+  "site": "https://www.setradar.ai",
+  "run": "2026-09-16 15:45",
+  "project": {
+    "name": "Set Radar",
+    "slug": "setradar",
+    "type": "saas",
+    "platform": "other",
+    "module": "SaaS / software"
+  },
+  "score": 75,
+  "layers": {
+    "Technical": 87,
+    "On-page": 57,
+    "Structured data": 40,
+    "Entity / NAP": 96,
+    "AI search readiness": 98,
+    "Performance": 75
+  },
+  "meta": {
+    "sitemap_urls": 4485,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": false,
+    "lighthouse_runs": [
+      75
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 75,
+        "accessibility": 91,
+        "best-practices": 79,
+        "seo": 100
+      },
+      "lab": {
+        "largest-contentful-paint": 15893.2425,
+        "cumulative-layout-shift": 0,
+        "total-blocking-time": 46.5
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['Organization', 'Corporation']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for Organization (see schema/ templates)",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['SoftwareApplication', 'WebApplication', 'Product']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for SoftwareApplication (see schema/ templates)",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "http://www.setradar.ai/ ends at http://www.setradar.ai/",
+      "fix": "301 all variants to https://www.setradar.ai/",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "http://setradar.ai/ ends at http://www.setradar.ai/",
+      "fix": "301 all variants to https://www.setradar.ai/",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "noindex",
+      "detail": "page is noindex but linked/in sitemap",
+      "fix": "Remove noindex or drop from sitemap",
+      "url": "https://www.setradar.ai/stats",
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 15.9s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "16 chars: 'Timed tracklists'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "18 chars: 'Sets \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/sets",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "17 chars: 'DJs \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/djs",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Events \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/events",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "22 chars: 'Calendar \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/events/calendar",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'Atlas \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/atlas",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'Stats \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/stats",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "19 chars: 'About \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/about",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "186 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.setradar.ai/about",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "22 chars: 'Wishlist \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/wishlist",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Search \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/search",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "42 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://www.setradar.ai/search",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Labels \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/labels",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Tracks \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/tracks",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "68 chars: 'PAWSA LIVE @ SPACE MIAMI \ud83c\uddfa\ud83c\uddf8 SOLID GROOVES MMW 25.03.22 \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-space-miami-solid-grooves-mmw-250322",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "79 chars: 'PAWSA LIVE @ BROOKLYN, NEW YORK, SUPERIOR INGREDIENTS \ud83c\uddfa\ud83c\uddf8 10.04.22 \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-superior-ingredients-brooklyn-new-york-100422",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "73 chars: 'PAWSA LIVE @ CIRCOLOCO, FABRIKA, RIO DE JANEIRO \ud83c\udde7\ud83c\uddf7 21.04.22 \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-fabrika-rio-de-janeiro-210422",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "81 chars: 'PAWSA LIVE @ PRINTWORKS, LONDON \ud83c\uddec\ud83c\udde7 SOLID GROOVES 10TH BIRTHDAY 2022 \u2014 setradar.ai'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-printworks-london",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'pricing' page found (looked for: pricing, plans)",
+      "fix": "Add a dedicated pricing page and link it from the navigation",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'docs' page found (looked for: docs, documentation, developers, help)",
+      "fix": "Add a dedicated docs page and link it from the navigation",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'integrations' page found (looked for: integration, apps, marketplace)",
+      "fix": "Add a dedicated integrations page and link it from the navigation",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'festival setlist' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'Set Radar' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://www.setradar.ai",
+      "how": null
+    },
+    {
+      "layer": "E",
+      "severity": "medium",
+      "check": "brand-name",
+      "detail": "canonical name 'Set Radar' not used consistently (title: 'Timed tracklists')",
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/sets",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/djs",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/events",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/events/calendar",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://www.setradar.ai/atlas",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/atlas",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/stats",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/about",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/wishlist",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/search",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/labels",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://www.setradar.ai/tracks",
+      "how": null
+    },
+    {
+      "layer": "A",
+      "severity": "low",
+      "check": "llms.txt",
+      "detail": "missing",
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "url": null,
+      "how": null
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.setradar.ai/",
+      "status": 200,
+      "bytes": 114936,
+      "title": "Timed tracklists",
+      "description": "Festivals, clubs, and livestreams \u2014 play the set, see the tracks.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Festivals, clubs, and livestreams \u2014 play the set, see the tracks.",
+      "h1": [
+        "setradar.ai Timed tracklists."
+      ],
+      "h2_count": 4,
+      "canonical": "https://www.setradar.ai/",
+      "lang": "en",
+      "words": 260,
+      "img_total": 46,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets",
+      "status": 200,
+      "bytes": 2827081,
+      "title": "Sets \u2014 setradar.ai",
+      "description": "Timed tracklists for festival, club, livestream, and radio DJ sets \u2014 play the recording and see what was playing.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Timed tracklists for festival, club, livestream, and radio DJ sets \u2014 play the recording and see what was playing.",
+      "h1": [
+        "DJ Sets"
+      ],
+      "h2_count": 2,
+      "canonical": "https://www.setradar.ai/sets/",
+      "lang": "en",
+      "words": 721,
+      "img_total": 25,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/djs",
+      "status": 200,
+      "bytes": 690132,
+      "title": "DJs \u2014 setradar.ai",
+      "description": "Artists with a handle, a set, a tracklist, and artwork.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Artists with a handle, a set, a tracklist, and artwork.",
+      "h1": [
+        "DJs"
+      ],
+      "h2_count": 26,
+      "canonical": "https://www.setradar.ai/djs/",
+      "lang": "en",
+      "words": 3339,
+      "img_total": 508,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/events",
+      "status": 200,
+      "bytes": 359536,
+      "title": "Events \u2014 setradar.ai",
+      "description": "Festivals, clubs, and livestream channels with DJ sets in the catalog.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Festivals, clubs, and livestream channels with DJ sets in the catalog.",
+      "h1": [
+        "Events"
+      ],
+      "h2_count": 3,
+      "canonical": "https://www.setradar.ai/events/",
+      "lang": "en",
+      "words": 1221,
+      "img_total": 139,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/events/calendar",
+      "status": 200,
+      "bytes": 422206,
+      "title": "Calendar \u2014 setradar.ai",
+      "description": "Festival edition weekends plus official club nights from UNVRS, H\u00ef, Amnesia, and other calendars.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Festival edition weekends plus official club nights from UNVRS, H\u00ef, Amnesia, and other calendars.",
+      "h1": [
+        "Calendar"
+      ],
+      "h2_count": 6,
+      "canonical": "https://www.setradar.ai/events/calendar/",
+      "lang": "en",
+      "words": 1798,
+      "img_total": 53,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/atlas",
+      "status": 200,
+      "bytes": 542870,
+      "title": "Atlas \u2014 setradar.ai",
+      "description": "DJ Mag Top 100 Clubs and Festivals 2026 plus Top 100 DJs 2025, mapped and linked to setradar.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "DJ Mag Top 100 Clubs and Festivals 2026 plus Top 100 DJs 2025, mapped and linked to setradar.",
+      "h1": [
+        "Top 100 Atlas",
+        "Top 100 Atlas"
+      ],
+      "h2_count": 0,
+      "canonical": "https://www.setradar.ai/atlas/",
+      "lang": "en",
+      "words": 2055,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/stats",
+      "status": 200,
+      "bytes": 520679,
+      "title": "Stats \u2014 setradar.ai",
+      "description": "Catalog health dashboard \u2014 DJs, festivals, clubs, sets, and the work left.",
+      "robots": "noindex, nofollow",
+      "og_image": "",
+      "og_description": "Catalog health dashboard \u2014 DJs, festivals, clubs, sets, and the work left.",
+      "h1": [
+        "Catalog health"
+      ],
+      "h2_count": 13,
+      "canonical": "https://www.setradar.ai/stats/",
+      "lang": "en",
+      "words": 2646,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/about",
+      "status": 200,
+      "bytes": 22346,
+      "title": "About \u2014 setradar.ai",
+      "description": "setradar.ai is a DJ-set database: play the recording and see the timed tracklist.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "setradar.ai is a DJ-set database: play the recording and see the timed tracklist.",
+      "h1": [
+        "About"
+      ],
+      "h2_count": 2,
+      "canonical": "https://www.setradar.ai/about/",
+      "lang": "en",
+      "words": 186,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/wishlist",
+      "status": 200,
+      "bytes": 1502698,
+      "title": "Wishlist \u2014 setradar.ai",
+      "description": "Personal DJ wishlist \u2014 house and bass house names to keep watching. Stored in this browser.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Personal DJ wishlist \u2014 house and bass house names to keep watching. Stored in this browser.",
+      "h1": [
+        "Wishlist"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/wishlist/",
+      "lang": "en",
+      "words": 348,
+      "img_total": 37,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/search",
+      "status": 200,
+      "bytes": 16703,
+      "title": "Search \u2014 setradar.ai",
+      "description": "Search setradar sets, DJs, events, labels, and tracks.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Search setradar sets, DJs, events, labels, and tracks.",
+      "h1": [
+        "Search"
+      ],
+      "h2_count": 0,
+      "canonical": "https://www.setradar.ai/search/",
+      "lang": "en",
+      "words": 42,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/labels",
+      "status": 200,
+      "bytes": 911767,
+      "title": "Labels \u2014 setradar.ai",
+      "description": "Dance imprints that appear on identified setradar tracklists.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Dance imprints that appear on identified setradar tracklists.",
+      "h1": [
+        "Labels"
+      ],
+      "h2_count": 27,
+      "canonical": "https://www.setradar.ai/labels/",
+      "lang": "en",
+      "words": 6700,
+      "img_total": 872,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/tracks",
+      "status": 200,
+      "bytes": 231696,
+      "title": "Tracks \u2014 setradar.ai",
+      "description": "Identified tracks mixed by more than one DJ in the setradar catalog.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "Identified tracks mixed by more than one DJ in the setradar catalog.",
+      "h1": [
+        "Tracks"
+      ],
+      "h2_count": 0,
+      "canonical": "https://www.setradar.ai/tracks/",
+      "lang": "en",
+      "words": 1645,
+      "img_total": 93,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-solid-grooves-island-london-2021",
+      "status": 200,
+      "bytes": 99912,
+      "title": "PAWSA live @ Solid Grooves Island London 2021 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2021 \u00b7 24 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2021 \u00b7 24 tracks",
+      "h1": [
+        "PAWSA live @ Solid Grooves Island London 2021"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-solid-grooves-island-london-2021/",
+      "lang": "en",
+      "words": 482,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-cocorico-riccione-041221",
+      "status": 200,
+      "bytes": 144722,
+      "title": "PAWSA LIVE @ COCORIC\u00d2, RICCIONE \ud83c\uddee\ud83c\uddf9 04.12.21 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2021 \u00b7 42 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2021 \u00b7 42 tracks",
+      "h1": [
+        "PAWSA LIVE @ COCORIC\u00d2, RICCIONE \ud83c\uddee\ud83c\uddf9 04.12.21"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-cocorico-riccione-041221/",
+      "lang": "en",
+      "words": 626,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-sammyvirji-valentines-mixtape",
+      "status": 200,
+      "bytes": 147022,
+      "title": "Valentine's Mixtape \u2014 setradar.ai",
+      "description": "Sammy Virji \u00b7 2022 \u00b7 38 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/b4035c67c74c5b44fe78b4865cd7e593/250x250-000000-80-0-0.jpg",
+      "og_description": "Sammy Virji \u00b7 2022 \u00b7 38 tracks",
+      "h1": [
+        "Valentine's Mixtape"
+      ],
+      "h2_count": 0,
+      "canonical": "https://www.setradar.ai/sets/sc-sammyvirji-valentines-mixtape/",
+      "lang": "en",
+      "words": 559,
+      "img_total": 27,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-space-miami-solid-grooves-mmw-250322",
+      "status": 200,
+      "bytes": 129243,
+      "title": "PAWSA LIVE @ SPACE MIAMI \ud83c\uddfa\ud83c\uddf8 SOLID GROOVES MMW 25.03.22 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 Club Space \u00b7 2022 \u00b7 34 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 Club Space \u00b7 2022 \u00b7 34 tracks",
+      "h1": [
+        "PAWSA LIVE @ SPACE MIAMI \ud83c\uddfa\ud83c\uddf8 SOLID GROOVES MMW 25.03.22"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-space-miami-solid-grooves-mmw-250322/",
+      "lang": "en",
+      "words": 625,
+      "img_total": 7,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-superior-ingredients-brooklyn-new-york-100422",
+      "status": 200,
+      "bytes": 171444,
+      "title": "PAWSA LIVE @ BROOKLYN, NEW YORK, SUPERIOR INGREDIENTS \ud83c\uddfa\ud83c\uddf8 10.04.22 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2022 \u00b7 52 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2022 \u00b7 52 tracks",
+      "h1": [
+        "PAWSA LIVE @ BROOKLYN, NEW YORK, SUPERIOR INGREDIENTS \ud83c\uddfa\ud83c\uddf8 10.04.22"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-superior-ingredients-brooklyn-new-york-100422/",
+      "lang": "en",
+      "words": 741,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-fabrika-rio-de-janeiro-210422",
+      "status": 200,
+      "bytes": 98440,
+      "title": "PAWSA LIVE @ CIRCOLOCO, FABRIKA, RIO DE JANEIRO \ud83c\udde7\ud83c\uddf7 21.04.22 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2022 \u00b7 24 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2022 \u00b7 24 tracks",
+      "h1": [
+        "PAWSA LIVE @ CIRCOLOCO, FABRIKA, RIO DE JANEIRO \ud83c\udde7\ud83c\uddf7 21.04.22"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-fabrika-rio-de-janeiro-210422/",
+      "lang": "en",
+      "words": 456,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-printworks-london",
+      "status": 200,
+      "bytes": 101870,
+      "title": "PAWSA LIVE @ PRINTWORKS, LONDON \ud83c\uddec\ud83c\udde7 SOLID GROOVES 10TH BIRTHDAY 2022 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2022 \u00b7 25 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2022 \u00b7 25 tracks",
+      "h1": [
+        "PAWSA LIVE @ PRINTWORKS, LONDON \ud83c\uddec\ud83c\udde7 SOLID GROOVES 10TH BIRTHDAY 2022"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-printworks-london/",
+      "lang": "en",
+      "words": 498,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-dc10-ibiza",
+      "status": 200,
+      "bytes": 103941,
+      "title": "PAWSA LIVE @ CIRCOLOCO DC10 IBIZA 2022 \u2014 setradar.ai",
+      "description": "PAWSA \u00b7 2022 \u00b7 26 tracks",
+      "robots": "",
+      "og_image": "https://cdn-images.dzcdn.net/images/artist/d239501231d60980c6eb1ba64948289c/250x250-000000-80-0-0.jpg",
+      "og_description": "PAWSA \u00b7 2022 \u00b7 26 tracks",
+      "h1": [
+        "PAWSA LIVE @ CIRCOLOCO DC10 IBIZA 2022"
+      ],
+      "h2_count": 1,
+      "canonical": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-dc10-ibiza/",
+      "lang": "en",
+      "words": 479,
+      "img_total": 2,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}

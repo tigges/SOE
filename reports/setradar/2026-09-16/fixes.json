@@ -1,0 +1,248 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://www.setradar.ai/#entity",
+    "name": "Set Radar",
+    "url": "https://www.setradar.ai/",
+    "description": "Timed tracklists for festivals, clubs and livestreams."
+  },
+  "pages": [
+    {
+      "url": "https://www.setradar.ai/",
+      "current_title": "Timed tracklists",
+      "title": "Timed tracklists | Set Radar",
+      "description": "Timed tracklists at Set Radar. See features and pricing, and start free.",
+      "h1": "Timed tracklists",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets",
+      "current_title": "Sets \u2014 setradar.ai",
+      "title": "Dj Sets | Set Radar",
+      "description": "Dj Sets at Set Radar. See features and pricing, and start free.",
+      "h1": "Dj Sets",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/djs",
+      "current_title": "DJs \u2014 setradar.ai",
+      "title": "Djs | Set Radar",
+      "description": "Djs at Set Radar. See features and pricing, and start free.",
+      "h1": "Djs",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/events",
+      "current_title": "Events \u2014 setradar.ai",
+      "title": "Events | Set Radar",
+      "description": "Events at Set Radar. See features and pricing, and start free.",
+      "h1": "Events",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/events/calendar",
+      "current_title": "Calendar \u2014 setradar.ai",
+      "title": "Calendar | Set Radar",
+      "description": "Calendar at Set Radar. See features and pricing, and start free.",
+      "h1": "Calendar",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/atlas",
+      "current_title": "Atlas \u2014 setradar.ai",
+      "title": "Top 100 Atlas | Set Radar",
+      "description": "Top 100 Atlas at Set Radar. See features and pricing, and start free.",
+      "h1": "Top 100 Atlas",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/stats",
+      "current_title": "Stats \u2014 setradar.ai",
+      "title": "Catalog Health | Set Radar",
+      "description": "Catalog Health at Set Radar. See features and pricing, and start free.",
+      "h1": "Catalog Health",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/about",
+      "current_title": "About \u2014 setradar.ai",
+      "title": "About | Set Radar",
+      "description": "About at Set Radar. See features and pricing, and start free.",
+      "h1": "About",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/wishlist",
+      "current_title": "Wishlist \u2014 setradar.ai",
+      "title": "Wishlist | Set Radar",
+      "description": "Wishlist at Set Radar. See features and pricing, and start free.",
+      "h1": "Wishlist",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/search",
+      "current_title": "Search \u2014 setradar.ai",
+      "title": "Search | Set Radar",
+      "description": "Search at Set Radar. See features and pricing, and start free.",
+      "h1": "Search",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/labels",
+      "current_title": "Labels \u2014 setradar.ai",
+      "title": "Labels | Set Radar",
+      "description": "Labels at Set Radar. See features and pricing, and start free.",
+      "h1": "Labels",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/tracks",
+      "current_title": "Tracks \u2014 setradar.ai",
+      "title": "Tracks | Set Radar",
+      "description": "Tracks at Set Radar. See features and pricing, and start free.",
+      "h1": "Tracks",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-solid-grooves-island-london-2021",
+      "current_title": "PAWSA live @ Solid Grooves Island London 2021 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Solid Grooves Island London 2021 | Set Radar",
+      "description": "Pawsa Live @ Solid Grooves Island London 2021 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Solid Grooves Island London 2021",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-cocorico-riccione-041221",
+      "current_title": "PAWSA LIVE @ COCORIC\u00d2, RICCIONE \ud83c\uddee\ud83c\uddf9 04.12.21 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Cocoric\u00f2, Riccione \ud83c\uddee\ud83c\uddf9 04.12.21 | Set Radar",
+      "description": "Pawsa Live @ Cocoric\u00f2, Riccione \ud83c\uddee\ud83c\uddf9 04.12.21 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Cocoric\u00f2, Riccione \ud83c\uddee\ud83c\uddf9 04.12.21",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-sammyvirji-valentines-mixtape",
+      "current_title": "Valentine's Mixtape \u2014 setradar.ai",
+      "title": "Valentine'S Mixtape | Set Radar",
+      "description": "Valentine'S Mixtape at Set Radar. See features and pricing, and start free.",
+      "h1": "Valentine'S Mixtape",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-space-miami-solid-grooves-mmw-250322",
+      "current_title": "PAWSA LIVE @ SPACE MIAMI \ud83c\uddfa\ud83c\uddf8 SOLID GROOVES MMW 25.03.22 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Space Miami \ud83c\uddfa\ud83c\uddf8 Solid Grooves Mmw 25.03.22 | Set",
+      "description": "Pawsa Live @ Space Miami \ud83c\uddfa\ud83c\uddf8 Solid Grooves Mmw 25.03.22 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Space Miami \ud83c\uddfa\ud83c\uddf8 Solid Grooves Mmw 25.03.22",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-superior-ingredients-brooklyn-new-york-100422",
+      "current_title": "PAWSA LIVE @ BROOKLYN, NEW YORK, SUPERIOR INGREDIENTS \ud83c\uddfa\ud83c\uddf8 10.04.22 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Brooklyn, New York, Superior Ingredients \ud83c\uddfa\ud83c\uddf8 10.",
+      "description": "Pawsa Live @ Brooklyn, New York, Superior Ingredients \ud83c\uddfa\ud83c\uddf8 10.04.22 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Brooklyn, New York, Superior Ingredients \ud83c\uddfa\ud83c\uddf8 10.04.22",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-fabrika-rio-de-janeiro-210422",
+      "current_title": "PAWSA LIVE @ CIRCOLOCO, FABRIKA, RIO DE JANEIRO \ud83c\udde7\ud83c\uddf7 21.04.22 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Circoloco, Fabrika, Rio De Janeiro \ud83c\udde7\ud83c\uddf7 21.04.22 ",
+      "description": "Pawsa Live @ Circoloco, Fabrika, Rio De Janeiro \ud83c\udde7\ud83c\uddf7 21.04.22 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Circoloco, Fabrika, Rio De Janeiro \ud83c\udde7\ud83c\uddf7 21.04.22",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-printworks-london",
+      "current_title": "PAWSA LIVE @ PRINTWORKS, LONDON \ud83c\uddec\ud83c\udde7 SOLID GROOVES 10TH BIRTHDAY 2022 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Printworks, London \ud83c\uddec\ud83c\udde7 Solid Grooves 10Th Birthd",
+      "description": "Pawsa Live @ Printworks, London \ud83c\uddec\ud83c\udde7 Solid Grooves 10Th Birthday 2022 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Printworks, London \ud83c\uddec\ud83c\udde7 Solid Grooves 10Th Birthday 2022",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://www.setradar.ai/sets/sc-pawsa-pawsa-live-circoloco-dc10-ibiza",
+      "current_title": "PAWSA LIVE @ CIRCOLOCO DC10 IBIZA 2022 \u2014 setradar.ai",
+      "title": "Pawsa Live @ Circoloco Dc10 Ibiza 2022 | Set Radar",
+      "description": "Pawsa Live @ Circoloco Dc10 Ibiza 2022 at Set Radar. See features and pricing, and start free.",
+      "h1": "Pawsa Live @ Circoloco Dc10 Ibiza 2022",
+      "source": "DRAFT (rule-based)"
+    }
+  ],
+  "steps": {
+    "schema-missing": {
+      "fix": "Add JSON-LD for Organization (see schema/ templates)",
+      "how": null,
+      "count": 2,
+      "severity": "critical"
+    },
+    "host-canonicalisation": {
+      "fix": "301 all variants to https://www.setradar.ai/",
+      "how": null,
+      "count": 2,
+      "severity": "high"
+    },
+    "noindex": {
+      "fix": "Remove noindex or drop from sitemap",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "title-length": {
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "how": null,
+      "count": 16,
+      "severity": "medium"
+    },
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": null,
+      "count": 2,
+      "severity": "medium"
+    },
+    "expected-page": {
+      "fix": "Add a dedicated pricing page and link it from the navigation",
+      "how": null,
+      "count": 3,
+      "severity": "medium"
+    },
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": null,
+      "count": 2,
+      "severity": "medium"
+    },
+    "brand-name": {
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "how": null,
+      "count": 1,
+      "severity": "medium"
+    },
+    "og-image": {
+      "fix": "Set a share image (1200\u00d7630)",
+      "how": null,
+      "count": 12,
+      "severity": "low"
+    },
+    "h1": {
+      "fix": "Use one H1 per page",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "llms.txt": {
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    }
+  },
+  "llms_summary": "Set Radar Timed tracklists for festivals, clubs and livestreams.",
+  "questions": []
+}

@@ -1,0 +1,334 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "@id": "https://gtavi.ai/#entity",
+    "name": "GTA VI.AI",
+    "url": "https://gtavi.ai/",
+    "description": "Follow the GTA$: GTA dual-economy tracking, predictions and explainers."
+  },
+  "pages": [
+    {
+      "url": "https://gtavi.ai/",
+      "current_title": "GTA VI.AI",
+      "title": "GTA VI | GTA VI.AI",
+      "description": "GTA VI at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "GTA VI",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-v",
+      "current_title": "GTA V Story Mode \u2014 GTA VI.AI",
+      "title": "Grand Theft Auto V | GTA VI.AI",
+      "description": "Grand Theft Auto V at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Grand Theft Auto V",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/charts",
+      "current_title": "Charts \u2014 GTA VI.AI",
+      "title": "Charts | GTA VI.AI",
+      "description": "Charts at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Charts",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/database",
+      "current_title": "Database \u2014 GTA VI.AI",
+      "title": "Economy Register | GTA VI.AI",
+      "description": "Economy Register at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Economy Register",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/community/polls",
+      "current_title": "Community Polls \u2014 GTA VI.AI \u2014 GTA VI.AI",
+      "title": "Community Polls | GTA VI.AI",
+      "description": "Community Polls at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Community Polls",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/news",
+      "current_title": "News \u2014 GTA VI \u2014 GTA VI.AI",
+      "title": "Gta Vi News | GTA VI.AI",
+      "description": "Gta Vi News at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Vi News",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/buy",
+      "current_title": "Buy \u2014 GTA VI.AI",
+      "title": "Grand Theft Auto Vi | GTA VI.AI",
+      "description": "Grand Theft Auto Vi at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Grand Theft Auto Vi",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi",
+      "current_title": "GTA VI \u2014 Intelligence Hub \u2014 GTA VI.AI",
+      "title": "Grand Theft Auto Vi | GTA VI.AI",
+      "description": "Grand Theft Auto Vi at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Grand Theft Auto Vi",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/intel",
+      "current_title": "Predictions \u2014 GTA VI.AI",
+      "title": "Predictions & Insights | GTA VI.AI",
+      "description": "Predictions & Insights at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Predictions & Insights",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/extended-look",
+      "current_title": "Extended Look \u2014 Visual Brief \u2014 GTA VI.AI",
+      "title": "An Extended Look | GTA VI.AI",
+      "description": "An Extended Look at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "An Extended Look",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/economy",
+      "current_title": "GTA VI Economy \u2014 Multi-Region Currency Union \u2014 GTA VI.AI",
+      "title": "Gta Vi Economy | GTA VI.AI",
+      "description": "Gta Vi Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Vi Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online",
+      "current_title": "GTA Online \u2014 GTA VI.AI",
+      "title": "Gta Online | GTA VI.AI",
+      "description": "Gta Online at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Online",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/economy",
+      "current_title": "GTA Online Economy Model \u2014 GTA VI.AI",
+      "title": "Gta Online Economic Model | GTA VI.AI",
+      "description": "Gta Online Economic Model at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Online Economic Model",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/franchise/history",
+      "current_title": "GTA Franchise History & Sales \u2014 GTA VI.AI",
+      "title": "History & Sales | GTA VI.AI",
+      "description": "History & Sales at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "History & Sales",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/franchise/economics",
+      "current_title": "Franchise Economics \u2014 Ten Economies. One Franchise. \u2014 GTA VI.AI",
+      "title": "Ten Economies. One Franchise. | GTA VI.AI",
+      "description": "Ten Economies. One Franchise. at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Ten Economies. One Franchise.",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-1-2/economy",
+      "current_title": "GTA 1 & 2 \u2014 Economy \u2014 GTA VI.AI",
+      "title": "Gta 1 & 2 \u2014 Economy | GTA VI.AI",
+      "description": "Gta 1 & 2 \u2014 Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta 1 & 2 \u2014 Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-iii/economy",
+      "current_title": "GTA III \u2014 Economy \u2014 GTA VI.AI",
+      "title": "Gta Iii \u2014 Economy | GTA VI.AI",
+      "description": "Gta Iii \u2014 Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Iii \u2014 Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vc/economy",
+      "current_title": "GTA Vice City \u2014 Economy \u2014 GTA VI.AI",
+      "title": "Gta Vice City \u2014 Economy | GTA VI.AI",
+      "description": "Gta Vice City \u2014 Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Vice City \u2014 Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-sa/economy",
+      "current_title": "GTA San Andreas \u2014 Economy \u2014 GTA VI.AI",
+      "title": "Gta San Andreas \u2014 Economy | GTA VI.AI",
+      "description": "Gta San Andreas \u2014 Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta San Andreas \u2014 Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-iv/economy",
+      "current_title": "GTA IV \u2014 Economy \u2014 GTA VI.AI",
+      "title": "Gta Iv \u2014 Economy | GTA VI.AI",
+      "description": "Gta Iv \u2014 Economy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Iv \u2014 Economy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/income",
+      "current_title": "GTA VI Income Sources \u2014 GTA VI.AI",
+      "title": "Gta Vi Online \u2014 Income Sources | GTA VI.AI",
+      "description": "Gta Vi Online \u2014 Income Sources at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Gta Vi Online \u2014 Income Sources",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/terms",
+      "current_title": "Terms of Use \u2014 GTA VI.AI",
+      "title": "Terms Of Use | GTA VI.AI",
+      "description": "Terms Of Use at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Terms Of Use",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/privacy",
+      "current_title": "Privacy Policy \u2014 GTA VI.AI",
+      "title": "Privacy Policy | GTA VI.AI",
+      "description": "Privacy Policy at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Privacy Policy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/intelligence",
+      "current_title": "Intelligence \u2014 GTA VI.AI",
+      "title": "Follow The Gta$ | GTA VI.AI",
+      "description": "Follow The Gta$ at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Follow The Gta$",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income",
+      "current_title": "GTA VI.AI",
+      "title": "Follow The Gta$ . | GTA VI.AI",
+      "description": "Follow The Gta$ . at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Follow The Gta$ .",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/cayo-perico",
+      "current_title": "Cayo Perico Heist \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "title": "Cayo Perico Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai | GT",
+      "description": "Cayo Perico Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Cayo Perico Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "current_title": "Kosatka + Nightclub (Stacked) \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "title": "Kosatka + Nightclub (Stacked) \u2014 Gta Online Income Guide \u2014 Gt",
+      "description": "Kosatka + Nightclub (Stacked) \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Kosatka + Nightclub (Stacked) \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/diamond-casino-heist",
+      "current_title": "Diamond Casino Heist \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "title": "Diamond Casino Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai |",
+      "description": "Diamond Casino Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Diamond Casino Heist \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/agency-vip-contract",
+      "current_title": "Agency / VIP Contract \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "title": "Agency / Vip Contract \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai ",
+      "description": "Agency / Vip Contract \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Agency / Vip Contract \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/payphone-hits",
+      "current_title": "Payphone Hits \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "title": "Payphone Hits \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai | GTA VI",
+      "description": "Payphone Hits \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai at GTA VI.AI. Read the latest coverage and analysis.",
+      "h1": "Payphone Hits \u2014 Gta Online Income Guide \u2014 Gta Vi.Ai",
+      "source": "DRAFT (rule-based)"
+    }
+  ],
+  "steps": {
+    "schema-missing": {
+      "fix": "Add JSON-LD for Organization (see schema/ templates)",
+      "how": null,
+      "count": 2,
+      "severity": "critical"
+    },
+    "host-canonicalisation": {
+      "fix": "301 all variants to https://gtavi.ai/",
+      "how": null,
+      "count": 2,
+      "severity": "high"
+    },
+    "sitemap": {
+      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "title-quality": {
+      "fix": "Use a readable keyword title, not a design label",
+      "how": null,
+      "count": 2,
+      "severity": "high"
+    },
+    "placeholder-text": {
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "h1": {
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "how": null,
+      "count": 5,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "title-length": {
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "how": null,
+      "count": 10,
+      "severity": "medium"
+    },
+    "canonical": {
+      "fix": "Self-reference unless intentional",
+      "how": null,
+      "count": 1,
+      "severity": "medium"
+    },
+    "duplicate-title": {
+      "fix": "Make titles unique",
+      "how": null,
+      "count": 1,
+      "severity": "medium"
+    },
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": null,
+      "count": 2,
+      "severity": "medium"
+    },
+    "robots-sitemap": {
+      "fix": "Add 'Sitemap: <url>'",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "alt-text": {
+      "fix": "Describe images; include service/location naturally",
+      "how": null,
+      "count": 28,
+      "severity": "low"
+    }
+  },
+  "llms_summary": "GTA VI.AI Follow the GTA$: GTA dual-economy tracking, predictions and explainers.",
+  "questions": []
+}

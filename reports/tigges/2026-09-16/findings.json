@@ -1,0 +1,1145 @@
+{
+  "site": "https://tigges.es",
+  "run": "2026-09-16 15:44",
+  "project": {
+    "name": "TIGGES ARCHITEKT",
+    "slug": "tigges",
+    "type": "local_business",
+    "platform": "wordpress",
+    "module": "Local business"
+  },
+  "score": 68,
+  "layers": {
+    "Technical": 100,
+    "On-page": 22,
+    "Structured data": 40,
+    "Entity / NAP": 100,
+    "AI search readiness": 94,
+    "Performance": 56
+  },
+  "meta": {
+    "sitemap_urls": 22,
+    "schema_types": [
+      "Article",
+      "ImageObject",
+      "Organization",
+      "Person",
+      "SearchAction",
+      "WebPage",
+      "WebSite"
+    ],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": false,
+    "lighthouse_runs": [
+      56
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 56,
+        "accessibility": 96,
+        "best-practices": 75,
+        "seo": 100
+      },
+      "lab": {
+        "largest-contentful-paint": 13439.478249999996,
+        "cumulative-layout-shift": 0.014835,
+        "total-blocking-time": 44.5
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: ['Article', 'ImageObject', 'Organization', 'Person', 'SearchAction', 'WebPage', 'WebSite'])",
+      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
+      "url": "https://tigges.es",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://tigges.es/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://tigges.es/es/home/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'PASSIVHAUS PLUS - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhaus/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'GOETHE INSTITUTE - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/goethe-institute/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'HISTORIC BUILDING GETS EFFICIENT PASSIVHAUS - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus-2/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'COMPETITION SCHOOL BRIG - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/competition-school-mitte-brig/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'HOUSE WITH POOL ALELLA - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/house-with-pool-alella-neu/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'CASA COLLSUSPINA - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/casa-collsuspina/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'CASA MIRASOL - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/casa-mirasol-neu/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'EXTENSION OF RESIDENCE - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/extension-of-residence-2/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'NAVARRA BUILDING FORUM - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhouse/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'CAN TITELLA - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/can-titella-neu/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'THREE MOUNTAIN HOUSES - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'VERNACULAR ARCHITECTURE XXI - TIGGES ARCHITEKT'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://tigges.es/portfolio/low-tech-passive-house/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 13.4s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "23 chars: 'Home - TIGGES ARCHITEKT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://tigges.es/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "183 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "160 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/es/contacto/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "156 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/contact/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "23 chars: 'Home - TIGGES ARCHITEKT'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://tigges.es/es/home/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "canonical",
+      "detail": "points to https://tigges.es/es/",
+      "fix": "Self-reference unless intentional",
+      "url": "https://tigges.es/es/home/",
+      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "123 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/es/home/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "111 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhaus/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "121 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/goethe-institute/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "152 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus-2/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "60 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/competition-school-mitte-brig/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "139 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/house-with-pool-alella-neu/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "91 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/casa-collsuspina/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "139 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/casa-mirasol-neu/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "172 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/extension-of-residence-2/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "107 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhouse/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "129 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/can-titella-neu/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "102 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "157 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigges.es/portfolio/low-tech-passive-house/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "duplicate-title",
+      "detail": "'Home - TIGGES ARCHITEKT' on 2 pages",
+      "fix": "Make titles unique",
+      "url": "https://tigges.es/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "duplicate-title",
+      "detail": "'Minergie - TIGGES ARCHITEKT' on 2 pages",
+      "fix": "Make titles unique",
+      "url": "https://tigges.es/minergie-sustainability/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "duplicate-title",
+      "detail": "'Daniel Tigges - TIGGES ARCHITEKT' on 2 pages",
+      "fix": "Make titles unique",
+      "url": "https://tigges.es/daniel-tigges/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'prices' page found (looked for: price, pricing, menu, rates)",
+      "fix": "Add a dedicated prices page and link it from the navigation",
+      "url": "https://tigges.es",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'services' page found (looked for: service, treatment, balayage, colour)",
+      "fix": "Add a dedicated services page and link it from the navigation",
+      "url": "https://tigges.es",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'architecture studio Spain' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://tigges.es",
+      "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1)."
+    },
+    {
+      "layer": "S",
+      "severity": "medium",
+      "check": "schema-address",
+      "detail": "'address' not present in any JSON-LD on the site",
+      "fix": "Include address in the main entity markup",
+      "url": "https://tigges.es",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "S",
+      "severity": "medium",
+      "check": "schema-telephone",
+      "detail": "'telephone' not present in any JSON-LD on the site",
+      "fix": "Include telephone in the main entity markup",
+      "url": "https://tigges.es",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "S",
+      "severity": "medium",
+      "check": "schema-openingHoursSpecification",
+      "detail": "'openingHoursSpecification' not present in any JSON-LD on the site",
+      "fix": "Include openingHoursSpecification in the main entity markup",
+      "url": "https://tigges.es",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "A",
+      "severity": "medium",
+      "check": "answer-content",
+      "detail": "no question-style content found",
+      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
+      "url": null,
+      "how": "Add an FAQ section (Elementor Accordion). It's visible text for AI answers; FAQ rich results no longer show."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/20 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://tigges.es/minergie-sustainability/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/13 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/minergie-sustainability/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/7 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/daniel-tigges/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/6 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/es/contacto/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/6 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/contact/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "h1",
+      "detail": "2 H1s",
+      "fix": "Use one H1 per page",
+      "url": "https://tigges.es/es/minergie/",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/13 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/es/minergie/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/7 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/es/daniel-tigges/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "2/6 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/es/home/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/27 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhaus/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/14 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/goethe-institute/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/32 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus-2/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/competition-school-mitte-brig/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/34 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/house-with-pool-alella-neu/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/19 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/casa-collsuspina/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/21 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/casa-mirasol-neu/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/38 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/extension-of-residence-2/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/9 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhouse/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/32 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/can-titella-neu/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/18 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/23 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://tigges.es/portfolio/low-tech-passive-house/",
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
+    },
+    {
+      "layer": "A",
+      "severity": "low",
+      "check": "llms.txt",
+      "detail": "missing",
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "url": null,
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details)."
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://tigges.es/",
+      "status": 200,
+      "bytes": 125442,
+      "title": "Home - TIGGES ARCHITEKT",
+      "description": "Explore Project",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "Explore Project",
+      "h1": [],
+      "h2_count": 16,
+      "canonical": "https://tigges.es/",
+      "lang": "en-US",
+      "words": 183,
+      "img_total": 20,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "SearchAction",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/minergie-sustainability/",
+      "status": 200,
+      "bytes": 137099,
+      "title": "Minergie - TIGGES ARCHITEKT",
+      "description": "We have made a building certified with Minergie and two buildings certified with the Passivhaus standard. We consider ourselves compliant with the nearly zero",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "We have made a building certified with Minergie and two buildings certified with the Passivhaus standard. We consider ourselves compliant with the nearly zero",
+      "h1": [
+        "Minergie",
+        "MINERGIE"
+      ],
+      "h2_count": 14,
+      "canonical": "https://tigges.es/minergie-sustainability/",
+      "lang": "en-US",
+      "words": 448,
+      "img_total": 13,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/daniel-tigges/",
+      "status": 200,
+      "bytes": 102242,
+      "title": "Daniel Tigges - TIGGES ARCHITEKT",
+      "description": "2024",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "2024",
+      "h1": [
+        "Daniel Tigges"
+      ],
+      "h2_count": 2,
+      "canonical": "https://tigges.es/daniel-tigges/",
+      "lang": "en-US",
+      "words": 579,
+      "img_total": 7,
+      "img_no_alt": 3,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/es/contacto/",
+      "status": 200,
+      "bytes": 97457,
+      "title": "Contacto - TIGGES ARCHITEKT",
+      "description": "Switzerland Hochstrasse 111 CH 4053 Basel +41 61 331 10 13 Espa\u00f1a C/Ast\u00faries 40 E 08012 Barcelona +34 93 459 11 13 Switzerland Hochstrasse 111 CH 4053 Basel",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "Switzerland Hochstrasse 111 CH 4053 Basel +41 61 331 10 13 Espa\u00f1a C/Ast\u00faries 40 E 08012 Barcelona +34 93 459 11 13 Switzerland Hochstrasse 111 CH 4053 Basel",
+      "h1": [
+        "Contacto"
+      ],
+      "h2_count": 2,
+      "canonical": "https://tigges.es/es/contacto/",
+      "lang": "es-ES",
+      "words": 160,
+      "img_total": 6,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/contact/",
+      "status": 200,
+      "bytes": 96789,
+      "title": "Contact - TIGGES ARCHITEKT",
+      "description": "Switzerland Hochstrasse 111 CH 4053 Basel +41 61 331 10 13 Spain C/Ast\u00faries 40 E 08012 Barcelona +34 93 459 11 13 Switzerland Hochstrasse 111 CH 4053 Basel",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "Switzerland Hochstrasse 111 CH 4053 Basel +41 61 331 10 13 Spain C/Ast\u00faries 40 E 08012 Barcelona +34 93 459 11 13 Switzerland Hochstrasse 111 CH 4053 Basel",
+      "h1": [
+        "Contact"
+      ],
+      "h2_count": 2,
+      "canonical": "https://tigges.es/contact/",
+      "lang": "en-US",
+      "words": 156,
+      "img_total": 6,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/es/minergie/",
+      "status": 200,
+      "bytes": 137945,
+      "title": "Minergie - TIGGES ARCHITEKT",
+      "description": "Hemos realizado un edificio certificado con Minergie y dos edificios certificados con el est\u00e1ndar Passivhaus. Consideramos que cumplimos con los requisitos de",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "Hemos realizado un edificio certificado con Minergie y dos edificios certificados con el est\u00e1ndar Passivhaus. Consideramos que cumplimos con los requisitos de",
+      "h1": [
+        "Minergie",
+        "MINERGIE"
+      ],
+      "h2_count": 14,
+      "canonical": "https://tigges.es/es/minergie/",
+      "lang": "es-ES",
+      "words": 444,
+      "img_total": 13,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/es/daniel-tigges/",
+      "status": 200,
+      "bytes": 100371,
+      "title": "Daniel Tigges - TIGGES ARCHITEKT",
+      "description": "2023",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "2023",
+      "h1": [
+        "Daniel Tigges"
+      ],
+      "h2_count": 2,
+      "canonical": "https://tigges.es/es/daniel-tigges/",
+      "lang": "es-ES",
+      "words": 405,
+      "img_total": 7,
+      "img_no_alt": 3,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/es/home/",
+      "status": 200,
+      "bytes": 89665,
+      "title": "Home - TIGGES ARCHITEKT",
+      "description": "Explorar proyecto",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/danieltigges-edited-min-1024x1024.png",
+      "og_description": "Explorar proyecto",
+      "h1": [],
+      "h2_count": 2,
+      "canonical": "https://tigges.es/es/",
+      "lang": "es-ES",
+      "words": 123,
+      "img_total": 6,
+      "img_no_alt": 2,
+      "ld_types": [
+        "Article",
+        "ImageObject",
+        "Organization",
+        "Person",
+        "SearchAction",
+        "WebPage",
+        "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhaus/",
+      "status": 200,
+      "bytes": 105526,
+      "title": "PASSIVHAUS PLUS - TIGGES ARCHITEKT",
+      "description": "Modern Passivhaus with all comfort and a double-height living room.",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2026/05/41-1024x904.jpg",
+      "og_description": "Modern Passivhaus with all comfort and a double-height living room.",
+      "h1": [
+        "PASSIVHAUS PLUS"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/historic-building-gets-passivhaus/",
+      "lang": "en-US",
+      "words": 111,
+      "img_total": 27,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/goethe-institute/",
+      "status": 200,
+      "bytes": 97572,
+      "title": "GOETHE INSTITUTE - TIGGES ARCHITEKT",
+      "description": "The refreshed Goethe Institute Barcelona 2026",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2026/04/image002-768x1024.jpg",
+      "og_description": "The refreshed Goethe Institute Barcelona 2026",
+      "h1": [
+        "GOETHE INSTITUTE"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/goethe-institute/",
+      "lang": "en-US",
+      "words": 121,
+      "img_total": 14,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus-2/",
+      "status": 200,
+      "bytes": 112389,
+      "title": "HISTORIC BUILDING GETS EFFICIENT PASSIVHAUS - TIGGES ARCHITEKT",
+      "description": "Urban farmhouse in the historic center of Viladecans gets ready for the 21st century. Carefully rehabilitated, maintaining the substantial existing structure",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/Viladecans_01_opt_opt.jpg",
+      "og_description": "Urban farmhouse in the historic center of Viladecans gets ready for the 21st century. Carefully rehabilitated, maintaining the substantial existing structure",
+      "h1": [
+        "HISTORIC BUILDING GETS EFFICIENT PASSIVHAUS"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus-2/",
+      "lang": "en-US",
+      "words": 152,
+      "img_total": 32,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/competition-school-mitte-brig/",
+      "status": 200,
+      "bytes": 95995,
+      "title": "COMPETITION SCHOOL BRIG - TIGGES ARCHITEKT",
+      "description": "New school centre Mitte in Brig, Switzerland. Competition in collaboration with Bax Studio 2024.",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/Mitti_3D1-1024x764.jpg",
+      "og_description": "New school centre Mitte in Brig, Switzerland. Competition in collaboration with Bax Studio 2024.",
+      "h1": [
+        "COMPETITION SCHOOL BRIG"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/competition-school-mitte-brig/",
+      "lang": "en-US",
+      "words": 60,
+      "img_total": 12,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/house-with-pool-alella-neu/",
+      "status": 200,
+      "bytes": 111868,
+      "title": "HOUSE WITH POOL ALELLA - TIGGES ARCHITEKT",
+      "description": "Renovation of a house in a village close to Barcelona with precious views to the seaside. Transformation of the ground floor to a unified 70 m2",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/DSCF9594-1024x785.png",
+      "og_description": "Renovation of a house in a village close to Barcelona with precious views to the seaside. Transformation of the ground floor to a unified 70 m2",
+      "h1": [
+        "HOUSE WITH POOL ALELLA"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/house-with-pool-alella-neu/",
+      "lang": "en-US",
+      "words": 139,
+      "img_total": 34,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/casa-collsuspina/",
+      "status": 200,
+      "bytes": 100954,
+      "title": "CASA COLLSUSPINA - TIGGES ARCHITEKT",
+      "description": "House for a master of meditation with views to Montserrat and Montseny.",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/1400-4-2-COLLSUSPINA-estampa-1.jpg",
+      "og_description": "House for a master of meditation with views to Montserrat and Montseny.",
+      "h1": [
+        "CASA COLLSUSPINA"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/casa-collsuspina/",
+      "lang": "en-US",
+      "words": 91,
+      "img_total": 19,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/casa-mirasol-neu/",
+      "status": 200,
+      "bytes": 102002,
+      "title": "CASA MIRASOL - TIGGES ARCHITEKT",
+      "description": "A simple house for a family of four. The choice of solid construction helps to passively pre-temper the indoor climate and minimise energy consumption. The",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/3_opt_opt-1.jpg",
+      "og_description": "A simple house for a family of four. The choice of solid construction helps to passively pre-temper the indoor climate and minimise energy consumption. The",
+      "h1": [
+        "CASA MIRASOL"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/casa-mirasol-neu/",
+      "lang": "en-US",
+      "words": 139,
+      "img_total": 21,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/extension-of-residence-2/",
+      "status": 200,
+      "bytes": 113954,
+      "title": "EXTENSION OF RESIDENCE - TIGGES ARCHITEKT",
+      "description": "ARCHITECTURE AWARD 2009 + BEST ARCHITECTS 13",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/10/4a-1024x754.jpg",
+      "og_description": "ARCHITECTURE AWARD 2009 + BEST ARCHITECTS 13",
+      "h1": [
+        "EXTENSION OF RESIDENCE"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/extension-of-residence-2/",
+      "lang": "en-US",
+      "words": 172,
+      "img_total": 38,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/historic-building-gets-passivhouse/",
+      "status": 200,
+      "bytes": 92145,
+      "title": "NAVARRA BUILDING FORUM - TIGGES ARCHITEKT",
+      "description": "EXPERT MEETING IN THEATRE GAYARRE IN NAVARRA ORGANISED BY ONHAUS",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2023/09/1665045340_g2.jpg",
+      "og_description": "EXPERT MEETING IN THEATRE GAYARRE IN NAVARRA ORGANISED BY ONHAUS",
+      "h1": [
+        "NAVARRA BUILDING FORUM"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/historic-building-gets-passivhouse/",
+      "lang": "en-US",
+      "words": 107,
+      "img_total": 9,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/can-titella-neu/",
+      "status": 200,
+      "bytes": 111168,
+      "title": "CAN TITELLA - TIGGES ARCHITEKT",
+      "description": "NZEB: Thanks to the energy consumption according to the class A and the purchase of 100% renewable energy, the building produces no emissions.",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/Fassade_01-2-683x1024.jpg",
+      "og_description": "NZEB: Thanks to the energy consumption according to the class A and the purchase of 100% renewable energy, the building produces no emissions.",
+      "h1": [
+        "CAN TITELLA"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/can-titella-neu/",
+      "lang": "en-US",
+      "words": 129,
+      "img_total": 32,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus/",
+      "status": 200,
+      "bytes": 100470,
+      "title": "THREE MOUNTAIN HOUSES - TIGGES ARCHITEKT",
+      "description": "A contemporary interpretation of the thrilling historical style in cerdanya simmered. Built on the street flight, opened to the courtyard and the panoramic",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/foto12-1-1024x641.jpg",
+      "og_description": "A contemporary interpretation of the thrilling historical style in cerdanya simmered. Built on the street flight, opened to the courtyard and the panoramic",
+      "h1": [
+        "THREE MOUNTAIN HOUSES"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/historic-building-gets-efficient-passivhaus/",
+      "lang": "en-US",
+      "words": 102,
+      "img_total": 18,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.es/portfolio/low-tech-passive-house/",
+      "status": 200,
+      "bytes": 104275,
+      "title": "VERNACULAR ARCHITECTURE XXI - TIGGES ARCHITEKT",
+      "description": "UNDER CONSTRUCTION: Simple house with marvellous views of the Gola de Ter Delta in Costa Brava. The design strategy follows the principles of ancient",
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "og_image": "https://tigges.es/wp-content/uploads/2024/09/20240520_081856-rotated.jpg",
+      "og_description": "UNDER CONSTRUCTION: Simple house with marvellous views of the Gola de Ter Delta in Costa Brava. The design strategy follows the principles of ancient",
+      "h1": [
+        "VERNACULAR ARCHITECTURE XXI"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigges.es/portfolio/low-tech-passive-house/",
+      "lang": "en-US",
+      "words": 157,
+      "img_total": 23,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}
