@@ -10,8 +10,11 @@ For each `citations:` entry in the config it fetches the listing and checks for:
   phone  – last 9 digits of business.phone, ignoring formatting (+44 / 0 prefixes)
   postcode – business.postcode, ignoring spaces
 Entries marked `manual: true` (social networks that block bots) are listed for a human check.
+Entries marked `ignore: true` / `unrelated: true` are skipped (wrong business, scraped aggregator, etc.).
+Entries marked `action: list` (or with no URL) are remembered as "to list" — create/claim the
+directory and set the website to the canonical site URL.
 It also compares the listings against the vertical module's directory list and reports
-directories with no known listing ("gaps").
+directories with no known listing ("gaps"). Tracked to-list rows fill that directory's gap.
 
 Writes citations.json and citations.md into the output folder.
 """
@@ -29,8 +32,14 @@ def digits(s):
 
 
 def check(entry, b, names):
-    row = dict(source=entry.get("source"), url=entry.get("url"), directory=entry.get("directory"),
-               note=entry.get("note", ""))
+    row = dict(source=entry.get("source"), url=entry.get("url") or "", directory=entry.get("directory"),
+               note=entry.get("note", ""), action=entry.get("action") or "")
+    if entry.get("ignore") or entry.get("unrelated"):
+        row.update(status="ignore", detail="Not a listing for this business — skip")
+        return row
+    if entry.get("action") == "list" or not (entry.get("url") or "").strip():
+        row.update(status="todo", detail="Not listed yet — add the canonical site URL")
+        return row
     if entry.get("manual"):
         row.update(status="manual", detail="Blocks automated reading — check by hand")
         return row
@@ -63,6 +72,24 @@ def check(entry, b, names):
 
 ACTIONS = {"take_offline": "Take it offline (delete the site or the listing on that platform)",
            "redirect": "301-redirect the whole domain to the main site"}
+
+
+def source_md(row):
+    url = (row.get("url") or "").strip()
+    name = row.get("source") or url or "listing"
+    return f"[{name}]({url})" if url.startswith("http") else name
+
+
+def directory_gaps(dirs, rows):
+    """Directories from the vertical module that have no tracked listing.
+
+    Ignore/unrelated rows do not count. To-list rows do: they are remembered
+    actions, so they leave the anonymous gap list and show as status=todo.
+    """
+    have = " ".join(f"{r.get('source') or ''} {r.get('url') or ''}".lower()
+                    for r in rows if r.get("status") != "ignore")
+    gaps = {grp: [d for d in lst if d.split()[0].lower() not in have] for grp, lst in (dirs or {}).items()}
+    return {k: v for k, v in gaps.items() if v}
 
 
 def check_legacy(entry, main_url):
@@ -103,19 +130,18 @@ def main():
     ptype = cfg["site"].get("type", "generic")
     mpath = os.path.join(HERE, "modules", f"{ptype}.yaml")
     dirs = (yaml.safe_load(open(mpath)) or {}).get("directories", {}) if os.path.exists(mpath) else {}
-    have = " ".join(f"{r['source']} {r['url']}".lower() for r in rows)
-    gaps = {grp: [d for d in lst if d.split()[0].lower() not in have] for grp, lst in dirs.items()}
-    gaps = {k: v for k, v in gaps.items() if v}
+    gaps = directory_gaps(dirs, rows)
 
     out = a.out or os.path.join(HERE, "reports", cfg["site"].get("slug", "site"), dt.date.today().isoformat())
     os.makedirs(out, exist_ok=True)
-    summary = {s: sum(r["status"] == s for r in rows) for s in ("ok", "mismatch", "unreachable", "manual")}
+    summary = {s: sum(r["status"] == s for r in rows)
+               for s in ("ok", "mismatch", "unreachable", "manual", "todo", "ignore")}
     json.dump(dict(run=dt.datetime.now().isoformat(timespec="minutes"), summary=summary, listings=rows, gaps=gaps,
                    legacy=legacy, name_clashes=clashes),
               open(os.path.join(out, "citations.json"), "w"), indent=2)
     L = [f"# Citations — {cfg['site'].get('name')}", "", " · ".join(f"{k}: {v}" for k, v in summary.items()), "",
          "| Status | Source | Detail | Note |", "|---|---|---|---|"]
-    L += [f"| {r['status']} | [{r['source']}]({r['url']}) | {r.get('detail','')} | {r.get('note','')} |" for r in rows]
+    L += [f"| {r['status']} | {source_md(r)} | {r.get('detail','')} | {r.get('note','')} |" for r in rows]
     if legacy:
         L += ["", "## Old sites to retire", "", "| Status | Site | What we found | Do this |", "|---|---|---|---|"]
         L += [f"| {r['status']} | {r['url']} | {(r['detail'] + ' · ' + r['note']).replace('|', '/')} | {r['recommendation']} |" for r in legacy]

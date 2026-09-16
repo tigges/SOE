@@ -48,6 +48,8 @@ benchmarks:                              # best-in-class leaders to learn from (
 citations:                               # off-site listings checked by soe_citations.py
   - {source: Yell, url: "https://www.yell.com/biz/...", directory: uk_general}
   - {source: Facebook, url: "https://facebook.com/...", directory: core, manual: true}   # manual = blocks bots
+  - {source: Google Business Profile, url: "https://business.google.com/", directory: core, action: list, note: "create/claim; set website to the canonical URL"}
+  - {source: scraped-directory.example, url: "https://scraped-directory.example/listing", ignore: true, note: "unrelated aggregator — do not treat as a listing"}
 
 ai:
   allow_training: true                   # false = add Disallow for GPTBot, ClaudeBot, Google-Extended...

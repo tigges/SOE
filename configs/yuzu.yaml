@@ -17,6 +17,7 @@ business:
   address: "5 Dickens Yard, Longfield Avenue, Ealing, London"
   postcode: "W5 2TD"
   profiles:
+    google_business: ""    # Maps / GBP listing URL once claimed
     instagram: https://www.instagram.com/yuzuhairandbeauty/
     facebook: https://www.facebook.com/YUZUHairandBeauty/
     booking: https://phorest.com/book/salons/yuzuhairandbeauty
@@ -51,15 +52,21 @@ competitors:   # own sites only; Bleach and Bobs has no site (Treatwell only)
   - {name: "Blo Bar (Ealing is in Dickens Yard)", url: https://www.b1obar.com}
   - {name: "M&M Hair Academy", url: https://mandmhairacademy.com}
 
-citations:     # checked by soe_citations.py; status from last manual check (15 Sep 2026)
+citations:     # checked by soe_citations.py; last manual check 16 Sep 2026
   - {source: Make It Ealing, url: "https://www.makeitealing.co.uk/business/yuzu-hair/", directory: local}
-  - {source: Wheree, url: "https://yuzu-hair.wheree.com/", directory: uk_general, manual: true, note: "blocks bots; showed correct NAP on 15 Sep, unclaimed"}
-  - {source: beautynailhairsalons.com, url: "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty", directory: uk_general}
-  - {source: Facebook, url: "https://www.facebook.com/YUZUHairandBeauty/", directory: core, manual: true, note: "old posts say 26 High Street W5 5DB"}
-  - {source: Instagram, url: "https://www.instagram.com/yuzuhairandbeauty/", directory: core, manual: true}
-  - {source: TikTok, url: "https://www.tiktok.com/@yuzuhairandbeauty.est16", directory: core, manual: true}
-  - {source: LinkedIn, url: "https://uk.linkedin.com/company/yuzu-hair-limited", directory: core, manual: true}
-  - {source: Phorest booking, url: "https://phorest.com/book/salons/yuzuhairandbeauty", directory: vertical_salon, manual: true}
+  - {source: Wheree, url: "https://yuzu-hair.wheree.com/", directory: uk_general, manual: true, note: "16 Sep 2026: NAP matches (5 Dickens Yard, Longfield Ave, W5 2TD, +44 208 840 2244). Unclaimed. Hours show 10:00–20:00 only, not Sat 09:00–18:00. Claim this listing."}
+  - {source: beautynailhairsalons.com, url: "https://www.beautynailhairsalons.com/GB/London/1722284898090025/YUZU-Hair-&-Beauty", directory: uk_general, ignore: true, note: "16 Sep 2026: Singapore-operated aggregator, disconnected from Yuzu Hair London — ignore, not a UK listing to maintain"}
+  - {source: Facebook, url: "https://www.facebook.com/YUZUHairandBeauty/", directory: core, manual: true, note: "16 Sep 2026: logged-out view shows YUZU Hair & Beauty, Hair salon, 855 followers; address not visible. Older posts still say 26 High Street W5 5DB — update About/address and pin the Dickens Yard NAP"}
+  - {source: Instagram, url: "https://www.instagram.com/yuzuhairandbeauty/", directory: core, manual: true, note: "16 Sep 2026: bio NAP OK — Unit 5 Dickens Yard, Ealing W5 2TD; hours Tue–Fri 10–8, Sat 9–6, Sun–Mon closed; site www.yuzuhairandbeauty.london"}
+  - {source: TikTok, url: "https://www.tiktok.com/@yuzuhairandbeauty.est16", directory: core, manual: true, note: "16 Sep 2026: bio NAP OK — Unit 5, Dickens Yard, Ealing, W5 2TD. No website or phone in bio — add https://www.yuzuhairandbeauty.london"}
+  - {source: LinkedIn, url: "https://uk.linkedin.com/company/yuzu-hair-limited", directory: core, manual: true, note: "16 Sep 2026: company YUZU HAIR LIMITED; website https://www.yuzuhairandbeauty.london and phone 02088402244 match. No street address. Trading name on the site is Yuzu Hair & Beauty"}
+  - {source: Phorest booking, url: "https://phorest.com/book/salons/yuzuhairandbeauty", directory: vertical_salon, manual: true, note: "16 Sep 2026: public page phorest.com/salon/yuzuhairandbeauty NAP OK — Unit 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD, 020 8840 2244, info@yuzuhairandbeauty.co.uk"}
+  - {source: Google Business Profile, url: "https://business.google.com/", directory: core, action: list, note: "16 Sep 2026: no known listing. Create/claim GBP; set website to https://www.yuzuhairandbeauty.london; category Hair salon; hours and NAP as in this file"}
+  - {source: Bing Places, url: "https://www.bingplaces.com/", directory: core, action: list, note: "16 Sep 2026: no known listing. Import from Google Business Profile once claimed; website https://www.yuzuhairandbeauty.london"}
+  - {source: Apple Business Connect, url: "https://businessconnect.apple.com/", directory: core, action: list, note: "16 Sep 2026: no known listing. Create/claim; set website to https://www.yuzuhairandbeauty.london"}
+  - {source: Yell, url: "https://www.yell.com/", directory: uk_general, action: list, note: "16 Sep 2026: no known Yuzu Hair London listing (Hucknall YUZUHAIR is a different business). Create a listing; website https://www.yuzuhairandbeauty.london"}
+  - {source: Treatwell, url: "https://www.treatwell.co.uk/", directory: vertical_salon, action: list, note: "16 Sep 2026: no known listing. Add salon and set website/booking to https://www.yuzuhairandbeauty.london / Phorest"}
+  - {source: Fresha, url: "https://www.fresha.com/", directory: vertical_salon, action: list, note: "16 Sep 2026: no known listing. Add salon; website https://www.yuzuhairandbeauty.london"}
 
 legacy_sites:  # old or parked sites that confuse search engines and AI answers (checked by soe_citations.py)
   - {url: "https://yuzuhairandbeauty.ueniweb.com/", action: take_offline, note: "old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373"}

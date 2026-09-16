@@ -34,7 +34,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `soe_fixes.py` | Fix pack: JSON-LD built from the settings, per-page title/description/H1, platform steps, llms.txt summary, questions to answer |
 | `soe_benchmark.py` | Audits the leaders listed under `benchmarks:`. Builds a "virtual 100" from the best leader in each layer, inventories about 40 features on every page, and lists what leaders do that this site doesn't. Features the audit doesn't score yet are flagged as new ideas. `--discover <type> URL…` scores candidate leaders |
 | `soe_gsc_import.py` | Imports a Search Console **Performance → Export** zip, so no Google Cloud is needed. Writes `gsc.json`, feeds the dashboard's "Google Search" panel, and keeps the raw CSVs in `data/<site>/gsc/` |
-| `soe_citations.py` | Fetches each listing and checks it shows the right name, phone and postcode, flags stale addresses, and lists directories where the site isn't listed yet |
+| `soe_citations.py` | Fetches each listing and checks it shows the right name, phone and postcode; `manual` rows are human checks; `ignore` skips unrelated sites; `action: list` remembers directories still to create (with the canonical site URL); lists remaining gaps |
 | `soe_ai_log.py` | AI-answer log in `data/<slug>/ai_log.csv`, with monthly rows, Claude + Gemini auto-fill and a summary |
 | `soe_dashboard.py` + `dashboard/template.html` | Builds the SOE Control Room page from every report |
 | `modules/*.yaml` | Rules per site type (local business, SaaS, ecommerce, publisher, personal/artist brand, generic): required schema, expected pages, directory lists |
