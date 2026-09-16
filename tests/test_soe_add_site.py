@@ -23,6 +23,10 @@ class AddSite(unittest.TestCase):
     def test_url_normalise(self):
         self.assertEqual(add.normalise_url("example.com/"), "https://example.com")
         self.assertEqual(add.normalise_url("https://www.Example.com"), "https://www.Example.com")
+        self.assertEqual(
+            add.normalise_url("https://tigges.github.io/YUZU_SEPT_26/?v=clean"),
+            "https://tigges.github.io/YUZU_SEPT_26/?v=clean",
+        )
         with self.assertRaises(ValueError):
             add.normalise_url("not a url")
         with self.assertRaises(ValueError):
