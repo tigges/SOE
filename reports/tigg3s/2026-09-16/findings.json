@@ -1,6 +1,6 @@
 {
   "site": "https://www.tigg3s.com",
-  "run": "2026-09-16 09:02",
+  "run": "2026-09-16 12:51",
   "project": {
     "name": "www.tigg3s.com",
     "slug": "tigg3s",
@@ -8,52 +8,50 @@
     "platform": "wordpress",
     "module": "Personal / artist brand (DJ, musician, creator)"
   },
-  "score": 72,
+  "score": 90,
   "layers": {
-    "Technical": 71,
-    "On-page": 72,
-    "Structured data": 40,
+    "Technical": 84,
+    "On-page": 90,
+    "Structured data": 100,
     "Entity / NAP": 96,
-    "AI search readiness": 76,
-    "Performance": 75
+    "AI search readiness": 100,
+    "Performance": 73
   },
   "meta": {
-    "sitemap_urls": 0,
-    "schema_types": [],
+    "sitemap_urls": 1,
+    "schema_types": [
+      "Answer",
+      "FAQPage",
+      "Organization",
+      "Person",
+      "Question",
+      "WebSite"
+    ],
     "ai_bots_blocked": {
       "search": [],
       "training": []
     },
-    "llms_txt": false,
+    "llms_txt": true,
     "lighthouse_runs": [
-      75,
-      75,
-      77
+      70,
+      73,
+      74
     ],
     "lighthouse": {
       "scores": {
-        "performance": 75,
+        "performance": 73,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
       },
       "lab": {
-        "largest-contentful-paint": 4983.221500000001,
-        "cumulative-layout-shift": 0.001304429252139404,
+        "largest-contentful-paint": 5069.0477200000005,
+        "cumulative-layout-shift": 0.001417929892870033,
         "total-blocking-time": 0
       }
     }
   },
   "findings": [
-    {
-      "layer": "S",
-      "severity": "critical",
-      "check": "schema-missing",
-      "detail": "none of ['Person', 'MusicGroup', 'Organization']\u2026 found (found: none)",
-      "fix": "Add JSON-LD for Person (see schema/ templates)",
-      "url": "https://www.tigg3s.com",
-      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
-    },
     {
       "layer": "T",
       "severity": "high",
@@ -82,103 +80,22 @@
       "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
     },
     {
-      "layer": "T",
-      "severity": "high",
-      "check": "sitemap",
-      "detail": "no URLs found in /sitemap.xml",
-      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
-      "url": null,
-      "how": "Yoast \u2192 Settings \u2192 Site features \u2192 XML sitemaps on. Submit /sitemap_index.xml in Search Console and Bing."
-    },
-    {
-      "layer": "O",
-      "severity": "high",
-      "check": "h1",
-      "detail": "no H1",
-      "fix": "Add exactly one descriptive H1 containing the primary topic",
-      "url": "https://www.tigg3s.com/",
-      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title)."
-    },
-    {
-      "layer": "A",
-      "severity": "high",
-      "check": "js-only-links",
-      "detail": "only the homepage could be crawled: internal links aren't in the HTML",
-      "fix": "Render navigation and key content server-side so crawlers and AI bots can follow links",
-      "url": "https://www.tigg3s.com",
-      "how": null
-    },
-    {
-      "layer": "A",
-      "severity": "high",
-      "check": "extractable-text",
-      "detail": "homepage has 0 words of text",
-      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
-      "url": null,
-      "how": null
-    },
-    {
       "layer": "P",
       "severity": "high",
       "check": "lcp",
-      "detail": "lab LCP 5.0s (good \u22642.5s)",
+      "detail": "lab LCP 5.1s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
     },
     {
-      "layer": "T",
-      "severity": "medium",
-      "check": "robots.txt",
-      "detail": "missing",
-      "fix": "Publish robots.txt with Sitemap: line",
-      "url": null,
-      "how": "Yoast \u2192 Tools \u2192 File editor, or upload robots.txt to the web root."
-    },
-    {
       "layer": "O",
       "severity": "medium",
-      "check": "title-length",
-      "detail": "6 chars: 'Tigges'",
-      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "check": "canonical",
+      "detail": "points to https://tigg3s.com/",
+      "fix": "Self-reference unless intentional",
       "url": "https://www.tigg3s.com/",
-      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "thin-content",
-      "detail": "0 words (<300)",
-      "fix": "Expand with useful, specific text (services, FAQs, proof)",
-      "url": "https://www.tigg3s.com/",
-      "how": "Add sections in Elementor; Yoast readability/word count helps."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'about/bio' page found (looked for: about, bio)",
-      "fix": "Add a dedicated about/bio page and link it from the navigation",
-      "url": "https://www.tigg3s.com",
-      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'music/work' page found (looked for: music, mixes, releases, work)",
-      "fix": "Add a dedicated music/work page and link it from the navigation",
-      "url": "https://www.tigg3s.com",
-      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'events' page found (looked for: event, gig, tour, dates)",
-      "fix": "Add a dedicated events page and link it from the navigation",
-      "url": "https://www.tigg3s.com",
-      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
     },
     {
       "layer": "O",
@@ -193,57 +110,48 @@
       "layer": "E",
       "severity": "medium",
       "check": "brand-name",
-      "detail": "canonical name 'www.tigg3s.com' not used consistently (title: 'Tigges')",
+      "detail": "canonical name 'www.tigg3s.com' not used consistently (title: 'TIGGES \u2014 Family and ventures hub')",
       "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
       "url": null,
       "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name."
     },
     {
-      "layer": "A",
-      "severity": "medium",
-      "check": "answer-content",
-      "detail": "no question-style content found",
-      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
-      "url": null,
-      "how": "Add an FAQ section (Elementor Accordion). It's visible text for AI answers; FAQ rich results no longer show."
-    },
-    {
       "layer": "O",
       "severity": "low",
-      "check": "og-image",
-      "detail": "no og:image",
-      "fix": "Set a share image (1200\u00d7630)",
+      "check": "alt-text",
+      "detail": "1/2 images lack alt",
+      "fix": "Describe images; include service/location naturally",
       "url": "https://www.tigg3s.com/",
-      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
-    },
-    {
-      "layer": "A",
-      "severity": "low",
-      "check": "llms.txt",
-      "detail": "missing",
-      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
-      "url": null,
-      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details)."
+      "how": "Media Library \u2192 image \u2192 Alternative Text."
     }
   ],
   "pages": [
     {
       "url": "https://www.tigg3s.com/",
       "status": 200,
-      "bytes": 844,
-      "title": "Tigges",
-      "description": "Tigges family and ventures",
+      "bytes": 16670,
+      "title": "TIGGES \u2014 Family and ventures hub",
+      "description": "TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.",
       "robots": "",
-      "og_image": "",
-      "og_description": "",
-      "h1": [],
-      "h2_count": 0,
-      "canonical": "",
+      "og_image": "https://tigg3s.com/assets/og.jpg",
+      "og_description": "TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.",
+      "h1": [
+        "Family and ventures"
+      ],
+      "h2_count": 8,
+      "canonical": "https://tigg3s.com/",
       "lang": "en-GB",
-      "words": 0,
-      "img_total": 0,
-      "img_no_alt": 0,
-      "ld_types": [],
+      "words": 300,
+      "img_total": 2,
+      "img_no_alt": 1,
+      "ld_types": [
+        "Answer",
+        "FAQPage",
+        "Organization",
+        "Person",
+        "Question",
+        "WebSite"
+      ],
       "pdf_links": []
     }
   ]

@@ -1,13 +1,13 @@
 date,engine,prompt,mentioned,cited,position,cited_sources,notes,method
 2026-09-16,Gemini,Yuzu Hair salon,,,,,,manual
-2026-09-16,Claude,Yuzu Hair salon,,,,,,manual
+2026-09-16,Claude,Yuzu Hair salon,y,n,,,"I'd be happy to help you with information about Yuzu Hair Salon! To provide you with the most accurate and helpful information, could you please let me know:  1. **What would you like to know?** (e.g.",api
 2026-09-16,Google AI Mode,Yuzu Hair salon,,,,,,manual
 2026-09-16,Gemini,best hair salon in Ealing Broadway,,,,,,manual
-2026-09-16,Claude,best hair salon in Ealing Broadway,,,,,,manual
+2026-09-16,Claude,best hair salon in Ealing Broadway,n,n,,treatwell.co.uk; fresha.com; hairdressr.com; mandmhairacademy.com,"Based on my search, here are some of the best hair salons in Ealing Broadway:  ## Top Recommendations:  **CMF Hairdressing** Located near Ealing Broadway Shopping Centre and steps from Walpole Park, C",api
 2026-09-16,Google AI Mode,best hair salon in Ealing Broadway,,,,,,manual
 2026-09-16,Gemini,Japanese-style hairdresser in west London,,,,,,manual
-2026-09-16,Claude,Japanese-style hairdresser in west London,,,,,,manual
+2026-09-16,Claude,Japanese-style hairdresser in west London,n,n,,uk.assort-hair.com; hairdressr.com; etoncrop.co.uk; en.wikipedia.org; camiyuilondon.com; hiroshimamoto.co.uk; shunji.london; alfiehair.com; en.hayatosalons.com; thatsup.co.uk; localcharm.co.uk; thechelseahairstudio.co.uk; booksy.com; msalonlea.com; tomokoshima.com,"Based on my search results, here are some Japanese-style hairdressers in west London:  ## In Chelsea/Fulham (South West London):  **Hiro Shimamoto** Originally trained in Tokyo and Sapporo, Hiro has b",api
 2026-09-16,Google AI Mode,Japanese-style hairdresser in west London,,,,,,manual
 2026-09-16,Gemini,where can I get a Brazilian blow dry in Ealing,,,,,,manual
-2026-09-16,Claude,where can I get a Brazilian blow dry in Ealing,,,,,,manual
+2026-09-16,Claude,where can I get a Brazilian blow dry in Ealing,n,n,,treatwell.co.uk; bluetitlondon.com; gustohair.com; mandmhairacademy.com; duckanddry.com; classealing.ueniweb.com; timeout.com,"Based on my search results, here are some salons in Ealing where you can get a Brazilian blow dry:  **In Ealing:**  1. **M&M Hair Academy** - An Ealing hair salon that offers keratin treatments/Brazil",api
 2026-09-16,Google AI Mode,where can I get a Brazilian blow dry in Ealing,,,,,,manual

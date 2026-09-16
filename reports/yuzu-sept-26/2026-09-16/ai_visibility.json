@@ -1,7 +1,82 @@
 {
-  "months": [],
-  "top_other_sources": [],
-  "pending_checks": 12,
+  "months": [
+    {
+      "month": "2026-09",
+      "checks": 4,
+      "mention_rate": 0.25,
+      "citation_rate": 0.0,
+      "engines": {
+        "Claude": {
+          "checks": 4,
+          "mentioned": 1,
+          "cited": 0
+        }
+      }
+    }
+  ],
+  "top_other_sources": [
+    [
+      "treatwell.co.uk",
+      2
+    ],
+    [
+      "hairdressr.com",
+      2
+    ],
+    [
+      "mandmhairacademy.com",
+      2
+    ],
+    [
+      "fresha.com",
+      1
+    ],
+    [
+      "uk.assort-hair.com",
+      1
+    ],
+    [
+      "etoncrop.co.uk",
+      1
+    ],
+    [
+      "en.wikipedia.org",
+      1
+    ],
+    [
+      "camiyuilondon.com",
+      1
+    ],
+    [
+      "hiroshimamoto.co.uk",
+      1
+    ],
+    [
+      "shunji.london",
+      1
+    ],
+    [
+      "alfiehair.com",
+      1
+    ],
+    [
+      "en.hayatosalons.com",
+      1
+    ],
+    [
+      "thatsup.co.uk",
+      1
+    ],
+    [
+      "localcharm.co.uk",
+      1
+    ],
+    [
+      "thechelseahairstudio.co.uk",
+      1
+    ]
+  ],
+  "pending_checks": 8,
   "prompts": [
     "Yuzu Hair salon",
     "best hair salon in Ealing Broadway",

@@ -1,8 +1,8 @@
 # SOE audit — DJ UrbanT
 
-Site: https://djurbant.com · Run: 2026-09-16 09:00 · Pages crawled: 12 · Sitemap URLs: 10
+Site: https://djurbant.com · Run: 2026-09-16 12:48 · Pages crawled: 12 · Sitemap URLs: 10
 
-## Score: 62/100
+## Score: 60/100
 
 | Layer | Score |
 |---|---|
@@ -11,9 +11,9 @@ Site: https://djurbant.com · Run: 2026-09-16 09:00 · Pages crawled: 12 · Site
 | Structured data | 40 |
 | Entity / NAP | 100 |
 | AI search readiness | 90 |
-| Performance | 53 |
+| Performance | 38 |
 
-Lighthouse (mobile lab): performance 53, accessibility 100, best-practices 96, seo 92 · LCP 5.1s · TBT 1167ms · CLS 0.10
+Lighthouse (mobile lab): performance 38, accessibility 100, best-practices 96, seo 92 · LCP 10.3s · TBT 1887ms · CLS 0.08
 
 Schema types found: none
 AI bots blocked: {'search': [], 'training': []} · llms.txt: False
@@ -44,7 +44,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /wp-login.php |
 | high | O | noindex | page is noindex but linked/in sitemap | Remove noindex or drop from sitemap | /wp-login.php |
 | high | A | extractable-text | homepage has 55 words of text | AI answers quote text: add concise factual paragraphs (who/what/where/price/hours) | / |
-| high | P | lcp | lab LCP 5.1s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| high | P | lcp | lab LCP 10.3s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | O | thin-content | 55 words (<250) | Expand with useful, specific text (services, FAQs, proof) | / |
 | medium | O | title-length | 24 chars: 'Hello world! – DJ UrbanT' | Aim for 30–60 chars: primary keyword + location/brand | /hello-world/ |
 | medium | O | thin-content | 134 words (<250) | Expand with useful, specific text (services, FAQs, proof) | /hello-world/ |
@@ -68,7 +68,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | expected-page | no 'about/bio' page found (looked for: about, bio) | Add a dedicated about/bio page and link it from the navigation | / |
 | medium | O | expected-page | no 'events' page found (looked for: event, gig, tour, dates) | Add a dedicated events page and link it from the navigation | / |
 | medium | O | keyword-targeting | primary keyword 'bass house DJ London' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
-| medium | P | tbt-inp-proxy | TBT 1167ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
+| medium | P | tbt-inp-proxy | TBT 1887ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
 | low | O | alt-text | 1/3 images lack alt | Describe images; include service/location naturally | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
 | low | O | alt-text | 1/3 images lack alt | Describe images; include service/location naturally | /hello-world/ |

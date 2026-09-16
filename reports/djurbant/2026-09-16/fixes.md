@@ -1,6 +1,6 @@
 # Fix pack — DJ UrbanT
 
-Everything here is a proposal: review before publishing. Page copy marked DRAFT is rule-based — have Claude rewrite it (the /soe skill does this) or run with --llm.
+Everything here is a proposal: review before publishing. Page copy marked DRAFT is rule-based — run with --llm (Gemini first, then Claude) or rewrite in a session.
 
 ## 1. Entity structured data (JSON-LD)
 
@@ -22,11 +22,11 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://djurbant.com/ | DJ UrbanT – Bass House. Tech House. Live Sets. | Bass House DJ London \| DJ UrbanT \| Tech House Sets | DJ UrbanT is a London bass house and tech house DJ. Explore live sets, videos, and audio mixes. Book DJ UrbanT for your event today. | Bass House DJ London \| DJ UrbanT | Claude draft |
-| https://djurbant.com/video/ | Video – DJ UrbanT | DJ UrbanT Video \| Live Bass House & Tech House Sets | Watch DJ UrbanT's live bass house and tech house DJ sets. Experience high-energy performances from London's DJ UrbanT. View videos now. | DJ UrbanT Live Video Sets | Claude draft |
-| https://djurbant.com/audio/ | Audio – DJ UrbanT | DJ UrbanT Audio \| Bass House & Tech House Mixes | Listen to DJ UrbanT's bass house and tech house audio mixes. Stream exclusive tracks from London DJ UrbanT. Play mixes now. | DJ UrbanT Audio Mixes | Claude draft |
-| https://djurbant.com/contact/ | Contact – DJ UrbanT | Book a Bass House DJ \| Contact DJ UrbanT London | Book DJ UrbanT for your event. London-based bass house and tech house DJ available for bookings. Contact DJ UrbanT today for availability. | Book DJ UrbanT | Claude draft |
-| https://djurbant.com/map/ | Map – DJ UrbanT | DJ UrbanT Location \| London Bass House DJ Map | Find DJ UrbanT's London location and event coverage areas. Bass house and tech house DJ serving London and surrounding areas. View map now. | DJ UrbanT Location Map | Claude draft |
+| https://djurbant.com/ | DJ UrbanT – Bass House. Tech House. Live Sets. | Bass House DJ London \| DJ UrbanT \| Tech House Sets | DJ UrbanT is a London bass house and tech house DJ. Explore live sets, mixes, and book DJ UrbanT for your next event. Visit djurbant.com now. | Bass House DJ London \| DJ UrbanT | Claude draft |
+| https://djurbant.com/video/ | Video – DJ UrbanT | DJ UrbanT Live Sets \| Bass House & Tech House Videos | Watch DJ UrbanT's bass house and tech house live sets. Browse video performances from this London DJ. Discover the energy of DJ UrbanT's mixes. | DJ UrbanT Live Video Sets | Claude draft |
+| https://djurbant.com/audio/ | Audio – DJ UrbanT | DJ UrbanT Mixes \| Bass House & Tech House Audio | Listen to DJ UrbanT's bass house and tech house mixes. Stream audio sets from this London DJ. Explore DJ UrbanT's signature sound and beats. | DJ UrbanT Audio Mixes | Claude draft |
+| https://djurbant.com/contact/ | Contact – DJ UrbanT | Book DJ UrbanT \| Bass House DJ London Bookings | Book DJ UrbanT for your event. Contact this London bass house and tech house DJ for bookings and enquiries. Get in touch with DJ UrbanT today. | Book a Bass House DJ \| Contact DJ UrbanT | Claude draft |
+| https://djurbant.com/map/ | Map – DJ UrbanT | DJ UrbanT Locations \| Tech House DJ London Map | Discover where DJ UrbanT performs across London. View the map of venues and events featuring this tech house and bass house DJ. Find DJ UrbanT near you. | DJ UrbanT Performance Map | Claude draft |
 
 ## 3. Steps on wordpress
 

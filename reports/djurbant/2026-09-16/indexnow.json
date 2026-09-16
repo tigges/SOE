@@ -1,0 +1,27 @@
+{
+  "request": {
+    "host": "djurbant.com",
+    "key": "***",
+    "keyLocation": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "urlList": [
+      "https://djurbant.com/hello-world/",
+      "https://djurbant.com/sample-page/",
+      "https://djurbant.com/",
+      "https://djurbant.com/video/",
+      "https://djurbant.com/audio/",
+      "https://djurbant.com/contact/",
+      "https://djurbant.com/map/",
+      "https://djurbant.com/admin/",
+      "https://djurbant.com/category/uncategorized/",
+      "https://djurbant.com/author/charles/"
+    ]
+  },
+  "response": "{\"errorCode\":\"InvalidRequestParameters\",\"message\":\"Keylocation is not allowed. Please ensure the keylocation url belongs to the site mentioned in the host parameter.\",\"details\":null}",
+  "summary": {
+    "submitted": 10,
+    "status": 422,
+    "meaning": "URLs don't belong to host or key mismatch",
+    "key_location": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "error": "HTTP 422: URLs don't belong to host or key mismatch"
+  }
+}

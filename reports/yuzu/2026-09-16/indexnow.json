@@ -1,0 +1,24 @@
+{
+  "request": {
+    "host": "www.yuzuhairandbeauty.london",
+    "key": "***",
+    "keyLocation": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "urlList": [
+      "https://www.yuzuhairandbeauty.london/items/senior-stylists",
+      "https://www.yuzuhairandbeauty.london/items/stylists",
+      "https://www.yuzuhairandbeauty.london/items/models",
+      "https://www.yuzuhairandbeauty.london",
+      "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "https://www.yuzuhairandbeauty.london/items"
+    ]
+  },
+  "response": "{\"errorCode\":\"InvalidRequestParameters\",\"message\":\"Keylocation is not allowed. Please ensure the keylocation url belongs to the site mentioned in the host parameter.\",\"details\":null}",
+  "summary": {
+    "submitted": 7,
+    "status": 422,
+    "meaning": "URLs don't belong to host or key mismatch",
+    "key_location": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "error": "HTTP 422: URLs don't belong to host or key mismatch"
+  }
+}

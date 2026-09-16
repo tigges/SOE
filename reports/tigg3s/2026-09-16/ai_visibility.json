@@ -4,9 +4,8 @@
   "pending_checks": 0,
   "prompts": [],
   "engines": [
-    "ChatGPT",
-    "Perplexity",
     "Gemini",
+    "Claude",
     "Google AI Mode"
   ]
 }

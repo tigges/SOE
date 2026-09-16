@@ -1,6 +1,6 @@
 {
   "site": "https://djurbant.com",
-  "run": "2026-09-16 09:00",
+  "run": "2026-09-16 12:48",
   "project": {
     "name": "DJ UrbanT",
     "slug": "djurbant",
@@ -8,14 +8,14 @@
     "platform": "wordpress",
     "module": "Personal / artist brand (DJ, musician, creator)"
   },
-  "score": 62,
+  "score": 60,
   "layers": {
     "Technical": 100,
     "On-page": 0,
     "Structured data": 40,
     "Entity / NAP": 100,
     "AI search readiness": 90,
-    "Performance": 53
+    "Performance": 38
   },
   "meta": {
     "sitemap_urls": 10,
@@ -26,19 +26,19 @@
     },
     "llms_txt": false,
     "lighthouse_runs": [
-      53
+      38
     ],
     "lighthouse": {
       "scores": {
-        "performance": 53,
+        "performance": 38,
         "accessibility": 100,
         "best-practices": 96,
         "seo": 92
       },
       "lab": {
-        "largest-contentful-paint": 5129.192499999999,
-        "cumulative-layout-shift": 0.096186537980417,
-        "total-blocking-time": 1166.8145000000002
+        "largest-contentful-paint": 10322.6005,
+        "cumulative-layout-shift": 0.07851683678773463,
+        "total-blocking-time": 1887
       }
     }
   },
@@ -245,7 +245,7 @@
       "layer": "P",
       "severity": "high",
       "check": "lcp",
-      "detail": "lab LCP 5.1s (good \u22642.5s)",
+      "detail": "lab LCP 10.3s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
@@ -461,7 +461,7 @@
       "layer": "P",
       "severity": "medium",
       "check": "tbt-inp-proxy",
-      "detail": "TBT 1167ms (INP risk)",
+      "detail": "TBT 1887ms (INP risk)",
       "fix": "Remove unused apps/widgets and third-party scripts",
       "url": null,
       "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."
@@ -778,7 +778,7 @@
     {
       "url": "https://djurbant.com/admin/",
       "status": 200,
-      "bytes": 7974,
+      "bytes": 7971,
       "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
       "description": "",
       "robots": "max-image-preview:large, noindex, noarchive",

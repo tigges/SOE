@@ -56,11 +56,59 @@
   "pages": [
     {
       "url": "https://tigges.github.io/YUZU_SEPT_26/",
+      "title": "Hair Salon Ealing | Yuzu Hair & Beauty Dickens Yard",
+      "description": "Japanese-inspired hair salon in Ealing Broadway. Cuts, colour, balayage & Brazilian blow-dry at Dickens Yard, W5 2TD. Book online or call 020 8840 2244.",
+      "h1": "Hair Salon Ealing Broadway \u2013 Yuzu Hair & Beauty",
       "current_title": "Yuzu Hair & Beauty \u00b7 Ealing Broadway",
-      "title": "Yuzu Hair & Beauty \u00b7 Ealing Broadway | Yuzu Hair & Beauty",
-      "description": "Yuzu Hair & Beauty \u00b7 Ealing Broadway at Yuzu Hair & Beauty. See prices and opening hours, and book online.",
-      "h1": "Yuzu Hair & Beauty \u00b7 Ealing Broadway",
-      "source": "DRAFT (rule-based)"
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/hairdresser-ealing-broadway",
+      "title": "Hairdresser Ealing Broadway | Yuzu Dickens Yard W5",
+      "description": "Expert hairdressers at Yuzu in Ealing Broadway. Located in Dickens Yard near the station. Open Tuesday-Saturday. Book your appointment online today.",
+      "h1": "Hairdresser Ealing Broadway at Dickens Yard",
+      "current_title": "",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/japanese-hair-salon-london",
+      "title": "Japanese Hair Salon London | Yuzu Ealing Broadway",
+      "description": "Experience Japanese-inspired hair care at Yuzu in Ealing, London. Traditional techniques with modern styling at Dickens Yard. Book your visit now.",
+      "h1": "Japanese Hair Salon in London \u2013 Yuzu Ealing",
+      "current_title": "",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/services",
+      "title": "Hair Services Ealing | Balayage, Colour & Blow Dry",
+      "description": "Hair services at Yuzu Ealing: balayage, colour, Brazilian blow-dry, cuts and Japanese head spa. View our treatments and book online at Dickens Yard.",
+      "h1": "Hair Services at Yuzu Ealing Broadway",
+      "current_title": "",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/prices",
+      "title": "Hair Salon Prices | Yuzu Ealing Broadway W5 2TD",
+      "description": "Transparent pricing for cuts, colour, balayage and treatments at Yuzu Hair & Beauty in Ealing. View our price menu or call 020 8840 2244 for details.",
+      "h1": "Prices at Yuzu Hair & Beauty Ealing",
+      "current_title": "",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/contact",
+      "title": "Contact Yuzu Hair Salon | Ealing Broadway W5 2TD",
+      "description": "Visit Yuzu at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Call 020 8840 2244 or email info@yuzuhairandbeauty.co.uk. Near Ealing Broadway station.",
+      "h1": "Contact Yuzu Hair & Beauty Ealing",
+      "current_title": "",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/about",
+      "title": "About Yuzu Hair & Beauty | Japanese Salon Ealing",
+      "description": "Meet the team at Yuzu Hair & Beauty in Ealing Broadway. Japanese-inspired salon at Dickens Yard since 2016. Learn about our stylists and approach.",
+      "h1": "About Yuzu Hair & Beauty",
+      "current_title": "",
+      "source": "Claude draft"
     }
   ],
   "steps": {
@@ -112,6 +160,12 @@
       "count": 1,
       "severity": "high"
     },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
     "robots.txt": {
       "fix": "Publish robots.txt with Sitemap: line",
       "how": null,
@@ -138,12 +192,6 @@
     },
     "answer-content": {
       "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
-      "how": null,
-      "count": 1,
-      "severity": "medium"
-    },
-    "lcp": {
-      "fix": "Compress/preload hero image, cut render-blocking JS",
       "how": null,
       "count": 1,
       "severity": "medium"

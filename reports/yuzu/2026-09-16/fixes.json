@@ -95,15 +95,6 @@
       "source": "Claude draft"
     },
     {
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu",
-      "description": "Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers.",
-      "h1": "Salon offers at Yuzu, Ealing",
-      "current_title": "OFFERS | Yuzu Hair",
-      "source": "Claude draft",
-      "new_url": "/offers"
-    },
-    {
       "url": "https://www.yuzuhairandbeauty.london/items",
       "title": "Hairdresser Jobs in Ealing: Join Yuzu Hair & Beauty",
       "description": "Senior stylist, stylist and model vacancies at a Japanese-inspired salon in Dickens Yard, Ealing Broadway. See the roles and apply today.",
@@ -111,6 +102,15 @@
       "current_title": "Items (List) | Yuzu Hair",
       "source": "Claude draft",
       "new_url": "/careers"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu",
+      "description": "Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers.",
+      "h1": "Salon offers at Yuzu, Ealing",
+      "current_title": "OFFERS | Yuzu Hair",
+      "source": "Claude draft",
+      "new_url": "/offers"
     }
   ],
   "steps": {
@@ -201,12 +201,6 @@
     "llms.txt-summary": {
       "fix": "Rewrite the llms.txt summary to describe the business, not a random page",
       "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates.",
-      "count": 1,
-      "severity": "medium"
-    },
-    "tbt-inp-proxy": {
-      "fix": "Remove unused apps/widgets and third-party scripts",
-      "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).",
       "count": 1,
       "severity": "medium"
     },

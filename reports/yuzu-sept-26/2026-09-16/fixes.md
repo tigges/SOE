@@ -65,7 +65,13 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://tigges.github.io/YUZU_SEPT_26/ | Yuzu Hair & Beauty · Ealing Broadway | Yuzu Hair & Beauty · Ealing Broadway \| Yuzu Hair & Beauty | Yuzu Hair & Beauty · Ealing Broadway at Yuzu Hair & Beauty. See prices and opening hours, and book online. | Yuzu Hair & Beauty · Ealing Broadway | DRAFT (rule-based) |
+| https://tigges.github.io/YUZU_SEPT_26/ | Yuzu Hair & Beauty · Ealing Broadway | Hair Salon Ealing \| Yuzu Hair & Beauty Dickens Yard | Japanese-inspired hair salon in Ealing Broadway. Cuts, colour, balayage & Brazilian blow-dry at Dickens Yard, W5 2TD. Book online or call 020 8840 2244. | Hair Salon Ealing Broadway – Yuzu Hair & Beauty | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/hairdresser-ealing-broadway |  | Hairdresser Ealing Broadway \| Yuzu Dickens Yard W5 | Expert hairdressers at Yuzu in Ealing Broadway. Located in Dickens Yard near the station. Open Tuesday-Saturday. Book your appointment online today. | Hairdresser Ealing Broadway at Dickens Yard | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/japanese-hair-salon-london |  | Japanese Hair Salon London \| Yuzu Ealing Broadway | Experience Japanese-inspired hair care at Yuzu in Ealing, London. Traditional techniques with modern styling at Dickens Yard. Book your visit now. | Japanese Hair Salon in London – Yuzu Ealing | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/services |  | Hair Services Ealing \| Balayage, Colour & Blow Dry | Hair services at Yuzu Ealing: balayage, colour, Brazilian blow-dry, cuts and Japanese head spa. View our treatments and book online at Dickens Yard. | Hair Services at Yuzu Ealing Broadway | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/prices |  | Hair Salon Prices \| Yuzu Ealing Broadway W5 2TD | Transparent pricing for cuts, colour, balayage and treatments at Yuzu Hair & Beauty in Ealing. View our price menu or call 020 8840 2244 for details. | Prices at Yuzu Hair & Beauty Ealing | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/contact |  | Contact Yuzu Hair Salon \| Ealing Broadway W5 2TD | Visit Yuzu at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Call 020 8840 2244 or email info@yuzuhairandbeauty.co.uk. Near Ealing Broadway station. | Contact Yuzu Hair & Beauty Ealing | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/about |  | About Yuzu Hair & Beauty \| Japanese Salon Ealing | Meet the team at Yuzu Hair & Beauty in Ealing Broadway. Japanese-inspired salon at Dickens Yard since 2016. Learn about our stylists and approach. | About Yuzu Hair & Beauty | Claude draft |
 
 ## 3. Steps on other
 
@@ -77,12 +83,12 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 - **nap-phone** (high, ×1) — Show the phone in the footer on every page
 - **nap-postcode** (high, ×1) — Show the full address in the footer
 - **extractable-text** (high, ×1) — AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)
+- **lcp** (high, ×1) — Compress/preload hero image, cut render-blocking JS
 - **robots.txt** (medium, ×1) — Publish robots.txt with Sitemap: line
 - **thin-content** (medium, ×1) — Expand with useful, specific text (services, FAQs, proof)
 - **expected-page** (medium, ×4) — Add a dedicated prices page and link it from the navigation
 - **keyword-targeting** (medium, ×3) — Map each primary keyword to one page and use it in title + H1
 - **answer-content** (medium, ×1) — Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)
-- **lcp** (medium, ×1) — Compress/preload hero image, cut render-blocking JS
 - **og-image** (low, ×1) — Set a share image (1200×630)
 - **email-domain** (low, ×1) — Use an address on the site domain, or redirect the old domain to the site
 - **profile-link** (low, ×4) — Link profiles and add them to schema sameAs

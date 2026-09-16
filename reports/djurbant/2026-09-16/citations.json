@@ -1,10 +1,12 @@
 {
-  "run": "2026-09-16T09:00",
+  "run": "2026-09-16T12:48",
   "summary": {
     "ok": 0,
     "mismatch": 0,
     "unreachable": 0,
-    "manual": 0
+    "manual": 0,
+    "todo": 0,
+    "ignore": 0
   },
   "listings": [],
   "gaps": {

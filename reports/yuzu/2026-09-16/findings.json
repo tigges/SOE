@@ -1,6 +1,6 @@
 {
   "site": "https://www.yuzuhairandbeauty.london",
-  "run": "2026-09-16 09:03",
+  "run": "2026-09-16 12:55",
   "project": {
     "name": "Yuzu Hair & Beauty",
     "slug": "yuzu",
@@ -8,14 +8,14 @@
     "platform": "wix",
     "module": "Local business"
   },
-  "score": 65,
+  "score": 67,
   "layers": {
     "Technical": 100,
     "On-page": 3,
     "Structured data": 40,
     "Entity / NAP": 92,
     "AI search readiness": 96,
-    "Performance": 67
+    "Performance": 84
   },
   "meta": {
     "sitemap_urls": 7,
@@ -30,20 +30,20 @@
     "llms_txt": true,
     "lighthouse_runs": [
       65,
-      67,
-      68
+      84,
+      85
     ],
     "lighthouse": {
       "scores": {
-        "performance": 67,
+        "performance": 84,
         "accessibility": 96,
         "best-practices": 79,
         "seo": 85
       },
       "lab": {
-        "largest-contentful-paint": 4844.414000000001,
-        "cumulative-layout-shift": 0.01025844573974609,
-        "total-blocking-time": 436
+        "largest-contentful-paint": 4147.372,
+        "cumulative-layout-shift": 0.01029990196228027,
+        "total-blocking-time": 139
       }
     }
   },
@@ -162,6 +162,15 @@
       "check": "meta-description",
       "detail": "missing",
       "fix": "Write a 140\u2013160 char description with a call to action",
+      "url": "https://www.yuzuhairandbeauty.london/items",
+      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "meta-description",
+      "detail": "missing",
+      "fix": "Write a 140\u2013160 char description with a call to action",
       "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
     },
@@ -175,19 +184,10 @@
       "how": "Select the main heading \u2192 Edit text \u2192 Semantic tag = Heading 1 (H1). Use only one per page. For spaced lettering, use letter spacing, not spaces typed between letters."
     },
     {
-      "layer": "O",
-      "severity": "high",
-      "check": "meta-description",
-      "detail": "missing",
-      "fix": "Write a 140\u2013160 char description with a call to action",
-      "url": "https://www.yuzuhairandbeauty.london/items",
-      "how": "Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Meta description. The SEO Settings page-type pattern is the fallback."
-    },
-    {
       "layer": "P",
       "severity": "high",
       "check": "lcp",
-      "detail": "lab LCP 4.8s (good \u22642.5s)",
+      "detail": "lab LCP 4.1s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": "Remove unused apps (Apps \u2192 Manage apps). Use a compressed hero image (Wix image settings \u2192 quality). Don't put video or slideshows above the fold."
@@ -259,15 +259,6 @@
       "layer": "O",
       "severity": "medium",
       "check": "title-length",
-      "detail": "18 chars: 'OFFERS | Yuzu Hair'",
-      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "title-length",
       "detail": "24 chars: 'Items (List) | Yuzu Hair'",
       "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
       "url": "https://www.yuzuhairandbeauty.london/items",
@@ -281,6 +272,15 @@
       "fix": "Expand with useful, specific text (services, FAQs, proof)",
       "url": "https://www.yuzuhairandbeauty.london/items",
       "how": "Add text sections in the Editor (a Text + Image strip). Wix gives no word count, so re-run the audit afterwards."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "18 chars: 'OFFERS | Yuzu Hair'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "how": "Editor \u2192 Pages & Menu \u2192 page \u22ef \u2192 SEO basics \u2192 Title tag. For many pages at once: Dashboard \u2192 Marketing & SEO \u2192 SEO \u2192 SEO Settings \u2192 page type \u2192 edit the title pattern."
     },
     {
       "layer": "O",
@@ -364,15 +364,6 @@
       "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates."
     },
     {
-      "layer": "P",
-      "severity": "medium",
-      "check": "tbt-inp-proxy",
-      "detail": "TBT 436ms (INP risk)",
-      "fix": "Remove unused apps/widgets and third-party scripts",
-      "url": null,
-      "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations)."
-    },
-    {
       "layer": "O",
       "severity": "low",
       "check": "alt-text",
@@ -405,7 +396,7 @@
       "check": "og-image",
       "detail": "no og:image",
       "fix": "Set a share image (1200\u00d7630)",
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "url": "https://www.yuzuhairandbeauty.london/items",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
     },
     {
@@ -414,7 +405,7 @@
       "check": "og-image",
       "detail": "no og:image",
       "fix": "Set a share image (1200\u00d7630)",
-      "url": "https://www.yuzuhairandbeauty.london/items",
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
       "how": "Pages & Menu \u2192 page \u22ef \u2192 Social share \u2192 upload a 1200\u00d7630 image. The site-wide default is in SEO Settings."
     },
     {
@@ -440,7 +431,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/",
       "status": 200,
-      "bytes": 656981,
+      "bytes": 658327,
       "title": "H O M E | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -465,7 +456,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
       "status": 200,
-      "bytes": 556565,
+      "bytes": 559702,
       "title": "Senior Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -490,7 +481,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/stylists",
       "status": 200,
-      "bytes": 559223,
+      "bytes": 559790,
       "title": "Stylists | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -515,7 +506,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/items/models",
       "status": 200,
-      "bytes": 556658,
+      "bytes": 559894,
       "title": "Models | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -540,7 +531,7 @@
     {
       "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
       "status": 200,
-      "bytes": 550634,
+      "bytes": 550784,
       "title": "TERMS AND CONDITIONS | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -559,30 +550,9 @@
       ]
     },
     {
-      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "status": 200,
-      "bytes": 567980,
-      "title": "OFFERS | Yuzu Hair",
-      "description": "",
-      "robots": "",
-      "og_image": "",
-      "og_description": "",
-      "h1": [],
-      "h2_count": 2,
-      "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "lang": "en",
-      "words": 438,
-      "img_total": 11,
-      "img_no_alt": 0,
-      "ld_types": [],
-      "pdf_links": [
-        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
-      ]
-    },
-    {
       "url": "https://www.yuzuhairandbeauty.london/items",
       "status": 200,
-      "bytes": 566916,
+      "bytes": 568834,
       "title": "Items (List) | Yuzu Hair",
       "description": "",
       "robots": "",
@@ -596,6 +566,27 @@
       "lang": "en",
       "words": 156,
       "img_total": 9,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": [
+        "https://www.yuzuhairandbeauty.london/_files/ugd/4ea19e_7490bc4c570b4ae1906291ca140a3058.pdf"
+      ]
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "status": 200,
+      "bytes": 571324,
+      "title": "OFFERS | Yuzu Hair",
+      "description": "",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [],
+      "h2_count": 2,
+      "canonical": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
+      "lang": "en",
+      "words": 438,
+      "img_total": 11,
       "img_no_alt": 0,
       "ld_types": [],
       "pdf_links": [

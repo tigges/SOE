@@ -1,6 +1,6 @@
 # SOE audit — Yuzu Hair & Beauty (Sept 26)
 
-Site: https://tigges.github.io/YUZU_SEPT_26 · Run: 2026-09-16 12:07 · Pages crawled: 1 · Sitemap URLs: 0
+Site: https://tigges.github.io/YUZU_SEPT_26 · Run: 2026-09-16 12:51 · Pages crawled: 1 · Sitemap URLs: 0
 
 ## Score: 70/100
 
@@ -11,9 +11,9 @@ Site: https://tigges.github.io/YUZU_SEPT_26 · Run: 2026-09-16 12:07 · Pages cr
 | Structured data | 40 |
 | Entity / NAP | 78 |
 | AI search readiness | 76 |
-| Performance | 85 |
+| Performance | 80 |
 
-Lighthouse (mobile lab): performance 85, accessibility 95, best-practices 96, seo 100 · LCP 4.0s · TBT 0ms · CLS 0.06
+Lighthouse (mobile lab): performance 80, accessibility 95, best-practices 96, seo 100 · LCP 4.3s · TBT 0ms · CLS 0.07
 
 Schema types found: none
 AI bots blocked: {'search': [], 'training': []} · llms.txt: False
@@ -31,6 +31,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | high | E | nap-phone | configured phone not found on site | Show the phone in the footer on every page | / |
 | high | E | nap-postcode | postcode not found on site | Show the full address in the footer | / |
 | high | A | extractable-text | homepage has 0 words of text | AI answers quote text: add concise factual paragraphs (who/what/where/price/hours) | / |
+| high | P | lcp | lab LCP 4.3s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | T | robots.txt | missing | Publish robots.txt with Sitemap: line | / |
 | medium | O | thin-content | 0 words (<300) | Expand with useful, specific text (services, FAQs, proof) | / |
 | medium | O | expected-page | no 'prices' page found (looked for: price, pricing, menu, rates) | Add a dedicated prices page and link it from the navigation | / |
@@ -41,7 +42,6 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | keyword-targeting | primary keyword 'hairdresser Ealing Broadway' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
 | medium | O | keyword-targeting | primary keyword 'Japanese hair salon London' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
 | medium | A | answer-content | no question-style content found | Add an FAQ / Q&A section answering real customer questions (visible text, not just schema) | / |
-| medium | P | lcp | lab LCP 4.0s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
 | low | E | email-domain | email info@yuzuhairandbeauty.co.uk is on a different domain from the site | Use an address on the site domain, or redirect the old domain to the site | / |
 | low | E | profile-link | instagram profile not linked from site | Link profiles and add them to schema sameAs | / |

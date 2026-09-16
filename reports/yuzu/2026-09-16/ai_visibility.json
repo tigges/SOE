@@ -1,7 +1,82 @@
 {
-  "months": [],
-  "top_other_sources": [],
-  "pending_checks": 16,
+  "months": [
+    {
+      "month": "2026-09",
+      "checks": 4,
+      "mention_rate": 0.25,
+      "citation_rate": 0.0,
+      "engines": {
+        "Claude": {
+          "checks": 4,
+          "mentioned": 1,
+          "cited": 0
+        }
+      }
+    }
+  ],
+  "top_other_sources": [
+    [
+      "treatwell.co.uk",
+      3
+    ],
+    [
+      "fresha.com",
+      2
+    ],
+    [
+      "hairdressr.com",
+      2
+    ],
+    [
+      "mandmhairacademy.com",
+      2
+    ],
+    [
+      "uk.assort-hair.com",
+      1
+    ],
+    [
+      "etoncrop.co.uk",
+      1
+    ],
+    [
+      "en.wikipedia.org",
+      1
+    ],
+    [
+      "camiyuilondon.com",
+      1
+    ],
+    [
+      "hiroshimamoto.co.uk",
+      1
+    ],
+    [
+      "shunji.london",
+      1
+    ],
+    [
+      "alfiehair.com",
+      1
+    ],
+    [
+      "en.hayatosalons.com",
+      1
+    ],
+    [
+      "harissalon.com",
+      1
+    ],
+    [
+      "thearcadiaonline.com",
+      1
+    ],
+    [
+      "hairmasterkensington.co.uk",
+      1
+    ]
+  ],
+  "pending_checks": 8,
   "prompts": [
     "Yuzu Hair salon",
     "best hair salon in Ealing Broadway",
@@ -9,9 +84,8 @@
     "where can I get a Brazilian blow dry in Ealing"
   ],
   "engines": [
-    "ChatGPT",
-    "Perplexity",
     "Gemini",
+    "Claude",
     "Google AI Mode"
   ]
 }

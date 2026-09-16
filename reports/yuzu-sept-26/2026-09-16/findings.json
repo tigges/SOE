@@ -1,6 +1,6 @@
 {
   "site": "https://tigges.github.io/YUZU_SEPT_26",
-  "run": "2026-09-16 12:07",
+  "run": "2026-09-16 12:51",
   "project": {
     "name": "Yuzu Hair & Beauty (Sept 26)",
     "slug": "yuzu-sept-26",
@@ -15,7 +15,7 @@
     "Structured data": 40,
     "Entity / NAP": 78,
     "AI search readiness": 76,
-    "Performance": 85
+    "Performance": 80
   },
   "meta": {
     "sitemap_urls": 0,
@@ -26,18 +26,18 @@
     },
     "llms_txt": false,
     "lighthouse_runs": [
-      85
+      80
     ],
     "lighthouse": {
       "scores": {
-        "performance": 85,
+        "performance": 80,
         "accessibility": 95,
         "best-practices": 96,
         "seo": 100
       },
       "lab": {
-        "largest-contentful-paint": 3978.6250000000005,
-        "cumulative-layout-shift": 0.057055,
+        "largest-contentful-paint": 4298.128,
+        "cumulative-layout-shift": 0.06633448311541018,
         "total-blocking-time": 0
       }
     }
@@ -121,6 +121,15 @@
       "check": "extractable-text",
       "detail": "homepage has 0 words of text",
       "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 4.3s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": null
     },
@@ -211,15 +220,6 @@
       "check": "answer-content",
       "detail": "no question-style content found",
       "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "P",
-      "severity": "medium",
-      "check": "lcp",
-      "detail": "lab LCP 4.0s (good \u22642.5s)",
-      "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": null
     },
