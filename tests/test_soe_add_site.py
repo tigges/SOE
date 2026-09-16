@@ -41,7 +41,7 @@ class AddSite(unittest.TestCase):
         self.assertEqual(loaded["site"]["name"], "O'Hara & Sons")
         self.assertIn("hair salon Ealing", loaded["keywords"]["primary"])
         self.assertEqual(loaded["competitors"], [])
-        self.assertEqual(loaded["ai"]["engines"], ["Claude", "Google AI Mode"])
+        self.assertEqual(loaded["ai"]["engines"], ["Claude", "Gemini", "Google AI Mode"])
         self.assertTrue(text.endswith("\n"))
 
     def test_write_and_refuse_overwrite(self):

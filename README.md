@@ -1,6 +1,6 @@
 # SOE template (v2)
 
-A repeatable search optimisation kit for any website. It covers classic search (Google and Bing) and AI answer engines (Claude auto-checks, plus a monthly Google AI Mode check by hand).
+A repeatable search optimisation kit for any website. It covers classic search (Google and Bing) and AI answer engines (Claude and Gemini auto-checks, plus a monthly Google AI Mode check by hand).
 
 ## The loop in one go
 
@@ -13,7 +13,7 @@ D=reports/<slug>/$(date +%F)
 python soe_audit.py configs/<slug>.yaml --out $D --lighthouse --competitors --integrations
 python soe_citations.py configs/<slug>.yaml --out $D     # off-site listings
 python soe_ai_log.py init configs/<slug>.yaml            # this month's AI-answer rows (fill by hand or with API keys)
-python soe_ai_log.py run configs/<slug>.yaml             # auto-fill Claude (and Perplexity/ChatGPT if those keys are set)
+python soe_ai_log.py run configs/<slug>.yaml             # auto-fill Claude / Gemini (and Perplexity/ChatGPT if those keys are set)
 python soe_ai_log.py summary configs/<slug>.yaml --out $D
 python soe_fixes.py configs/<slug>.yaml $D --copy projects/<slug>/copy.yaml   # fix pack
 python soe_benchmark.py configs/<slug>.yaml --out $D     # best-in-class leaders: virtual-100 target + feature gaps
@@ -35,7 +35,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `soe_benchmark.py` | Audits the leaders listed under `benchmarks:`. Builds a "virtual 100" from the best leader in each layer, inventories about 40 features on every page, and lists what leaders do that this site doesn't. Features the audit doesn't score yet are flagged as new ideas. `--discover <type> URL…` scores candidate leaders |
 | `soe_gsc_import.py` | Imports a Search Console **Performance → Export** zip, so no Google Cloud is needed. Writes `gsc.json`, feeds the dashboard's "Google Search" panel, and keeps the raw CSVs in `data/<site>/gsc/` |
 | `soe_citations.py` | Fetches each listing and checks it shows the right name, phone and postcode, flags stale addresses, and lists directories where the site isn't listed yet |
-| `soe_ai_log.py` | AI-answer log in `data/<slug>/ai_log.csv`, with monthly rows, Claude auto-fill (`ANTHROPIC_API_KEY` + web search) and a summary |
+| `soe_ai_log.py` | AI-answer log in `data/<slug>/ai_log.csv`, with monthly rows, Claude + Gemini auto-fill and a summary |
 | `soe_dashboard.py` + `dashboard/template.html` | Builds the SOE Control Room page from every report |
 | `modules/*.yaml` | Rules per site type (local business, SaaS, ecommerce, publisher, personal/artist brand, generic): required schema, expected pages, directory lists |
 | `fixpacks/*.yaml` | Step-by-step fixes for Wix, WordPress/Elementor and Next.js, attached to every finding |
@@ -52,6 +52,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | Env var | Unlocks |
 |---|---|
 | `ANTHROPIC_API_KEY` (+ `SOE_MODEL`) | Copy drafting (`soe_fixes.py --llm`) and Claude AI-answer auto-checks (`soe_ai_log.py run`) |
+| `GEMINI_API_KEY` (or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`) | Gemini AI-answer auto-checks with Google Search grounding. Key from https://aistudio.google.com/apikey — not a Cloud Console login |
 | `INDEXNOW_KEY` (+ optional `INDEXNOW_URL_TXT`) | Pushes changed URLs to Bing and other engines (not possible on Wix). The key can live in either secret; host the key file at `INDEXNOW_URL_TXT` or `<site>/<key>.txt` |
 | `CRUX_API_KEY` or `PSI_API_KEY` | Optional real-user Core Web Vitals (needs a Google API key). Lab speed already runs via Lighthouse |
 | `GSC_SERVICE_ACCOUNT_JSON` | Optional Search Console API. Prefer a Performance CSV export (`soe_gsc_import.py`) — no Google Cloud |

@@ -52,8 +52,8 @@ citations:                               # off-site listings checked by soe_cita
 ai:
   allow_training: true                   # false = add Disallow for GPTBot, ClaudeBot, Google-Extended...
   llms_should_mention: []                # words the llms.txt summary must contain
-  prompts: []                            # prompts to test monthly in Claude (auto) and Google AI Mode (manual)
-  engines: [Claude, Google AI Mode]
+  prompts: []                            # prompts to test monthly in Claude + Gemini (auto) and Google AI Mode (manual)
+  engines: [Claude, Gemini, Google AI Mode]
   brand_terms: []                        # extra names that count as a mention (default: business name + domain)
 
 audit:

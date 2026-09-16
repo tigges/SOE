@@ -36,6 +36,11 @@ jobs:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GOOGLE_GEMINI_API_KEY: ${{ secrets.GOOGLE_GEMINI_API_KEY }}
+      GOOGLE_GENAI_API_KEY: ${{ secrets.GOOGLE_GENAI_API_KEY }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      GBP_OAUTH_TOKEN: ${{ secrets.GBP_OAUTH_TOKEN }}
       INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
       INDEXNOW_URL_TXT: ${{ secrets.INDEXNOW_URL_TXT }}
     steps:

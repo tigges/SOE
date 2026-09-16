@@ -13,10 +13,13 @@ Commands:
 Automated engines (optional, key-gated; answers differ from the consumer apps, so keep manual checks too):
   Claude      ANTHROPIC_API_KEY   POST https://api.anthropic.com/v1/messages + web_search tool
               (model from env SOE_MODEL, default "claude-sonnet-4-5")
+  Gemini      GEMINI_API_KEY (or GOOGLE_GEMINI_API_KEY / GOOGLE_GENAI_API_KEY / GOOGLE_API_KEY)
+              POST generativelanguage.googleapis.com generateContent + google_search grounding
+              (model from env SOE_GEMINI_MODEL, default "gemini-2.5-flash")
   Perplexity  PERPLEXITY_API_KEY  POST https://api.perplexity.ai/chat/completions  (model "sonar"; returns citations)
   ChatGPT     OPENAI_API_KEY      POST https://api.openai.com/v1/responses with the web_search tool
               (model from env SOE_OPENAI_MODEL, default "gpt-4.1-mini")
-Manual engines (no public API matching the product): Google AI Mode / AI Overviews. Gemini is optional and manual.
+Manual engines (no public API matching the product): Google AI Mode / AI Overviews.
 """
 import argparse, collections, csv, datetime as dt, json, os, re, sys
 
@@ -24,6 +27,16 @@ import requests, yaml
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 COLS = ["date", "engine", "prompt", "mentioned", "cited", "position", "cited_sources", "notes", "method"]
+DEFAULT_ENGINES = ["Claude", "Gemini", "Google AI Mode"]
+GEMINI_KEYS = ("GEMINI_API_KEY", "GOOGLE_GEMINI_API_KEY", "GOOGLE_GENAI_API_KEY", "GOOGLE_API_KEY")
+
+
+def first_env(*names):
+    for n in names:
+        v = (os.environ.get(n) or "").strip()
+        if v:
+            return v
+    return None
 
 
 def log_path(cfg):
@@ -63,7 +76,7 @@ def init(cfg):
     have = {(r["date"][:7], r["engine"], r["prompt"]) for r in rows}
     added = 0
     for p in cfg.get("ai", {}).get("prompts", []):
-        for e in cfg.get("ai", {}).get("engines", ["Claude", "Google AI Mode"]):
+        for e in cfg.get("ai", {}).get("engines", DEFAULT_ENGINES):
             if (month, e, p) not in have:
                 rows.append(dict(date=dt.date.today().isoformat(), engine=e, prompt=p, method="manual"))
                 added += 1
@@ -122,6 +135,42 @@ def claude_text_and_sources(payload):
     return text, sources
 
 
+def ask_gemini(prompt, key):
+    model = os.environ.get("SOE_GEMINI_MODEL", "gemini-2.5-flash")
+    r = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        timeout=120,
+        headers={"x-goog-api-key": key, "content-type": "application/json"},
+        json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+              "tools": [{"google_search": {}}]},
+    )
+    r.raise_for_status()
+    return gemini_text_and_sources(r.json())
+
+
+def gemini_text_and_sources(payload):
+    """Pull answer text + grounding URLs from a Gemini generateContent response."""
+    text, sources = "", []
+    for cand in payload.get("candidates") or []:
+        if not isinstance(cand, dict):
+            continue
+        for part in (cand.get("content") or {}).get("parts") or []:
+            if isinstance(part, dict) and not part.get("thought"):
+                text += part.get("text") or ""
+        meta = cand.get("groundingMetadata") or {}
+        for chunk in meta.get("groundingChunks") or []:
+            if not isinstance(chunk, dict):
+                continue
+            web = chunk.get("web") or {}
+            u = web.get("uri") or web.get("url")
+            if u:
+                sources.append(u)
+        for c in (cand.get("citationMetadata") or {}).get("citationSources") or []:
+            if isinstance(c, dict) and (c.get("uri") or c.get("url")):
+                sources.append(c.get("uri") or c.get("url"))
+    return text, sources
+
+
 def ask_openai(prompt, key):
     r = requests.post("https://api.openai.com/v1/responses", timeout=120,
                       headers={"Authorization": f"Bearer {key}"},
@@ -148,9 +197,10 @@ def upsert_row(rows, rec):
 
 
 def run(cfg):
-    auto = {"Claude": ("ANTHROPIC_API_KEY", ask_claude),
-            "Perplexity": ("PERPLEXITY_API_KEY", ask_perplexity),
-            "ChatGPT": ("OPENAI_API_KEY", ask_openai)}
+    auto = {"Claude": (("ANTHROPIC_API_KEY",), ask_claude),
+            "Gemini": (GEMINI_KEYS, ask_gemini),
+            "Perplexity": (("PERPLEXITY_API_KEY",), ask_perplexity),
+            "ChatGPT": (("OPENAI_API_KEY",), ask_openai)}
     wanted = cfg.get("ai", {}).get("engines") or list(auto)
     path, today = log_path(cfg), dt.date.today().isoformat()
     rows, terms = read(path), brand_terms(cfg)
@@ -159,10 +209,10 @@ def run(cfg):
         pair = auto.get(name)
         if not pair:
             continue
-        env, fn = pair
-        key = os.environ.get(env)
+        names, fn = pair
+        key = first_env(*names)
         if not key:
-            print(f"skipped {name}: {env} not set")
+            print(f"skipped {name}: {' / '.join(names)} not set")
             continue
         for p in cfg.get("ai", {}).get("prompts", []):
             try:

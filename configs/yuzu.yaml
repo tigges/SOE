@@ -76,7 +76,7 @@ benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026
 ai:
   allow_training: true
   llms_should_mention: [salon, Ealing]
-  engines: [Claude, Google AI Mode]
+  engines: [Claude, Gemini, Google AI Mode]
   brand_terms: ["Yuzu Hair", "YUZU Hair", "yuzuhairandbeauty"]
   prompts:
     - Yuzu Hair salon

@@ -10,9 +10,10 @@ Most of the kit already works without it:
 |---|---|
 | Audit, Lighthouse speed, citations, benchmark, dashboard | Every **SOE run** |
 | Copy drafting + Claude AI-answer checks | `ANTHROPIC_API_KEY` (already added) |
+| Gemini AI-answer checks | `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) from [Google AI Studio](https://aistudio.google.com/apikey) — not Cloud Console |
 | IndexNow (Bing URL ping) | `INDEXNOW_KEY` / `INDEXNOW_URL_TXT` + host a key file on WordPress |
 | Search Console | Export Performance as CSV in search.google.com (not cloud.google.com) and import it |
-| Google AI Mode / Gemini | Monthly check by hand — there is no public API that matches the consumer apps |
+| Google AI Mode / AI Overviews | Monthly check by hand — there is no public API that matches those consumer products |
 
 Google Cloud is only needed if you want these **optional APIs**:
 
@@ -27,6 +28,7 @@ Paid, not Google: DataForSEO (rankings and AI Overviews).
 | # | Card on the dashboard | Cost | Time | Secrets |
 |---|---|---|---|---|
 | 5 | Copy drafting + Claude AI checks | usage | already added | `ANTHROPIC_API_KEY` |
+| 5b | Gemini AI-answer checks | usage | already added | `GEMINI_API_KEY` (or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`) |
 | 6 | IndexNow (Bing URL ping) | free | 5 min + host a file on each WordPress site | `INDEXNOW_KEY`, `INDEXNOW_URL_TXT` |
 | 2a | Search Console CSV import | free | 5 min | none |
 | 1 | Real-user speed (CrUX) — optional | free | 5 min | `CRUX_API_KEY`, `PSI_API_KEY` |
@@ -126,7 +128,15 @@ Already added. Each **SOE run**:
 - calls `soe_fixes.py --llm`, so the Fixes tab titles / descriptions / H1 are Claude drafts (source: "Claude draft")
 - calls `soe_ai_log.py run`, which asks Claude (with web search) each prompt in `ai.prompts` and records whether the brand was mentioned or cited
 
-Google AI Mode stays a monthly manual check — Gemini / AI Mode have no public API that matches the consumer apps. Perplexity and ChatGPT still auto-fill if you later add `PERPLEXITY_API_KEY` / `OPENAI_API_KEY` and list those engines in the site settings. Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`).
+Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`). Perplexity and ChatGPT still auto-fill if you add `PERPLEXITY_API_KEY` / `OPENAI_API_KEY` and list those engines in the site settings.
+
+## 5b. Gemini AI-answer checks: `GEMINI_API_KEY`
+
+This is a **Google AI Studio** key (https://aistudio.google.com/apikey), not a Cloud Console login. The Action also accepts `GOOGLE_GEMINI_API_KEY`, `GOOGLE_GENAI_API_KEY`, or `GOOGLE_API_KEY`.
+
+Each **SOE run** asks Gemini with Google Search grounding and logs mention/citation the same way as Claude. Optional: set `SOE_GEMINI_MODEL` (default `gemini-2.5-flash`).
+
+Google AI Mode / AI Overviews stay a monthly manual check — those consumer products have no matching public API.
 
 ## 6. IndexNow (Bing and others): free
 
