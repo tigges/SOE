@@ -1,46 +1,65 @@
-# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
+# Family and ventures hub (GitHub Pages, tigges/TIGG3S_NEW). Not WordPress.
+# Linked studio/project sites are separate SOE projects (see projects/tigg3s/ACTION-PLAN.md).
 site:
-  name: www.tigg3s.com
+  name: TIGGES
   slug: tigg3s
-  url: https://www.tigg3s.com
-  type: personal_brand                   # local_business | saas | ecommerce | publisher | personal_brand | generic
-  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | other
+  url: https://tigg3s.com
+  type: personal_brand
+  platform: other                    # GitHub Pages; www redirects to apex
   market: en-GB
-  description: ""
-  location: ""   # for rank tracking, e.g. London,England,United Kingdom
+  description: "TIGGES is the Tigges family and ventures hub: Art Leon, Art Barbara, architecture in Spain, DJ URBANT, Set Radar, and GTA VI.AI."
+  location: "London,England,United Kingdom"
   gsc_property: "sc-domain:tigg3s.com"
 
 business:
-  name: www.tigg3s.com
+  name: TIGGES
   phone: ""
   email: ""
   address: ""
   postcode: ""
   profiles:
     google_business: ""
-    instagram: ""
+    instagram: https://www.instagram.com/_urbant_/?hl=en
     facebook: ""
     booking: ""
+    mixcloud: https://www.mixcloud.com/urbant/
+    youtube: https://www.youtube.com/@DJ_UrbanT
+    x: https://twitter.com/DJUrbanT
+    twitch: https://www.twitch.tv/djurbant
+    linkedin: https://www.linkedin.com/in/tigges/
 
 keywords:
-  primary: []
-  secondary: []
-  questions: []                          # real customer questions -> FAQ / answer content
+  primary:
+    - TIGGES
+    - Tigges family
+    - DJ URBANT
+  secondary:
+    - Set Radar
+    - GTA VI.AI
+    - Leon Tigges
+  questions:
+    - What is TIGGES?
+    - Who is DJ URBANT?
+    - Where is the Tigges architecture studio?
 
-competitors: []                          # {name, url} — audited with --competitors
-legacy_sites: []                         # old/parked sites to take offline or redirect
-name_clashes: []                         # other businesses with a similar name
-benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)
-citations: []                            # off-site listings checked by soe_citations.py
+competitors: []
+legacy_sites: []
+name_clashes: []
+benchmarks: []
+citations: []
 
 ai:
   allow_training: true
-  llms_should_mention: []
-  prompts: []                            # monthly tests in Gemini + Claude (auto) and Google AI Mode (manual)
+  llms_should_mention: [TIGGES, family]
+  prompts:
+    - What is TIGGES?
+    - Who is DJ URBANT?
+    - Tigges family art and architecture
   engines: [Gemini, Claude, Google AI Mode]
-  brand_terms: []
+  brand_terms: [TIGGES, Tigges, tigg3s]
 
 audit:
-  max_pages: 50
-  min_words: 300
+  max_pages: 20
+  min_words: 250
+  lighthouse_runs: 1
   weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}

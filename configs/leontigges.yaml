@@ -1,0 +1,51 @@
+# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
+site:
+  name: Art Leon
+  slug: leontigges
+  url: https://leontigges.com
+  type: personal_brand                   # local_business | saas | ecommerce | publisher | personal_brand | generic
+  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | other
+  market: en-GB
+  description: "Leon Tigges \u2014 paintings, drawings and studio work from London."
+  location: "London,England,United Kingdom"   # for rank tracking, e.g. London,England,United Kingdom
+  gsc_property: "sc-domain:leontigges.com"
+
+business:
+  name: Art Leon
+  phone: ""
+  email: ""
+  address: ""
+  postcode: ""
+  profiles:
+    google_business: ""
+    instagram: ""
+    facebook: ""
+    booking: ""
+
+keywords:
+  primary:
+    - Leon Tigges
+    - young art London
+  secondary: []
+  questions: []                          # real customer questions -> FAQ / answer content
+
+competitors: []                          # {name, url} — audited with --competitors
+legacy_sites: []                         # old/parked sites to take offline or redirect
+name_clashes: []                         # other businesses with a similar name
+benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)
+citations: []                            # off-site listings checked by soe_citations.py
+
+ai:
+  allow_training: true
+  llms_should_mention: [Leon, painting]
+  prompts:
+    - Leon Tigges artist
+    - Leon Tigges paintings London
+  engines: [Gemini, Claude, Google AI Mode]
+  brand_terms: [Leon Tigges, Art Leon]
+
+audit:
+  max_pages: 20
+  min_words: 200
+  lighthouse_runs: 1
+  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}

@@ -1,0 +1,52 @@
+# SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
+site:
+  name: GTA VI.AI
+  slug: gtavi
+  url: https://gtavi.ai
+  type: publisher                   # local_business | saas | ecommerce | publisher | personal_brand | generic
+  platform: other                    # wix | wordpress | webflow | shopify | nextjs | other
+  market: en-GB
+  description: "Follow the GTA$: GTA dual-economy tracking, predictions and explainers."
+  location: ""   # for rank tracking, e.g. London,England,United Kingdom
+  gsc_property: "sc-domain:gtavi.ai"
+
+business:
+  name: GTA VI.AI
+  phone: ""
+  email: ""
+  address: ""
+  postcode: ""
+  profiles:
+    google_business: ""
+    instagram: ""
+    facebook: ""
+    booking: ""
+
+keywords:
+  primary:
+    - GTA VI
+    - GTA Online economy
+    - Shark Card
+  secondary: []
+  questions: []                          # real customer questions -> FAQ / answer content
+
+competitors: []                          # {name, url} — audited with --competitors
+legacy_sites: []                         # old/parked sites to take offline or redirect
+name_clashes: []                         # other businesses with a similar name
+benchmarks: []                           # best-in-class leaders (soe_benchmark.py --discover)
+citations: []                            # off-site listings checked by soe_citations.py
+
+ai:
+  allow_training: true
+  llms_should_mention: [GTA, economy]
+  prompts:
+    - GTA VI.AI
+    - GTA Online economy tracker
+  engines: [Gemini, Claude, Google AI Mode]
+  brand_terms: [GTA VI.AI, gtavi.ai]
+
+audit:
+  max_pages: 30
+  min_words: 300
+  lighthouse_runs: 1
+  weights: {Technical: 20, On-page: 20, Structured data: 15, Entity / NAP: 15, AI search readiness: 15, Performance: 15}
