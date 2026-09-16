@@ -1,25 +1,26 @@
 {
-  "site": "https://www.tigg3s.com",
-  "run": "2026-09-16 13:43",
+  "site": "https://tigg3s.com",
+  "run": "2026-09-16 15:43",
   "project": {
-    "name": "www.tigg3s.com",
+    "name": "TIGGES",
     "slug": "tigg3s",
     "type": "personal_brand",
-    "platform": "wordpress",
+    "platform": "other",
     "module": "Personal / artist brand (DJ, musician, creator)"
   },
-  "score": 90,
+  "score": 92,
   "layers": {
-    "Technical": 84,
-    "On-page": 90,
+    "Technical": 87,
+    "On-page": 81,
     "Structured data": 100,
-    "Entity / NAP": 96,
-    "AI search readiness": 100,
-    "Performance": 75
+    "Entity / NAP": 100,
+    "AI search readiness": 91,
+    "Performance": 95
   },
   "meta": {
-    "sitemap_urls": 1,
+    "sitemap_urls": 2,
     "schema_types": [
+      "AboutPage",
       "Answer",
       "FAQPage",
       "Organization",
@@ -33,20 +34,18 @@
     },
     "llms_txt": true,
     "lighthouse_runs": [
-      75,
-      75,
-      75
+      95
     ],
     "lighthouse": {
       "scores": {
-        "performance": 75,
+        "performance": 95,
         "accessibility": 100,
         "best-practices": 100,
         "seo": 100
       },
       "lab": {
-        "largest-contentful-paint": 4999.2775,
-        "cumulative-layout-shift": 0.001417929892870033,
+        "largest-contentful-paint": 2896.7380000000003,
+        "cumulative-layout-shift": 0.001418,
         "total-blocking-time": 0
       }
     }
@@ -56,46 +55,46 @@
       "layer": "T",
       "severity": "high",
       "check": "host-canonicalisation",
-      "detail": "http://www.tigg3s.com/ ends at http://tigg3s.com/",
-      "fix": "301 all variants to https://www.tigg3s.com/",
-      "url": null,
-      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
-    },
-    {
-      "layer": "T",
-      "severity": "high",
-      "check": "host-canonicalisation",
-      "detail": "https://tigg3s.com/ ends at https://tigg3s.com/",
-      "fix": "301 all variants to https://www.tigg3s.com/",
-      "url": null,
-      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
-    },
-    {
-      "layer": "T",
-      "severity": "high",
-      "check": "host-canonicalisation",
       "detail": "http://tigg3s.com/ ends at http://tigg3s.com/",
-      "fix": "301 all variants to https://www.tigg3s.com/",
+      "fix": "301 all variants to https://tigg3s.com/",
       "url": null,
-      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
+      "how": null
     },
     {
-      "layer": "P",
+      "layer": "T",
       "severity": "high",
-      "check": "lcp",
-      "detail": "lab LCP 5.0s (good \u22642.5s)",
-      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "check": "host-canonicalisation",
+      "detail": "http://www.tigg3s.com/ ends at http://tigg3s.com/",
+      "fix": "301 all variants to https://tigg3s.com/",
       "url": null,
-      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
+      "how": null
+    },
+    {
+      "layer": "A",
+      "severity": "high",
+      "check": "extractable-text",
+      "detail": "homepage has 56 words of text",
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "url": null,
+      "how": null
     },
     {
       "layer": "O",
       "severity": "medium",
-      "check": "canonical",
-      "detail": "points to https://tigg3s.com/",
-      "fix": "Self-reference unless intentional",
-      "url": "https://www.tigg3s.com/",
-      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
+      "check": "thin-content",
+      "detail": "56 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigg3s.com/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "237 words (<250)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://tigg3s.com/about.html",
+      "how": null
     },
     {
       "layer": "O",
@@ -103,17 +102,35 @@
       "check": "expected-page",
       "detail": "no 'contact/booking' page found (looked for: contact, booking, press)",
       "fix": "Add a dedicated contact/booking page and link it from the navigation",
-      "url": "https://www.tigg3s.com",
-      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+      "url": "https://tigg3s.com",
+      "how": null
     },
     {
-      "layer": "E",
+      "layer": "O",
       "severity": "medium",
-      "check": "brand-name",
-      "detail": "canonical name 'www.tigg3s.com' not used consistently (title: 'TIGGES \u2014 Family and ventures hub')",
-      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'Tigges family' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://tigg3s.com",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'DJ URBANT' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://tigg3s.com",
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "medium",
+      "check": "lcp",
+      "detail": "lab LCP 2.9s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
-      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name."
+      "how": null
     },
     {
       "layer": "O",
@@ -121,15 +138,15 @@
       "check": "alt-text",
       "detail": "1/2 images lack alt",
       "fix": "Describe images; include service/location naturally",
-      "url": "https://www.tigg3s.com/",
-      "how": "Media Library \u2192 image \u2192 Alternative Text."
+      "url": "https://tigg3s.com/",
+      "how": null
     }
   ],
   "pages": [
     {
-      "url": "https://www.tigg3s.com/",
+      "url": "https://tigg3s.com/",
       "status": 200,
-      "bytes": 16670,
+      "bytes": 13422,
       "title": "TIGGES \u2014 Family and ventures hub",
       "description": "TIGGES is the Tigges family and ventures hub: art, architecture, music with DJ URBANT, Set Radar, and GTA VI.AI.",
       "robots": "",
@@ -138,19 +155,42 @@
       "h1": [
         "Family and ventures"
       ],
-      "h2_count": 8,
+      "h2_count": 6,
       "canonical": "https://tigg3s.com/",
       "lang": "en-GB",
-      "words": 300,
+      "words": 56,
       "img_total": 2,
       "img_no_alt": 1,
       "ld_types": [
-        "Answer",
-        "FAQPage",
         "Organization",
         "Person",
-        "Question",
         "WebSite"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigg3s.com/about.html",
+      "status": 200,
+      "bytes": 10268,
+      "title": "About TIGGES \u2014 Family and ventures",
+      "description": "About the TIGGES hub: Tigges family studios for art and architecture, plus ventures including DJ URBANT, Set Radar, and GTA VI.AI.",
+      "robots": "",
+      "og_image": "https://tigg3s.com/assets/og.jpg",
+      "og_description": "About the TIGGES hub: Tigges family studios for art and architecture, plus ventures including DJ URBANT, Set Radar, and GTA VI.AI.",
+      "h1": [
+        "About TIGGES"
+      ],
+      "h2_count": 1,
+      "canonical": "https://tigg3s.com/about.html",
+      "lang": "en-GB",
+      "words": 237,
+      "img_total": 1,
+      "img_no_alt": 0,
+      "ld_types": [
+        "AboutPage",
+        "Answer",
+        "FAQPage",
+        "Question"
       ],
       "pdf_links": []
     }

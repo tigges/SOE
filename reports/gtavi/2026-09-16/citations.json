@@ -1,0 +1,28 @@
+{
+  "run": "2026-09-16T15:45",
+  "summary": {
+    "ok": 0,
+    "mismatch": 0,
+    "unreachable": 0,
+    "manual": 0,
+    "todo": 0,
+    "ignore": 0
+  },
+  "listings": [],
+  "gaps": {
+    "core": [
+      "Google News Publisher Center",
+      "Bing PubHub",
+      "Wikidata",
+      "Wikipedia"
+    ],
+    "social": [
+      "X",
+      "LinkedIn",
+      "YouTube",
+      "Reddit"
+    ]
+  },
+  "legacy": [],
+  "name_clashes": []
+}

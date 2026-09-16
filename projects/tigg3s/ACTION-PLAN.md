@@ -17,7 +17,17 @@
 
 Footer social (not added as sites): Mixcloud, Instagram `@_urbant_`, YouTube `@DJ_UrbanT`, X `@DJUrbanT`, Twitch `djurbant`, LinkedIn `/in/tigges/`.
 
-## Hub audit (existing 16 Sep run, then re-run after this config)
+## First SOE scores (16 Sep 2026)
+
+| Site | Score | Main gap |
+|---|---|---|
+| TIGGES hub | **92** | LCP; one alt; no contact page (it is a directory) |
+| Art Barbara | 77 | WordPress on-page / schema |
+| Art Leon | 73 | WordPress on-page / schema |
+| Set Radar | 75 | SaaS expected pages (pricing/docs) |
+| GTA VI.AI | 69 | Publisher schema / topic pages |
+| TIGGES ARCHITEKT | 68 | Thin WordPress pages, NAP |
+| DJ URBANT | (existing project) | Already in the Control Room |
 
 - Sitemap: `/` and `/about.html` only. About page already answers “What is TIGGES?”, “Who is DJ URBANT?”, architecture Spain, Set Radar, GTA VI.AI.
 - Schema on the hub: FAQPage + Organization + Person + WebSite (strong for a two-page directory).

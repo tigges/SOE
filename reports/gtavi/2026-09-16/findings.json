@@ -1,0 +1,1182 @@
+{
+  "site": "https://gtavi.ai",
+  "run": "2026-09-16 15:45",
+  "project": {
+    "name": "GTA VI.AI",
+    "slug": "gtavi",
+    "type": "publisher",
+    "platform": "other",
+    "module": "Publisher / content site"
+  },
+  "score": 69,
+  "layers": {
+    "Technical": 77,
+    "On-page": 33,
+    "Structured data": 40,
+    "Entity / NAP": 100,
+    "AI search readiness": 100,
+    "Performance": 72
+  },
+  "meta": {
+    "sitemap_urls": 0,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": true,
+    "lighthouse_runs": [
+      72
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 72,
+        "accessibility": 95,
+        "best-practices": 93,
+        "seo": 92
+      },
+      "lab": {
+        "largest-contentful-paint": 6365,
+        "cumulative-layout-shift": 0.000476,
+        "total-blocking-time": 0
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['Organization', 'NewsMediaOrganization', 'Person']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for Organization (see schema/ templates)",
+      "url": "https://gtavi.ai",
+      "how": null
+    },
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['Article', 'NewsArticle', 'BlogPosting']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for Article (see schema/ templates)",
+      "url": "https://gtavi.ai",
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "https://www.gtavi.ai/ ends at https://www.gtavi.ai/",
+      "fix": "301 all variants to https://gtavi.ai/",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "http://www.gtavi.ai/ ends at https://www.gtavi.ai/",
+      "fix": "301 all variants to https://gtavi.ai/",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "sitemap",
+      "detail": "no URLs found in /sitemap.xml",
+      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'GTA VI.AI'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://gtavi.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "placeholder-text",
+      "detail": "template placeholder text on page: 'Coming soon'",
+      "fix": "Replace builder placeholder copy with real content (it looks unfinished to people and engines)",
+      "url": "https://gtavi.ai/gta-vi/buy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "title-quality",
+      "detail": "spaced/all-caps title 'GTA VI.AI'",
+      "fix": "Use a readable keyword title, not a design label",
+      "url": "https://gtavi.ai/gta-online/income",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://gtavi.ai/gta-online/income/cayo-perico",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://gtavi.ai/gta-online/income/diamond-casino-heist",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://gtavi.ai/gta-online/income/agency-vip-contract",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "high",
+      "check": "h1",
+      "detail": "no H1",
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "url": "https://gtavi.ai/gta-online/income/payphone-hits",
+      "how": null
+    },
+    {
+      "layer": "P",
+      "severity": "high",
+      "check": "lcp",
+      "detail": "lab LCP 6.4s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "9 chars: 'GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "18 chars: 'Charts \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/charts",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "20 chars: 'Database \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/database",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "15 chars: 'Buy \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/gta-vi/buy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "23 chars: 'Predictions \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/gta-vi/intel",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "22 chars: 'GTA Online \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/gta-online",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "24 chars: 'Terms of Use \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/terms",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "24 chars: 'Intelligence \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/intelligence",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "9 chars: 'GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/gta-online/income",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "canonical",
+      "detail": "points to https://gtavi.ai/",
+      "fix": "Self-reference unless intentional",
+      "url": "https://gtavi.ai/gta-online/income",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "67 chars: 'Kosatka + Nightclub (Stacked) \u2014 GTA Online Income Guide \u2014 GTA VI.AI'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "duplicate-title",
+      "detail": "'GTA VI.AI' on 2 pages",
+      "fix": "Make titles unique",
+      "url": "https://gtavi.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'GTA Online economy' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://gtavi.ai",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "keyword-targeting",
+      "detail": "primary keyword 'Shark Card' not in homepage title/H1",
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "url": "https://gtavi.ai",
+      "how": null
+    },
+    {
+      "layer": "T",
+      "severity": "low",
+      "check": "robots-sitemap",
+      "detail": "robots.txt does not declare the sitemap",
+      "fix": "Add 'Sitemap: <url>'",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "18/37 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "12/20 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-v",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "4/39 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/charts",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "4/77 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/database",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "23/31 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/community/polls",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "52/60 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/news",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/16 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi/buy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "21/40 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "51/89 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi/intel",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "5/64 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi/extended-look",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "4/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "11/23 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "4/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "6/34 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/franchise/history",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "11/19 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/franchise/economics",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-1-2/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-iii/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vc/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-sa/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-iv/economy",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "5/36 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-vi/income",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "4/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/intelligence",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "18/37 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income/cayo-perico",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income/diamond-casino-heist",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/12 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income/agency-vip-contract",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "alt-text",
+      "detail": "3/11 images lack alt",
+      "fix": "Describe images; include service/location naturally",
+      "url": "https://gtavi.ai/gta-online/income/payphone-hits",
+      "how": null
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://gtavi.ai/",
+      "status": 200,
+      "bytes": 193446,
+      "title": "GTA VI.AI",
+      "description": "Follow the GTA$ \u2014 GTA's dual economy tracked, predicted and explained. Income yields, Shark Card inflation, and what the numbers say about GTA VI.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/home.jpg",
+      "og_description": "Follow the GTA$ \u2014 GTA's dual economy tracked, predicted and explained. Income yields, Shark Card inflation, and what the numbers say about GTA VI.",
+      "h1": [
+        "Follow the GTA$ ."
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/",
+      "lang": "en",
+      "words": 1297,
+      "img_total": 37,
+      "img_no_alt": 18,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-v",
+      "status": 200,
+      "bytes": 334404,
+      "title": "GTA V Story Mode \u2014 GTA VI.AI",
+      "description": "GTA V story mode data \u2014 mission earnings, heist payouts, assassination stock guide, vehicle benchmarks, and the complete $2B money strategy.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/gta-v.jpg",
+      "og_description": "GTA V story mode data \u2014 mission earnings, heist payouts, assassination stock guide, vehicle benchmarks, and the complete $2B money strategy.",
+      "h1": [
+        "Grand Theft Auto V"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-v",
+      "lang": "en",
+      "words": 1705,
+      "img_total": 20,
+      "img_no_alt": 12,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/charts",
+      "status": 200,
+      "bytes": 879801,
+      "title": "Charts \u2014 GTA VI.AI",
+      "description": "Every number in GTA's dual economy \u2014 in-game income, real-world revenue, and what the data says about GTA VI. Filterable, sourced, updated nightly.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/charts.jpg",
+      "og_description": "Every number in GTA's dual economy \u2014 in-game income, real-world revenue, and what the data says about GTA VI. Filterable, sourced, updated nightly.",
+      "h1": [
+        "Charts"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/charts",
+      "lang": "en",
+      "words": 3790,
+      "img_total": 39,
+      "img_no_alt": 4,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/database",
+      "status": 200,
+      "bytes": 1508599,
+      "title": "Database \u2014 GTA VI.AI",
+      "description": "GTA franchise entity database \u2014 2,191 GTA VI entities (Fandom Wiki + Leonida Intel) and 140 GTA V vehicles with Broughy performance benchmarks.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/database.jpg",
+      "og_description": "GTA franchise entity database \u2014 2,191 GTA VI entities (Fandom Wiki + Leonida Intel) and 140 GTA V vehicles with Broughy performance benchmarks.",
+      "h1": [
+        "Economy Register"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/database",
+      "lang": "en",
+      "words": 4078,
+      "img_total": 77,
+      "img_no_alt": 4,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/community/polls",
+      "status": 200,
+      "bytes": 274223,
+      "title": "Community Polls \u2014 GTA VI.AI \u2014 GTA VI.AI",
+      "description": "20 community polls on GTA VI predictions. Vote on launch price, wanted system, hunting, regional economy, and more. See what the community thinks.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/poll/pred-rdr2-wanted-stars.png",
+      "og_description": "20 community polls on GTA VI predictions. Vote on launch price, wanted system, hunting, regional economy, and more. See what the community thinks.",
+      "h1": [
+        "Community Polls"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/community/polls",
+      "lang": "en",
+      "words": 2545,
+      "img_total": 31,
+      "img_no_alt": 23,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/news",
+      "status": 200,
+      "bytes": 202389,
+      "title": "News \u2014 GTA VI \u2014 GTA VI.AI",
+      "description": "GTA VI intelligence feed \u2014 cover art revealed, pre-orders open June 25. 116 items across 11 sources. Rockstar announcements, press coverage, community signal.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/news.jpg",
+      "og_description": "GTA VI intelligence feed \u2014 cover art revealed, pre-orders open June 25. 116 items across 11 sources. Rockstar announcements, press coverage, community signal.",
+      "h1": [
+        "GTA VI News"
+      ],
+      "h2_count": 1,
+      "canonical": "https://gtavi.ai/news",
+      "lang": "en",
+      "words": 3951,
+      "img_total": 60,
+      "img_no_alt": 52,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/buy",
+      "status": 200,
+      "bytes": 266897,
+      "title": "Buy \u2014 GTA VI.AI",
+      "description": "GTA VI pre-orders are LIVE \u2014 confirmed Standard ($79.99) and Ultimate ($99.99) Editions, Vintage Vice City Pack pre-order bonus, regional pricing, and where to buy across PS5 and Xbox Series X|S.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/buy.jpg",
+      "og_description": "GTA VI pre-orders are LIVE \u2014 confirmed Standard ($79.99) and Ultimate ($99.99) Editions, Vintage Vice City Pack pre-order bonus, regional pricing, and where to buy across PS5 and Xbox Series X|S.",
+      "h1": [
+        "Grand Theft Auto VI"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-vi/buy",
+      "lang": "en",
+      "words": 2772,
+      "img_total": 16,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi",
+      "status": 200,
+      "bytes": 300990,
+      "title": "GTA VI \u2014 Intelligence Hub \u2014 GTA VI.AI",
+      "description": "Follow the GTA VI economy \u2014 confidence-scored predictions, income yields, Shark Card projections and launch-day economic analysis.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/vi-intel.jpg",
+      "og_description": "Follow the GTA VI economy \u2014 confidence-scored predictions, income yields, Shark Card projections and launch-day economic analysis.",
+      "h1": [
+        "Grand Theft Auto VI"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-vi",
+      "lang": "en",
+      "words": 1892,
+      "img_total": 40,
+      "img_no_alt": 21,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/intel",
+      "status": 200,
+      "bytes": 580503,
+      "title": "Predictions \u2014 GTA VI.AI",
+      "description": "GTA VI predictions \u2014 confidence-scored from 30 years of GTA data. Launch price, income yields, Shark Card mechanics, and what the franchise numbers say about GTA VI's economy.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/vi-intel.jpg",
+      "og_description": "GTA VI predictions \u2014 confidence-scored from 30 years of GTA data. Launch price, income yields, Shark Card mechanics, and what the franchise numbers say about GTA VI's economy.",
+      "h1": [
+        "Predictions & Insights"
+      ],
+      "h2_count": 6,
+      "canonical": "https://gtavi.ai/gta-vi/intel",
+      "lang": "en",
+      "words": 6292,
+      "img_total": 89,
+      "img_no_alt": 51,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/extended-look",
+      "status": 200,
+      "bytes": 165829,
+      "title": "Extended Look \u2014 Visual Brief \u2014 GTA VI.AI",
+      "description": "GTA VI: An Extended Look, still by still \u2014 official press stills timed to six chapters. Map, missions, personas and systems confirmed in the 26:49 video.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/vi-intel.jpg",
+      "og_description": "GTA VI: An Extended Look, still by still \u2014 official press stills timed to six chapters. Map, missions, personas and systems confirmed in the 26:49 video.",
+      "h1": [
+        "An Extended Look"
+      ],
+      "h2_count": 6,
+      "canonical": "https://gtavi.ai/gta-vi/extended-look",
+      "lang": "en",
+      "words": 1749,
+      "img_total": 64,
+      "img_no_alt": 5,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/economy",
+      "status": 200,
+      "bytes": 205060,
+      "title": "GTA VI Economy \u2014 Multi-Region Currency Union \u2014 GTA VI.AI",
+      "description": "GTA VI projected economy analysis: multi-region currency union (Vice City, Leonida + more), regional purchasing parity, Shark Card mechanics, and the Eurozone analogue. Updated as intelligence confirms.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/vi-intel.jpg",
+      "og_description": "GTA VI projected economy analysis: multi-region currency union (Vice City, Leonida + more), regional purchasing parity, Shark Card mechanics, and the Eurozone analogue. Updated as intelligence confirms.",
+      "h1": [
+        "GTA VI Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-vi/economy",
+      "lang": "en",
+      "words": 3076,
+      "img_total": 12,
+      "img_no_alt": 4,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online",
+      "status": 200,
+      "bytes": 197250,
+      "title": "GTA Online \u2014 GTA VI.AI",
+      "description": "GTA Online economy intelligence \u2014 income sources ranked, Shark Card inflation tracked, weekly bonuses live, and 12 years of economic data. Follow the GTA$. v2",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "GTA Online economy intelligence \u2014 income sources ranked, Shark Card inflation tracked, weekly bonuses live, and 12 years of economic data. Follow the GTA$. v2",
+      "h1": [
+        "GTA Online"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online",
+      "lang": "en",
+      "words": 1603,
+      "img_total": 23,
+      "img_no_alt": 11,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/economy",
+      "status": 200,
+      "bytes": 168951,
+      "title": "GTA Online Economy Model \u2014 GTA VI.AI",
+      "description": "A macroeconomic analysis of GTA Online's in-game circular economy \u2014 wages, spending, savings, Shark Card injections, and the GTA-PPI purchasing power index.",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "A macroeconomic analysis of GTA Online's in-game circular economy \u2014 wages, spending, savings, Shark Card injections, and the GTA-PPI purchasing power index.",
+      "h1": [
+        "GTA Online Economic Model"
+      ],
+      "h2_count": 1,
+      "canonical": "https://gtavi.ai/gta-online/economy",
+      "lang": "en",
+      "words": 2070,
+      "img_total": 12,
+      "img_no_alt": 4,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/franchise/history",
+      "status": 200,
+      "bytes": 176865,
+      "title": "GTA Franchise History & Sales \u2014 GTA VI.AI",
+      "description": "Grand Theft Auto franchise sales history, Metacritic scores, map size progression and DLC timeline across all 8 main titles from 1997 to 2026.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/franchise.jpg",
+      "og_description": "Grand Theft Auto franchise sales history, Metacritic scores, map size progression and DLC timeline across all 8 main titles from 1997 to 2026.",
+      "h1": [
+        "History & Sales"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/franchise/history",
+      "lang": "en",
+      "words": 2015,
+      "img_total": 34,
+      "img_no_alt": 6,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/franchise/economics",
+      "status": 200,
+      "bytes": 153333,
+      "title": "Franchise Economics \u2014 Ten Economies. One Franchise. \u2014 GTA VI.AI",
+      "description": "The complete GTA franchise economic arc from score counter to live MMT sovereign. Every title's circular economy mapped, compared, and contextualised against real-world macroeconomic analogues.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/franchise.jpg",
+      "og_description": "The complete GTA franchise economic arc from score counter to live MMT sovereign. Every title's circular economy mapped, compared, and contextualised against real-world macroeconomic analogues.",
+      "h1": [
+        "Ten Economies. One Franchise."
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/franchise/economics",
+      "lang": "en",
+      "words": 1458,
+      "img_total": 19,
+      "img_no_alt": 11,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-1-2/economy",
+      "status": 200,
+      "bytes": 88045,
+      "title": "GTA 1 & 2 \u2014 Economy \u2014 GTA VI.AI",
+      "description": "Pure score counter \u00b7 Pre-monetary tribute economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "Pure score counter \u00b7 Pre-monetary tribute economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "h1": [
+        "GTA 1 & 2 \u2014 Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-1-2/economy",
+      "lang": "en",
+      "words": 713,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-iii/economy",
+      "status": 200,
+      "bytes": 88057,
+      "title": "GTA III \u2014 Economy \u2014 GTA VI.AI",
+      "description": "One-way extraction \u00b7 Wartime command economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/gta-iii-eco.jpg",
+      "og_description": "One-way extraction \u00b7 Wartime command economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "h1": [
+        "GTA III \u2014 Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-iii/economy",
+      "lang": "en",
+      "words": 717,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vc/economy",
+      "status": 200,
+      "bytes": 91345,
+      "title": "GTA Vice City \u2014 Economy \u2014 GTA VI.AI",
+      "description": "Extraction + first property loop \u00b7 Early industrial capitalism \u00b7 GTAVI.AI franchise economic analysis.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/gta-vc-eco.jpg",
+      "og_description": "Extraction + first property loop \u00b7 Early industrial capitalism \u00b7 GTAVI.AI franchise economic analysis.",
+      "h1": [
+        "GTA Vice City \u2014 Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-vc/economy",
+      "lang": "en",
+      "words": 774,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-sa/economy",
+      "status": 200,
+      "bytes": 94878,
+      "title": "GTA San Andreas \u2014 Economy \u2014 GTA VI.AI",
+      "description": "Multi-stream mixed economy \u00b7 Post-war developing economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/gta-sa-eco.jpg",
+      "og_description": "Multi-stream mixed economy \u00b7 Post-war developing economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "h1": [
+        "GTA San Andreas \u2014 Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-sa/economy",
+      "lang": "en",
+      "words": 803,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-iv/economy",
+      "status": 200,
+      "bytes": 92041,
+      "title": "GTA IV \u2014 Economy \u2014 GTA VI.AI",
+      "description": "Deliberate regression \u00b7 Subsistence / survival economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/gta-iv-eco.jpg",
+      "og_description": "Deliberate regression \u00b7 Subsistence / survival economy \u00b7 GTAVI.AI franchise economic analysis.",
+      "h1": [
+        "GTA IV \u2014 Economy"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-iv/economy",
+      "lang": "en",
+      "words": 874,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-vi/income",
+      "status": 200,
+      "bytes": 323569,
+      "title": "GTA VI Income Sources \u2014 GTA VI.AI",
+      "description": "23 predicted GTA VI Online income sources \u2014 heists, businesses, passive streams and missions across Vice City and Leonida. Confidence-scored, populated from launch data.",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "23 predicted GTA VI Online income sources \u2014 heists, businesses, passive streams and missions across Vice City and Leonida. Confidence-scored, populated from launch data.",
+      "h1": [
+        "GTA VI Online \u2014 Income Sources"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-vi/income",
+      "lang": "en",
+      "words": 3056,
+      "img_total": 36,
+      "img_no_alt": 5,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/terms",
+      "status": 200,
+      "bytes": 57180,
+      "title": "Terms of Use \u2014 GTA VI.AI",
+      "description": "GTAVI.AI terms of use \u2014 community data project, intellectual property notices, and disclaimer of affiliation with Rockstar Games and Take-Two Interactive.",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "GTAVI.AI terms of use \u2014 community data project, intellectual property notices, and disclaimer of affiliation with Rockstar Games and Take-Two Interactive.",
+      "h1": [
+        "Terms of Use"
+      ],
+      "h2_count": 6,
+      "canonical": "https://gtavi.ai/terms",
+      "lang": "en",
+      "words": 646,
+      "img_total": 8,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/privacy",
+      "status": 200,
+      "bytes": 56889,
+      "title": "Privacy Policy \u2014 GTA VI.AI",
+      "description": "GTAVI.AI privacy policy \u2014 no personal data collected, no cookies, privacy-first analytics via Plausible.",
+      "robots": "",
+      "og_image": "https://img.youtube.com/vi/VQRLujxTm3c/maxresdefault.jpg",
+      "og_description": "GTAVI.AI privacy policy \u2014 no personal data collected, no cookies, privacy-first analytics via Plausible.",
+      "h1": [
+        "Privacy Policy"
+      ],
+      "h2_count": 6,
+      "canonical": "https://gtavi.ai/privacy",
+      "lang": "en",
+      "words": 565,
+      "img_total": 8,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/intelligence",
+      "status": 200,
+      "bytes": 76460,
+      "title": "Intelligence \u2014 GTA VI.AI",
+      "description": "Follow the GTA$ \u2014 GTAVI.AI's mission, methodology, and dual-economy model explained. How we source, score and predict GTA's in-game and real-world economies.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/vi-intel.jpg",
+      "og_description": "Follow the GTA$ \u2014 GTAVI.AI's mission, methodology, and dual-economy model explained. How we source, score and predict GTA's in-game and real-world economies.",
+      "h1": [
+        "Follow the GTA$"
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/intelligence",
+      "lang": "en",
+      "words": 778,
+      "img_total": 12,
+      "img_no_alt": 4,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income",
+      "status": 200,
+      "bytes": 193446,
+      "title": "GTA VI.AI",
+      "description": "Follow the GTA$ \u2014 GTA's dual economy tracked, predicted and explained. Income yields, Shark Card inflation, and what the numbers say about GTA VI.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/home.jpg",
+      "og_description": "Follow the GTA$ \u2014 GTA's dual economy tracked, predicted and explained. Income yields, Shark Card inflation, and what the numbers say about GTA VI.",
+      "h1": [
+        "Follow the GTA$ ."
+      ],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/",
+      "lang": "en",
+      "words": 1297,
+      "img_total": 37,
+      "img_no_alt": 18,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/cayo-perico",
+      "status": 200,
+      "bytes": 87899,
+      "title": "Cayo Perico Heist \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "description": "Cayo Perico Heist: $1200k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/online/cayo-perico.png",
+      "og_description": "Cayo Perico Heist: $1200k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "h1": [],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online/income/cayo-perico",
+      "lang": "en",
+      "words": 735,
+      "img_total": 12,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "status": 200,
+      "bytes": 78483,
+      "title": "Kosatka + Nightclub (Stacked) \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "description": "Kosatka + Nightclub (Stacked): $1100k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/online/kosatka-nightclub-stack.png",
+      "og_description": "Kosatka + Nightclub (Stacked): $1100k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "h1": [],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online/income/kosatka-nightclub-stack",
+      "lang": "en",
+      "words": 576,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/diamond-casino-heist",
+      "status": 200,
+      "bytes": 86631,
+      "title": "Diamond Casino Heist \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "description": "Diamond Casino Heist: $800k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/online/diamond-casino-heist.png",
+      "og_description": "Diamond Casino Heist: $800k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "h1": [],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online/income/diamond-casino-heist",
+      "lang": "en",
+      "words": 694,
+      "img_total": 12,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/agency-vip-contract",
+      "status": 200,
+      "bytes": 84114,
+      "title": "Agency / VIP Contract \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "description": "Agency / VIP Contract: $600k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/online/agency-vip-contract.png",
+      "og_description": "Agency / VIP Contract: $600k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "h1": [],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online/income/agency-vip-contract",
+      "lang": "en",
+      "words": 652,
+      "img_total": 12,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    },
+    {
+      "url": "https://gtavi.ai/gta-online/income/payphone-hits",
+      "status": 200,
+      "bytes": 81621,
+      "title": "Payphone Hits \u2014 GTA Online Income Guide \u2014 GTA VI.AI",
+      "description": "Payphone Hits: $510k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "robots": "",
+      "og_image": "https://gtavi.ai/og/online/payphone-hits.png",
+      "og_description": "Payphone Hits: $510k/hr net in GTA Online. Full setup guide, tips, and income analysis. Solo capable.",
+      "h1": [],
+      "h2_count": 0,
+      "canonical": "https://gtavi.ai/gta-online/income/payphone-hits",
+      "lang": "en",
+      "words": 644,
+      "img_total": 11,
+      "img_no_alt": 3,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}

@@ -2,58 +2,85 @@
   "schema": {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://www.tigg3s.com/#entity",
-    "name": "www.tigg3s.com",
-    "url": "https://www.tigg3s.com/"
+    "@id": "https://tigg3s.com/#entity",
+    "name": "TIGGES",
+    "url": "https://tigg3s.com/",
+    "description": "TIGGES is the Tigges family and ventures hub: Art Leon, Art Barbara, architecture in Spain, DJ URBANT, Set Radar, and GTA VI.AI.",
+    "sameAs": [
+      "https://www.instagram.com/_urbant_/?hl=en",
+      "https://www.mixcloud.com/urbant/",
+      "https://www.youtube.com/@DJ_UrbanT",
+      "https://twitter.com/DJUrbanT",
+      "https://www.twitch.tv/djurbant",
+      "https://www.linkedin.com/in/tigges/"
+    ]
   },
   "pages": [
     {
-      "url": "https://www.tigg3s.com/",
-      "title": "TIGGES Family & Ventures | Art, Music & Architecture",
-      "description": "Explore TIGGES: family hub featuring art, architecture, DJ URBANT music, Set Radar, and GTA VI.AI ventures. Discover our creative projects today.",
-      "h1": "TIGGES Family and Ventures",
+      "url": "https://tigg3s.com/",
       "current_title": "TIGGES \u2014 Family and ventures hub",
-      "source": "Claude draft"
+      "title": "TIGGES | TIGGES",
+      "description": "TIGGES at TIGGES. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "TIGGES",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://tigg3s.com/about.html",
+      "current_title": "About TIGGES \u2014 Family and ventures",
+      "title": "About Tigges | TIGGES",
+      "description": "About Tigges at TIGGES. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "About Tigges",
+      "source": "DRAFT (rule-based)"
     }
   ],
   "steps": {
     "host-canonicalisation": {
-      "fix": "301 all variants to https://www.tigg3s.com/",
-      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS.",
-      "count": 3,
+      "fix": "301 all variants to https://tigg3s.com/",
+      "how": null,
+      "count": 2,
       "severity": "high"
     },
-    "lcp": {
-      "fix": "Compress/preload hero image, cut render-blocking JS",
-      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading).",
+    "extractable-text": {
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "how": null,
       "count": 1,
       "severity": "high"
     },
-    "canonical": {
-      "fix": "Self-reference unless intentional",
-      "how": "Yoast \u2192 Advanced \u2192 Canonical URL.",
-      "count": 1,
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": null,
+      "count": 2,
       "severity": "medium"
     },
     "expected-page": {
       "fix": "Add a dedicated contact/booking page and link it from the navigation",
-      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus.",
+      "how": null,
       "count": 1,
       "severity": "medium"
     },
-    "brand-name": {
-      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
-      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name.",
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": null,
+      "count": 2,
+      "severity": "medium"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": null,
       "count": 1,
       "severity": "medium"
     },
     "alt-text": {
       "fix": "Describe images; include service/location naturally",
-      "how": "Media Library \u2192 image \u2192 Alternative Text.",
+      "how": null,
       "count": 1,
       "severity": "low"
     }
   },
-  "llms_summary": "www.tigg3s.com",
-  "questions": []
+  "llms_summary": "TIGGES TIGGES is the Tigges family and ventures hub: Art Leon, Art Barbara, architecture in Spain, DJ URBANT, Set Radar, and GTA VI.AI.",
+  "questions": [
+    "What is TIGGES?",
+    "Who is DJ URBANT?",
+    "Where is the Tigges architecture studio?"
+  ]
 }
