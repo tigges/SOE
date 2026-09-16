@@ -69,8 +69,8 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 | https://www.yuzuhairandbeauty.london/items/senior-stylists | Senior Stylists \| Yuzu Hair | Senior Stylist Job in Ealing Broadway \| Yuzu Hair & Beauty | Yuzu Hair & Beauty is hiring a senior stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply. | Senior stylist vacancy | Claude draft |
 | https://www.yuzuhairandbeauty.london/items/stylists | Stylists \| Yuzu Hair | Hair Stylist Job in Ealing Broadway \| Yuzu Hair & Beauty | Yuzu Hair & Beauty is hiring a hair stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply. | Stylist vacancy | Claude draft |
 | https://www.yuzuhairandbeauty.london/items/models | Models \| Yuzu Hair | Hair Models Wanted in Ealing \| Yuzu Hair & Beauty | Yuzu Hair & Beauty in Ealing Broadway is looking for hair models. Read what's involved and how to apply to be a model at our salon. | Hair models wanted | Claude draft |
-| https://www.yuzuhairandbeauty.london/terms-and-conditions | TERMS AND CONDITIONS \| Yuzu Hair | Salon Terms, Patch Tests & Cancellation Policy \| Yuzu Hair | Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5. | Terms, patch tests and cancellations | Claude draft |
 | https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1 | OFFERS \| Yuzu Hair | Salon Offers in Ealing: Colour & Blow-Dry Deals \| Yuzu | Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers. | Salon offers at Yuzu, Ealing | Claude draft |
+| https://www.yuzuhairandbeauty.london/terms-and-conditions | TERMS AND CONDITIONS \| Yuzu Hair | Salon Terms, Patch Tests & Cancellation Policy \| Yuzu Hair | Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5. | Terms, patch tests and cancellations | Claude draft |
 | https://www.yuzuhairandbeauty.london/items | Items (List) \| Yuzu Hair | Hairdresser Jobs in Ealing: Join Yuzu Hair & Beauty | Senior stylist, stylist and model vacancies at a Japanese-inspired salon in Dickens Yard, Ealing Broadway. See the roles and apply today. | Join the Yuzu team | Claude draft |
 
 ## 3. Steps on wix
@@ -109,6 +109,8 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Settings → Business info → Business name. Then use the same name in titles, the footer and every profile.
 - **llms.txt-summary** (medium, ×1) — Rewrite the llms.txt summary to describe the business, not a random page  
   _How:_ Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
+- **tbt-inp-proxy** (medium, ×1) — Remove unused apps/widgets and third-party scripts  
+  _How:_ Remove unused apps and third-party embeds; limit animations (Editor → Animations).
 - **alt-text** (low, ×1) — Describe images; include service/location naturally  
   _How:_ Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** (low, ×4) — Set a share image (1200×630)  

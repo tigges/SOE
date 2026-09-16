@@ -1,6 +1,6 @@
 # SOE audit — DJ UrbanT
 
-Site: https://djurbant.com · Run: 2026-09-16 00:41 · Pages crawled: 12 · Sitemap URLs: 10
+Site: https://djurbant.com · Run: 2026-09-16 01:24 · Pages crawled: 12 · Sitemap URLs: 10
 
 ## Score: 63/100
 
@@ -11,9 +11,9 @@ Site: https://djurbant.com · Run: 2026-09-16 00:41 · Pages crawled: 12 · Site
 | Structured data | 40 |
 | Entity / NAP | 100 |
 | AI search readiness | 90 |
-| Performance | 57 |
+| Performance | 54 |
 
-Lighthouse (mobile lab): performance 57, accessibility 100, best-practices 96, seo 92 · LCP 5.9s · TBT 600ms · CLS 0.10
+Lighthouse (mobile lab): performance 54, accessibility 100, best-practices 96, seo 92 · LCP 5.3s · TBT 802ms · CLS 0.14
 
 Schema types found: none
 AI bots blocked: {'search': [], 'training': []} · llms.txt: False
@@ -44,7 +44,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /wp-login.php |
 | high | O | noindex | page is noindex but linked/in sitemap | Remove noindex or drop from sitemap | /wp-login.php |
 | high | A | extractable-text | homepage has 55 words of text | AI answers quote text: add concise factual paragraphs (who/what/where/price/hours) | / |
-| high | P | lcp | lab LCP 5.9s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| high | P | lcp | lab LCP 5.3s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | O | thin-content | 55 words (<250) | Expand with useful, specific text (services, FAQs, proof) | / |
 | medium | O | title-length | 24 chars: 'Hello world! – DJ UrbanT' | Aim for 30–60 chars: primary keyword + location/brand | /hello-world/ |
 | medium | O | thin-content | 134 words (<250) | Expand with useful, specific text (services, FAQs, proof) | /hello-world/ |
@@ -68,7 +68,8 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | expected-page | no 'about/bio' page found (looked for: about, bio) | Add a dedicated about/bio page and link it from the navigation | / |
 | medium | O | expected-page | no 'events' page found (looked for: event, gig, tour, dates) | Add a dedicated events page and link it from the navigation | / |
 | medium | O | keyword-targeting | primary keyword 'bass house DJ London' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
-| medium | P | tbt-inp-proxy | TBT 600ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
+| medium | P | tbt-inp-proxy | TBT 802ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
+| medium | P | cls | CLS 0.14 | Reserve space for images/embeds | / |
 | low | O | alt-text | 1/3 images lack alt | Describe images; include service/location naturally | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
 | low | O | alt-text | 1/3 images lack alt | Describe images; include service/location naturally | /hello-world/ |
@@ -102,6 +103,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 - **expected-page** — Pages → Add New (Elementor), then add it to Appearance → Menus.
 - **keyword-targeting** — Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).
 - **tbt-inp-proxy** — Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets.
+- **cls** — Set image dimensions and reserve space for embeds; turn on Elementor 'Optimized DOM output'.
 - **alt-text** — Media Library → image → Alternative Text.
 - **og-image** — Yoast → Social → Facebook image (1200×630). A site default is in Yoast → Settings → Site basics.
 - **llms.txt** — Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways → Application → Access details).

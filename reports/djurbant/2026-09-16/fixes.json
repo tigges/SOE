@@ -187,6 +187,12 @@
       "count": 1,
       "severity": "medium"
     },
+    "cls": {
+      "fix": "Reserve space for images/embeds",
+      "how": "Set image dimensions and reserve space for embeds; turn on Elementor 'Optimized DOM output'.",
+      "count": 1,
+      "severity": "medium"
+    },
     "alt-text": {
       "fix": "Describe images; include service/location naturally",
       "how": "Media Library \u2192 image \u2192 Alternative Text.",

@@ -62,6 +62,8 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).
 - **tbt-inp-proxy** (medium, ×1) — Remove unused apps/widgets and third-party scripts  
   _How:_ Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets.
+- **cls** (medium, ×1) — Reserve space for images/embeds  
+  _How:_ Set image dimensions and reserve space for embeds; turn on Elementor 'Optimized DOM output'.
 - **alt-text** (low, ×2) — Describe images; include service/location naturally  
   _How:_ Media Library → image → Alternative Text.
 - **og-image** (low, ×12) — Set a share image (1200×630)  

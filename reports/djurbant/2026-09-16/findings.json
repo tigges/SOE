@@ -1,6 +1,6 @@
 {
   "site": "https://djurbant.com",
-  "run": "2026-09-16 00:41",
+  "run": "2026-09-16 01:24",
   "project": {
     "name": "DJ UrbanT",
     "slug": "djurbant",
@@ -15,7 +15,7 @@
     "Structured data": 40,
     "Entity / NAP": 100,
     "AI search readiness": 90,
-    "Performance": 57
+    "Performance": 54
   },
   "meta": {
     "sitemap_urls": 10,
@@ -26,19 +26,19 @@
     },
     "llms_txt": false,
     "lighthouse_runs": [
-      57
+      54
     ],
     "lighthouse": {
       "scores": {
-        "performance": 57,
+        "performance": 54,
         "accessibility": 100,
         "best-practices": 96,
         "seo": 92
       },
       "lab": {
-        "largest-contentful-paint": 5850.95,
-        "cumulative-layout-shift": 0.096186537980417,
-        "total-blocking-time": 599.5
+        "largest-contentful-paint": 5257.682500000001,
+        "cumulative-layout-shift": 0.1386117781436742,
+        "total-blocking-time": 802
       }
     }
   },
@@ -245,7 +245,7 @@
       "layer": "P",
       "severity": "high",
       "check": "lcp",
-      "detail": "lab LCP 5.9s (good \u22642.5s)",
+      "detail": "lab LCP 5.3s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
       "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
@@ -461,10 +461,19 @@
       "layer": "P",
       "severity": "medium",
       "check": "tbt-inp-proxy",
-      "detail": "TBT 600ms (INP risk)",
+      "detail": "TBT 802ms (INP risk)",
       "fix": "Remove unused apps/widgets and third-party scripts",
       "url": null,
       "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."
+    },
+    {
+      "layer": "P",
+      "severity": "medium",
+      "check": "cls",
+      "detail": "CLS 0.14",
+      "fix": "Reserve space for images/embeds",
+      "url": null,
+      "how": "Set image dimensions and reserve space for embeds; turn on Elementor 'Optimized DOM output'."
     },
     {
       "layer": "O",
@@ -778,7 +787,7 @@
     {
       "url": "https://djurbant.com/admin/",
       "status": 200,
-      "bytes": 7971,
+      "bytes": 7972,
       "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
       "description": "",
       "robots": "max-image-preview:large, noindex, noarchive",
@@ -842,7 +851,7 @@
     {
       "url": "https://djurbant.com/wp-admin/",
       "status": 200,
-      "bytes": 7974,
+      "bytes": 7975,
       "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
       "description": "",
       "robots": "max-image-preview:large, noindex, noarchive",
