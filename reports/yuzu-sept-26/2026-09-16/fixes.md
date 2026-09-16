@@ -65,34 +65,19 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://tigges.github.io/YUZU_SEPT_26/ | Yuzu Hair & Beauty · Ealing Broadway | Hair Salon Ealing \| Yuzu Hair & Beauty Dickens Yard | Japanese-inspired hair salon in Ealing Broadway. Cuts, colour, balayage & Brazilian blow-dry at Dickens Yard, W5 2TD. Book online or call 020 8840 2244. | Hair Salon Ealing Broadway – Yuzu Hair & Beauty | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/hairdresser-ealing-broadway |  | Hairdresser Ealing Broadway \| Yuzu Dickens Yard W5 | Expert hairdressers at Yuzu in Ealing Broadway. Located in Dickens Yard near the station. Open Tuesday-Saturday. Book your appointment online today. | Hairdresser Ealing Broadway at Dickens Yard | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/japanese-hair-salon-london |  | Japanese Hair Salon London \| Yuzu Ealing Broadway | Experience Japanese-inspired hair care at Yuzu in Ealing, London. Traditional techniques with modern styling at Dickens Yard. Book your visit now. | Japanese Hair Salon in London – Yuzu Ealing | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/services |  | Hair Services Ealing \| Balayage, Colour & Blow Dry | Hair services at Yuzu Ealing: balayage, colour, Brazilian blow-dry, cuts and Japanese head spa. View our treatments and book online at Dickens Yard. | Hair Services at Yuzu Ealing Broadway | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/prices |  | Hair Salon Prices \| Yuzu Ealing Broadway W5 2TD | Transparent pricing for cuts, colour, balayage and treatments at Yuzu Hair & Beauty in Ealing. View our price menu or call 020 8840 2244 for details. | Prices at Yuzu Hair & Beauty Ealing | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/contact |  | Contact Yuzu Hair Salon \| Ealing Broadway W5 2TD | Visit Yuzu at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Call 020 8840 2244 or email info@yuzuhairandbeauty.co.uk. Near Ealing Broadway station. | Contact Yuzu Hair & Beauty Ealing | Claude draft |
-| https://tigges.github.io/YUZU_SEPT_26/about |  | About Yuzu Hair & Beauty \| Japanese Salon Ealing | Meet the team at Yuzu Hair & Beauty in Ealing Broadway. Japanese-inspired salon at Dickens Yard since 2016. Learn about our stylists and approach. | About Yuzu Hair & Beauty | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/ | Hair Salon Ealing Broadway \| Yuzu Hair & Beauty | Hair Salon Ealing Broadway \| Yuzu Hair & Beauty | Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today. | Hair salon Ealing: Japanese-inspired cuts & colour | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/services.html | Hair Salon Services in Ealing \| Yuzu Hair | Balayage Ealing \| Yuzu Hair & Beauty Services | Balayage, hair colour, Brazilian blow-dry and cuts at Yuzu Hair & Beauty, Dickens Yard, Ealing Broadway. View services and book your appointment online. | Balayage Ealing: colour, cuts & treatments at Yuzu | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/prices.html | Hair Price List Ealing Broadway \| Yuzu Hair | Brazilian Blow Dry Ealing Prices \| Yuzu Hair | Brazilian blow-dry, balayage, colour and cut prices at Yuzu Hair & Beauty in Ealing. Senior and stylist menus available. Call 020 8840 2244 to book. | Brazilian blow dry Ealing: prices at Yuzu Hair | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/contact.html | Contact the Hairdresser Ealing Broadway | Hairdresser Ealing Broadway \| Contact Yuzu Hair | Find Yuzu Hair & Beauty at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Phone 020 8840 2244. Hours Tue–Fri 10–8, Sat 9–6. Book your appointment now. | Hairdresser Ealing Broadway: contact Yuzu Hair | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/about.html | About the Team at Yuzu Hair Ealing | Japanese Hair Salon London \| About Yuzu Ealing | Meet the stylists at Yuzu Hair & Beauty, a Japanese hair salon in Dickens Yard, Ealing Broadway. Expert cuts, colour and Brazilian blow-dry treatments. | Japanese hair salon London: meet the Yuzu team | Claude draft |
+| https://tigges.github.io/YUZU_SEPT_26/questions.html | Questions at the Hair Salon in Ealing | Hair Colour Ealing FAQs \| Yuzu Hair & Beauty | Hair colour patch tests, haircut prices, opening hours and directions to Yuzu Hair & Beauty next to Ealing Broadway station. Get answers and book today. | Hair colour Ealing: your questions answered | Claude draft |
 
 ## 3. Steps on other
 
-- **schema-missing** (critical, ×1) — Add JSON-LD for LocalBusiness (see schema/ templates)
 - **host-canonicalisation** (high, ×2) — 301 all variants to https://tigges.github.io/YUZU_SEPT_26/
-- **sitemap** (high, ×1) — Generate an XML sitemap and submit it in GSC/Bing
-- **h1** (high, ×1) — Add exactly one descriptive H1 containing the primary topic
-- **js-only-links** (high, ×1) — Render navigation and key content server-side so crawlers and AI bots can follow links
-- **nap-phone** (high, ×1) — Show the phone in the footer on every page
-- **nap-postcode** (high, ×1) — Show the full address in the footer
-- **extractable-text** (high, ×1) — AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)
-- **lcp** (high, ×1) — Compress/preload hero image, cut render-blocking JS
-- **robots.txt** (medium, ×1) — Publish robots.txt with Sitemap: line
-- **thin-content** (medium, ×1) — Expand with useful, specific text (services, FAQs, proof)
-- **expected-page** (medium, ×4) — Add a dedicated prices page and link it from the navigation
-- **keyword-targeting** (medium, ×3) — Map each primary keyword to one page and use it in title + H1
-- **answer-content** (medium, ×1) — Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)
-- **og-image** (low, ×1) — Set a share image (1200×630)
+- **content-in-pdf** (medium, ×1) — Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download
+- **lcp** (medium, ×1) — Compress/preload hero image, cut render-blocking JS
 - **email-domain** (low, ×1) — Use an address on the site domain, or redirect the old domain to the site
-- **profile-link** (low, ×4) — Link profiles and add them to schema sameAs
-- **llms.txt** (low, ×1) — Optional: publish /llms.txt (cheap, low evidence of impact)
 
 ## 4. llms.txt summary
 

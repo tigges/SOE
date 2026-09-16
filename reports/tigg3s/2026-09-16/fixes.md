@@ -18,7 +18,7 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 
 | Page | Now | Proposed title | Proposed description | H1 | Source |
 |---|---|---|---|---|---|
-| https://www.tigg3s.com/ | TIGGES — Family and ventures hub | TIGGES Family & Ventures Hub \| Art, Music & Tech | Explore the TIGGES family ventures: art, architecture, DJ URBANT music, Set Radar, and GTA VI.AI. Discover our creative projects today. | TIGGES Family and Ventures | Claude draft |
+| https://www.tigg3s.com/ | TIGGES — Family and ventures hub | TIGGES Family & Ventures \| Art, Music & Architecture | Explore TIGGES: family hub featuring art, architecture, DJ URBANT music, Set Radar, and GTA VI.AI ventures. Discover our creative projects today. | TIGGES Family and Ventures | Claude draft |
 
 ## 3. Steps on wordpress
 

@@ -56,166 +56,74 @@
   "pages": [
     {
       "url": "https://tigges.github.io/YUZU_SEPT_26/",
-      "title": "Hair Salon Ealing | Yuzu Hair & Beauty Dickens Yard",
-      "description": "Japanese-inspired hair salon in Ealing Broadway. Cuts, colour, balayage & Brazilian blow-dry at Dickens Yard, W5 2TD. Book online or call 020 8840 2244.",
-      "h1": "Hair Salon Ealing Broadway \u2013 Yuzu Hair & Beauty",
-      "current_title": "Yuzu Hair & Beauty \u00b7 Ealing Broadway",
+      "title": "Hair Salon Ealing Broadway | Yuzu Hair & Beauty",
+      "description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.",
+      "h1": "Hair salon Ealing: Japanese-inspired cuts & colour",
+      "current_title": "Hair Salon Ealing Broadway | Yuzu Hair & Beauty",
       "source": "Claude draft"
     },
     {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/hairdresser-ealing-broadway",
-      "title": "Hairdresser Ealing Broadway | Yuzu Dickens Yard W5",
-      "description": "Expert hairdressers at Yuzu in Ealing Broadway. Located in Dickens Yard near the station. Open Tuesday-Saturday. Book your appointment online today.",
-      "h1": "Hairdresser Ealing Broadway at Dickens Yard",
-      "current_title": "",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/services.html",
+      "title": "Balayage Ealing | Yuzu Hair & Beauty Services",
+      "description": "Balayage, hair colour, Brazilian blow-dry and cuts at Yuzu Hair & Beauty, Dickens Yard, Ealing Broadway. View services and book your appointment online.",
+      "h1": "Balayage Ealing: colour, cuts & treatments at Yuzu",
+      "current_title": "Hair Salon Services in Ealing | Yuzu Hair",
       "source": "Claude draft"
     },
     {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/japanese-hair-salon-london",
-      "title": "Japanese Hair Salon London | Yuzu Ealing Broadway",
-      "description": "Experience Japanese-inspired hair care at Yuzu in Ealing, London. Traditional techniques with modern styling at Dickens Yard. Book your visit now.",
-      "h1": "Japanese Hair Salon in London \u2013 Yuzu Ealing",
-      "current_title": "",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/prices.html",
+      "title": "Brazilian Blow Dry Ealing Prices | Yuzu Hair",
+      "description": "Brazilian blow-dry, balayage, colour and cut prices at Yuzu Hair & Beauty in Ealing. Senior and stylist menus available. Call 020 8840 2244 to book.",
+      "h1": "Brazilian blow dry Ealing: prices at Yuzu Hair",
+      "current_title": "Hair Price List Ealing Broadway | Yuzu Hair",
       "source": "Claude draft"
     },
     {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/services",
-      "title": "Hair Services Ealing | Balayage, Colour & Blow Dry",
-      "description": "Hair services at Yuzu Ealing: balayage, colour, Brazilian blow-dry, cuts and Japanese head spa. View our treatments and book online at Dickens Yard.",
-      "h1": "Hair Services at Yuzu Ealing Broadway",
-      "current_title": "",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/contact.html",
+      "title": "Hairdresser Ealing Broadway | Contact Yuzu Hair",
+      "description": "Find Yuzu Hair & Beauty at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Phone 020 8840 2244. Hours Tue\u2013Fri 10\u20138, Sat 9\u20136. Book your appointment now.",
+      "h1": "Hairdresser Ealing Broadway: contact Yuzu Hair",
+      "current_title": "Contact the Hairdresser Ealing Broadway",
       "source": "Claude draft"
     },
     {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/prices",
-      "title": "Hair Salon Prices | Yuzu Ealing Broadway W5 2TD",
-      "description": "Transparent pricing for cuts, colour, balayage and treatments at Yuzu Hair & Beauty in Ealing. View our price menu or call 020 8840 2244 for details.",
-      "h1": "Prices at Yuzu Hair & Beauty Ealing",
-      "current_title": "",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/about.html",
+      "title": "Japanese Hair Salon London | About Yuzu Ealing",
+      "description": "Meet the stylists at Yuzu Hair & Beauty, a Japanese hair salon in Dickens Yard, Ealing Broadway. Expert cuts, colour and Brazilian blow-dry treatments.",
+      "h1": "Japanese hair salon London: meet the Yuzu team",
+      "current_title": "About the Team at Yuzu Hair Ealing",
       "source": "Claude draft"
     },
     {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/contact",
-      "title": "Contact Yuzu Hair Salon | Ealing Broadway W5 2TD",
-      "description": "Visit Yuzu at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Call 020 8840 2244 or email info@yuzuhairandbeauty.co.uk. Near Ealing Broadway station.",
-      "h1": "Contact Yuzu Hair & Beauty Ealing",
-      "current_title": "",
-      "source": "Claude draft"
-    },
-    {
-      "url": "https://tigges.github.io/YUZU_SEPT_26/about",
-      "title": "About Yuzu Hair & Beauty | Japanese Salon Ealing",
-      "description": "Meet the team at Yuzu Hair & Beauty in Ealing Broadway. Japanese-inspired salon at Dickens Yard since 2016. Learn about our stylists and approach.",
-      "h1": "About Yuzu Hair & Beauty",
-      "current_title": "",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/questions.html",
+      "title": "Hair Colour Ealing FAQs | Yuzu Hair & Beauty",
+      "description": "Hair colour patch tests, haircut prices, opening hours and directions to Yuzu Hair & Beauty next to Ealing Broadway station. Get answers and book today.",
+      "h1": "Hair colour Ealing: your questions answered",
+      "current_title": "Questions at the Hair Salon in Ealing",
       "source": "Claude draft"
     }
   ],
   "steps": {
-    "schema-missing": {
-      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
-      "how": null,
-      "count": 1,
-      "severity": "critical"
-    },
     "host-canonicalisation": {
       "fix": "301 all variants to https://tigges.github.io/YUZU_SEPT_26/",
       "how": null,
       "count": 2,
       "severity": "high"
     },
-    "sitemap": {
-      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+    "content-in-pdf": {
+      "fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download",
       "how": null,
       "count": 1,
-      "severity": "high"
-    },
-    "h1": {
-      "fix": "Add exactly one descriptive H1 containing the primary topic",
-      "how": null,
-      "count": 1,
-      "severity": "high"
-    },
-    "js-only-links": {
-      "fix": "Render navigation and key content server-side so crawlers and AI bots can follow links",
-      "how": null,
-      "count": 1,
-      "severity": "high"
-    },
-    "nap-phone": {
-      "fix": "Show the phone in the footer on every page",
-      "how": null,
-      "count": 1,
-      "severity": "high"
-    },
-    "nap-postcode": {
-      "fix": "Show the full address in the footer",
-      "how": null,
-      "count": 1,
-      "severity": "high"
-    },
-    "extractable-text": {
-      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
-      "how": null,
-      "count": 1,
-      "severity": "high"
+      "severity": "medium"
     },
     "lcp": {
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "how": null,
       "count": 1,
-      "severity": "high"
-    },
-    "robots.txt": {
-      "fix": "Publish robots.txt with Sitemap: line",
-      "how": null,
-      "count": 1,
       "severity": "medium"
-    },
-    "thin-content": {
-      "fix": "Expand with useful, specific text (services, FAQs, proof)",
-      "how": null,
-      "count": 1,
-      "severity": "medium"
-    },
-    "expected-page": {
-      "fix": "Add a dedicated prices page and link it from the navigation",
-      "how": null,
-      "count": 4,
-      "severity": "medium"
-    },
-    "keyword-targeting": {
-      "fix": "Map each primary keyword to one page and use it in title + H1",
-      "how": null,
-      "count": 3,
-      "severity": "medium"
-    },
-    "answer-content": {
-      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
-      "how": null,
-      "count": 1,
-      "severity": "medium"
-    },
-    "og-image": {
-      "fix": "Set a share image (1200\u00d7630)",
-      "how": null,
-      "count": 1,
-      "severity": "low"
     },
     "email-domain": {
       "fix": "Use an address on the site domain, or redirect the old domain to the site",
-      "how": null,
-      "count": 1,
-      "severity": "low"
-    },
-    "profile-link": {
-      "fix": "Link profiles and add them to schema sameAs",
-      "how": null,
-      "count": 4,
-      "severity": "low"
-    },
-    "llms.txt": {
-      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
       "how": null,
       "count": 1,
       "severity": "low"

@@ -1,6 +1,6 @@
 # SOE audit — www.tigg3s.com
 
-Site: https://www.tigg3s.com · Run: 2026-09-16 12:51 · Pages crawled: 1 · Sitemap URLs: 1
+Site: https://www.tigg3s.com · Run: 2026-09-16 13:43 · Pages crawled: 1 · Sitemap URLs: 1
 
 ## Score: 90/100
 
@@ -11,9 +11,9 @@ Site: https://www.tigg3s.com · Run: 2026-09-16 12:51 · Pages crawled: 1 · Sit
 | Structured data | 100 |
 | Entity / NAP | 96 |
 | AI search readiness | 100 |
-| Performance | 73 |
+| Performance | 75 |
 
-Lighthouse (mobile lab): performance 73, accessibility 100, best-practices 100, seo 100 · LCP 5.1s · TBT 0ms · CLS 0.00
+Lighthouse (mobile lab): performance 75, accessibility 100, best-practices 100, seo 100 · LCP 5.0s · TBT 0ms · CLS 0.00
 
 Schema types found: Answer, FAQPage, Organization, Person, Question, WebSite
 AI bots blocked: {'search': [], 'training': []} · llms.txt: True
@@ -25,7 +25,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | high | T | host-canonicalisation | http://www.tigg3s.com/ ends at http://tigg3s.com/ | 301 all variants to https://www.tigg3s.com/ | / |
 | high | T | host-canonicalisation | https://tigg3s.com/ ends at https://tigg3s.com/ | 301 all variants to https://www.tigg3s.com/ | / |
 | high | T | host-canonicalisation | http://tigg3s.com/ ends at http://tigg3s.com/ | 301 all variants to https://www.tigg3s.com/ | / |
-| high | P | lcp | lab LCP 5.1s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| high | P | lcp | lab LCP 5.0s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | O | canonical | points to https://tigg3s.com/ | Self-reference unless intentional | / |
 | medium | O | expected-page | no 'contact/booking' page found (looked for: contact, booking, press) | Add a dedicated contact/booking page and link it from the navigation | / |
 | medium | E | brand-name | canonical name 'www.tigg3s.com' not used consistently (title: 'TIGGES — Family and ventures hub') | Use one exact business name everywhere (site, GBP, directories, schema) | / |

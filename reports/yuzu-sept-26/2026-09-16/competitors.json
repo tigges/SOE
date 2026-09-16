@@ -5,14 +5,14 @@
     "score": 75,
     "layers": {
       "Technical": 100,
-      "On-page": 44,
+      "On-page": 45,
       "Structured data": 40,
       "Entity / NAP": 100,
       "AI search readiness": 94,
       "Performance": null
     },
     "pages": 10,
-    "findings": 53,
+    "findings": 52,
     "schema": [
       "BreadcrumbList",
       "EntryPoint",
@@ -25,8 +25,8 @@
       "WebPage",
       "WebSite"
     ],
-    "home_title": "Contact Us - Bella & Bello",
-    "home_words": 169
+    "home_title": "Bella & Bello Studio",
+    "home_words": 244
   },
   {
     "name": "CMF Hairdressing",

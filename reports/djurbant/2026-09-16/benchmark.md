@@ -31,6 +31,8 @@ This site: **64** · Defected: **85** · Calvin Harris: **84** · David Guetta: 
 | Rating markup | 0% | Defected 100%, Calvin Harris 0%, David Guetta 0% | AggregateRating/Review markup on pages that show reviews | yes |
 | Rich internal linking | 0% | Defected 100%, Calvin Harris 4%, David Guetta 8% | 20+ internal links per page (menus, related content) | yes |
 | Substantial pages | 0% | Defected 100%, Calvin Harris 24%, David Guetta 4% | 300+ words of useful text per page |  |
+| llms-full.txt | 0% | Defected 0%, Calvin Harris 100%, David Guetta 0% | Publish /llms-full.txt with full key content | yes |
+| llms.txt | 0% | Defected 0%, Calvin Harris 100%, David Guetta 0% | Publish /llms.txt describing the business |  |
 | Offer markup | 0% | Defected 0%, Calvin Harris 96%, David Guetta 0% | Offer/price markup | yes |
 | Prices in HTML | 0% | Defected 0%, Calvin Harris 96%, David Guetta 0% | Show prices as page text (quotable by AI answers) |  |
 | Product markup | 0% | Defected 0%, Calvin Harris 96%, David Guetta 0% | Product markup (gift cards, retail products) | yes |

@@ -1,8 +1,8 @@
 # SOE audit — Yuzu Hair & Beauty
 
-Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-16 12:55 · Pages crawled: 7 · Sitemap URLs: 7
+Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-16 13:46 · Pages crawled: 7 · Sitemap URLs: 7
 
-## Score: 67/100
+## Score: 65/100
 
 | Layer | Score |
 |---|---|
@@ -11,9 +11,9 @@ Site: https://www.yuzuhairandbeauty.london · Run: 2026-09-16 12:55 · Pages cra
 | Structured data | 40 |
 | Entity / NAP | 92 |
 | AI search readiness | 96 |
-| Performance | 84 |
+| Performance | 70 |
 
-Lighthouse (mobile lab): performance 84, accessibility 96, best-practices 79, seo 85 · LCP 4.1s · TBT 139ms · CLS 0.01
+Lighthouse (mobile lab): performance 70, accessibility 96, best-practices 79, seo 85 · LCP 4.9s · TBT 482ms · CLS 0.01
 
 Schema types found: ImageObject, WebSite
 AI bots blocked: {'search': [], 'training': []} · llms.txt: True
@@ -32,12 +32,12 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | high | O | placeholder-text | template placeholder text on page: 'This is placeholder text' | Replace builder placeholder copy with real content (it looks unfinished to people and engines) | /items/stylists |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /items/models |
 | high | O | placeholder-text | template placeholder text on page: 'This is placeholder text' | Replace builder placeholder copy with real content (it looks unfinished to people and engines) | /items/models |
+| high | O | meta-description | missing | Write a 140–160 char description with a call to action | /o-f-f-e-r-s-1 |
+| high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /o-f-f-e-r-s-1 |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /terms-and-conditions |
 | high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /terms-and-conditions |
 | high | O | meta-description | missing | Write a 140–160 char description with a call to action | /items |
-| high | O | meta-description | missing | Write a 140–160 char description with a call to action | /o-f-f-e-r-s-1 |
-| high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | /o-f-f-e-r-s-1 |
-| high | P | lcp | lab LCP 4.1s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| high | P | lcp | lab LCP 4.9s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | O | title-length | 19 chars: 'H O M E / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | / |
 | medium | O | thin-content | 255 words (<300) | Expand with useful, specific text (services, FAQs, proof) | / |
 | medium | O | thin-content | 248 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /items/senior-stylists |
@@ -45,9 +45,9 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | medium | O | thin-content | 254 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /items/stylists |
 | medium | O | title-length | 18 chars: 'Models / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | /items/models |
 | medium | O | thin-content | 264 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /items/models |
+| medium | O | title-length | 18 chars: 'OFFERS / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | /o-f-f-e-r-s-1 |
 | medium | O | title-length | 24 chars: 'Items (List) / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | /items |
 | medium | O | thin-content | 156 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /items |
-| medium | O | title-length | 18 chars: 'OFFERS / Yuzu Hair' | Aim for 30–60 chars: primary keyword + location/brand | /o-f-f-e-r-s-1 |
 | medium | O | content-in-pdf | 2 PDF(s) linked site-wide — key info (e.g. prices) may be locked in PDF | Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download | /_files/ugd/4ea19e_5ad90785107649c5a308c57cf4f4e75f.pdf |
 | medium | O | expected-page | no 'services' page found (looked for: service, treatment, balayage, colour) | Add a dedicated services page and link it from the navigation | / |
 | medium | O | keyword-targeting | primary keyword 'hair salon Ealing' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
@@ -57,11 +57,12 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | medium | S | schema-sameAs | 'sameAs' not present in any JSON-LD on the site | Include sameAs in the main entity markup | / |
 | medium | E | brand-name | canonical name 'Yuzu Hair & Beauty' not used consistently (title: 'H O M E / Yuzu Hair') | Use one exact business name everywhere (site, GBP, directories, schema) | / |
 | medium | A | llms.txt-summary | summary does not mention ['Ealing'] | Rewrite the llms.txt summary to describe the business, not a random page | / |
+| medium | P | tbt-inp-proxy | TBT 482ms (INP risk) | Remove unused apps/widgets and third-party scripts | / |
 | low | O | alt-text | 2/11 images lack alt | Describe images; include service/location naturally | / |
 | low | O | og-image | no og:image | Set a share image (1200×630) | / |
+| low | O | og-image | no og:image | Set a share image (1200×630) | /o-f-f-e-r-s-1 |
 | low | O | og-image | no og:image | Set a share image (1200×630) | /terms-and-conditions |
 | low | O | og-image | no og:image | Set a share image (1200×630) | /items |
-| low | O | og-image | no og:image | Set a share image (1200×630) | /o-f-f-e-r-s-1 |
 | low | E | email-domain | email info@yuzuhairandbeauty.co.uk is on a different domain from the site | Use an address on the site domain, or redirect the old domain to the site | / |
 | low | E | profile-link | tiktok profile not linked from site | Link profiles and add them to schema sameAs | / |
 
@@ -82,6 +83,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 - **schema-sameAs** — Pages & Menu → page ⋯ → SEO → Advanced SEO → Structured data markup → Add new markup. Paste JSON-LD (max 7,000 chars, up to 5 per page) and check it in the Rich Results Test.
 - **brand-name** — Settings → Business info → Business name. Then use the same name in titles, the footer and every profile.
 - **llms.txt-summary** — Dashboard → SEO → llms.txt → edit the summary paragraph. Once edited it no longer auto-updates.
+- **tbt-inp-proxy** — Remove unused apps and third-party embeds; limit animations (Editor → Animations).
 - **alt-text** — Click the image → Settings → 'What's in the image? Tell Google' (the alt text).
 - **og-image** — Pages & Menu → page ⋯ → Social share → upload a 1200×630 image. The site-wide default is in SEO Settings.
 
@@ -93,8 +95,8 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: True
 | /items/senior-stylists | Senior Stylists / Yuzu Hair | ✗ | 1 | 248 | ImageObject |
 | /items/stylists | Stylists / Yuzu Hair | ✗ | 1 | 254 | ImageObject |
 | /items/models | Models / Yuzu Hair | ✗ | 1 | 264 | ImageObject |
+| /o-f-f-e-r-s-1 | OFFERS / Yuzu Hair | ✗ | 0 | 438 |  |
 | /terms-and-conditions | TERMS AND CONDITIONS / Yuzu Hair | ✗ | 0 | 820 |  |
 | /items | Items (List) / Yuzu Hair | ✗ | 1 | 156 |  |
-| /o-f-f-e-r-s-1 | OFFERS / Yuzu Hair | ✗ | 0 | 438 |  |
 
 _Manual layers not covered by this script: Google Business Profile, reviews, citations, backlinks, rankings, AI-answer visibility — see PLAYBOOK.md §4._

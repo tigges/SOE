@@ -1,5 +1,5 @@
 {
-  "run": "2026-09-16T12:50",
+  "run": "2026-09-16T13:42",
   "ours": {
     "name": "DJ UrbanT",
     "url": "https://djurbant.com",
@@ -340,6 +340,36 @@
       "new_check": false
     },
     {
+      "feature": "site:llms_full",
+      "label": "llms-full.txt",
+      "idea": "Publish /llms-full.txt with full key content",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": true
+    },
+    {
+      "feature": "site:llms_txt",
+      "label": "llms.txt",
+      "idea": "Publish /llms.txt describing the business",
+      "group": "Site",
+      "ours": 0.0,
+      "leaders": {
+        "Defected": 0.0,
+        "Calvin Harris": 1.0,
+        "David Guetta": 0.0
+      },
+      "adoption": 1,
+      "gap": 1.0,
+      "new_check": false
+    },
+    {
       "feature": "schema:Offer",
       "label": "Offer markup",
       "idea": "Offer/price markup",
@@ -550,7 +580,12 @@
         "schema:Brand": 0.96,
         "schema:Offer": 0.96,
         "schema:Product": 0.96,
-        "schema:ProductGroup": 0.24
+        "schema:ProductGroup": 0.24,
+        "site:llms_txt": 1.0,
+        "site:llms_full": 1.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
       },
       "David Guetta": {
         "meta_description": 0.12,
@@ -596,7 +631,10 @@
         "schema:BlogPosting": 0.16,
         "schema:CollectionPage": 0.04,
         "site:llms_txt": 0.0,
-        "site:llms_full": 0.0
+        "site:llms_full": 0.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
       }
     }
   }

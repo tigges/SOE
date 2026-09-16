@@ -1,6 +1,6 @@
 {
   "site": "https://tigges.github.io/YUZU_SEPT_26",
-  "run": "2026-09-16 12:51",
+  "run": "2026-09-16 13:43",
   "project": {
     "name": "Yuzu Hair & Beauty (Sept 26)",
     "slug": "yuzu-sept-26",
@@ -8,50 +8,50 @@
     "platform": "other",
     "module": "Local business"
   },
-  "score": 70,
+  "score": 95,
   "layers": {
-    "Technical": 74,
-    "On-page": 68,
-    "Structured data": 40,
-    "Entity / NAP": 78,
-    "AI search readiness": 76,
-    "Performance": 80
+    "Technical": 87,
+    "On-page": 96,
+    "Structured data": 100,
+    "Entity / NAP": 98,
+    "AI search readiness": 100,
+    "Performance": 92
   },
   "meta": {
-    "sitemap_urls": 0,
-    "schema_types": [],
+    "sitemap_urls": 7,
+    "schema_types": [
+      "Answer",
+      "FAQPage",
+      "GeoCoordinates",
+      "HairSalon",
+      "OpeningHoursSpecification",
+      "PostalAddress",
+      "Question",
+      "ReserveAction"
+    ],
     "ai_bots_blocked": {
       "search": [],
       "training": []
     },
-    "llms_txt": false,
+    "llms_txt": true,
     "lighthouse_runs": [
-      80
+      92
     ],
     "lighthouse": {
       "scores": {
-        "performance": 80,
+        "performance": 92,
         "accessibility": 95,
-        "best-practices": 96,
+        "best-practices": 100,
         "seo": 100
       },
       "lab": {
-        "largest-contentful-paint": 4298.128,
-        "cumulative-layout-shift": 0.06633448311541018,
-        "total-blocking-time": 0
+        "largest-contentful-paint": 2818.691,
+        "cumulative-layout-shift": 0.004981288863658591,
+        "total-blocking-time": 9
       }
     }
   },
   "findings": [
-    {
-      "layer": "S",
-      "severity": "critical",
-      "check": "schema-missing",
-      "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: none)",
-      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
     {
       "layer": "T",
       "severity": "high",
@@ -71,165 +71,21 @@
       "how": null
     },
     {
-      "layer": "T",
-      "severity": "high",
-      "check": "sitemap",
-      "detail": "no URLs found in /sitemap.xml",
-      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
-      "url": null,
-      "how": null
-    },
-    {
       "layer": "O",
-      "severity": "high",
-      "check": "h1",
-      "detail": "no H1",
-      "fix": "Add exactly one descriptive H1 containing the primary topic",
-      "url": "https://tigges.github.io/YUZU_SEPT_26/",
-      "how": null
-    },
-    {
-      "layer": "A",
-      "severity": "high",
-      "check": "js-only-links",
-      "detail": "only the homepage could be crawled: internal links aren't in the HTML",
-      "fix": "Render navigation and key content server-side so crawlers and AI bots can follow links",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "high",
-      "check": "nap-phone",
-      "detail": "configured phone not found on site",
-      "fix": "Show the phone in the footer on every page",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "high",
-      "check": "nap-postcode",
-      "detail": "postcode not found on site",
-      "fix": "Show the full address in the footer",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "A",
-      "severity": "high",
-      "check": "extractable-text",
-      "detail": "homepage has 0 words of text",
-      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
-      "url": null,
+      "severity": "medium",
+      "check": "content-in-pdf",
+      "detail": "2 PDF(s) linked site-wide \u2014 key info (e.g. prices) may be locked in PDF",
+      "fix": "Publish that content as HTML (crawlable, quotable by AI); keep PDF as a download",
+      "url": "https://tigges.github.io/YUZU_SEPT_26/patch-testing.pdf",
       "how": null
     },
     {
       "layer": "P",
-      "severity": "high",
+      "severity": "medium",
       "check": "lcp",
-      "detail": "lab LCP 4.3s (good \u22642.5s)",
+      "detail": "lab LCP 2.8s (good \u22642.5s)",
       "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
-      "how": null
-    },
-    {
-      "layer": "T",
-      "severity": "medium",
-      "check": "robots.txt",
-      "detail": "missing",
-      "fix": "Publish robots.txt with Sitemap: line",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "thin-content",
-      "detail": "0 words (<300)",
-      "fix": "Expand with useful, specific text (services, FAQs, proof)",
-      "url": "https://tigges.github.io/YUZU_SEPT_26/",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'prices' page found (looked for: price, pricing, menu, rates)",
-      "fix": "Add a dedicated prices page and link it from the navigation",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'services' page found (looked for: service, treatment, balayage, colour)",
-      "fix": "Add a dedicated services page and link it from the navigation",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'contact' page found (looked for: contact, find-us, location)",
-      "fix": "Add a dedicated contact page and link it from the navigation",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "expected-page",
-      "detail": "no 'about/team' page found (looked for: about, team, stylist, our-story)",
-      "fix": "Add a dedicated about/team page and link it from the navigation",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "keyword-targeting",
-      "detail": "primary keyword 'hair salon Ealing' not in homepage title/H1",
-      "fix": "Map each primary keyword to one page and use it in title + H1",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "keyword-targeting",
-      "detail": "primary keyword 'hairdresser Ealing Broadway' not in homepage title/H1",
-      "fix": "Map each primary keyword to one page and use it in title + H1",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "keyword-targeting",
-      "detail": "primary keyword 'Japanese hair salon London' not in homepage title/H1",
-      "fix": "Map each primary keyword to one page and use it in title + H1",
-      "url": "https://tigges.github.io/YUZU_SEPT_26",
-      "how": null
-    },
-    {
-      "layer": "A",
-      "severity": "medium",
-      "check": "answer-content",
-      "detail": "no question-style content found",
-      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "O",
-      "severity": "low",
-      "check": "og-image",
-      "detail": "no og:image",
-      "fix": "Set a share image (1200\u00d7630)",
-      "url": "https://tigges.github.io/YUZU_SEPT_26/",
       "how": null
     },
     {
@@ -240,72 +96,177 @@
       "fix": "Use an address on the site domain, or redirect the old domain to the site",
       "url": null,
       "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "low",
-      "check": "profile-link",
-      "detail": "instagram profile not linked from site",
-      "fix": "Link profiles and add them to schema sameAs",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "low",
-      "check": "profile-link",
-      "detail": "facebook profile not linked from site",
-      "fix": "Link profiles and add them to schema sameAs",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "low",
-      "check": "profile-link",
-      "detail": "booking profile not linked from site",
-      "fix": "Link profiles and add them to schema sameAs",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "E",
-      "severity": "low",
-      "check": "profile-link",
-      "detail": "tiktok profile not linked from site",
-      "fix": "Link profiles and add them to schema sameAs",
-      "url": null,
-      "how": null
-    },
-    {
-      "layer": "A",
-      "severity": "low",
-      "check": "llms.txt",
-      "detail": "missing",
-      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
-      "url": null,
-      "how": null
     }
   ],
   "pages": [
     {
       "url": "https://tigges.github.io/YUZU_SEPT_26/",
       "status": 200,
-      "bytes": 1306,
-      "title": "Yuzu Hair & Beauty \u00b7 Ealing Broadway",
-      "description": "Yuzu Hair & Beauty in Ealing Broadway. Japanese-inspired cuts, colour, and care. Book online at Dickens Yard, W5 2TD.",
+      "bytes": 7868,
+      "title": "Hair Salon Ealing Broadway | Yuzu Hair & Beauty",
+      "description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.",
       "robots": "",
-      "og_image": "",
-      "og_description": "",
-      "h1": [],
-      "h2_count": 0,
-      "canonical": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.",
+      "h1": [
+        "Japanese hair salon London \u00b7 hairdresser Ealing Broadway"
+      ],
+      "h2_count": 2,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26",
       "lang": "en-GB",
-      "words": 0,
+      "words": 303,
       "img_total": 0,
       "img_no_alt": 0,
-      "ld_types": [],
+      "ld_types": [
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "ReserveAction"
+      ],
       "pdf_links": []
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/services.html",
+      "status": 200,
+      "bytes": 5202,
+      "title": "Hair Salon Services in Ealing | Yuzu Hair",
+      "description": "Cuts, colour, balayage, treatments and Brazilian blow-dry at Yuzu Hair & Beauty, Dickens Yard, Ealing Broadway. See prices and book online.",
+      "robots": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "Cuts, colour, balayage, treatments and Brazilian blow-dry at Yuzu Hair & Beauty, Dickens Yard, Ealing Broadway. See prices and book online.",
+      "h1": [
+        "Hair salon services in Ealing Broadway"
+      ],
+      "h2_count": 4,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26/services.html",
+      "lang": "en-GB",
+      "words": 341,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/prices.html",
+      "status": 200,
+      "bytes": 8649,
+      "title": "Hair Price List Ealing Broadway | Yuzu Hair",
+      "description": "HTML price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments, senior and stylist menus. Book online or call 020 8840 2244.",
+      "robots": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "HTML price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments, senior and stylist menus. Book online or call 020 8840 2244.",
+      "h1": [
+        "Price list for the hair salon in Ealing"
+      ],
+      "h2_count": 3,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26/prices.html",
+      "lang": "en-GB",
+      "words": 338,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "ReserveAction"
+      ],
+      "pdf_links": [
+        "price-list.pdf"
+      ]
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/contact.html",
+      "status": 200,
+      "bytes": 5527,
+      "title": "Contact the Hairdresser Ealing Broadway",
+      "description": "Find Yuzu Hair & Beauty at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Phone 020 8840 2244. Hours Tue\u2013Fri 10\u20138, Sat 9\u20136.",
+      "robots": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "Find Yuzu Hair & Beauty at 5 Dickens Yard, Longfield Avenue, Ealing W5 2TD. Phone 020 8840 2244. Hours Tue\u2013Fri 10\u20138, Sat 9\u20136.",
+      "h1": [
+        "Contact Yuzu Hair & Beauty in Ealing"
+      ],
+      "h2_count": 4,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26/contact.html",
+      "lang": "en-GB",
+      "words": 322,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress"
+      ],
+      "pdf_links": [
+        "patch-testing.pdf"
+      ]
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/about.html",
+      "status": 200,
+      "bytes": 7535,
+      "title": "About the Team at Yuzu Hair Ealing",
+      "description": "Meet the stylists at Yuzu Hair & Beauty, a Japanese hair salon in Dickens Yard, Ealing Broadway. Cuts, colour and Brazilian blow-dry.",
+      "robots": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "Meet the stylists at Yuzu Hair & Beauty, a Japanese hair salon in Dickens Yard, Ealing Broadway. Cuts, colour and Brazilian blow-dry.",
+      "h1": [
+        "About the stylists at Yuzu Hair & Beauty"
+      ],
+      "h2_count": 0,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26/about.html",
+      "lang": "en-GB",
+      "words": 321,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "ReserveAction"
+      ],
+      "pdf_links": []
+    },
+    {
+      "url": "https://tigges.github.io/YUZU_SEPT_26/questions.html",
+      "status": 200,
+      "bytes": 9521,
+      "title": "Questions at the Hair Salon in Ealing",
+      "description": "Haircut prices, patch tests, hours and how to find Yuzu Hair & Beauty next to Ealing Broadway station. Answers from the Dickens Yard salon.",
+      "robots": "",
+      "og_image": "https://tigges.github.io/YUZU_SEPT_26/assets/clean/hero.jpg",
+      "og_description": "Haircut prices, patch tests, hours and how to find Yuzu Hair & Beauty next to Ealing Broadway station. Answers from the Dickens Yard salon.",
+      "h1": [
+        "Questions about Yuzu Hair & Beauty in Ealing"
+      ],
+      "h2_count": 5,
+      "canonical": "https://tigges.github.io/YUZU_SEPT_26/questions.html",
+      "lang": "en-GB",
+      "words": 329,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [
+        "Answer",
+        "FAQPage",
+        "GeoCoordinates",
+        "HairSalon",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "Question",
+        "ReserveAction"
+      ],
+      "pdf_links": [
+        "patch-testing.pdf"
+      ]
     }
   ]
 }

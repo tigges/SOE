@@ -1,19 +1,28 @@
 {
-  "run": "2026-09-16T12:53",
+  "run": "2026-09-16T13:45",
   "ours": {
     "name": "Yuzu Hair & Beauty (Sept 26)",
     "url": "https://tigges.github.io/YUZU_SEPT_26/?v=clean",
-    "score": 70,
+    "score": 96,
     "layers": {
-      "Technical": 74,
-      "On-page": 76,
-      "Structured data": 40,
-      "Entity / NAP": 78,
-      "AI search readiness": 76,
+      "Technical": 87,
+      "On-page": 96,
+      "Structured data": 100,
+      "Entity / NAP": 98,
+      "AI search readiness": 100,
       "Performance": null
     },
-    "pages": 1,
-    "schema": []
+    "pages": 6,
+    "schema": [
+      "Answer",
+      "FAQPage",
+      "GeoCoordinates",
+      "HairSalon",
+      "OpeningHoursSpecification",
+      "PostalAddress",
+      "Question",
+      "ReserveAction"
+    ]
   },
   "leaders": [
     {
@@ -116,35 +125,35 @@
     "Technical": {
       "score": 100,
       "leader": "Hershesons",
-      "ours": 74
+      "ours": 87
     },
     "On-page": {
       "score": 88,
       "leader": "Hershesons",
-      "ours": 76
+      "ours": 96
     },
     "Structured data": {
       "score": 96,
       "leader": "Ruffians",
-      "ours": 40
+      "ours": 100
     },
     "Entity / NAP": {
       "score": 100,
       "leader": "Hershesons",
-      "ours": 78
+      "ours": 98
     },
     "AI search readiness": {
       "score": 100,
       "leader": "Hershesons",
-      "ours": 76
+      "ours": 100
     }
   },
   "gaps": [
     {
-      "feature": "booking_cta",
-      "label": "Booking link",
-      "idea": "Book / buy call-to-action on every page",
-      "group": "Pages",
+      "feature": "site:blog_sitemap",
+      "label": "Content sitemaps",
+      "idea": "Separate sitemaps for posts/products/locations",
+      "group": "Site",
       "ours": 0.0,
       "leaders": {
         "Hershesons": 1.0,
@@ -154,21 +163,6 @@
       "adoption": 3,
       "gap": 1.0,
       "new_check": true
-    },
-    {
-      "feature": "canonical",
-      "label": "Canonical tag",
-      "idea": "Self-referencing canonical on every page",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 1.0,
-        "Ruffians": 1.0
-      },
-      "adoption": 3,
-      "gap": 1.0,
-      "new_check": false
     },
     {
       "feature": "gift_cards",
@@ -231,64 +225,19 @@
       "new_check": true
     },
     {
-      "feature": "og_image",
-      "label": "Share image (og:image)",
-      "idea": "Share image on every page",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 0.92,
-        "Ruffians": 1.0
-      },
-      "adoption": 3,
-      "gap": 1.0,
-      "new_check": false
-    },
-    {
-      "feature": "long_content",
-      "label": "Substantial pages",
-      "idea": "300+ words of useful text per page",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 1.0,
-        "Ruffians": 0.92
-      },
-      "adoption": 3,
-      "gap": 1.0,
-      "new_check": false
-    },
-    {
       "feature": "twitter_card",
       "label": "Twitter/X card",
       "idea": "Add twitter:card + image for richer shares",
       "group": "Pages",
-      "ours": 0.0,
+      "ours": 0.67,
       "leaders": {
         "Hershesons": 1.0,
         "Headmasters": 1.0,
         "Ruffians": 1.0
       },
       "adoption": 3,
-      "gap": 1.0,
+      "gap": 0.33,
       "new_check": true
-    },
-    {
-      "feature": "site:llms_txt",
-      "label": "llms.txt",
-      "idea": "Publish /llms.txt describing the business",
-      "group": "Site",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 1.0,
-        "Ruffians": 1.0
-      },
-      "adoption": 3,
-      "gap": 1.0,
-      "new_check": false
     },
     {
       "feature": "schema:BreadcrumbList",
@@ -321,21 +270,6 @@
       "new_check": true
     },
     {
-      "feature": "site:blog_sitemap",
-      "label": "Content sitemaps",
-      "idea": "Separate sitemaps for posts/products/locations",
-      "group": "Site",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 1.0,
-        "Ruffians": 0
-      },
-      "adoption": 2,
-      "gap": 1.0,
-      "new_check": true
-    },
-    {
       "feature": "schema:Organization",
       "label": "Organization markup",
       "idea": "Organization markup",
@@ -349,36 +283,6 @@
       "adoption": 2,
       "gap": 1.0,
       "new_check": false
-    },
-    {
-      "feature": "deep_headings",
-      "label": "Structured headings",
-      "idea": "3+ H2 sections per page",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 0.12,
-        "Ruffians": 0.84
-      },
-      "adoption": 2,
-      "gap": 1.0,
-      "new_check": true
-    },
-    {
-      "feature": "social_video",
-      "label": "TikTok / YouTube links",
-      "idea": "Link TikTok/YouTube profiles (and add to sameAs)",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 1.0,
-        "Ruffians": 0.0
-      },
-      "adoption": 2,
-      "gap": 1.0,
-      "new_check": true
     },
     {
       "feature": "site:llms_full",
@@ -396,18 +300,18 @@
       "new_check": true
     },
     {
-      "feature": "tel_link",
-      "label": "Click-to-call",
-      "idea": "tel: links for mobile visitors",
+      "feature": "deep_headings",
+      "label": "Structured headings",
+      "idea": "3+ H2 sections per page",
       "group": "Pages",
-      "ours": 0.0,
+      "ours": 0.67,
       "leaders": {
-        "Hershesons": 0.0,
-        "Headmasters": 1.0,
-        "Ruffians": 0.0
+        "Hershesons": 1.0,
+        "Headmasters": 0.12,
+        "Ruffians": 0.84
       },
-      "adoption": 1,
-      "gap": 1.0,
+      "adoption": 2,
+      "gap": 0.33,
       "new_check": true
     },
     {
@@ -419,7 +323,7 @@
       "leaders": {
         "Hershesons": 0.0,
         "Headmasters": 1.0,
-        "Ruffians": 0
+        "Ruffians": 0.0
       },
       "adoption": 1,
       "gap": 1.0,
@@ -439,21 +343,6 @@
       "adoption": 1,
       "gap": 1.0,
       "new_check": true
-    },
-    {
-      "feature": "prices_html",
-      "label": "Prices in HTML",
-      "idea": "Show prices as page text (quotable by AI answers)",
-      "group": "Pages",
-      "ours": 0.0,
-      "leaders": {
-        "Hershesons": 1.0,
-        "Headmasters": 0.08,
-        "Ruffians": 0.08
-      },
-      "adoption": 1,
-      "gap": 1.0,
-      "new_check": false
     },
     {
       "feature": "schema:SearchAction",
@@ -594,20 +483,20 @@
   "inventory": {
     "ours": {
       "meta_description": 1.0,
-      "og_image": 0.0,
-      "twitter_card": 0.0,
-      "canonical": 0.0,
+      "og_image": 1.0,
+      "twitter_card": 0.67,
+      "canonical": 1.0,
       "hreflang": 0.0,
       "max_image_preview": 0.0,
       "breadcrumbs": 0.0,
-      "faq_block": 0.0,
-      "prices_html": 0.0,
+      "faq_block": 0.33,
+      "prices_html": 0.83,
       "reviews_onsite": 0.0,
       "aggregate_rating": 0.0,
       "video": 0.0,
       "map_embed": 0.0,
-      "booking_cta": 0.0,
-      "tel_link": 0.0,
+      "booking_cta": 1.0,
+      "tel_link": 0.83,
       "team_pages": 0.0,
       "blog": 0.0,
       "location_pages": 0.0,
@@ -617,15 +506,23 @@
       "modern_images": 0.0,
       "lazy_images": 0.0,
       "preload": 0.0,
-      "social_video": 0.0,
+      "social_video": 1.0,
       "music_links": 0.0,
       "events": 0.0,
       "press": 0.0,
       "rss": 0.0,
       "internal_links": 0.0,
-      "long_content": 0.0,
-      "deep_headings": 0.0,
-      "site:llms_txt": 0.0,
+      "long_content": 1.0,
+      "deep_headings": 0.67,
+      "schema:GeoCoordinates": 1.0,
+      "schema:HairSalon": 1.0,
+      "schema:OpeningHoursSpecification": 1.0,
+      "schema:PostalAddress": 1.0,
+      "schema:ReserveAction": 0.67,
+      "schema:Answer": 0.17,
+      "schema:FAQPage": 0.17,
+      "schema:Question": 0.17,
+      "site:llms_txt": 1.0,
       "site:llms_full": 0.0,
       "site:ai_policy": 0.0,
       "site:image_sitemap": 0.0,
@@ -788,7 +685,10 @@
         "schema:OpeningHoursSpecification": 0.16,
         "schema:PostalAddress": 0.16,
         "site:llms_txt": 1.0,
-        "site:llms_full": 1.0
+        "site:llms_full": 1.0,
+        "site:ai_policy": 0.0,
+        "site:image_sitemap": 0.0,
+        "site:blog_sitemap": 1.0
       }
     }
   }
