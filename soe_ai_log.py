@@ -11,10 +11,12 @@ Commands:
   python soe_ai_log.py summary configs/<slug>.yaml [--out reports/<slug>/<date>]   # → ai_visibility.json
 
 Automated engines (optional, key-gated; answers differ from the consumer apps, so keep manual checks too):
+  Claude      ANTHROPIC_API_KEY   POST https://api.anthropic.com/v1/messages + web_search tool
+              (model from env SOE_MODEL, default "claude-sonnet-4-5")
   Perplexity  PERPLEXITY_API_KEY  POST https://api.perplexity.ai/chat/completions  (model "sonar"; returns citations)
   ChatGPT     OPENAI_API_KEY      POST https://api.openai.com/v1/responses with the web_search tool
               (model from env SOE_OPENAI_MODEL, default "gpt-4.1-mini")
-Manual engines (no public API matching the product): Gemini app, Google AI Mode / AI Overviews.
+Manual engines (no public API matching the product): Google AI Mode / AI Overviews. Gemini is optional and manual.
 """
 import argparse, collections, csv, datetime as dt, json, os, re, sys
 
@@ -61,7 +63,7 @@ def init(cfg):
     have = {(r["date"][:7], r["engine"], r["prompt"]) for r in rows}
     added = 0
     for p in cfg.get("ai", {}).get("prompts", []):
-        for e in cfg.get("ai", {}).get("engines", ["ChatGPT", "Perplexity", "Gemini", "Google AI Mode"]):
+        for e in cfg.get("ai", {}).get("engines", ["Claude", "Google AI Mode"]):
             if (month, e, p) not in have:
                 rows.append(dict(date=dt.date.today().isoformat(), engine=e, prompt=p, method="manual"))
                 added += 1
@@ -90,6 +92,36 @@ def ask_perplexity(prompt, key):
     return text, sources
 
 
+def ask_claude(prompt, key):
+    r = requests.post("https://api.anthropic.com/v1/messages", timeout=120,
+                      headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
+                      json={"model": os.environ.get("SOE_MODEL", "claude-sonnet-4-5"), "max_tokens": 1024,
+                            "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 3}],
+                            "messages": [{"role": "user", "content": prompt}]})
+    r.raise_for_status()
+    return claude_text_and_sources(r.json())
+
+
+def claude_text_and_sources(payload):
+    """Pull answer text + citation URLs from a Claude Messages response that used web_search."""
+    text, sources = "", []
+    for block in payload.get("content") or []:
+        if not isinstance(block, dict):
+            continue
+        if block.get("type") == "text":
+            text += block.get("text") or ""
+            for c in block.get("citations") or []:
+                if isinstance(c, dict) and c.get("url"):
+                    sources.append(c["url"])
+        elif block.get("type") == "web_search_tool_result":
+            content = block.get("content")
+            if isinstance(content, list):
+                for item in content:
+                    if isinstance(item, dict) and item.get("url"):
+                        sources.append(item["url"])
+    return text, sources
+
+
 def ask_openai(prompt, key):
     r = requests.post("https://api.openai.com/v1/responses", timeout=120,
                       headers={"Authorization": f"Bearer {key}"},
@@ -105,12 +137,29 @@ def ask_openai(prompt, key):
     return text, sources
 
 
+def upsert_row(rows, rec):
+    """Fill a blank row for the same month/engine/prompt, otherwise append."""
+    month = rec["date"][:7]
+    for r in rows:
+        if r.get("date", "")[:7] == month and r.get("engine") == rec["engine"] and r.get("prompt") == rec["prompt"] and not r.get("mentioned"):
+            r.update(rec)
+            return
+    rows.append(rec)
+
+
 def run(cfg):
-    engines = {"Perplexity": ("PERPLEXITY_API_KEY", ask_perplexity), "ChatGPT": ("OPENAI_API_KEY", ask_openai)}
+    auto = {"Claude": ("ANTHROPIC_API_KEY", ask_claude),
+            "Perplexity": ("PERPLEXITY_API_KEY", ask_perplexity),
+            "ChatGPT": ("OPENAI_API_KEY", ask_openai)}
+    wanted = cfg.get("ai", {}).get("engines") or list(auto)
     path, today = log_path(cfg), dt.date.today().isoformat()
     rows, terms = read(path), brand_terms(cfg)
     own = domain_of(cfg["site"]["url"])
-    for name, (env, fn) in engines.items():
+    for name in wanted:
+        pair = auto.get(name)
+        if not pair:
+            continue
+        env, fn = pair
         key = os.environ.get(env)
         if not key:
             print(f"skipped {name}: {env} not set")
@@ -119,8 +168,8 @@ def run(cfg):
             try:
                 text, sources = fn(p, key)
                 res = score_answer(text, sources, terms, own)
-                rows.append(dict(date=today, engine=name, prompt=p, method="api",
-                                 notes=text[:200].replace("\n", " "), **res))
+                upsert_row(rows, dict(date=today, engine=name, prompt=p, method="api",
+                                      notes=text[:200].replace("\n", " "), **res))
                 print(f"  {name} · {p[:40]} · mentioned {res['mentioned']} · cited {res['cited']}")
             except Exception as e:
                 print(f"  {name} error: {str(e)[:120]}", file=sys.stderr)
@@ -146,7 +195,9 @@ def summary(cfg, out):
     own = domain_of(cfg["site"]["url"])
     src = collections.Counter(s.strip() for r in rows for s in (r.get("cited_sources") or "").split(";")
                               if s.strip() and s.strip() != own)
-    pending = sum(1 for r in read(log_path(cfg)) if not r.get("mentioned"))
+    wanted = set(cfg.get("ai", {}).get("engines") or [])
+    pending = sum(1 for r in read(log_path(cfg))
+                  if not r.get("mentioned") and (not wanted or r.get("engine") in wanted))
     res = dict(months=months, top_other_sources=src.most_common(15), pending_checks=pending,
                prompts=cfg.get("ai", {}).get("prompts", []), engines=cfg.get("ai", {}).get("engines", []))
     if out:

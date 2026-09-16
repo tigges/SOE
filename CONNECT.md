@@ -2,34 +2,59 @@
 
 Keys never go into files or chat. They live in **GitHub → tigges/SOE → Settings → Secrets and variables → Actions → New repository secret**. The "SOE run" Action reads them from there. After adding keys, start a run: **Actions → SOE run → Run workflow**. That run commits new reports and rebuilds https://tigges.github.io/SOE/.
 
-Do the steps in this order: the first two are free and take about 20 minutes together.
+## You do not have to log into Google Cloud
+
+Most of the kit already works without it:
+
+| Already working / no GCP | How |
+|---|---|
+| Audit, Lighthouse speed, citations, benchmark, dashboard | Every **SOE run** |
+| Copy drafting + Claude AI-answer checks | `ANTHROPIC_API_KEY` (already added) |
+| IndexNow (Bing URL ping) | `INDEXNOW_KEY` / `INDEXNOW_URL_TXT` + host a key file on WordPress |
+| Search Console | Export Performance as CSV in search.google.com (not cloud.google.com) and import it |
+| Google AI Mode / Gemini | Monthly check by hand — there is no public API that matches the consumer apps |
+
+Google Cloud is only needed if you want these **optional APIs**:
+
+| Optional API | Secret | Hand alternative |
+|---|---|---|
+| Real-user CrUX / PageSpeed Insights | `CRUX_API_KEY`, `PSI_API_KEY` | Lighthouse already runs; or open https://pagespeed.web.dev |
+| Search Console API | `GSC_SERVICE_ACCOUNT_B64` | CSV export (section 2a) |
+| Business Profile API | `GBP_CLIENT_ID` / `GBP_CLIENT_SECRET` / `GBP_REFRESH_TOKEN` | Check the profile in Google Maps / Business Profile |
+
+Paid, not Google: DataForSEO (rankings and AI Overviews).
 
 | # | Card on the dashboard | Cost | Time | Secrets |
 |---|---|---|---|---|
-| 1 | Real-user speed (CrUX) | free | 5 min | `CRUX_API_KEY`, `PSI_API_KEY` |
-| 2 | Search Console | free | 15 min | `GSC_SERVICE_ACCOUNT_B64` |
-| 3 | Rankings & AI Overviews | pay as you go | 10 min | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
-| 4 | Business Profile | free | Google approval (days–weeks), then 20 min | `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET`, `GBP_REFRESH_TOKEN` |
-| 5 | Copy drafting in the Action | usage | already added | `ANTHROPIC_API_KEY` |
+| 5 | Copy drafting + Claude AI checks | usage | already added | `ANTHROPIC_API_KEY` |
 | 6 | IndexNow (Bing URL ping) | free | 5 min + host a file on each WordPress site | `INDEXNOW_KEY`, `INDEXNOW_URL_TXT` |
+| 2a | Search Console CSV import | free | 5 min | none |
+| 1 | Real-user speed (CrUX) — optional | free | 5 min | `CRUX_API_KEY`, `PSI_API_KEY` |
+| 2 | Search Console API — optional | free | 15 min | `GSC_SERVICE_ACCOUNT_B64` |
+| 3 | Rankings & AI Overviews | pay as you go | 10 min | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
+| 4 | Business Profile API — optional | free | Google approval (days–weeks), then 20 min | `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET`, `GBP_REFRESH_TOKEN` |
 
 ---
 
-## 0. One Google Cloud project (used by 1, 2 and 4)
+## 0. One Google Cloud project (only if you want CrUX API, GSC API, or Business Profile API)
+
+Skip this section if you are using Lighthouse + GSC CSV + Maps by hand.
 
 1. Go to https://console.cloud.google.com and sign in with charles@tigges.co.uk.
 2. In the project picker, choose **New project** and name it `SOE`.
 
-## 1. Real-user speed (CrUX): free
+## 1. Real-user speed (CrUX): optional, free
+
+Lab speed already runs (Lighthouse). Use this only for real-user Core Web Vitals.
 
 1. In the SOE project, go to **APIs & Services → Library**. Enable **Chrome UX Report API** and **PageSpeed Insights API**.
 2. Go to **APIs & Services → Credentials → Create credentials → API key**.
 3. Edit the key: under **API restrictions**, choose *Restrict key* and tick the two APIs above. Save.
 4. In GitHub, add the same key twice, as secrets `CRUX_API_KEY` and `PSI_API_KEY`.
 
-Note: small sites often have no real-user data yet. If so, the card shows "No real-user data for this site yet", which is a valid result, not an error.
+Note: small sites often have no real-user data yet. If so, the card shows "No real-user data for this site yet", which is a valid result, not an error. Without a key, check https://pagespeed.web.dev instead.
 
-## 2a. Search Console without Google Cloud (recommended to start)
+## 2a. Search Console without Google Cloud (recommended)
 
 1. In https://search.google.com/search-console, open the site, then **Performance → Search results**.
 2. Set the date range (e.g. *Last 3 months*), click **Export → Download CSV**. A `.zip` downloads.
@@ -64,7 +89,9 @@ The first data appears 2–3 days after a property is verified.
 
 Location defaults to London (`site.location` in each settings file).
 
-## 4. Business Profile: needs Google's approval first
+## 4. Business Profile: optional; needs Google's approval first
+
+You do not need this API to *see* the profile — open it in Google Maps or business.google.com. The API is only for pulling reviews and actions into the dashboard.
 
 You must be an **owner or manager** of the profile. For Yuzu, the salon owner can add you in Business Profile → ⋮ → Business Profile settings → Managers.
 
@@ -92,15 +119,20 @@ You must be an **owner or manager** of the profile. For Yuzu, the salon owner ca
    - Put both in `configs/yuzu.yaml` as `business.gbp_account` and `business.gbp_location`. These IDs aren't secret.
 7. In GitHub, add the secrets `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET` and `GBP_REFRESH_TOKEN`.
 
-## 5. Copy drafting in the GitHub Action: `ANTHROPIC_API_KEY`
+## 5. Copy drafting and Claude AI-answer checks: `ANTHROPIC_API_KEY`
 
-Already added. Each **SOE run** calls `soe_fixes.py --llm`, so the Fixes tab titles / descriptions / H1 are Claude drafts (source: "Claude draft") instead of the rule-based DRAFT lines. Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`).
+Already added. Each **SOE run**:
+
+- calls `soe_fixes.py --llm`, so the Fixes tab titles / descriptions / H1 are Claude drafts (source: "Claude draft")
+- calls `soe_ai_log.py run`, which asks Claude (with web search) each prompt in `ai.prompts` and records whether the brand was mentioned or cited
+
+Google AI Mode stays a monthly manual check — Gemini / AI Mode have no public API that matches the consumer apps. Perplexity and ChatGPT still auto-fill if you later add `PERPLEXITY_API_KEY` / `OPENAI_API_KEY` and list those engines in the site settings. Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`).
 
 ## 6. IndexNow (Bing and others): free
 
 Google does not use IndexNow. Wix cannot host the key file, so Yuzu stays on Bing Webmaster Tools.
 
-1. Keep `INDEXNOW_KEY` as 8–128 letters, digits or hyphens (a hex UUID is fine).
+1. Keep `INDEXNOW_KEY` as 8–128 letters, digits or hyphens (a hex UUID is fine). If the key was stored in `INDEXNOW_URL_TXT` instead, that works too.
 2. Host a plain-text file whose **contents equal the key**. Either:
    - `https://<site>/<key>.txt` (the default), or
    - any URL on that host, stored as secret `INDEXNOW_URL_TXT`.
@@ -116,6 +148,7 @@ Google does not use IndexNow. Wix cannot host the key file, so Yuzu stays on Bin
 To test on your own computer, set the same names as environment variables (`$env:CRUX_API_KEY="…"`). Then run:
 
 ```powershell
+python soe_ai_log.py run configs/yuzu.yaml
 python -m integrations.run_all configs/yuzu.yaml reports/test
 ```
 

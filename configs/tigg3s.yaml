@@ -36,8 +36,8 @@ citations: []                            # off-site listings checked by soe_cita
 ai:
   allow_training: true
   llms_should_mention: []
-  prompts: []                            # monthly tests in ChatGPT / Perplexity / Gemini / Google AI Mode
-  engines: [ChatGPT, Perplexity, Gemini, Google AI Mode]
+  prompts: []                            # monthly tests in Claude (auto) and Google AI Mode (manual)
+  engines: [Claude, Google AI Mode]
   brand_terms: []
 
 audit:

@@ -35,7 +35,7 @@ Two of the three also use breadcrumb and Organization markup, link to TikTok/You
 
 **Same-name business:** YUZUHAIR in Hucknall, Nottingham (yuzuhair.co.uk, listed on Yell as "Yuzu Hair") competes for "Yuzu Hair" searches. It isn't a local competitor. Use "Yuzu Hair & Beauty, Ealing" consistently, and watch the AI log's new brand prompt ("Yuzu Hair salon") for answers that mix the two up.
 
-**AI answers:** 16 checks (4 prompts × 4 engines) are waiting in `data/yuzu/ai_log.csv`.
+**AI answers:** Claude auto-checks plus a monthly Google AI Mode check. Prompts are in `configs/yuzu.yaml`.
 
 ---
 
@@ -109,7 +109,7 @@ Replace the Wix placeholder text ("This is placeholder text…") on Senior Styli
 - Run the audit monthly (GitHub Action).
 - Search Console: impressions for "salon Ealing" terms.
 - Business Profile: calls, direction requests, bookings.
-- AI prompt log: the 3 prompts in `configs/yuzu.yaml`, run in ChatGPT, Perplexity, Gemini and Google AI Mode. Record whether Yuzu is mentioned or cited, and which sources are cited instead.
+- AI prompt log: the prompts in `configs/yuzu.yaml`. Claude fills in on each SOE run; check Google AI Mode by hand. Record whether Yuzu is mentioned or cited, and which sources are cited instead.
 
 ---
 
