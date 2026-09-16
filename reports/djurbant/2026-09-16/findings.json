@@ -1,6 +1,6 @@
 {
   "site": "https://djurbant.com",
-  "run": "2026-09-16 01:24",
+  "run": "2026-09-16 07:38",
   "project": {
     "name": "DJ UrbanT",
     "slug": "djurbant",
@@ -8,14 +8,14 @@
     "platform": "wordpress",
     "module": "Personal / artist brand (DJ, musician, creator)"
   },
-  "score": 63,
+  "score": 62,
   "layers": {
     "Technical": 100,
     "On-page": 0,
     "Structured data": 40,
     "Entity / NAP": 100,
     "AI search readiness": 90,
-    "Performance": 54
+    "Performance": 52
   },
   "meta": {
     "sitemap_urls": 10,
@@ -26,19 +26,19 @@
     },
     "llms_txt": false,
     "lighthouse_runs": [
-      54
+      52
     ],
     "lighthouse": {
       "scores": {
-        "performance": 54,
+        "performance": 52,
         "accessibility": 100,
         "best-practices": 96,
         "seo": 92
       },
       "lab": {
-        "largest-contentful-paint": 5257.682500000001,
-        "cumulative-layout-shift": 0.1386117781436742,
-        "total-blocking-time": 802
+        "largest-contentful-paint": 3819.42,
+        "cumulative-layout-shift": 0.09755761519401586,
+        "total-blocking-time": 3597.999999999999
       }
     }
   },
@@ -240,15 +240,6 @@
       "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
       "url": null,
       "how": null
-    },
-    {
-      "layer": "P",
-      "severity": "high",
-      "check": "lcp",
-      "detail": "lab LCP 5.3s (good \u22642.5s)",
-      "fix": "Compress/preload hero image, cut render-blocking JS",
-      "url": null,
-      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
     },
     {
       "layer": "O",
@@ -460,20 +451,20 @@
     {
       "layer": "P",
       "severity": "medium",
-      "check": "tbt-inp-proxy",
-      "detail": "TBT 802ms (INP risk)",
-      "fix": "Remove unused apps/widgets and third-party scripts",
+      "check": "lcp",
+      "detail": "lab LCP 3.8s (good \u22642.5s)",
+      "fix": "Compress/preload hero image, cut render-blocking JS",
       "url": null,
-      "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading)."
     },
     {
       "layer": "P",
       "severity": "medium",
-      "check": "cls",
-      "detail": "CLS 0.14",
-      "fix": "Reserve space for images/embeds",
+      "check": "tbt-inp-proxy",
+      "detail": "TBT 3598ms (INP risk)",
+      "fix": "Remove unused apps/widgets and third-party scripts",
       "url": null,
-      "how": "Set image dimensions and reserve space for embeds; turn on Elementor 'Optimized DOM output'."
+      "how": "Defer JS (WP Rocket, Perfmatters or Breeze) and remove unused plugins, sliders and third-party chat widgets."
     },
     {
       "layer": "O",
@@ -661,7 +652,7 @@
     {
       "url": "https://djurbant.com/hello-world/",
       "status": 200,
-      "bytes": 61766,
+      "bytes": 61411,
       "title": "Hello world! \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -682,7 +673,7 @@
     {
       "url": "https://djurbant.com/sample-page/",
       "status": 200,
-      "bytes": 57900,
+      "bytes": 57547,
       "title": "Sample Page \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -703,7 +694,7 @@
     {
       "url": "https://djurbant.com/video/",
       "status": 200,
-      "bytes": 54427,
+      "bytes": 53700,
       "title": "Video \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -724,7 +715,7 @@
     {
       "url": "https://djurbant.com/audio/",
       "status": 200,
-      "bytes": 54090,
+      "bytes": 53737,
       "title": "Audio \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -766,7 +757,7 @@
     {
       "url": "https://djurbant.com/map/",
       "status": 200,
-      "bytes": 51420,
+      "bytes": 51067,
       "title": "Map \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -787,7 +778,7 @@
     {
       "url": "https://djurbant.com/admin/",
       "status": 200,
-      "bytes": 7972,
+      "bytes": 7598,
       "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
       "description": "",
       "robots": "max-image-preview:large, noindex, noarchive",
@@ -809,7 +800,7 @@
     {
       "url": "https://djurbant.com/category/uncategorized/",
       "status": 200,
-      "bytes": 57262,
+      "bytes": 56909,
       "title": "Uncategorized \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -830,7 +821,7 @@
     {
       "url": "https://djurbant.com/author/charles/",
       "status": 200,
-      "bytes": 57219,
+      "bytes": 56866,
       "title": "Charles \u2013 DJ UrbanT",
       "description": "",
       "robots": "max-image-preview:large",
@@ -851,7 +842,7 @@
     {
       "url": "https://djurbant.com/wp-admin/",
       "status": 200,
-      "bytes": 7975,
+      "bytes": 7600,
       "title": "Log In \u2039 DJ UrbanT \u2014 WordPress",
       "description": "",
       "robots": "max-image-preview:large, noindex, noarchive",

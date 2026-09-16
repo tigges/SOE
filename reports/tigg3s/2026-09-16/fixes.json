@@ -9,11 +9,11 @@
   "pages": [
     {
       "url": "https://www.tigg3s.com/",
+      "title": "Tigges Family & Ventures | Personal Brand Portfolio",
+      "description": "Explore the Tigges family ventures and personal brand. Discover our work, projects, and expertise. Connect with us to learn more about our journey.",
+      "h1": "Tigges Family & Ventures",
       "current_title": "Tigges",
-      "title": "Tigges | www.tigg3s.com",
-      "description": "Tigges at www.tigg3s.com. Listen, see upcoming dates and get in touch for bookings.",
-      "h1": "Tigges",
-      "source": "DRAFT (rule-based)"
+      "source": "Claude draft"
     }
   ],
   "steps": {

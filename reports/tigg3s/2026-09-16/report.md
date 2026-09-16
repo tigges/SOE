@@ -1,6 +1,6 @@
 # SOE audit — www.tigg3s.com
 
-Site: https://www.tigg3s.com · Run: 2026-09-16 01:26 · Pages crawled: 1 · Sitemap URLs: 0
+Site: https://www.tigg3s.com · Run: 2026-09-16 07:40 · Pages crawled: 1 · Sitemap URLs: 0
 
 ## Score: 72/100
 
@@ -11,9 +11,9 @@ Site: https://www.tigg3s.com · Run: 2026-09-16 01:26 · Pages crawled: 1 · Sit
 | Structured data | 40 |
 | Entity / NAP | 96 |
 | AI search readiness | 76 |
-| Performance | 75 |
+| Performance | 78 |
 
-Lighthouse (mobile lab): performance 75, accessibility 100, best-practices 100, seo 100 · LCP 5.0s · TBT 0ms · CLS 0.00
+Lighthouse (mobile lab): performance 78, accessibility 100, best-practices 100, seo 100 · LCP 5.1s · TBT 0ms · CLS 0.00
 
 Schema types found: none
 AI bots blocked: {'search': [], 'training': []} · llms.txt: False
@@ -30,7 +30,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | high | O | h1 | no H1 | Add exactly one descriptive H1 containing the primary topic | / |
 | high | A | js-only-links | only the homepage could be crawled: internal links aren't in the HTML | Render navigation and key content server-side so crawlers and AI bots can follow links | / |
 | high | A | extractable-text | homepage has 0 words of text | AI answers quote text: add concise factual paragraphs (who/what/where/price/hours) | / |
-| high | P | lcp | lab LCP 5.0s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
+| high | P | lcp | lab LCP 5.1s (good ≤2.5s) | Compress/preload hero image, cut render-blocking JS | / |
 | medium | T | robots.txt | missing | Publish robots.txt with Sitemap: line | / |
 | medium | O | title-length | 6 chars: 'Tigges' | Aim for 30–60 chars: primary keyword + location/brand | / |
 | medium | O | thin-content | 0 words (<300) | Expand with useful, specific text (services, FAQs, proof) | / |

@@ -56,59 +56,59 @@
   "pages": [
     {
       "url": "https://www.yuzuhairandbeauty.london/",
-      "current_title": "H O M E | Yuzu Hair",
       "title": "Japanese Hair Salon in Ealing Broadway | Yuzu Hair & Beauty",
       "description": "Japanese-inspired hair salon in Dickens Yard, 2 min from Ealing Broadway station. Cuts, colour, balayage & Brazilian blow-dry. Book online today.",
       "h1": "Japanese-inspired hair salon in Ealing Broadway",
+      "current_title": "H O M E | Yuzu Hair",
       "source": "Claude draft"
     },
     {
       "url": "https://www.yuzuhairandbeauty.london/items/senior-stylists",
-      "current_title": "Senior Stylists | Yuzu Hair",
       "title": "Senior Stylist Job in Ealing Broadway | Yuzu Hair & Beauty",
       "description": "Yuzu Hair & Beauty is hiring a senior stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.",
       "h1": "Senior stylist vacancy",
+      "current_title": "Senior Stylists | Yuzu Hair",
       "source": "Claude draft"
     },
     {
       "url": "https://www.yuzuhairandbeauty.london/items/stylists",
-      "current_title": "Stylists | Yuzu Hair",
       "title": "Hair Stylist Job in Ealing Broadway | Yuzu Hair & Beauty",
       "description": "Yuzu Hair & Beauty is hiring a hair stylist at our Japanese-inspired salon in Dickens Yard, Ealing W5. Read the role details and apply.",
       "h1": "Stylist vacancy",
+      "current_title": "Stylists | Yuzu Hair",
       "source": "Claude draft"
     },
     {
       "url": "https://www.yuzuhairandbeauty.london/items/models",
-      "current_title": "Models | Yuzu Hair",
       "title": "Hair Models Wanted in Ealing | Yuzu Hair & Beauty",
       "description": "Yuzu Hair & Beauty in Ealing Broadway is looking for hair models. Read what's involved and how to apply to be a model at our salon.",
       "h1": "Hair models wanted",
+      "current_title": "Models | Yuzu Hair",
+      "source": "Claude draft"
+    },
+    {
+      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
+      "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair",
+      "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.",
+      "h1": "Terms, patch tests and cancellations",
+      "current_title": "TERMS AND CONDITIONS | Yuzu Hair",
       "source": "Claude draft"
     },
     {
       "url": "https://www.yuzuhairandbeauty.london/o-f-f-e-r-s-1",
-      "current_title": "OFFERS | Yuzu Hair",
       "title": "Salon Offers in Ealing: Colour & Blow-Dry Deals | Yuzu",
       "description": "Tuesday and Thursday colour discounts, Brazilian blow-dry Wednesdays, refer-a-friend credit and 10% off when you rebook. See this month's Yuzu offers.",
       "h1": "Salon offers at Yuzu, Ealing",
+      "current_title": "OFFERS | Yuzu Hair",
       "source": "Claude draft",
       "new_url": "/offers"
     },
     {
-      "url": "https://www.yuzuhairandbeauty.london/terms-and-conditions",
-      "current_title": "TERMS AND CONDITIONS | Yuzu Hair",
-      "title": "Salon Terms, Patch Tests & Cancellation Policy | Yuzu Hair",
-      "description": "Patch-test rules for colour services, our 48-hour cancellation policy and our two-week redo promise at Yuzu Hair & Beauty, Ealing W5.",
-      "h1": "Terms, patch tests and cancellations",
-      "source": "Claude draft"
-    },
-    {
       "url": "https://www.yuzuhairandbeauty.london/items",
-      "current_title": "Items (List) | Yuzu Hair",
       "title": "Hairdresser Jobs in Ealing: Join Yuzu Hair & Beauty",
       "description": "Senior stylist, stylist and model vacancies at a Japanese-inspired salon in Dickens Yard, Ealing Broadway. See the roles and apply today.",
       "h1": "Join the Yuzu team",
+      "current_title": "Items (List) | Yuzu Hair",
       "source": "Claude draft",
       "new_url": "/careers"
     }
@@ -201,12 +201,6 @@
     "llms.txt-summary": {
       "fix": "Rewrite the llms.txt summary to describe the business, not a random page",
       "how": "Dashboard \u2192 SEO \u2192 llms.txt \u2192 edit the summary paragraph. Once edited it no longer auto-updates.",
-      "count": 1,
-      "severity": "medium"
-    },
-    "tbt-inp-proxy": {
-      "fix": "Remove unused apps/widgets and third-party scripts",
-      "how": "Remove unused apps and third-party embeds; limit animations (Editor \u2192 Animations).",
       "count": 1,
       "severity": "medium"
     },
