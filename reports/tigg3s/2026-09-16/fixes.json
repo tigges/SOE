@@ -1,0 +1,113 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.tigg3s.com/#entity",
+    "name": "www.tigg3s.com",
+    "url": "https://www.tigg3s.com/"
+  },
+  "pages": [
+    {
+      "url": "https://www.tigg3s.com/",
+      "current_title": "Tigges",
+      "title": "Tigges | www.tigg3s.com",
+      "description": "Tigges at www.tigg3s.com. Listen, see upcoming dates and get in touch for bookings.",
+      "h1": "Tigges",
+      "source": "DRAFT (rule-based)"
+    }
+  ],
+  "steps": {
+    "schema-missing": {
+      "fix": "Add JSON-LD for Person (see schema/ templates)",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode).",
+      "count": 1,
+      "severity": "critical"
+    },
+    "host-canonicalisation": {
+      "fix": "301 all variants to https://www.tigg3s.com/",
+      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS.",
+      "count": 3,
+      "severity": "high"
+    },
+    "sitemap": {
+      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+      "how": "Yoast \u2192 Settings \u2192 Site features \u2192 XML sitemaps on. Submit /sitemap_index.xml in Search Console and Bing.",
+      "count": 1,
+      "severity": "high"
+    },
+    "h1": {
+      "fix": "Add exactly one descriptive H1 containing the primary topic",
+      "how": "Elementor Heading widget \u2192 Content \u2192 HTML Tag = H1. Make sure the theme isn't also printing the page title as an H1 (Elementor \u2192 Page settings \u2192 Hide title).",
+      "count": 1,
+      "severity": "high"
+    },
+    "js-only-links": {
+      "fix": "Render navigation and key content server-side so crawlers and AI bots can follow links",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "extractable-text": {
+      "fix": "AI answers quote text: add concise factual paragraphs (who/what/where/price/hours)",
+      "how": null,
+      "count": 1,
+      "severity": "high"
+    },
+    "lcp": {
+      "fix": "Compress/preload hero image, cut render-blocking JS",
+      "how": "Cloudways: turn on Breeze or Varnish, Object Cache Pro and the Cloudflare Enterprise add-on. Serve the hero as WebP with fetchpriority=high (Elementor \u2192 Image \u2192 optimise). Remove unused Elementor widgets (Elementor \u2192 Features \u2192 Improved asset loading).",
+      "count": 1,
+      "severity": "high"
+    },
+    "robots.txt": {
+      "fix": "Publish robots.txt with Sitemap: line",
+      "how": "Yoast \u2192 Tools \u2192 File editor, or upload robots.txt to the web root.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "title-length": {
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": "Add sections in Elementor; Yoast readability/word count helps.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "expected-page": {
+      "fix": "Add a dedicated about/bio page and link it from the navigation",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus.",
+      "count": 4,
+      "severity": "medium"
+    },
+    "brand-name": {
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "answer-content": {
+      "fix": "Add an FAQ / Q&A section answering real customer questions (visible text, not just schema)",
+      "how": "Add an FAQ section (Elementor Accordion). It's visible text for AI answers; FAQ rich results no longer show.",
+      "count": 1,
+      "severity": "medium"
+    },
+    "og-image": {
+      "fix": "Set a share image (1200\u00d7630)",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics.",
+      "count": 1,
+      "severity": "low"
+    },
+    "llms.txt": {
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details).",
+      "count": 1,
+      "severity": "low"
+    }
+  },
+  "llms_summary": "www.tigg3s.com",
+  "questions": []
+}
