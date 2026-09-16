@@ -99,7 +99,7 @@ jobs:
           python soe_citations.py "$c" --out "$out" || true
           python soe_ai_log.py init "$c"; python soe_ai_log.py run "$c" || true
           python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
-          python soe_fixes.py "$c" "$out" $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
+          python soe_fixes.py "$c" "$out" $( { [ -n "$ANTHROPIC_API_KEY" ] || [ -n "$GEMINI_API_KEY" ] || [ -n "$GOOGLE_API_KEY" ] || [ -n "$GOOGLE_GEMINI_API_KEY" ] || [ -n "$GOOGLE_GENAI_API_KEY" ]; } && echo --llm ) || true
           python -m integrations.indexnow "$c" "$out" || true
           echo "::endgroup::"
           python soe_dashboard.py

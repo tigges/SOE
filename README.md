@@ -1,6 +1,6 @@
 # SOE template (v2)
 
-A repeatable search optimisation kit for any website. It covers classic search (Google and Bing) and AI answer engines (Claude and Gemini auto-checks, plus a monthly Google AI Mode check by hand).
+A repeatable search optimisation kit for any website. It covers classic search (Google and Bing) and AI answer engines (Gemini first, then Claude, plus a monthly Google AI Mode check by hand).
 
 ## The loop in one go
 
@@ -13,9 +13,9 @@ D=reports/<slug>/$(date +%F)
 python soe_audit.py configs/<slug>.yaml --out $D --lighthouse --competitors --integrations
 python soe_citations.py configs/<slug>.yaml --out $D     # off-site listings
 python soe_ai_log.py init configs/<slug>.yaml            # this month's AI-answer rows (fill by hand or with API keys)
-python soe_ai_log.py run configs/<slug>.yaml             # auto-fill Claude / Gemini (and Perplexity/ChatGPT if those keys are set)
+python soe_ai_log.py run configs/<slug>.yaml             # auto-fill Gemini first, then Claude (and Perplexity/ChatGPT if those keys are set)
 python soe_ai_log.py summary configs/<slug>.yaml --out $D
-python soe_fixes.py configs/<slug>.yaml $D --copy projects/<slug>/copy.yaml   # fix pack
+python soe_fixes.py configs/<slug>.yaml $D --llm --copy projects/<slug>/copy.yaml   # Gemini-first drafts
 python soe_benchmark.py configs/<slug>.yaml --out $D     # best-in-class leaders: virtual-100 target + feature gaps
 python soe_dashboard.py                                  # → dashboard/dist/soe-control-room.html
 ```
@@ -51,9 +51,9 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 
 | Env var | Unlocks |
 |---|---|
-| `ANTHROPIC_API_KEY` (+ `SOE_MODEL`) | Copy drafting (`soe_fixes.py --llm`) and Claude AI-answer auto-checks (`soe_ai_log.py run`) |
-| `GEMINI_API_KEY` (or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`) | Gemini AI-answer auto-checks with Google Search grounding. Key from https://aistudio.google.com/apikey — not a Cloud Console login |
-| `INDEXNOW_KEY` (+ optional `INDEXNOW_URL_TXT`) | Pushes changed URLs to Bing and other engines (not possible on Wix). The key can live in either secret; host the key file at `INDEXNOW_URL_TXT` or `<site>/<key>.txt` |
+| `GEMINI_API_KEY` (or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`) | Preferred: copy drafting and Gemini AI-answer auto-checks (Google Search grounding). Key from https://aistudio.google.com/apikey |
+| `ANTHROPIC_API_KEY` (+ `SOE_MODEL`) | Fallback copy drafting and Claude AI-answer auto-checks |
+| `INDEXNOW_KEY` (+ optional `INDEXNOW_URL_TXT`) | Pushes changed URLs to Bing and other engines. Host the key file at `/indexnow.txt`, `INDEXNOW_URL_TXT`, or `<site>/<key>.txt`. Runs on Wix when that file is reachable |
 | `CRUX_API_KEY` or `PSI_API_KEY` | Optional real-user Core Web Vitals (needs a Google API key). Lab speed already runs via Lighthouse |
 | `GSC_SERVICE_ACCOUNT_JSON` | Optional Search Console API. Prefer a Performance CSV export (`soe_gsc_import.py`) — no Google Cloud |
 | `OPENAI_API_KEY`, `PERPLEXITY_API_KEY` | Optional extra AI-answer engines if you add those keys later |
@@ -75,4 +75,4 @@ python -m integrations.crux configs/<slug>.yaml reports/<slug>/<date>      # any
 | `gsc` (Search Console clicks/impressions/positions, 28 days) | `GSC_SERVICE_ACCOUNT_JSON` (path to key file) + `pip install google-auth` | Enable the Search Console API, create a service-account JSON key, and add its e-mail as a user on the property. Set `site.gsc_property` if the property isn't `sc-domain:<host>`. |
 | `dataforseo` (organic rank, AI Overview citation, Maps rank, volume) | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` | Use the API credentials from app.dataforseo.com/api-access (paid per request, capped at 20 keywords). Optional `site.location`. |
 | `gbp` (reviews + calls/clicks/directions/impressions) | `GBP_OAUTH_TOKEN` or `GBP_SERVICE_ACCOUNT_JSON` + `business.gbp_account`, `business.gbp_location` | Google must approve API access first (GBP API access request form). The token needs the `business.manage` scope, e.g. from OAuth Playground. |
-| `indexnow` (URL push to Bing/Yandex; run by the SOE Action, not in run_all) | `INDEXNOW_KEY`, optional `INDEXNOW_URL_TXT` | Host a file whose contents equal the key at `<site>/<key>.txt`, or at the URL in `INDEXNOW_URL_TXT`. This won't work on Wix; submit URLs in Bing Webmaster Tools there instead. |
+| `indexnow` (URL push to Bing/Yandex; run by the SOE Action, not in run_all) | `INDEXNOW_KEY`, optional `INDEXNOW_URL_TXT` | Host a file whose contents equal the key at `/indexnow.txt`, `<site>/<key>.txt`, or `INDEXNOW_URL_TXT`. Runs on Wix when that file is reachable. |

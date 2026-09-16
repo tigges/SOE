@@ -5,8 +5,8 @@ Optional INDEXNOW_URL_TXT — full URL (or path) of the key file. Default keyLoc
 The key must be served as plain text (file content == key) at keyLocation, otherwise the endpoint answers 403.
 A 202 means "received, key validation pending".
 
-Wix note: Wix cannot host arbitrary files at the site root, so IndexNow is not usable on Wix —
-submit URLs in Bing Webmaster Tools instead (URL Submission, or its sitemap submission).
+Wix note: many Wix sites cannot host arbitrary files at the root. If a key file is reachable
+(e.g. /indexnow.txt), IndexNow still runs. Otherwise the endpoint answers 403 — use Bing Webmaster Tools.
 
 Not included in run_all (it is a write action). Run explicitly:
     python -m integrations.indexnow configs/<slug>.yaml <outdir>
@@ -75,22 +75,34 @@ def resolve_key():
     return None, loc
 
 
+def hosted_key_location(session, base, key, override=None):
+    """Prefer a URL whose file contents equal the key (default {key}.txt, then /indexnow.txt)."""
+    guessed = key_location(base, key, override)
+    candidates = [guessed, f"{base.rstrip('/')}/indexnow.txt", f"{base.rstrip('/')}/{key}.txt"]
+    for c in dict.fromkeys(candidates):
+        try:
+            r = session.get(c, timeout=20)
+        except requests.RequestException:
+            continue
+        if r.ok and (r.text or "").strip() == key:
+            return c
+    return guessed
+
+
 def run(cfg: dict, outdir: str, urls=None) -> dict | None:
     key, loc_override = resolve_key()
     if not key:
         return skip(NAME, "INDEXNOW_KEY not set (or put the key / key-file URL in INDEXNOW_URL_TXT)")
-    if (cfg.get("site") or {}).get("platform", "").lower() == "wix":
-        print("[indexnow] skipped: Wix cannot host the key file — submit URLs in Bing Webmaster Tools")
-        out = {"skipped": "not possible on Wix; submit URLs in Bing Webmaster Tools"}
-        write_json(outdir, NAME, {"summary": out})
-        return out
     if not re.fullmatch(r"[A-Za-z0-9-]{8,128}", key):
         return {"error": "INDEXNOW_KEY must be 8-128 chars of a-z, A-Z, 0-9, '-'"}
     base = cfg["site"]["url"].rstrip("/")
     host = urlparse(base).netloc
-    loc = key_location(base, key, loc_override)
     s = requests.Session()
     s.headers["User-Agent"] = UA
+    loc = hosted_key_location(s, base, key, loc_override)
+    wix = (cfg.get("site") or {}).get("platform", "").lower() == "wix"
+    if wix:
+        print("[indexnow] Wix: submitting if a key file is hosted at keyLocation")
     if urls is None:
         urls = sitemap_urls(base + "/sitemap.xml", s)
     urls = list(dict.fromkeys(u for u in urls if urlparse(u).netloc == host))[:CAP]

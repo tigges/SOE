@@ -26,12 +26,46 @@ class IndexNow(unittest.TestCase):
             "https://www.tigg3s.com/keys/indexnow.txt",
         )
 
-    def test_wix_skip(self):
+    def test_hosted_key_location_prefers_indexnow_txt(self):
+        class Fake:
+            def __init__(self, mapping):
+                self.mapping = mapping
+            def get(self, url, timeout=20):
+                body = self.mapping.get(url)
+                r = mock.Mock()
+                if body is None:
+                    r.ok = False
+                    r.text = ""
+                    return r
+                r.ok = True
+                r.text = body
+                return r
+        key = "abcd1234efgh5678"
+        loc = inn.hosted_key_location(
+            Fake({"https://www.yuzuhairandbeauty.london/indexnow.txt": key}),
+            "https://www.yuzuhairandbeauty.london", key, None,
+        )
+        self.assertEqual(loc, "https://www.yuzuhairandbeauty.london/indexnow.txt")
+
+    def test_wix_submits_when_sitemap_has_urls(self):
         with tempfile.TemporaryDirectory() as tmp:
-            with mock.patch.dict(os.environ, {"INDEXNOW_KEY": "abcd1234efgh5678"}):
-                out = inn.run({"site": {"url": "https://www.yuzuhairandbeauty.london", "platform": "wix"}}, tmp)
-            self.assertEqual(out["skipped"][:12], "not possible")
-            self.assertTrue(os.path.isfile(os.path.join(tmp, "indexnow.json")))
+            resp = mock.Mock(status_code=202, reason="Accepted", text="")
+            def fake_get(url, timeout=20):
+                r = mock.Mock()
+                if url.endswith("sitemap.xml"):
+                    r.ok, r.text = True, "<urlset><loc>https://www.yuzuhairandbeauty.london/</loc></urlset>"
+                elif url.endswith("indexnow.txt"):
+                    r.ok, r.text = True, "abcd1234efgh5678"
+                else:
+                    r.ok, r.text = False, ""
+                return r
+            with mock.patch.dict(os.environ, {"INDEXNOW_KEY": "abcd1234efgh5678", "INDEXNOW_URL_TXT": ""}, clear=False):
+                with mock.patch.object(inn.requests.Session, "get", side_effect=fake_get), \
+                     mock.patch.object(inn.requests.Session, "post", return_value=resp):
+                    out = inn.run({"site": {"url": "https://www.yuzuhairandbeauty.london", "platform": "wix"}}, tmp)
+            self.assertEqual(out["status"], 202)
+            self.assertEqual(out["submitted"], 1)
+            self.assertTrue(out["key_location"].endswith("/indexnow.txt"))
 
     def test_missing_key(self):
         with tempfile.TemporaryDirectory() as tmp:

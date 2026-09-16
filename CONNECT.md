@@ -9,9 +9,8 @@ Most of the kit already works without it:
 | Already working / no GCP | How |
 |---|---|
 | Audit, Lighthouse speed, citations, benchmark, dashboard | Every **SOE run** |
-| Copy drafting + Claude AI-answer checks | `ANTHROPIC_API_KEY` (already added) |
-| Gemini AI-answer checks | `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) from [Google AI Studio](https://aistudio.google.com/apikey) — not Cloud Console |
-| IndexNow (Bing URL ping) | `INDEXNOW_KEY` / `INDEXNOW_URL_TXT` + host a key file on WordPress |
+| Copy drafting + Gemini AI-answer checks (Claude fallback) | `GEMINI_API_KEY` first; `ANTHROPIC_API_KEY` if Gemini is missing |
+| IndexNow (Bing URL ping) | `INDEXNOW_KEY` / `INDEXNOW_URL_TXT`. Yuzu already hosts `/indexnow.txt`; WordPress sites still need that file uploaded |
 | Search Console | Export Performance as CSV in search.google.com (not cloud.google.com) and import it |
 | Google AI Mode / AI Overviews | Monthly check by hand — there is no public API that matches those consumer products |
 
@@ -27,8 +26,7 @@ Paid, not Google: DataForSEO (rankings and AI Overviews).
 
 | # | Card on the dashboard | Cost | Time | Secrets |
 |---|---|---|---|---|
-| 5 | Copy drafting + Claude AI checks | usage | already added | `ANTHROPIC_API_KEY` |
-| 5b | Gemini AI-answer checks | usage | already added | `GEMINI_API_KEY` (or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`) |
+| 5 | Copy drafting + AI checks | usage | Gemini first, Claude fallback | `GEMINI_API_KEY`, `ANTHROPIC_API_KEY` |
 | 6 | IndexNow (Bing URL ping) | free | 5 min + host a file on each WordPress site | `INDEXNOW_KEY`, `INDEXNOW_URL_TXT` |
 | 2a | Search Console CSV import | free | 5 min | none |
 | 1 | Real-user speed (CrUX) — optional | free | 5 min | `CRUX_API_KEY`, `PSI_API_KEY` |
@@ -121,33 +119,29 @@ You must be an **owner or manager** of the profile. For Yuzu, the salon owner ca
    - Put both in `configs/yuzu.yaml` as `business.gbp_account` and `business.gbp_location`. These IDs aren't secret.
 7. In GitHub, add the secrets `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET` and `GBP_REFRESH_TOKEN`.
 
-## 5. Copy drafting and Claude AI-answer checks: `ANTHROPIC_API_KEY`
+## 5. Copy drafting and AI-answer checks: Gemini first, Claude fallback
 
-Already added. Each **SOE run**:
+Each **SOE run**:
 
-- calls `soe_fixes.py --llm`, so the Fixes tab titles / descriptions / H1 are Claude drafts (source: "Claude draft")
-- calls `soe_ai_log.py run`, which asks Claude (with web search) each prompt in `ai.prompts` and records whether the brand was mentioned or cited
+- calls `soe_fixes.py --llm` with **Gemini first** (cheaper). Source on the Fixes tab: "Gemini draft". Falls back to Claude if Gemini is missing or errors.
+- calls `soe_ai_log.py run` for **Gemini first**, then Claude. Google AI Mode stays a monthly manual check.
 
-Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`). Perplexity and ChatGPT still auto-fill if you add `PERPLEXITY_API_KEY` / `OPENAI_API_KEY` and list those engines in the site settings.
+Gemini key: Google AI Studio (https://aistudio.google.com/apikey) as `GEMINI_API_KEY`, or `GOOGLE_GEMINI_API_KEY` / `GOOGLE_GENAI_API_KEY` / `GOOGLE_API_KEY`. Optional `SOE_GEMINI_MODEL` (default `gemini-2.5-flash`).
 
-## 5b. Gemini AI-answer checks: `GEMINI_API_KEY`
-
-This is a **Google AI Studio** key (https://aistudio.google.com/apikey), not a Cloud Console login. The Action also accepts `GOOGLE_GEMINI_API_KEY`, `GOOGLE_GENAI_API_KEY`, or `GOOGLE_API_KEY`.
-
-Each **SOE run** asks Gemini with Google Search grounding and logs mention/citation the same way as Claude. Optional: set `SOE_GEMINI_MODEL` (default `gemini-2.5-flash`).
-
-Google AI Mode / AI Overviews stay a monthly manual check — those consumer products have no matching public API.
+Claude key: `ANTHROPIC_API_KEY`. Optional `SOE_MODEL` (default `claude-sonnet-4-5`). Perplexity and ChatGPT still auto-fill if you add those keys and list those engines.
 
 ## 6. IndexNow (Bing and others): free
 
-Google does not use IndexNow. Wix cannot host the key file, so Yuzu stays on Bing Webmaster Tools.
+Google does not use IndexNow. The Action reads `INDEXNOW_KEY` (and `INDEXNOW_URL_TXT` if the hosted file is not `<site>/<key>.txt`). It also tries `/indexnow.txt`.
+
+Yuzu already serves a key file at `/indexnow.txt`, so Wix is no longer skipped. djurbant.com and tigg3s.com still need that file uploaded (WordPress: SFTP / file-manager plugin) or IndexNow returns 403.
 
 1. Keep `INDEXNOW_KEY` as 8–128 letters, digits or hyphens (a hex UUID is fine). If the key was stored in `INDEXNOW_URL_TXT` instead, that works too.
 2. Host a plain-text file whose **contents equal the key**. Either:
-   - `https://<site>/<key>.txt` (the default), or
+   - `https://<site>/indexnow.txt`,
+   - `https://<site>/<key>.txt` (the spec default), or
    - any URL on that host, stored as secret `INDEXNOW_URL_TXT`.
-3. WordPress: upload via SFTP (Cloudways → Application → Access details) or a file-manager plugin. The file must be reachable without a login.
-4. Re-run **SOE run**. The IndexNow card turns green on a 200/202, or red if the key file is missing (403) or the sitemap is empty.
+3. Re-run **SOE run**. The IndexNow card turns green on a 200/202, or red if the key file is missing (403) or the sitemap is empty.
 
 ## Checking it worked
 

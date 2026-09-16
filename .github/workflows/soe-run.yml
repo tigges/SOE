@@ -74,7 +74,7 @@ jobs:
             python soe_ai_log.py summary "$c" --out "$out" > /dev/null || true
             copy="projects/$slug/copy.yaml"
             [ "${{ inputs.benchmark }}" = "true" ] && { python soe_benchmark.py "$c" --out "$out" || true; }
-            python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( [ -n "$ANTHROPIC_API_KEY" ] && echo --llm ) || true
+            python soe_fixes.py "$c" "$out" $( [ -f "$copy" ] && echo --copy "$copy" ) $( { [ -n "$ANTHROPIC_API_KEY" ] || [ -n "$GEMINI_API_KEY" ] || [ -n "$GOOGLE_API_KEY" ] || [ -n "$GOOGLE_GEMINI_API_KEY" ] || [ -n "$GOOGLE_GENAI_API_KEY" ]; } && echo --llm ) || true
             python -m integrations.indexnow "$c" "$out" || true
             echo "::endgroup::"
           done

@@ -21,7 +21,7 @@ benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026
 
 ai:
   allow_training: true
-  engines: [Claude, Gemini, Google AI Mode]
+  engines: [Gemini, Claude, Google AI Mode]
   brand_terms: [UrbanT, "@_urbant_"]
   llms_should_mention: [DJ, bass house]
   prompts:

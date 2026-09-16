@@ -772,7 +772,7 @@ function renderOffsite(){
   $("#aisum").textContent = last ? `${last.month}: mentioned in ${Math.round(last.mention_rate * 100)}% · cited in ${Math.round(last.citation_rate * 100)}%` : `${S.pending_checks ?? 0} checks waiting`;
   const others = (S.top_other_sources || []).slice(0, 6).map(([d, n]) => `${d} (${n})`).join(", ");
   $("#ainote").textContent = (others ? `Sources cited instead of us: ${others}. These are the listings and sites to get onto. ` : "") +
-    "Fill the log in data/" + P.slug + "/ai_log.csv (soe_ai_log.py init adds this month's rows). Claude and Gemini fill in automatically from their API keys; Google AI Mode is a monthly manual check.";
+    "Fill the log in data/" + P.slug + "/ai_log.csv (soe_ai_log.py init adds this month's rows). Gemini (first) and Claude fill in automatically from their API keys; Google AI Mode is a monthly manual check.";
 }
 
 let bmf = "all";
@@ -961,8 +961,8 @@ function renderAddYaml(s){
     "ai:",
     "  allow_training: true",
     "  llms_should_mention: []",
-    "  prompts: []                            # monthly tests in Claude + Gemini (auto) and Google AI Mode (manual)",
-    "  engines: [Claude, Gemini, Google AI Mode]",
+    "  prompts: []                            # monthly tests in Gemini + Claude (auto) and Google AI Mode (manual)",
+    "  engines: [Gemini, Claude, Google AI Mode]",
     "  brand_terms: []",
     "",
     "audit:",
@@ -1070,9 +1070,9 @@ const RM = [
   {s:"built", t:"Add a site from the Control Room", w:"Add site button drafts the settings file; the Add site GitHub Action writes it and runs the first audit.", e:"soe_add_site.py"},
   {s:"built", t:"Self-updating dashboard", w:"Rebuilt from every report, with a project switcher and score trend.", e:"soe_dashboard.py"},
   {s:"built", t:"/soe skill", w:"One request runs the whole loop for any URL: settings, audit, fixes, dashboard.", e:"skill"},
-  {s:"built", t:"Fix generator", w:"JSON-LD from settings, Claude-written page copy, platform steps, llms.txt summary.", e:"soe_fixes.py"},
-  {s:"built", t:"AI visibility log", w:"Prompt × engine matrix; Claude and Gemini auto-fill plus a monthly Google AI Mode check by hand.", e:"soe_ai_log.py"},
-  {s:"built", t:"Claude + Gemini AI-answer auto-checks", w:"Fills the AI log with Claude (web search) and Gemini (Google Search grounding). Google AI Mode stays manual (no matching public API). Perplexity/ChatGPT still work if you add those keys later.", e:"ANTHROPIC_API_KEY · GEMINI_API_KEY"},
+  {s:"built", t:"Fix generator", w:"JSON-LD from settings, Gemini-first page copy (Claude fallback), platform steps, llms.txt summary.", e:"soe_fixes.py"},
+  {s:"built", t:"AI visibility log", w:"Prompt × engine matrix; Gemini first, then Claude, plus a monthly Google AI Mode check by hand.", e:"soe_ai_log.py"},
+  {s:"built", t:"Gemini + Claude AI-answer auto-checks", w:"Fills the AI log with Gemini (Google Search grounding, cheaper) first, then Claude (web search). Google AI Mode stays manual. Perplexity/ChatGPT still work if you add those keys later.", e:"GEMINI_API_KEY · ANTHROPIC_API_KEY"},
   {s:"built", t:"Search Console export import", w:"No Google Cloud needed: export Performance as CSV and import it. Chart, queries, pages, countries, devices and insights.", e:"soe_gsc_import.py"},
   {s:"key", t:"Search Console API (optional)", w:"Same data automatically; skip this unless you want it — the CSV import above is enough.", e:"GSC_SERVICE_ACCOUNT_B64"},
   {s:"key", t:"Real-user speed (CrUX)", w:"Optional. Lab speed (Lighthouse) already runs. Real-user CrUX needs a Google API key, or check pagespeed.web.dev by hand.", e:"CRUX_API_KEY (free)"},
@@ -1081,10 +1081,10 @@ const RM = [
   {s:"built", t:"Listings checker", w:"Name/address/phone match per listing; directory gaps per site type.", e:"soe_citations.py"},
   {s:"built", t:"Site-type modules", w:"Local business, SaaS, ecommerce, publisher, personal/artist brand.", e:"modules/"},
   {s:"built", t:"Platform fix packs", w:"Wix, WordPress/Elementor, Next.js steps on every finding.", e:"fixpacks/"},
-  {s:"built", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others. Host the key file at INDEXNOW_URL_TXT (or <site>/<key>.txt). Skipped on Wix.", e:"INDEXNOW_KEY · INDEXNOW_URL_TXT"},
+  {s:"built", t:"IndexNow on publish", w:"Pushes changed URLs to Bing and others. Host the key file at INDEXNOW_URL_TXT, /indexnow.txt, or <site>/<key>.txt. Runs on Wix when that file is reachable.", e:"INDEXNOW_KEY · INDEXNOW_URL_TXT"},
   {s:"key", t:"Rank tracking, maps rank, AI Overview citations, volumes", w:"DataForSEO, capped at 20 keywords per run.", e:"DATAFORSEO_LOGIN (~£5–20/mo)"},
   {s:"key", t:"Business Profile reviews and actions", w:"Optional. Needs Google Cloud OAuth. Or check reviews and NAP in the Business Profile / Maps UI by hand.", e:"GBP_REFRESH_TOKEN"},
-  {s:"built", t:"Automatic copy drafting outside Claude", w:"Lets the GitHub Action draft copy with Claude. Re-run SOE run after adding the key.", e:"ANTHROPIC_API_KEY"},
+  {s:"built", t:"Automatic copy drafting", w:"GitHub Action drafts titles/descriptions with Gemini first, Claude if Gemini is missing. Re-run SOE run after adding a key.", e:"GEMINI_API_KEY · ANTHROPIC_API_KEY"},
 ];
 let fp = "all";
 function renderRM(){

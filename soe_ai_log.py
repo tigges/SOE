@@ -27,7 +27,7 @@ import requests, yaml
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 COLS = ["date", "engine", "prompt", "mentioned", "cited", "position", "cited_sources", "notes", "method"]
-DEFAULT_ENGINES = ["Claude", "Gemini", "Google AI Mode"]
+DEFAULT_ENGINES = ["Gemini", "Claude", "Google AI Mode"]
 GEMINI_KEYS = ("GEMINI_API_KEY", "GOOGLE_GEMINI_API_KEY", "GOOGLE_GENAI_API_KEY", "GOOGLE_API_KEY")
 
 
@@ -197,8 +197,8 @@ def upsert_row(rows, rec):
 
 
 def run(cfg):
-    auto = {"Claude": (("ANTHROPIC_API_KEY",), ask_claude),
-            "Gemini": (GEMINI_KEYS, ask_gemini),
+    auto = {"Gemini": (GEMINI_KEYS, ask_gemini),
+            "Claude": (("ANTHROPIC_API_KEY",), ask_claude),
             "Perplexity": (("PERPLEXITY_API_KEY",), ask_perplexity),
             "ChatGPT": (("OPENAI_API_KEY",), ask_openai)}
     wanted = cfg.get("ai", {}).get("engines") or list(auto)

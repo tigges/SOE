@@ -9,15 +9,17 @@ Writes <report dir>/fixes.md (and fixes.json) containing:
   1. Entity JSON-LD built from the config (business, hours, geo, profiles, booking)
   2. Per-page title / meta description / H1 proposals
        - default: rule-based drafts (clearly marked DRAFT)
-       - --llm with ANTHROPIC_API_KEY: drafted by Claude (model from env SOE_MODEL)
-       - in a Claude session: the /soe skill asks Claude to replace the drafts directly
+       - --llm: Gemini first (GEMINI_API_KEY / GOOGLE_API_KEY), then Claude (ANTHROPIC_API_KEY)
+       - in a Claude session: the /soe skill can still replace the drafts directly
   3. Platform steps for every finding (from fixpacks/<platform>.yaml)
   4. An llms.txt summary and a Q&A block drafted from keywords.questions
 Every proposal is for human approval before publishing.
 """
-import argparse, json, os, re
+import argparse, json, os, re, sys
 
 import requests, yaml
+
+import soe_ai_log as ai
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCHEMA_TYPE = {"local_business": "LocalBusiness", "saas": "SoftwareApplication", "ecommerce": "OnlineStore",
@@ -93,29 +95,73 @@ def rule_drafts(cfg, pages):
     return out
 
 
-def llm_drafts(cfg, pages, findings):
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        print("--llm skipped: ANTHROPIC_API_KEY not set; using rule-based drafts")
-        return None
+def draft_prompt(cfg, pages, findings):
     brief = dict(site=cfg["site"], business=cfg.get("business"), keywords=cfg.get("keywords"),
                  pages=[{k: p[k] for k in ("url", "title", "description", "h1", "words")} for p in pages],
                  findings=[{k: f[k] for k in ("check", "detail", "url")} for f in findings][:60])
-    prompt = ("You are an SEO copywriter. For each page, propose: title (50-60 chars, primary topic + place/brand), "
-              "description (140-160 chars, factual, with a call to action), h1. Use only facts in the brief; "
-              "map each primary keyword to one page. Reply with a JSON array of objects "
-              "{url,title,description,h1} and nothing else.\n\nBRIEF:\n" + json.dumps(brief, default=str))
+    return ("You are an SEO copywriter. For each page, propose: title (50-60 chars, primary topic + place/brand), "
+            "description (140-160 chars, factual, with a call to action), h1. Use only facts in the brief; "
+            "map each primary keyword to one page. Reply with a JSON array of objects "
+            "{url,title,description,h1} and nothing else.\n\nBRIEF:\n" + json.dumps(brief, default=str))
+
+
+def parse_draft_rows(text, pages, source):
+    rows = json.loads(text[text.index("["): text.rindex("]") + 1])
+    cur = {p["url"]: p["title"] for p in pages}
+    for row in rows:
+        row.update(current_title=cur.get(row["url"], ""), source=source)
+    return rows
+
+
+def gemini_drafts(prompt, pages, key):
+    model = os.environ.get("SOE_GEMINI_MODEL", "gemini-2.5-flash")
+    r = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        timeout=120,
+        headers={"x-goog-api-key": key, "content-type": "application/json"},
+        json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+              "generationConfig": {"responseMimeType": "application/json"}},
+    )
+    r.raise_for_status()
+    text, _ = ai.gemini_text_and_sources(r.json())
+    return parse_draft_rows(text, pages, "Gemini draft")
+
+
+def claude_drafts(prompt, pages, key):
     r = requests.post("https://api.anthropic.com/v1/messages", timeout=120,
                       headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
                       json={"model": os.environ.get("SOE_MODEL", "claude-sonnet-4-5"), "max_tokens": 4000,
                             "messages": [{"role": "user", "content": prompt}]})
     r.raise_for_status()
     text = "".join(c.get("text", "") for c in r.json().get("content", []))
-    rows = json.loads(text[text.index("["): text.rindex("]") + 1])
-    cur = {p["url"]: p["title"] for p in pages}
-    for row in rows:
-        row.update(current_title=cur.get(row["url"], ""), source="Claude draft")
-    return rows
+    return parse_draft_rows(text, pages, "Claude draft")
+
+
+def llm_drafts(cfg, pages, findings):
+    prompt = draft_prompt(cfg, pages, findings)
+    gemini = ai.first_env(*ai.GEMINI_KEYS)
+    claude = (os.environ.get("ANTHROPIC_API_KEY") or "").strip()
+    if gemini:
+        try:
+            rows = gemini_drafts(prompt, pages, gemini)
+            print(f"--llm: Gemini draft ({len(rows)} pages)")
+            return rows
+        except Exception as e:
+            print(f"--llm Gemini failed: {str(e)[:120]}", file=sys.stderr)
+            if not claude:
+                print("--llm skipped; using rule-based drafts")
+                return None
+            print("--llm falling back to Claude")
+    if claude:
+        try:
+            rows = claude_drafts(prompt, pages, claude)
+            print(f"--llm: Claude draft ({len(rows)} pages)")
+            return rows
+        except Exception as e:
+            print(f"--llm Claude failed: {str(e)[:120]}; using rule-based drafts", file=sys.stderr)
+            return None
+    print("--llm skipped: GEMINI_API_KEY / ANTHROPIC_API_KEY not set; using rule-based drafts")
+    return None
 
 
 def llms_summary(cfg):
@@ -177,7 +223,7 @@ def main():
     plat = cfg["site"].get("platform", "the platform")
     L = [f"# Fix pack — {cfg['site'].get('name')}", "",
          "Everything here is a proposal: review before publishing. Page copy marked DRAFT is rule-based — "
-         "have Claude rewrite it (the /soe skill does this) or run with --llm.", "",
+         "run with --llm (Gemini first, then Claude) or rewrite in a session.", "",
          "## 1. Entity structured data (JSON-LD)", "", "```json", json.dumps(schema, indent=2, ensure_ascii=False), "```", "",
          "## 2. Page titles, descriptions, H1", "", "| Page | Now | Proposed title | Proposed description | H1 | Source |",
          "|---|---|---|---|---|---|"]
