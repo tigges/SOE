@@ -1,8 +1,9 @@
 """IndexNow — push changed URLs to Bing, Yandex, Seznam, Naver etc. (Google does not use IndexNow).
 
 Env: INDEXNOW_KEY — 8-128 chars of a-z, A-Z, 0-9 or '-' (e.g. `python -c "import uuid;print(uuid.uuid4().hex)"`).
-The key must be served as plain text (file content == key) at keyLocation = <site.url>/<key>.txt,
-otherwise the endpoint answers 403. A 202 means "received, key validation pending".
+Optional INDEXNOW_URL_TXT — full URL (or path) of the key file. Default keyLocation is <site.url>/<key>.txt.
+The key must be served as plain text (file content == key) at keyLocation, otherwise the endpoint answers 403.
+A 202 means "received, key validation pending".
 
 Wix note: Wix cannot host arbitrary files at the site root, so IndexNow is not usable on Wix —
 submit URLs in Bing Webmaster Tools instead (URL Submission, or its sitemap submission).
@@ -47,22 +48,40 @@ def sitemap_urls(url, s, depth=0, out=None):
     return out[:CAP]
 
 
+def key_location(base, key, override=None):
+    """URL of the hosted key file. override is INDEXNOW_URL_TXT (full URL or path)."""
+    loc = (override or "").strip()
+    if not loc:
+        return f"{base.rstrip('/')}/{key}.txt"
+    if re.match(r"^https?://", loc, re.I):
+        return loc
+    return f"{base.rstrip('/')}/{loc.lstrip('/')}"
+
+
 def run(cfg: dict, outdir: str, urls=None) -> dict | None:
     key = env("INDEXNOW_KEY")
     if not key:
         return skip(NAME, "INDEXNOW_KEY not set")
+    if (cfg.get("site") or {}).get("platform", "").lower() == "wix":
+        print("[indexnow] skipped: Wix cannot host the key file — submit URLs in Bing Webmaster Tools")
+        out = {"skipped": "not possible on Wix; submit URLs in Bing Webmaster Tools"}
+        write_json(outdir, NAME, {"summary": out})
+        return out
     if not re.fullmatch(r"[A-Za-z0-9-]{8,128}", key):
         return {"error": "INDEXNOW_KEY must be 8-128 chars of a-z, A-Z, 0-9, '-'"}
     base = cfg["site"]["url"].rstrip("/")
     host = urlparse(base).netloc
+    loc = key_location(base, key, env("INDEXNOW_URL_TXT"))
     s = requests.Session()
     s.headers["User-Agent"] = UA
     if urls is None:
         urls = sitemap_urls(base + "/sitemap.xml", s)
     urls = list(dict.fromkeys(u for u in urls if urlparse(u).netloc == host))[:CAP]
     if not urls:
-        return {"error": f"no URLs on {host} to submit (sitemap empty or unreachable)"}
-    body = {"host": host, "key": key, "keyLocation": f"{base}/{key}.txt", "urlList": urls}
+        summary = {"error": f"no URLs on {host} to submit (sitemap empty or unreachable)", "key_location": loc}
+        write_json(outdir, NAME, {"summary": summary})
+        return summary
+    body = {"host": host, "key": key, "keyLocation": loc, "urlList": urls}
     try:
         r = s.post(ENDPOINT, json=body, timeout=60,
                    headers={"Content-Type": "application/json; charset=utf-8"})

@@ -56,7 +56,7 @@ The SOE Control Room is published with GitHub Pages at **https://tigges.github.i
 | `OPENAI_API_KEY`, `PERPLEXITY_API_KEY` | Auto-filled AI-answer checks |
 | `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` | Organic rank, Maps rank, AI Overview citation and search volume (paid, about £5–20/mo) |
 | `GBP_OAUTH_TOKEN` + `business.gbp_account` / `gbp_location` | Business Profile reviews and actions (needs Google approval) |
-| `INDEXNOW_KEY` | Pushes changed URLs to Bing and other engines (not possible on Wix) |
+| `INDEXNOW_KEY` (+ optional `INDEXNOW_URL_TXT`) | Pushes changed URLs to Bing and other engines (not possible on Wix). Host the key file at `INDEXNOW_URL_TXT` or `<site>/<key>.txt` |
 | `ANTHROPIC_API_KEY` (+ `SOE_MODEL`) | `soe_fixes.py --llm`: copy drafting inside the GitHub Action |
 
 ## Integration details
@@ -74,4 +74,4 @@ python -m integrations.crux configs/<slug>.yaml reports/<slug>/<date>      # any
 | `gsc` (Search Console clicks/impressions/positions, 28 days) | `GSC_SERVICE_ACCOUNT_JSON` (path to key file) + `pip install google-auth` | Enable the Search Console API, create a service-account JSON key, and add its e-mail as a user on the property. Set `site.gsc_property` if the property isn't `sc-domain:<host>`. |
 | `dataforseo` (organic rank, AI Overview citation, Maps rank, volume) | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` | Use the API credentials from app.dataforseo.com/api-access (paid per request, capped at 20 keywords). Optional `site.location`. |
 | `gbp` (reviews + calls/clicks/directions/impressions) | `GBP_OAUTH_TOKEN` or `GBP_SERVICE_ACCOUNT_JSON` + `business.gbp_account`, `business.gbp_location` | Google must approve API access first (GBP API access request form). The token needs the `business.manage` scope, e.g. from OAuth Playground. |
-| `indexnow` (URL push to Bing/Yandex; not in run_all) | `INDEXNOW_KEY` | Make up an 8–128 char hex key and host it at `<site>/<key>.txt`. This won't work on Wix; submit URLs in Bing Webmaster Tools there instead. |
+| `indexnow` (URL push to Bing/Yandex; run by the SOE Action, not in run_all) | `INDEXNOW_KEY`, optional `INDEXNOW_URL_TXT` | Host a file whose contents equal the key at `<site>/<key>.txt`, or at the URL in `INDEXNOW_URL_TXT`. This won't work on Wix; submit URLs in Bing Webmaster Tools there instead. |

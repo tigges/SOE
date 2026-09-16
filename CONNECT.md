@@ -10,6 +10,8 @@ Do the steps in this order: the first two are free and take about 20 minutes tog
 | 2 | Search Console | free | 15 min | `GSC_SERVICE_ACCOUNT_B64` |
 | 3 | Rankings & AI Overviews | pay as you go | 10 min | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | 4 | Business Profile | free | Google approval (days–weeks), then 20 min | `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET`, `GBP_REFRESH_TOKEN` |
+| 5 | Copy drafting in the Action | usage | already added | `ANTHROPIC_API_KEY` |
+| 6 | IndexNow (Bing URL ping) | free | 5 min + host a file on each WordPress site | `INDEXNOW_KEY`, `INDEXNOW_URL_TXT` |
 
 ---
 
@@ -89,6 +91,21 @@ You must be an **owner or manager** of the profile. For Yuzu, the salon owner ca
    - `https://mybusinessbusinessinformation.googleapis.com/v1/accounts/<id>/locations?readMask=name,title` gives `locations/<id>`.
    - Put both in `configs/yuzu.yaml` as `business.gbp_account` and `business.gbp_location`. These IDs aren't secret.
 7. In GitHub, add the secrets `GBP_CLIENT_ID`, `GBP_CLIENT_SECRET` and `GBP_REFRESH_TOKEN`.
+
+## 5. Copy drafting in the GitHub Action: `ANTHROPIC_API_KEY`
+
+Already added. Each **SOE run** calls `soe_fixes.py --llm`, so the Fixes tab titles / descriptions / H1 are Claude drafts (source: "Claude draft") instead of the rule-based DRAFT lines. Optional: set `SOE_MODEL` (default `claude-sonnet-4-5`).
+
+## 6. IndexNow (Bing and others): free
+
+Google does not use IndexNow. Wix cannot host the key file, so Yuzu stays on Bing Webmaster Tools.
+
+1. Keep `INDEXNOW_KEY` as 8–128 letters, digits or hyphens (a hex UUID is fine).
+2. Host a plain-text file whose **contents equal the key**. Either:
+   - `https://<site>/<key>.txt` (the default), or
+   - any URL on that host, stored as secret `INDEXNOW_URL_TXT`.
+3. WordPress: upload via SFTP (Cloudways → Application → Access details) or a file-manager plugin. The file must be reachable without a login.
+4. Re-run **SOE run**. The IndexNow card turns green on a 200/202, or red if the key file is missing (403) or the sitemap is empty.
 
 ## Checking it worked
 
