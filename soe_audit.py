@@ -49,10 +49,23 @@ def load_yaml(*parts):
     return yaml.safe_load(open(path)) if os.path.exists(path) else {}
 
 
+def split_site_url(url):
+    """Origin (scheme://host/path, no trailing slash), query, and homepage URL.
+
+    GitHub Pages project sites live at a path prefix. A query such as ?v=clean is
+    a homepage variant: keep it on the page we open, not on robots.txt / sitemap.xml.
+    """
+    p = urlparse((url or "").strip())
+    origin = f"{p.scheme}://{p.netloc}{(p.path or '').rstrip('/')}"
+    query = p.query or ""
+    home = origin + "/" + (f"?{query}" if query else "")
+    return origin, query, home
+
+
 class Audit:
     def __init__(self, cfg):
         self.cfg = cfg
-        self.base = cfg["site"]["url"].rstrip("/")
+        self.base, self.query, self.home = split_site_url(cfg["site"]["url"])
         self.host = urlparse(self.base).netloc
         self.hosts = {self.host, self.host[4:] if self.host.startswith("www.") else "www." + self.host}
         self.s = requests.Session()
@@ -86,7 +99,7 @@ class Audit:
             if r.url.rstrip("/") != self.base:
                 self.add("T", "high", "host-canonicalisation", f"{variant} ends at {r.url}",
                          f"301 all variants to {self.base}/")
-        home = self.get(self.base + "/")
+        home = self.get(self.home)
         if not home or home.status_code != 200:
             self.add("T", "critical", "homepage", f"status {getattr(home,'status_code',None)}", "Fix homepage availability")
         # robots
@@ -118,7 +131,7 @@ class Audit:
     # ---------- page crawl ----------
     def crawl(self, seeds):
         limit = self.cfg.get("audit", {}).get("max_pages", 50)
-        queue, seen = [self.base + "/"] + seeds, set()
+        queue, seen = [self.home] + seeds, set()
         while queue and len(self.pages) < limit:
             u = queue.pop(0).split("#")[0].split("?")[0]   # ignore query-string variants (replytocom, utm...)
             key = u.rstrip("/")
@@ -332,7 +345,7 @@ class Audit:
         if key:
             try:
                 r = self.s.get("https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
-                               params={"url": self.base + "/", "strategy": "mobile", "key": key}, timeout=120).json()
+                               params={"url": self.home, "strategy": "mobile", "key": key}, timeout=120).json()
                 le = r.get("loadingExperience", {}).get("metrics", {})
                 self.meta["crux"] = {k: v.get("percentile") for k, v in le.items()}
             except Exception as e:
@@ -349,7 +362,7 @@ class Audit:
         results = []
         for i in range(runs):
             out = os.path.join(tempfile.mkdtemp(), "lh.json")
-            cmd = ["npx", "-y", "lighthouse@12", self.base + "/", "--quiet", "--output=json", f"--output-path={out}",
+            cmd = ["npx", "-y", "lighthouse@12", self.home, "--quiet", "--output=json", f"--output-path={out}",
                    "--only-categories=performance,seo,accessibility,best-practices",
                    "--chrome-flags=--headless=new --no-sandbox"]
             try:
