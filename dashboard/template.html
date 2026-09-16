@@ -605,7 +605,7 @@ function render(){
     ["gsc", "Search Console", "import a Performance export (soe_gsc_import.py) or set GSC_SERVICE_ACCOUNT_B64", r => r.totals ? `${r.source === "export" ? "CSV export " + r.exported + " · " : ""}${r.totals.impressions} impressions · ${r.totals.clicks} clicks` : "Connected"],
     ["dataforseo", "Rankings & AI Overviews", "DATAFORSEO_LOGIN", r => r.keywords ? `${r.keywords.length} keywords tracked` : "Connected"],
     ["gbp", "Business Profile", "GBP_REFRESH_TOKEN", r => r.reviews && !r.reviews.error ? `${r.reviews.total_reviews ?? "—"} reviews · ★ ${r.reviews.average_rating ?? "—"}` : "Connected"],
-    ["indexnow", "IndexNow (Bing)", "INDEXNOW_KEY + key file on the site", r => r.skipped ? r.skipped : r.submitted != null ? `${r.submitted} URLs · ${r.meaning || ""}` : "Connected"],
+    ["indexnow", "IndexNow (Bing)", P.slug === "tigg3s" ? "add /indexnow.txt in tigges/TIGG3S_NEW (docs/ + public/), then re-run SOE" : "INDEXNOW_KEY + key file on the site", r => r.skipped ? r.skipped : r.submitted != null ? `${r.submitted} URLs · ${r.meaning || ""}` : "Connected"],
   ];
   $("#intg").innerHTML = INT.map(([k, label, env, fmt]) => {
     const r = I[k];

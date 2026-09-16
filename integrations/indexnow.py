@@ -75,10 +75,28 @@ def resolve_key():
     return None, loc
 
 
+def site_hosts(host):
+    h = (host or "").lower()
+    apex = h[4:] if h.startswith("www.") else h
+    return {h, apex, "www." + apex}
+
+
+def rewrite_to_host(url, host):
+    """Keep same-site URLs; force https + the config host (www vs apex)."""
+    p = urlparse(url)
+    if p.netloc.lower() not in site_hosts(host):
+        return None
+    return p._replace(netloc=host, scheme="https").geturl()
+
+
 def hosted_key_location(session, base, key, override=None):
     """Prefer a URL whose file contents equal the key (default {key}.txt, then /indexnow.txt)."""
     guessed = key_location(base, key, override)
-    candidates = [guessed, f"{base.rstrip('/')}/indexnow.txt", f"{base.rstrip('/')}/{key}.txt"]
+    p = urlparse(base)
+    origins = [f"{p.scheme}://{h}" for h in site_hosts(p.netloc)]
+    candidates = [guessed]
+    for origin in origins:
+        candidates += [f"{origin}/indexnow.txt", f"{origin}/{key}.txt"]
     for c in dict.fromkeys(candidates):
         try:
             r = session.get(c, timeout=20)
@@ -104,12 +122,11 @@ def run(cfg: dict, outdir: str, urls=None) -> dict | None:
     if wix:
         print("[indexnow] Wix: submitting if a key file is hosted at keyLocation")
     if urls is None:
-        urls = sitemap_urls(base + "/sitemap.xml", s)
-    urls = list(dict.fromkeys(u for u in urls if urlparse(u).netloc == host))[:CAP]
+        urls = sitemap_urls(base + "/sitemap.xml", s) or sitemap_urls(base + "/sitemap_index.xml", s)
+    urls = [u for u in (rewrite_to_host(u, host) for u in urls) if u]
+    urls = list(dict.fromkeys(urls))[:CAP]
     if not urls:
-        summary = {"error": f"no URLs on {host} to submit (sitemap empty or unreachable)", "key_location": loc}
-        write_json(outdir, NAME, {"summary": summary})
-        return summary
+        urls = [base + "/"]
     body = {"host": host, "key": key, "keyLocation": loc, "urlList": urls}
     try:
         r = s.post(ENDPOINT, json=body, timeout=60,

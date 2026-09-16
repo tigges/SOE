@@ -134,7 +134,15 @@ Claude key: `ANTHROPIC_API_KEY`. Optional `SOE_MODEL` (default `claude-sonnet-4-
 
 Google does not use IndexNow. The Action reads `INDEXNOW_KEY` (and `INDEXNOW_URL_TXT` if the hosted file is not `<site>/<key>.txt`). It also tries `/indexnow.txt`.
 
-Yuzu already serves a key file at `/indexnow.txt`, so Wix is no longer skipped. djurbant.com and tigg3s.com still need that file uploaded (WordPress: SFTP / file-manager plugin) or IndexNow returns 403.
+Yuzu already serves a key file at `/indexnow.txt`, so Wix is no longer skipped.
+
+**tigg3s.com is GitHub Pages** (`tigges/TIGG3S_NEW`, published from `docs/`), not WordPress. The GitHub secret is not enough on its own: Bing must fetch `https://tigg3s.com/indexnow.txt`. Add these files in that repo (same key string as the `INDEXNOW_KEY` secret / as Yuzu's file):
+
+- `public/indexnow.txt` and `docs/indexnow.txt` — one line, the key
+- `public/sitemap.xml` and `docs/sitemap.xml` — at least `https://tigg3s.com/`
+- then **Actions → SOE run** so the Control Room card turns green
+
+djurbant.com (WordPress) still needs the file uploaded via SFTP / a file-manager plugin.
 
 1. Keep `INDEXNOW_KEY` as 8–128 letters, digits or hyphens (a hex UUID is fine). If the key was stored in `INDEXNOW_URL_TXT` instead, that works too.
 2. Host a plain-text file whose **contents equal the key**. Either:

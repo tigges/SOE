@@ -1,17 +1,17 @@
 # SOE project config — drafted by soe_add_site.py. Fill in the blanks, then run the audit.
 site:
-  name: www.tigg3s.com
+  name: Tigges
   slug: tigg3s
-  url: https://www.tigg3s.com
+  url: https://tigg3s.com
   type: personal_brand                   # local_business | saas | ecommerce | publisher | personal_brand | generic
-  platform: wordpress                    # wix | wordpress | webflow | shopify | nextjs | other
+  platform: other                    # GitHub Pages (tigges/TIGG3S_NEW); not WordPress
   market: en-GB
   description: ""
   location: ""   # for rank tracking, e.g. London,England,United Kingdom
   gsc_property: "sc-domain:tigg3s.com"
 
 business:
-  name: www.tigg3s.com
+  name: Tigges
   phone: ""
   email: ""
   address: ""
