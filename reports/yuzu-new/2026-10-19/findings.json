@@ -1,6 +1,6 @@
 {
   "site": "https://yuzu.hair",
-  "run": "2026-10-19 21:01",
+  "run": "2026-10-19 21:53",
   "project": {
     "name": "YUZU NEW",
     "slug": "yuzu-new",
@@ -11,14 +11,14 @@
   "score": 92,
   "layers": {
     "Technical": 100,
-    "On-page": 62,
+    "On-page": 63,
     "Structured data": 100,
     "Entity / NAP": 97,
     "AI search readiness": 98,
     "Performance": 99
   },
   "meta": {
-    "sitemap_urls": 11,
+    "sitemap_urls": 8,
     "schema_types": [
       "Answer",
       "BreadcrumbList",
@@ -40,7 +40,7 @@
     },
     "llms_txt": false,
     "lighthouse_runs": [
-      87,
+      83,
       99,
       99
     ],
@@ -52,7 +52,7 @@
         "seo": 100
       },
       "lab": {
-        "largest-contentful-paint": 2117.723,
+        "largest-contentful-paint": 2119.4195,
         "cumulative-layout-shift": 0.003447,
         "total-blocking-time": 0
       }
@@ -63,28 +63,10 @@
       "layer": "O",
       "severity": "medium",
       "check": "canonical",
-      "detail": "points to https://yuzu.hair/",
-      "fix": "Self-reference unless intentional",
-      "url": "https://yuzu.hair/hello-world/",
-      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "canonical",
       "detail": "points to https://yuzu.hair/prices.html",
       "fix": "Self-reference unless intentional",
       "url": "https://yuzu.hair/prices/",
       "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "thin-content",
-      "detail": "278 words (<300)",
-      "fix": "Expand with useful, specific text (services, FAQs, proof)",
-      "url": "https://yuzu.hair/prices/",
-      "how": "Add sections in Elementor; Yoast readability/word count helps."
     },
     {
       "layer": "O",
@@ -126,7 +108,7 @@
       "layer": "O",
       "severity": "medium",
       "check": "thin-content",
-      "detail": "271 words (<300)",
+      "detail": "260 words (<300)",
       "fix": "Expand with useful, specific text (services, FAQs, proof)",
       "url": "https://yuzu.hair/questions/",
       "how": "Add sections in Elementor; Yoast readability/word count helps."
@@ -175,24 +157,6 @@
       "fix": "Expand with useful, specific text (services, FAQs, proof)",
       "url": "https://yuzu.hair/privacy/",
       "how": "Add sections in Elementor; Yoast readability/word count helps."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "canonical",
-      "detail": "points to https://yuzu.hair/",
-      "fix": "Self-reference unless intentional",
-      "url": "https://yuzu.hair/category/uncategorized/",
-      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
-    },
-    {
-      "layer": "O",
-      "severity": "medium",
-      "check": "canonical",
-      "detail": "points to https://yuzu.hair/",
-      "fix": "Self-reference unless intentional",
-      "url": "https://yuzu.hair/author/charles/",
-      "how": "Yoast \u2192 Advanced \u2192 Canonical URL."
     },
     {
       "layer": "O",
@@ -342,7 +306,7 @@
       "layer": "O",
       "severity": "medium",
       "check": "duplicate-title",
-      "detail": "'Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway' on 5 pages",
+      "detail": "'Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway' on 2 pages",
       "fix": "Make titles unique",
       "url": "https://yuzu.hair/",
       "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
@@ -452,33 +416,6 @@
       "check": "alt-text",
       "detail": "1/19 images lack alt",
       "fix": "Describe images; include service/location naturally",
-      "url": "https://yuzu.hair/hello-world/",
-      "how": "Media Library \u2192 image \u2192 Alternative Text."
-    },
-    {
-      "layer": "O",
-      "severity": "low",
-      "check": "alt-text",
-      "detail": "1/19 images lack alt",
-      "fix": "Describe images; include service/location naturally",
-      "url": "https://yuzu.hair/category/uncategorized/",
-      "how": "Media Library \u2192 image \u2192 Alternative Text."
-    },
-    {
-      "layer": "O",
-      "severity": "low",
-      "check": "alt-text",
-      "detail": "1/19 images lack alt",
-      "fix": "Describe images; include service/location naturally",
-      "url": "https://yuzu.hair/author/charles/",
-      "how": "Media Library \u2192 image \u2192 Alternative Text."
-    },
-    {
-      "layer": "O",
-      "severity": "low",
-      "check": "alt-text",
-      "detail": "1/19 images lack alt",
-      "fix": "Describe images; include service/location naturally",
       "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/index.html",
       "how": "Media Library \u2192 image \u2192 Alternative Text."
     },
@@ -540,49 +477,21 @@
       "pdf_links": []
     },
     {
-      "url": "https://yuzu.hair/hello-world/",
-      "status": 200,
-      "bytes": 26662,
-      "title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "description": "Welcome to Yuzu Hair, where tradition meets trend. Japanese-inspired cuts, colour and smoothing at 5 Dickens Yard, a short walk from Ealing Broadway station.",
-      "robots": "",
-      "og_image": "https://yuzu.hair/assets/clean/hero.jpg",
-      "og_description": "Where tradition meets trend in the art of hair care. Book at Dickens Yard, Ealing.",
-      "h1": [
-        "Where tradition meets trend"
-      ],
-      "h2_count": 8,
-      "canonical": "https://yuzu.hair/",
-      "lang": "en-GB",
-      "words": 624,
-      "img_total": 19,
-      "img_no_alt": 1,
-      "ld_types": [
-        "City",
-        "GeoCoordinates",
-        "HairSalon",
-        "OpeningHoursSpecification",
-        "PostalAddress",
-        "ReserveAction"
-      ],
-      "pdf_links": []
-    },
-    {
       "url": "https://yuzu.hair/prices/",
       "status": 200,
-      "bytes": 27083,
+      "bytes": 38968,
       "title": "Price list | Yuzu Hair & Beauty, Ealing Broadway",
-      "description": "Hair price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments. Ladies wash, cut and style from \u00a358. Call 020 8840 2244.",
+      "description": "Hair price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments. Ladies wash, cut and style from \u00a360. Call 020 8840 2244.",
       "robots": "",
       "og_image": "https://yuzu.hair/assets/clean/hero.jpg",
-      "og_description": "Hair price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments. Ladies wash, cut and style from \u00a358. Call 020 8840 2244.",
+      "og_description": "Hair price list for Yuzu Hair & Beauty in Ealing: cuts, colour, balayage and treatments. Ladies wash, cut and style from \u00a360. Call 020 8840 2244.",
       "h1": [
         "Price list"
       ],
-      "h2_count": 4,
+      "h2_count": 5,
       "canonical": "https://yuzu.hair/prices.html",
       "lang": "en-GB",
-      "words": 278,
+      "words": 356,
       "img_total": 1,
       "img_no_alt": 0,
       "ld_types": [
@@ -596,7 +505,7 @@
     {
       "url": "https://yuzu.hair/offers/",
       "status": 200,
-      "bytes": 11081,
+      "bytes": 11874,
       "title": "Exclusive offers | Yuzu Hair & Beauty, Ealing",
       "description": "Exclusive offers at Yuzu Hair in Ealing Broadway: 50% off colour on Tuesdays and Thursdays, 25% off Brazilian blow-dry on Wednesdays, refer a friend and same-day rebook.",
       "robots": "",
@@ -620,7 +529,7 @@
     {
       "url": "https://yuzu.hair/team/",
       "status": 200,
-      "bytes": 11609,
+      "bytes": 11962,
       "title": "Join our team | Yuzu Hair & Beauty, Ealing",
       "description": "Think you\u2019ve got what it takes to join the Yuzu team? Senior stylists, stylists and models at 5 Dickens Yard, Ealing Broadway. Email your CV to info@yuzuhairandbeauty.co.uk.",
       "robots": "",
@@ -644,7 +553,7 @@
     {
       "url": "https://yuzu.hair/questions/",
       "status": 200,
-      "bytes": 9899,
+      "bytes": 10299,
       "title": "Questions | Yuzu Hair & Beauty, Ealing",
       "description": "How much is a haircut at Yuzu in Ealing? Patch tests, hours, and how to book at 5 Dickens Yard.",
       "robots": "",
@@ -656,7 +565,7 @@
       "h2_count": 0,
       "canonical": "https://yuzu.hair/questions.html",
       "lang": "en-GB",
-      "words": 271,
+      "words": 260,
       "img_total": 1,
       "img_no_alt": 0,
       "ld_types": [
@@ -671,7 +580,7 @@
     {
       "url": "https://yuzu.hair/patch/",
       "status": 200,
-      "bytes": 6800,
+      "bytes": 6962,
       "title": "Mandatory patch testing | Yuzu Hair & Beauty",
       "description": "Yuzu Hair requires a mandatory patch test for all clients before any colour service, including existing and new clients. Complete it at least 48 hours before.",
       "robots": "",
@@ -695,7 +604,7 @@
     {
       "url": "https://yuzu.hair/terms/",
       "status": 200,
-      "bytes": 10468,
+      "bytes": 11120,
       "title": "Terms and conditions | Yuzu Hair & Beauty",
       "description": "Yuzu Hair terms: arrival, skin patch test, 48 working hour cancellation, redo and refund policy.",
       "robots": "",
@@ -719,7 +628,7 @@
     {
       "url": "https://yuzu.hair/privacy/",
       "status": 200,
-      "bytes": 7227,
+      "bytes": 7631,
       "title": "Privacy | Yuzu Hair & Beauty",
       "description": "How the Yuzu Hair website and salon handle your details.",
       "robots": "",
@@ -737,62 +646,6 @@
       "ld_types": [
         "BreadcrumbList",
         "ListItem"
-      ],
-      "pdf_links": []
-    },
-    {
-      "url": "https://yuzu.hair/category/uncategorized/",
-      "status": 200,
-      "bytes": 26662,
-      "title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "description": "Welcome to Yuzu Hair, where tradition meets trend. Japanese-inspired cuts, colour and smoothing at 5 Dickens Yard, a short walk from Ealing Broadway station.",
-      "robots": "",
-      "og_image": "https://yuzu.hair/assets/clean/hero.jpg",
-      "og_description": "Where tradition meets trend in the art of hair care. Book at Dickens Yard, Ealing.",
-      "h1": [
-        "Where tradition meets trend"
-      ],
-      "h2_count": 8,
-      "canonical": "https://yuzu.hair/",
-      "lang": "en-GB",
-      "words": 624,
-      "img_total": 19,
-      "img_no_alt": 1,
-      "ld_types": [
-        "City",
-        "GeoCoordinates",
-        "HairSalon",
-        "OpeningHoursSpecification",
-        "PostalAddress",
-        "ReserveAction"
-      ],
-      "pdf_links": []
-    },
-    {
-      "url": "https://yuzu.hair/author/charles/",
-      "status": 200,
-      "bytes": 28444,
-      "title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "description": "Welcome to Yuzu Hair, where tradition meets trend. Japanese-inspired cuts, colour and smoothing at 5 Dickens Yard, a short walk from Ealing Broadway station.",
-      "robots": "",
-      "og_image": "https://yuzu.hair/assets/clean/hero.jpg",
-      "og_description": "Where tradition meets trend in the art of hair care. Book at Dickens Yard, Ealing.",
-      "h1": [
-        "Where tradition meets trend"
-      ],
-      "h2_count": 8,
-      "canonical": "https://yuzu.hair/",
-      "lang": "en-GB",
-      "words": 625,
-      "img_total": 19,
-      "img_no_alt": 1,
-      "ld_types": [
-        "City",
-        "GeoCoordinates",
-        "HairSalon",
-        "OpeningHoursSpecification",
-        "PostalAddress",
-        "ReserveAction"
       ],
       "pdf_links": []
     },
