@@ -63,14 +63,6 @@
       "source": "DRAFT (rule-based)"
     },
     {
-      "url": "https://yuzu.hair/hello-world/",
-      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
-      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
-      "h1": "Where Tradition Meets Trend",
-      "source": "DRAFT (rule-based)"
-    },
-    {
       "url": "https://yuzu.hair/prices/",
       "current_title": "Price list | Yuzu Hair & Beauty, Ealing Broadway",
       "title": "Price List | Yuzu Hair & Beauty",
@@ -124,22 +116,6 @@
       "title": "Privacy | Yuzu Hair & Beauty",
       "description": "Privacy at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
       "h1": "Privacy",
-      "source": "DRAFT (rule-based)"
-    },
-    {
-      "url": "https://yuzu.hair/category/uncategorized/",
-      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
-      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
-      "h1": "Where Tradition Meets Trend",
-      "source": "DRAFT (rule-based)"
-    },
-    {
-      "url": "https://yuzu.hair/author/charles/",
-      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
-      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
-      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
-      "h1": "Where Tradition Meets Trend",
       "source": "DRAFT (rule-based)"
     },
     {
@@ -227,13 +203,13 @@
     "canonical": {
       "fix": "Self-reference unless intentional",
       "how": "Yoast \u2192 Advanced \u2192 Canonical URL.",
-      "count": 20,
+      "count": 17,
       "severity": "medium"
     },
     "thin-content": {
       "fix": "Expand with useful, specific text (services, FAQs, proof)",
       "how": "Add sections in Elementor; Yoast readability/word count helps.",
-      "count": 11,
+      "count": 10,
       "severity": "medium"
     },
     "duplicate-title": {
@@ -251,7 +227,7 @@
     "alt-text": {
       "fix": "Describe images; include service/location naturally",
       "how": "Media Library \u2192 image \u2192 Alternative Text.",
-      "count": 5,
+      "count": 2,
       "severity": "low"
     },
     "email-domain": {
