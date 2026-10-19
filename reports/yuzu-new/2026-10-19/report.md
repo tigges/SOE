@@ -1,8 +1,8 @@
 # SOE audit — YUZU NEW
 
-Site: https://yuzu.hair · Run: 2026-10-19 17:38 · Pages crawled: 22 · Sitemap URLs: 12
+Site: https://yuzu.hair · Run: 2026-10-19 20:43 · Pages crawled: 22 · Sitemap URLs: 12
 
-## Score: 91/100
+## Score: 92/100
 
 | Layer | Score |
 |---|---|
@@ -11,9 +11,9 @@ Site: https://yuzu.hair · Run: 2026-10-19 17:38 · Pages crawled: 22 · Sitemap
 | Structured data | 100 |
 | Entity / NAP | 97 |
 | AI search readiness | 98 |
-| Performance | 97 |
+| Performance | 99 |
 
-Lighthouse (mobile lab): performance 97, accessibility 100, best-practices 100, seo 100 · LCP 2.4s · TBT 0ms · CLS 0.00
+Lighthouse (mobile lab): performance 99, accessibility 100, best-practices 100, seo 100 · LCP 2.1s · TBT 0ms · CLS 0.00
 
 Schema types found: Answer, BreadcrumbList, City, FAQPage, GeoCoordinates, HairSalon, ListItem, Offer, OfferCatalog, OpeningHoursSpecification, PostalAddress, Question, ReserveAction
 AI bots blocked: {'search': [], 'training': []} · llms.txt: False
@@ -41,14 +41,13 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | canonical | points to https://yuzu.hair/team.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/team.html |
 | medium | O | thin-content | 228 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/team.html |
 | medium | O | canonical | points to https://yuzu.hair/prices.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/prices.html |
-| medium | O | thin-content | 278 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/prices.html |
 | medium | O | canonical | points to https://yuzu.hair/offers.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/offers.html |
 | medium | O | canonical | points to https://yuzu.hair/contact.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/contact.html |
 | medium | O | thin-content | 87 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/contact.html |
 | medium | O | canonical | points to https://yuzu.hair/about.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/about.html |
 | medium | O | thin-content | 139 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/about.html |
 | medium | O | canonical | points to https://yuzu.hair/questions.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/questions.html |
-| medium | O | thin-content | 271 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/questions.html |
+| medium | O | thin-content | 260 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/questions.html |
 | medium | O | canonical | points to https://yuzu.hair/patch.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/patch.html |
 | medium | O | thin-content | 203 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/patch.html |
 | medium | O | canonical | points to https://yuzu.hair/terms.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/terms.html |
@@ -102,14 +101,14 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | /category/uncategorized/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 | /author/charles/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 | /wp-content/themes/yuzu-round/static/team.html | Join our team / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 228 | BreadcrumbList, ListItem |
-| /wp-content/themes/yuzu-round/static/prices.html | Price list / Yuzu Hair & Beauty, Ealing Broadway | ✓ | 1 | 278 | BreadcrumbList, ListItem, Offer, OfferCatalog |
+| /wp-content/themes/yuzu-round/static/prices.html | Price list / Yuzu Hair & Beauty, Ealing Broadway | ✓ | 1 | 356 | BreadcrumbList, ListItem, Offer, OfferCatalog |
 | /wp-content/themes/yuzu-round/static/offers.html | Exclusive offers / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 511 | BreadcrumbList, ListItem |
 | /wp-content/themes/yuzu-round/static/contact.html | Contact / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 87 | BreadcrumbList, ListItem |
 | /wp-content/themes/yuzu-round/static/about.html | About / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 139 | BreadcrumbList, ListItem |
-| /wp-content/themes/yuzu-round/static/questions.html | Questions / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 271 | Answer, BreadcrumbList, FAQPage, ListItem, Question |
+| /wp-content/themes/yuzu-round/static/questions.html | Questions / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 260 | Answer, BreadcrumbList, FAQPage, ListItem, Question |
 | /wp-content/themes/yuzu-round/static/patch.html | Mandatory patch testing / Yuzu Hair & Beauty | ✓ | 1 | 203 | BreadcrumbList, ListItem |
 | /wp-content/themes/yuzu-round/static/terms.html | Terms and conditions / Yuzu Hair & Beauty | ✓ | 1 | 792 | BreadcrumbList, ListItem |
 | /wp-content/themes/yuzu-round/static/privacy.html | Privacy / Yuzu Hair & Beauty | ✓ | 1 | 285 | BreadcrumbList, ListItem |
-| /wp-content/themes/yuzu-round/static/index.html | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 636 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
+| /wp-content/themes/yuzu-round/static/index.html | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 637 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 
 _Manual layers not covered by this script: Google Business Profile, reviews, citations, backlinks, rankings, AI-answer visibility — see PLAYBOOK.md §4._

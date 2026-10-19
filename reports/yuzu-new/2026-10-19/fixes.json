@@ -1,0 +1,308 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://yuzu.hair/#entity",
+    "name": "Yuzu Hair & Beauty",
+    "url": "https://yuzu.hair/",
+    "description": "Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry.",
+    "telephone": "+442088402244",
+    "email": "info@yuzuhairandbeauty.co.uk",
+    "priceRange": "\u00a3\u00a3",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 Dickens Yard, Longfield Avenue",
+      "addressLocality": "Ealing",
+      "addressRegion": "London",
+      "postalCode": "W5 2TD",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.5138,
+      "longitude": -0.3068
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/yuzuhairandbeauty/",
+      "https://www.facebook.com/YUZUHairandBeauty/",
+      "https://www.tiktok.com/@yuzuhairandbeauty.est16"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": "https://phorest.com/book/salons/yuzuhairandbeauty"
+    }
+  },
+  "pages": [
+    {
+      "url": "https://yuzu.hair/",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Hair salon Ealing | Yuzu Hair & Beauty",
+      "description": "Hair salon Ealing at Yuzu Hair & Beauty. See prices and opening hours, and book online.",
+      "h1": "Hair salon Ealing",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/hello-world/",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
+      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Where Tradition Meets Trend",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/sample-page/",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
+      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Where Tradition Meets Trend",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/prices/",
+      "current_title": "Price list | Yuzu Hair & Beauty, Ealing Broadway",
+      "title": "Price List | Yuzu Hair & Beauty",
+      "description": "Price List at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Price List",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/offers/",
+      "current_title": "Exclusive offers | Yuzu Hair & Beauty, Ealing",
+      "title": "Exclusive Offers | Yuzu Hair & Beauty",
+      "description": "Exclusive Offers at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Exclusive Offers",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/team/",
+      "current_title": "Join our team | Yuzu Hair & Beauty, Ealing",
+      "title": "Join Our Team | Yuzu Hair & Beauty",
+      "description": "Join Our Team at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Join Our Team",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/questions/",
+      "current_title": "Questions | Yuzu Hair & Beauty, Ealing",
+      "title": "Questions | Yuzu Hair & Beauty",
+      "description": "Questions at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Questions",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/patch/",
+      "current_title": "Mandatory patch testing | Yuzu Hair & Beauty",
+      "title": "Mandatory Patch Testing | Yuzu Hair & Beauty",
+      "description": "Mandatory Patch Testing at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Mandatory Patch Testing",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/terms/",
+      "current_title": "Terms and conditions | Yuzu Hair & Beauty",
+      "title": "Terms And Conditions | Yuzu Hair & Beauty",
+      "description": "Terms And Conditions at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Terms And Conditions",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/privacy/",
+      "current_title": "Privacy | Yuzu Hair & Beauty",
+      "title": "Privacy | Yuzu Hair & Beauty",
+      "description": "Privacy at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Privacy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/category/uncategorized/",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
+      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Where Tradition Meets Trend",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/author/charles/",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
+      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Where Tradition Meets Trend",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/team.html",
+      "current_title": "Join our team | Yuzu Hair & Beauty, Ealing",
+      "title": "Join Our Team | Yuzu Hair & Beauty",
+      "description": "Join Our Team at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Join Our Team",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/prices.html",
+      "current_title": "Price list | Yuzu Hair & Beauty, Ealing Broadway",
+      "title": "Price List | Yuzu Hair & Beauty",
+      "description": "Price List at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Price List",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/offers.html",
+      "current_title": "Exclusive offers | Yuzu Hair & Beauty, Ealing",
+      "title": "Exclusive Offers | Yuzu Hair & Beauty",
+      "description": "Exclusive Offers at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Exclusive Offers",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/contact.html",
+      "current_title": "Contact | Yuzu Hair & Beauty, Ealing",
+      "title": "Send A Message | Yuzu Hair & Beauty",
+      "description": "Send A Message at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Send A Message",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/about.html",
+      "current_title": "About | Yuzu Hair & Beauty, Ealing",
+      "title": "About | Yuzu Hair & Beauty",
+      "description": "About at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "About",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/questions.html",
+      "current_title": "Questions | Yuzu Hair & Beauty, Ealing",
+      "title": "Questions | Yuzu Hair & Beauty",
+      "description": "Questions at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Questions",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/patch.html",
+      "current_title": "Mandatory patch testing | Yuzu Hair & Beauty",
+      "title": "Mandatory Patch Testing | Yuzu Hair & Beauty",
+      "description": "Mandatory Patch Testing at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Mandatory Patch Testing",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/terms.html",
+      "current_title": "Terms and conditions | Yuzu Hair & Beauty",
+      "title": "Terms And Conditions | Yuzu Hair & Beauty",
+      "description": "Terms And Conditions at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Terms And Conditions",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/privacy.html",
+      "current_title": "Privacy | Yuzu Hair & Beauty",
+      "title": "Privacy | Yuzu Hair & Beauty",
+      "description": "Privacy at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Privacy",
+      "source": "DRAFT (rule-based)"
+    },
+    {
+      "url": "https://yuzu.hair/wp-content/themes/yuzu-round/static/index.html",
+      "current_title": "Yuzu Hair & Beauty | Japanese hair salon, Ealing Broadway",
+      "title": "Where Tradition Meets Trend | Yuzu Hair & Beauty",
+      "description": "Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online.",
+      "h1": "Where Tradition Meets Trend",
+      "source": "DRAFT (rule-based)"
+    }
+  ],
+  "steps": {
+    "canonical": {
+      "fix": "Self-reference unless intentional",
+      "how": "Yoast \u2192 Advanced \u2192 Canonical URL.",
+      "count": 21,
+      "severity": "medium"
+    },
+    "thin-content": {
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "how": "Add sections in Elementor; Yoast readability/word count helps.",
+      "count": 11,
+      "severity": "medium"
+    },
+    "duplicate-title": {
+      "fix": "Make titles unique",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types.",
+      "count": 8,
+      "severity": "medium"
+    },
+    "keyword-targeting": {
+      "fix": "Map each primary keyword to one page and use it in title + H1",
+      "how": "Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).",
+      "count": 3,
+      "severity": "medium"
+    },
+    "alt-text": {
+      "fix": "Describe images; include service/location naturally",
+      "how": "Media Library \u2192 image \u2192 Alternative Text.",
+      "count": 6,
+      "severity": "low"
+    },
+    "email-domain": {
+      "fix": "Use an address on the site domain, or redirect the old domain to the site",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "profile-link": {
+      "fix": "Link profiles and add them to schema sameAs",
+      "how": null,
+      "count": 1,
+      "severity": "low"
+    },
+    "llms.txt": {
+      "fix": "Optional: publish /llms.txt (cheap, low evidence of impact)",
+      "how": "Yoast (v25+) and Rank Math can generate llms.txt, or upload a file to the web root via SFTP (Cloudways \u2192 Application \u2192 Access details).",
+      "count": 1,
+      "severity": "low"
+    },
+    "legacy-site: https://www.yuzuhairandbeauty.london/": {
+      "fix": "301-redirect the whole domain to the main site. old Wix site \u2014 once yuzu.hair is final, 301 it (page by page) to the matching yuzu.hair URL and keep the domain",
+      "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
+      "count": 1,
+      "severity": "high"
+    },
+    "legacy-site: https://yuzuhairandbeauty.ueniweb.com/": {
+      "fix": "Take it offline (delete the site or the listing on that platform). old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
+      "how": "ueni: log in at ueni.com \u2192 Settings \u2192 Delete website (or ask ueni support), then request removal in Google Search Console \u2192 Removals if it still shows.",
+      "count": 1,
+      "severity": "high"
+    },
+    "legacy-site: https://yuzuhairandbeauty.co.uk/": {
+      "fix": "301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page \u2014 301 it to yuzu.hair",
+      "how": "At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.",
+      "count": 1,
+      "severity": "high"
+    }
+  },
+  "llms_summary": "Yuzu Hair & Beauty Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry. Address: 5 Dickens Yard, Longfield Avenue, Ealing, London W5 2TD. Hours: Tue, Wed, Thu, Fri 10:00\u201320:00; Sat 09:00\u201318:00. Phone 020 8840 2244. Book online: https://phorest.com/book/salons/yuzuhairandbeauty",
+  "questions": [
+    "How much is a haircut at Yuzu in Ealing?",
+    "Do I need a patch test before hair colour?",
+    "Which hair salons in Ealing are near the station?"
+  ]
+}
