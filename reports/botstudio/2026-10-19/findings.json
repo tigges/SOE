@@ -1,0 +1,207 @@
+{
+  "site": "https://botstudio.uk",
+  "run": "2026-10-19 19:28",
+  "project": {
+    "name": "https://botstudio.uk/",
+    "slug": "botstudio",
+    "type": "local_business",
+    "platform": "wordpress",
+    "module": "Local business"
+  },
+  "score": 79,
+  "layers": {
+    "Technical": 74,
+    "On-page": 80,
+    "Structured data": 40,
+    "Entity / NAP": 96,
+    "AI search readiness": 91,
+    "Performance": 96
+  },
+  "meta": {
+    "sitemap_urls": 0,
+    "schema_types": [],
+    "ai_bots_blocked": {
+      "search": [],
+      "training": []
+    },
+    "llms_txt": true,
+    "lighthouse_error": "Command '['npx', '-y', 'lighthouse@12', 'https://botstudio.uk/', '--quiet', '--output=json', '--output-path=/tmp/tmpg_41cp_e/lh.json', '--only-categories=performance,seo,accessibility,best-practices',",
+    "lighthouse_runs": [
+      65,
+      96
+    ],
+    "lighthouse": {
+      "scores": {
+        "performance": 96,
+        "accessibility": 95,
+        "best-practices": 100,
+        "seo": 91
+      },
+      "lab": {
+        "largest-contentful-paint": 2302.2835,
+        "cumulative-layout-shift": 0.0001086125711061497,
+        "total-blocking-time": 0
+      }
+    }
+  },
+  "findings": [
+    {
+      "layer": "S",
+      "severity": "critical",
+      "check": "schema-missing",
+      "detail": "none of ['LocalBusiness', 'HairSalon', 'BeautySalon']\u2026 found (found: none)",
+      "fix": "Add JSON-LD for LocalBusiness (see schema/ templates)",
+      "url": "https://botstudio.uk",
+      "how": "Yoast/Rank Math \u2192 Settings \u2192 Site representation (Organisation / Local business). For a salon: Rank Math Local SEO module or the Yoast Local SEO add-on sets the LocalBusiness subtype, hours and geo. Otherwise paste JSON-LD with a code-snippets plugin (WPCode)."
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "http://botstudio.uk/ ends at http://botstudio.uk/",
+      "fix": "301 all variants to https://botstudio.uk/",
+      "url": null,
+      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "https://www.botstudio.uk/ ends at https://www.botstudio.uk/",
+      "fix": "301 all variants to https://botstudio.uk/",
+      "url": null,
+      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "host-canonicalisation",
+      "detail": "http://www.botstudio.uk/ ends at http://www.botstudio.uk/",
+      "fix": "301 all variants to https://botstudio.uk/",
+      "url": null,
+      "how": "Settings \u2192 General (WordPress Address + Site Address), plus Cloudways \u2192 Domain Management \u2192 primary domain and force-HTTPS."
+    },
+    {
+      "layer": "T",
+      "severity": "high",
+      "check": "sitemap",
+      "detail": "no URLs found in /sitemap.xml",
+      "fix": "Generate an XML sitemap and submit it in GSC/Bing",
+      "url": null,
+      "how": "Yoast \u2192 Settings \u2192 Site features \u2192 XML sitemaps on. Submit /sitemap_index.xml in Search Console and Bing."
+    },
+    {
+      "layer": "A",
+      "severity": "high",
+      "check": "js-only-links",
+      "detail": "only the homepage could be crawled: internal links aren't in the HTML",
+      "fix": "Render navigation and key content server-side so crawlers and AI bots can follow links",
+      "url": "https://botstudio.uk",
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "title-length",
+      "detail": "9 chars: 'BotStudio'",
+      "fix": "Aim for 30\u201360 chars: primary keyword + location/brand",
+      "url": "https://botstudio.uk/",
+      "how": "Edit page \u2192 Yoast SEO (or Rank Math) panel \u2192 SEO title. Site-wide templates are under Yoast \u2192 Settings \u2192 Content types."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "thin-content",
+      "detail": "151 words (<300)",
+      "fix": "Expand with useful, specific text (services, FAQs, proof)",
+      "url": "https://botstudio.uk/",
+      "how": "Add sections in Elementor; Yoast readability/word count helps."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'prices' page found (looked for: price, pricing, menu, rates)",
+      "fix": "Add a dedicated prices page and link it from the navigation",
+      "url": "https://botstudio.uk",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'services' page found (looked for: service, treatment, balayage, colour)",
+      "fix": "Add a dedicated services page and link it from the navigation",
+      "url": "https://botstudio.uk",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'contact' page found (looked for: contact, find-us, location)",
+      "fix": "Add a dedicated contact page and link it from the navigation",
+      "url": "https://botstudio.uk",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "O",
+      "severity": "medium",
+      "check": "expected-page",
+      "detail": "no 'about/team' page found (looked for: about, team, stylist, our-story)",
+      "fix": "Add a dedicated about/team page and link it from the navigation",
+      "url": "https://botstudio.uk",
+      "how": "Pages \u2192 Add New (Elementor), then add it to Appearance \u2192 Menus."
+    },
+    {
+      "layer": "E",
+      "severity": "medium",
+      "check": "brand-name",
+      "detail": "canonical name 'https://botstudio.uk/' not used consistently (title: 'BotStudio')",
+      "fix": "Use one exact business name everywhere (site, GBP, directories, schema)",
+      "url": null,
+      "how": "Settings \u2192 General \u2192 Site Title, plus Yoast \u2192 Site representation \u2192 Organisation name."
+    },
+    {
+      "layer": "T",
+      "severity": "low",
+      "check": "robots-sitemap",
+      "detail": "robots.txt does not declare the sitemap",
+      "fix": "Add 'Sitemap: <url>'",
+      "url": null,
+      "how": null
+    },
+    {
+      "layer": "O",
+      "severity": "low",
+      "check": "og-image",
+      "detail": "no og:image",
+      "fix": "Set a share image (1200\u00d7630)",
+      "url": "https://botstudio.uk/",
+      "how": "Yoast \u2192 Social \u2192 Facebook image (1200\u00d7630). A site default is in Yoast \u2192 Settings \u2192 Site basics."
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://botstudio.uk/",
+      "status": 200,
+      "bytes": 10142,
+      "title": "BotStudio",
+      "description": "Bots answer from your own content. Your team steps in when they should.",
+      "robots": "",
+      "og_image": "",
+      "og_description": "",
+      "h1": [
+        "Build, operate, and connect your hybrid agent workforce."
+      ],
+      "h2_count": 4,
+      "canonical": "",
+      "lang": "en",
+      "words": 151,
+      "img_total": 0,
+      "img_no_alt": 0,
+      "ld_types": [],
+      "pdf_links": []
+    }
+  ]
+}
