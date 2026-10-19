@@ -67,7 +67,6 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
 |---|---|---|---|---|---|
 | https://yuzu.hair/ | Yuzu Hair & Beauty \| Japanese hair salon, Ealing Broadway | Hair salon Ealing \| Yuzu Hair & Beauty | Hair salon Ealing at Yuzu Hair & Beauty. See prices and opening hours, and book online. | Hair salon Ealing | DRAFT (rule-based) |
 | https://yuzu.hair/hello-world/ | Yuzu Hair & Beauty \| Japanese hair salon, Ealing Broadway | Where Tradition Meets Trend \| Yuzu Hair & Beauty | Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online. | Where Tradition Meets Trend | DRAFT (rule-based) |
-| https://yuzu.hair/sample-page/ | Yuzu Hair & Beauty \| Japanese hair salon, Ealing Broadway | Where Tradition Meets Trend \| Yuzu Hair & Beauty | Where Tradition Meets Trend at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online. | Where Tradition Meets Trend | DRAFT (rule-based) |
 | https://yuzu.hair/prices/ | Price list \| Yuzu Hair & Beauty, Ealing Broadway | Price List \| Yuzu Hair & Beauty | Price List at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online. | Price List | DRAFT (rule-based) |
 | https://yuzu.hair/offers/ | Exclusive offers \| Yuzu Hair & Beauty, Ealing | Exclusive Offers \| Yuzu Hair & Beauty | Exclusive Offers at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online. | Exclusive Offers | DRAFT (rule-based) |
 | https://yuzu.hair/team/ | Join our team \| Yuzu Hair & Beauty, Ealing | Join Our Team \| Yuzu Hair & Beauty | Join Our Team at Yuzu Hair & Beauty in Ealing. See prices and opening hours, and book online. | Join Our Team | DRAFT (rule-based) |
@@ -96,7 +95,7 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ ueni: log in at ueni.com → Settings → Delete website (or ask ueni support), then request removal in Google Search Console → Removals if it still shows.
 - **legacy-site: https://yuzuhairandbeauty.co.uk/** (high, ×1) — 301-redirect the whole domain to the main site. email domain shows a One.com 'under construction' page — 301 it to yuzu.hair  
   _How:_ At the domain host (e.g. One.com / GoDaddy): add a permanent 301 forward of the whole domain to the main site.
-- **canonical** (medium, ×21) — Self-reference unless intentional  
+- **canonical** (medium, ×20) — Self-reference unless intentional  
   _How:_ Yoast → Advanced → Canonical URL.
 - **thin-content** (medium, ×11) — Expand with useful, specific text (services, FAQs, proof)  
   _How:_ Add sections in Elementor; Yoast readability/word count helps.
@@ -104,7 +103,7 @@ Everything here is a proposal: review before publishing. Page copy marked DRAFT 
   _How:_ Edit page → Yoast SEO (or Rank Math) panel → SEO title. Site-wide templates are under Yoast → Settings → Content types.
 - **keyword-targeting** (medium, ×3) — Map each primary keyword to one page and use it in title + H1  
   _How:_ Set the focus keyphrase in Yoast/Rank Math, and use it in the SEO title and the Elementor heading widget (HTML tag H1).
-- **alt-text** (low, ×6) — Describe images; include service/location naturally  
+- **alt-text** (low, ×5) — Describe images; include service/location naturally  
   _How:_ Media Library → image → Alternative Text.
 - **email-domain** (low, ×1) — Use an address on the site domain, or redirect the old domain to the site
 - **profile-link** (low, ×1) — Link profiles and add them to schema sameAs

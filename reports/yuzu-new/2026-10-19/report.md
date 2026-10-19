@@ -1,6 +1,6 @@
 # SOE audit — YUZU NEW
 
-Site: https://yuzu.hair · Run: 2026-10-19 20:43 · Pages crawled: 22 · Sitemap URLs: 12
+Site: https://yuzu.hair · Run: 2026-10-19 21:01 · Pages crawled: 21 · Sitemap URLs: 11
 
 ## Score: 92/100
 
@@ -23,7 +23,6 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | Sev | Layer | Check | Detail | Fix | URL |
 |---|---|---|---|---|---|
 | medium | O | canonical | points to https://yuzu.hair/ | Self-reference unless intentional | /hello-world/ |
-| medium | O | canonical | points to https://yuzu.hair/ | Self-reference unless intentional | /sample-page/ |
 | medium | O | canonical | points to https://yuzu.hair/prices.html | Self-reference unless intentional | /prices/ |
 | medium | O | thin-content | 278 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /prices/ |
 | medium | O | canonical | points to https://yuzu.hair/offers.html | Self-reference unless intentional | /offers/ |
@@ -54,7 +53,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | canonical | points to https://yuzu.hair/privacy.html | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/privacy.html |
 | medium | O | thin-content | 285 words (<300) | Expand with useful, specific text (services, FAQs, proof) | /wp-content/themes/yuzu-round/static/privacy.html |
 | medium | O | canonical | points to https://yuzu.hair/ | Self-reference unless intentional | /wp-content/themes/yuzu-round/static/index.html |
-| medium | O | duplicate-title | 'Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway' on 6 pages | Make titles unique | / |
+| medium | O | duplicate-title | 'Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway' on 5 pages | Make titles unique | / |
 | medium | O | duplicate-title | 'Price list / Yuzu Hair & Beauty, Ealing Broadway' on 2 pages | Make titles unique | /prices/ |
 | medium | O | duplicate-title | 'Exclusive offers / Yuzu Hair & Beauty, Ealing' on 2 pages | Make titles unique | /offers/ |
 | medium | O | duplicate-title | 'Join our team / Yuzu Hair & Beauty, Ealing' on 2 pages | Make titles unique | /team/ |
@@ -67,7 +66,6 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | medium | O | keyword-targeting | primary keyword 'Japanese hair salon London' not in homepage title/H1 | Map each primary keyword to one page and use it in title + H1 | / |
 | low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | / |
 | low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | /hello-world/ |
-| low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | /sample-page/ |
 | low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | /category/uncategorized/ |
 | low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | /author/charles/ |
 | low | O | alt-text | 1/19 images lack alt | Describe images; include service/location naturally | /wp-content/themes/yuzu-round/static/index.html |
@@ -88,9 +86,8 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 
 | URL | Title | Desc | H1 | Words | Schema |
 |---|---|---|---|---|---|
-| / | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
+| / | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 625 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 | /hello-world/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
-| /sample-page/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 | /prices/ | Price list / Yuzu Hair & Beauty, Ealing Broadway | ✓ | 1 | 278 | BreadcrumbList, ListItem, Offer, OfferCatalog |
 | /offers/ | Exclusive offers / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 511 | BreadcrumbList, ListItem |
 | /team/ | Join our team / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 228 | BreadcrumbList, ListItem |
@@ -99,7 +96,7 @@ AI bots blocked: {'search': [], 'training': []} · llms.txt: False
 | /terms/ | Terms and conditions / Yuzu Hair & Beauty | ✓ | 1 | 792 | BreadcrumbList, ListItem |
 | /privacy/ | Privacy / Yuzu Hair & Beauty | ✓ | 1 | 285 | BreadcrumbList, ListItem |
 | /category/uncategorized/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
-| /author/charles/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 624 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
+| /author/charles/ | Yuzu Hair & Beauty / Japanese hair salon, Ealing Broadway | ✓ | 1 | 625 | City, GeoCoordinates, HairSalon, OpeningHoursSpecification, PostalAddress, ReserveAction |
 | /wp-content/themes/yuzu-round/static/team.html | Join our team / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 228 | BreadcrumbList, ListItem |
 | /wp-content/themes/yuzu-round/static/prices.html | Price list / Yuzu Hair & Beauty, Ealing Broadway | ✓ | 1 | 356 | BreadcrumbList, ListItem, Offer, OfferCatalog |
 | /wp-content/themes/yuzu-round/static/offers.html | Exclusive offers / Yuzu Hair & Beauty, Ealing | ✓ | 1 | 511 | BreadcrumbList, ListItem |
