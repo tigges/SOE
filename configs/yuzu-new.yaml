@@ -1,0 +1,86 @@
+# New live site (yuzu.hair), Oct 2026. The old Wix site is configs/yuzu.yaml;
+# the GitHub Pages preview of the rebuild is configs/yuzu-sept-26.yaml.
+site:
+  name: "YUZU NEW"
+  slug: yuzu-new
+  url: https://yuzu.hair
+  type: local_business
+  pinned: true             # shown first in the dashboard
+  platform: wordpress      # theme "yuzu-round" on WordPress
+  location: "London,England,United Kingdom"   # DataForSEO location
+  gsc_property: "sc-domain:yuzu.hair"
+  market: en-GB
+  description: "Japanese-inspired hair salon in Dickens Yard, a short walk from Ealing Broadway station, offering cuts, blow-dries, colour, balayage and Brazilian blow-dry."
+
+business:
+  name: "Yuzu Hair & Beauty"
+  phone: "020 8840 2244"
+  email: info@yuzuhairandbeauty.co.uk
+  address: "5 Dickens Yard, Longfield Avenue, Ealing, London"
+  postcode: "W5 2TD"
+  profiles:
+    google_business: ""    # Maps / GBP listing URL once claimed
+    instagram: https://www.instagram.com/yuzuhairandbeauty/
+    facebook: https://www.facebook.com/YUZUHairandBeauty/
+    booking: https://phorest.com/book/salons/yuzuhairandbeauty
+    tiktok: https://www.tiktok.com/@yuzuhairandbeauty.est16
+  hours:
+    - {days: [Tuesday, Wednesday, Thursday, Friday], opens: "10:00", closes: "20:00"}
+    - {days: [Saturday], opens: "09:00", closes: "18:00"}
+  geo: {lat: 51.5138, lng: -0.3068}   # postcode centroid (postcodes.io) — confirm entrance
+  price_range: "££"
+  gbp_account: ""
+  gbp_location: ""
+
+keywords:
+  primary:
+    - hair salon Ealing
+    - hairdresser Ealing Broadway
+    - Japanese hair salon London
+  secondary:
+    - balayage Ealing
+    - Brazilian blow dry Ealing
+    - hair colour Ealing
+    - Japanese head spa Ealing
+  questions:
+    - How much is a haircut at Yuzu in Ealing?
+    - Do I need a patch test before hair colour?
+    - Which hair salons in Ealing are near the station?
+
+competitors:   # own sites only; Bleach and Bobs has no site (Treatwell only)
+  - {name: "Bella & Bello Studio", url: https://www.bellabellostudio.co.uk}
+  - {name: "CMF Hairdressing", url: https://www.cmfhairdressing.com}
+  - {name: "Therapy@Visage", url: https://www.therapy-visage.co.uk}
+  - {name: "Blo Bar (Ealing is in Dickens Yard)", url: https://www.b1obar.com}
+  - {name: "M&M Hair Academy", url: https://mandmhairacademy.com}
+
+citations: []  # off-site listings are tracked on the live "yuzu" project; move them here
+               # once every listing points at https://yuzu.hair/
+
+legacy_sites:  # checked by soe_citations.py
+  - {url: "https://www.yuzuhairandbeauty.london/", action: redirect, note: "old Wix site — once yuzu.hair is final, 301 it (page by page) to the matching yuzu.hair URL and keep the domain"}
+  - {url: "https://yuzuhairandbeauty.ueniweb.com/", action: take_offline, note: "old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373"}
+  - {url: "https://yuzuhairandbeauty.co.uk/", action: redirect, note: "email domain shows a One.com 'under construction' page — 301 it to yuzu.hair"}
+
+name_clashes:  # other businesses with a similar name — not competitors, but they compete for brand searches
+  - {name: "YUZUHAIR (Hucknall, Nottingham)", url: https://www.yuzuhair.co.uk, note: "salon + Kérastase shop; owns yuzuhair.co.uk and a Yell listing as 'Yuzu Hair'"}
+
+benchmarks:    # best-in-class leaders (soe_benchmark.py --discover, 15 Sep 2026: 11 UK salon sites tested)
+  - {name: "Hershesons", url: https://www.hershesons.com, why: "London salon group; top score (87)"}
+  - {name: "Headmasters", url: https://www.headmasters.com, why: "UK salon chain; 84, strong content + Q&A"}
+  - {name: "Ruffians", url: https://www.ruffians.co.uk, why: "London barbers; per-location HairSalon markup"}
+
+ai:
+  allow_training: true
+  llms_should_mention: [salon, Ealing]
+  engines: [Gemini, Claude, Google AI Mode]
+  brand_terms: ["Yuzu Hair", "YUZU Hair", "yuzu.hair", "yuzuhairandbeauty"]
+  prompts:
+    - Yuzu Hair salon
+    - best hair salon in Ealing Broadway
+    - Japanese-style hairdresser in west London
+    - where can I get a Brazilian blow dry in Ealing
+
+audit:
+  max_pages: 30
+  min_words: 300

@@ -1,0 +1,75 @@
+{
+  "run": "2026-10-19T17:36",
+  "summary": {
+    "ok": 0,
+    "mismatch": 0,
+    "unreachable": 0,
+    "manual": 0,
+    "todo": 0,
+    "ignore": 0
+  },
+  "listings": [],
+  "gaps": {
+    "core": [
+      "Google Business Profile",
+      "Bing Places",
+      "Apple Business Connect",
+      "Facebook",
+      "Instagram"
+    ],
+    "uk_general": [
+      "Yell",
+      "Thomson Local",
+      "Scoot",
+      "Cylex",
+      "FreeIndex",
+      "Hotfrog",
+      "Yelp UK",
+      "Nextdoor",
+      "Foursquare"
+    ],
+    "vertical_salon": [
+      "Treatwell",
+      "Fresha",
+      "Booksy",
+      "hairdressr"
+    ],
+    "local": [
+      "Business Improvement District site",
+      "local council directory"
+    ]
+  },
+  "legacy": [
+    {
+      "url": "https://www.yuzuhairandbeauty.london/",
+      "action": "redirect",
+      "note": "old Wix site \u2014 once yuzu.hair is final, 301 it (page by page) to the matching yuzu.hair URL and keep the domain",
+      "recommendation": "301-redirect the whole domain to the main site",
+      "status": "live",
+      "detail": "still live (HTTP 200): 'H O M E | Yuzu Hair'"
+    },
+    {
+      "url": "https://yuzuhairandbeauty.ueniweb.com/",
+      "action": "take_offline",
+      "note": "old ueni site: says West Ealing, 22 Mattock Lane W5 5BH, 07572 107373",
+      "recommendation": "Take it offline (delete the site or the listing on that platform)",
+      "status": "live",
+      "detail": "still live (HTTP 200): 'Yuzu Hair And Beauty - Hair And Beauty Shop in West Ealing'"
+    },
+    {
+      "url": "https://yuzuhairandbeauty.co.uk/",
+      "action": "redirect",
+      "note": "email domain shows a One.com 'under construction' page \u2014 301 it to yuzu.hair",
+      "recommendation": "301-redirect the whole domain to the main site",
+      "status": "live",
+      "detail": "still live (HTTP 200): 'Hosted By One.com | Webhosting made simple'"
+    }
+  ],
+  "name_clashes": [
+    {
+      "name": "YUZUHAIR (Hucknall, Nottingham)",
+      "url": "https://www.yuzuhair.co.uk",
+      "note": "salon + K\u00e9rastase shop; owns yuzuhair.co.uk and a Yell listing as 'Yuzu Hair'"
+    }
+  ]
+}
