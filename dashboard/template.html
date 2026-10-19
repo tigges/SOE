@@ -1,5 +1,5 @@
-<title>SOE Control Room</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E6B64%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20letter-spacing%3D%22-1%22%20fill%3D%22%23FFFFFF%22%3ESO%3C/text%3E%3C/svg%3E">
+<title>SEO Control Room</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E6B64%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22700%22%20letter-spacing%3D%22-1%22%20fill%3D%22%23FFFFFF%22%3ESEO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -208,8 +208,8 @@ dialog.add-site::backdrop{background:rgb(18 33 31 / .5)}
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="eyebrow" id="eyebrow">SOE template</div>
-      <h1>SOE Control Room</h1>
+      <div class="eyebrow" id="eyebrow">SEO template</div>
+      <h1>SEO Control Room</h1>
       <p class="lede">One method for classic search and AI answer engines. Every number here comes from the audit scripts; re-running them republishes this page.</p>
     </div>
     <div class="stack" style="gap:6px;align-items:flex-end">
@@ -243,7 +243,7 @@ dialog.add-site::backdrop{background:rgb(18 33 31 / .5)}
   <section id="overview" class="stack" style="gap:18px">
     <div class="grid g-hero">
       <div class="panel score">
-        <span class="eyebrow" id="scoreDate">SOE score</span>
+        <span class="eyebrow" id="scoreDate">SEO score</span>
         <div class="big num" id="score"></div>
         <div class="meter"><i id="scoreBar"></i></div>
         <div><span class="eyebrow">Score per run</span><svg class="trend" id="trend" viewBox="0 0 260 64" preserveAspectRatio="none" role="img" aria-label="Score per audit run"></svg></div>
@@ -375,7 +375,7 @@ dialog.add-site::backdrop{background:rgb(18 33 31 / .5)}
       <div class="tbl"><table><thead id="bmGapHead"></thead><tbody id="bmGaps"></tbody></table></div>
     </div>
     <div class="panel stack">
-      <div class="row" style="justify-content:space-between"><h2>SOE score vs competitors</h2><span class="count">same audit, 10 pages each, no speed test</span></div>
+      <div class="row" style="justify-content:space-between"><h2>SEO score vs competitors</h2><span class="count">same audit, 10 pages each, no speed test</span></div>
       <div class="cmp" id="cmp"></div>
     </div>
     <div class="stack">
@@ -520,7 +520,7 @@ let fs = "all", fl = "all";
 
 function render(){
   if (!P || !P.audit) {
-    $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length === 1 ? "" : "s"}`;
+    $("#eyebrow").textContent = `SEO template · ${projects.length} project${projects.length === 1 ? "" : "s"}`;
     $("#projmeta").innerHTML = P ? `${link(P.url, P.url.replace(/^https?:\/\//, ""))} · ${esc(P.module || P.type || "")} · ${esc(P.platform || "")}` : "Add a site to start";
     $("#pendingTitle").textContent = P
       ? `${P.name} is in the kit, but has no report yet`
@@ -537,11 +537,11 @@ function render(){
     return;
   }
   const A = P.audit, base = A.site;
-  $("#eyebrow").textContent = `SOE template · ${projects.length} project${projects.length > 1 ? "s" : ""} · latest run ${P.latest}`;
+  $("#eyebrow").textContent = `SEO template · ${projects.length} project${projects.length > 1 ? "s" : ""} · latest run ${P.latest}`;
   $("#projmeta").innerHTML = `${link(P.url, P.url.replace(/^https?:\/\//, ""))} · ${esc(P.module || P.type)} · ${esc(P.platform)}`;
 
   /* score + trend */
-  $("#scoreDate").textContent = `SOE score · ${P.latest}`;
+  $("#scoreDate").textContent = `SEO score · ${P.latest}`;
   $("#score").innerHTML = `${A.score}<small>/100</small>`;
   $("#scoreBar").style.width = A.score + "%";
   $("#scoreBar").style.background = band(A.score)[2];
