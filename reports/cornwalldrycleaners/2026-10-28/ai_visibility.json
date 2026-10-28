@@ -1,0 +1,11 @@
+{
+  "months": [],
+  "top_other_sources": [],
+  "pending_checks": 0,
+  "prompts": [],
+  "engines": [
+    "Gemini",
+    "Claude",
+    "Google AI Mode"
+  ]
+}

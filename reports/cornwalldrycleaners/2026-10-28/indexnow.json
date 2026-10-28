@@ -1,0 +1,21 @@
+{
+  "request": {
+    "host": "cornwalldrycleaners.com",
+    "key": "***",
+    "keyLocation": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "urlList": [
+      "https://cornwalldrycleaners.com/2026/10/18/hello-world/",
+      "https://cornwalldrycleaners.com/",
+      "https://cornwalldrycleaners.com/category/uncategorized/",
+      "https://cornwalldrycleaners.com/author/charles/"
+    ]
+  },
+  "response": "{\"errorCode\":\"InvalidRequestParameters\",\"message\":\"Keylocation is not allowed. Please ensure the keylocation url belongs to the site mentioned in the host parameter.\",\"details\":null}",
+  "summary": {
+    "submitted": 4,
+    "status": 422,
+    "meaning": "URLs don't belong to host or key mismatch",
+    "key_location": "https://www.example.com/8d0cd194ad314bd3b47ea6d695dd0dd4.txt",
+    "error": "HTTP 422: URLs don't belong to host or key mismatch"
+  }
+}
